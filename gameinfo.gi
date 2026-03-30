@@ -58,24 +58,24 @@
 		//
 		// Search paths are relative to the exe directory\..\
 		//
+	
+
+
+
+// Deadlock Mod Manager - Start
+
 		SearchPaths
-		{
-			// These are optional language paths. They must be mounted first, which is why there are first in the list.
-			// *LANGUAGE* will be replaced with the actual language name. If not running a specific language, these paths will not be mounted
-			Game_Language		citadel_*LANGUAGE*
-
-			// These are optional low-violence paths. They will only get mounted if you're in a low-violence mode.
-			Game_LowViolence	citadel_lv
-
-      Game        citadel_addons
-
-			Mod         citadel
-			Write       citadel
-			Game				citadel
-			Mod         core
-			Write       core
-			Game				core
-		}
+        {  
+            Game_Language       citadel_*LANGUAGE*
+            Game                citadel/addons
+            Mod                 citadel
+            Write               citadel          
+            Game                citadel
+            Mod                 core
+            Write               core
+            Game                core        
+        }
+// Deadlock Mod Manager - End
 	}
 
 	MaterialSystem2
