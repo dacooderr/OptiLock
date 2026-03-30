@@ -774,16 +774,17 @@ sparseshadowtree_parallel_generation        "true"
 
 // ================ Testing End ================
 
-         //CREDITS
-        // Sqooky       Original manager of the GitHub                                                    \\
-       // dacooder      Discord mod, Github Manager, responsible for tutorial and documentation            \\
-      // Brullee        Removed fake cvars, redundant commands, added cvarlist.md, and reformatted config   \\
-     // Kaizuchaneru    While not directly invovled in the deveopment, they tested most cvars                \\
-    // Artemon121       Made the Citadel cvar unhider, which helped Abdalla fetch cvars and test in-game      \\
-   // Jaden             Nice guy and helped both test and support various newcomers                            \\
-  // Piggy              Let me mirror his config                                                                \\
- // Tamara Mochaccina   Made the vindicta scope mod and contributed the fog fix                                  \\
-// ----------------------------------------- END OF CONFIG OptiLock -- ver. 1 ----------------------------------- \\
+          //CREDITS
+         // Sqooky      Original manager of the GitHub                                                  \\
+        // dacooder     Discord mod, Github Manager, responsible for tutorial and documentation          \\
+       // Brullee       Removed fake cvars, redundant commands, added cvarlist.md, and reformatted config \\
+      // Kaizuchaneru   While not directly invovled in the deveopment, they tested most cvars              \\
+     // Artemon121      Made the Citadel cvar unhider, which helped Abdalla fetch cvars and test in-game    \\
+    // Jaden            Nice guy and helped both test and support various newcomers                          \\
+   // Pidjan            Worked on further gameinfo changes and let us integrate                               \\
+  // Piggy              Let me mirror his config                                                               \\
+ // Tamara Mochaccina   Made the vindicta scope mod and contributed the fog fix                                 \\
+// ----------------------------------------- END OF CONFIG OptiLock -- ver. 1 ---------------------------------- \\
 		"rate"
 		{
 			"min"		"98304"
