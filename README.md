@@ -44,7 +44,8 @@ to comment a line put ``//`` at the front of the line. It will make it not execu
 ``r_directlighting`` set it to ``true``.   
 - "How do I change my fov"
 ``r_aspectratio``
-``citadel_camera_hero_fov`` Adjust these two values to your liking.  
+``citadel_camera_hero_fov``
+Adjust these two values to your liking.  
 - "The config broke this patch"  
 the gameinfo.gi gets overwritten every major update. You need to manually replace it again.  
 - "I can't see trooper healthbars and boxes past a certain distance"  
