@@ -72,4 +72,4 @@ Major thanks to all of these individuals from the bottom of my heart. They are a
 
 
 ----
-Please also consider checking out [this](https://github.com/Sqooky/Deadlock-Optimization-Resources) repository for optimization options external to the game.
+Please also consider checking out [this](https://github.com/dacooderr/Window-and-Linux-Optimization) repository for optimization options external to the game.
