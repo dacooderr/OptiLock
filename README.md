@@ -43,8 +43,10 @@ to comment a line put ``//`` at the front of the line. It will make it not execu
 - "Why are my characters dark in the portraits on the end screen and shop"  
 ``r_directlighting`` set it to ``true``.   
 - "How do I change my fov"
+
 ``r_aspectratio``
 ``citadel_camera_hero_fov``
+
 Adjust these two values to your liking.  
 
 - "The config broke this patch"  
