@@ -27,10 +27,10 @@ Valve has started restricting certain convars, as of late March. The config stil
 Here is a list of each config provided in this repository.
 | Config File                                                                                                                     | Purpose                                                                                                              |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| [OptiLock default](https://github.com/dacooderr/OptiLock/blob/main/gameinfo.gi)                                    | Performance oriented config with the intent of competitive use.                                                    |
-| [kaizuchaneru's minimum spec](https://github.com/dacooderr/OptiLock/blob/main/kaizuchaneru's%20minimum%20spec/gameinfo.gi) | This config prioritizes fps above all else and dramatically reduces graphical quality. Recommended for bad computers |
-| [Piggy's gameinfo.gi](https://github.com/dacooderr/OptiLock/tree/main/piggy's%20config)                                    | Base optimizations but is here for if you want to use his config                                                     |
-| [cvarlist.md](https://github.com/dacooderr/OptiLock/blob/main/cvarlist.md)                                                 | Every single convar in the game's code. Not a proper config but instead a reference.                                 |
+| [OptiLock default](https://github.com/dacooderr/OptiLock-/blob/main/gameinfo.gi)                                    | Performance oriented config with the intent of competitive use.                                                    |
+| [kaizuchaneru's minimum spec](https://github.com/dacooderr/OptiLock-/blob/main/kaizuchaneru's%20minimum%20spec/gameinfo.gi) | This config prioritizes fps above all else and dramatically reduces graphical quality. Recommended for bad computers |
+| [Piggy's gameinfo.gi](https://github.com/dacooderr/OptiLock-/tree/main/piggy's%20config)                                    | Base optimizations but is here for if you want to use his config                                                     |
+| [cvarlist.md](https://github.com/dacooderr/OptiLock-/blob/main/cvarlist.md)                                                 | Every single convar in the game's code. Not a proper config but instead a reference.                                 |
 
 
 # FAQ
@@ -43,10 +43,15 @@ to comment a line put ``//`` at the front of the line. It will make it not execu
 - "Why are my characters dark in the portraits on the end screen and shop"  
 ``r_directlighting`` set it to ``true``.   
 - "How do I change my fov"
+
 ``r_aspectratio``
-``citadel_camera_hero_fov`` Adjust these two values to your liking.  
+``citadel_camera_hero_fov``
+
+Adjust these two values to your liking.  
+
 - "The config broke this patch"  
-the gameinfo.gi gets overwritten every major update. You need to manually replace it again.  
+The gameinfo.gi gets overwritten every major update. You need to manually replace it again.  
+
 - "I can't see trooper healthbars and boxes past a certain distance"  
 ``r_size_cull_threshold "0.7"``  comment this out.  
 
