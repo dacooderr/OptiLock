@@ -46,7 +46,7 @@ to comment a line put ``//`` at the front of the line. It will make it not execu
 
   ``r_aspectratio``
   ``citadel_camera_hero_fov``
-    Adjust these two values to your liking.  
+    -- Adjust these two values to your liking.  
 
 - "The config broke this patch"  
 The gameinfo.gi gets overwritten every major update. You need to manually replace it again.  
