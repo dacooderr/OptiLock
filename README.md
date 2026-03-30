@@ -9,7 +9,7 @@ Sqooky!: [Donate!](https://ko-fi.com/sqooky)
 To install the performance config replace the gameinfo.gi in ``steamapps/common/deadlock/game/citadel`` with the one downloaded from this repository. Instructions for video.txt are in the video.txt file.
 **There is a video tutorial** for installation avaliable [here](www.youtube.com/watch?v=ZKyJP3u-Y60)
 
-# General Optimizations
+# Optional Optimizations
 
 Improve 1% lows: Using RTSS and locking your fps in-game to 3 fps under your refresh rate and turning on Vsync + Gsync (Or AMD Freesync/Intel Adaptive-Sync) can significantly improve your 1% lows.
 [Download](https://www.guru3d.com/download/rtss-rivatuner-statistics-server-download/)
