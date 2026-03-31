@@ -614,9 +614,6 @@ sc_clutter_enable                           "false"         // Disables clutter 
 r_drawtracers 								"1"
 r_drawtracers_firstperson 					"1"
 
-// ================ NETWORK ================
-cl_async_usercmd_send                       "true"
-
 // ================ SYSTEM RELATED ================
 gpu_level                                   "1"             // GPU level.                                                       [def: "3"]
 gpu_mem_level                               "1"             // GPU Memory level.                                                [def: "2"]
@@ -829,7 +826,6 @@ sparseshadowtree_parallel_generation        "true"
         "cl_async_usercmd_send_disabled_recvmargin_min" "0.5"   // Additional frame since we do not use the async usercmd send (potentially unneccessary)
         "cl_clock_buffer_ticks" "1"
         "cl_interp_ratio" "0"
-        "cl_async_usercmd_send" "true"
 
         "fps_max"       "400"
         "fps_max_ui"    "120"
