@@ -1,4 +1,6 @@
-To either request support or contribute findings to the project, our Discord Server can be found [here](https://discord.gg/hkmmVHnVVT)
+This modification is aimed at lowing the graphics settings as much as possible while keeping the <ins>competitive integrity</ins> for ranked play. I aims to update as *little as possible* and only when necessary. If you have any suggestions or concerns about this to help improve the config for this idea, please join our [Optilock Discord](https://discord.gg/hkmmVHnVVT).
+
+To either request support or contribute findings to the project, our Discord Server can be found [here](https://discord.gg/hkmmVHnVVT).
 
 If you would like to donate as a means of showing us thanks: 
 
