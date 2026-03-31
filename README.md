@@ -9,6 +9,8 @@ Sqooky!: [Donate!](https://ko-fi.com/sqooky)
 To install the performance config replace the gameinfo.gi in ``steamapps/common/deadlock/game/citadel`` with the one downloaded from this repository. Instructions for video.txt are in the video.txt file. You *MUST* install both or else you will have a very weird looking game.
 **There is a video tutorial** for installation avaliable [here](www.youtube.com/watch?v=ZKyJP3u-Y60)
 
+[*You're video.txt file should look like this, minus your resolution and refresh rate changes.*](https://ibb.co/NG5sZ9T)
+
 # Optional Optimizations
 
 Improve 1% lows: Using RTSS and locking your fps in-game to 3 fps under your refresh rate and turning on Vsync + Gsync (Or AMD Freesync/Intel Adaptive-Sync) can significantly improve your 1% lows.
@@ -19,8 +21,6 @@ Using this in conjunction with everything can further improve 1% lows by giving 
 [Download](https://bitsum.com/)
 
 You can find a tutorial on how to utilize Process Lasso [here](https://www.youtube.com/watch?v=xXpnCqXxwz8)
-
-[*You're video.txt file should look like this, minus your resolution and refresh rate changes.*](https://ibb.co/NG5sZ9T)
 
 # Pretty Important Announcement
 Valve has started restricting certain convars, as of late March. The config still works for now and Valve is aware of this config and is aware of the need for this. So only time will tell.
