@@ -15,10 +15,10 @@ To install the performance config replace the gameinfo.gi in ``steamapps/common/
 
 [Windows and Linux Optimization Project](https://github.com/dacooderr/Windows-and-Linux-Optimization)
 
-<ins>Improve 1% lows</ins>: Using RTSS and locking your fps in-game to 3 fps under your refresh rate and turning on Vsync + Gsync (Or AMD Freesync/Intel Adaptive-Sync) can significantly improve your 1% lows.
+**<ins>Improve 1% lows</ins>**: Using RTSS and locking your fps in-game to 3 fps under your refresh rate and turning on Vsync + Gsync (Or AMD Freesync/Intel Adaptive-Sync) can significantly improve your 1% lows.
 [Download Here](https://www.guru3d.com/download/rtss-rivatuner-statistics-server-download/).
 
-<ins>Process Lasso</ins>: 
+**<ins>Process Lasso</ins>**: 
 Using this in conjunction with everything can further improve 1% lows by giving Deadlock high priority and messing with the CPU affinity according to your Processor.
 [Download Here](https://bitsum.com/).
 
