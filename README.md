@@ -68,7 +68,7 @@ Every variation of the config included in this repository has mod support added.
 - [Mid/Bridge Buff/Neutrals Timer](https://gamebanana.com/mods/606414) by Hanturaya  |  Adds timers for Mid/Bridge/Camps without the need for Top Bar.
 - [See Friends Rank, Stats and See Account ID](https://gamebanana.com/mods/602711) by Hanturaya  |  See friends ranks and stats.
 - [Show stats in shop](https://gamebanana.com/mods/617072) by Goblin Man Sam  |  Shows your hero stats in the shop.
-- [Smart Cooldown Tracker](https://gamebanana.com/mods/654373) by iAfar  |  Adds tracking of your skill charges near the crosshair and a quick reminder over the crosshair when your skill is ready for use.
+- [Smart Cooldown Tracker](https://gamebanana.com/mods/654373) by iAfar  |  Adds tracking of your skill charges near the crosshair and a quick reminder near the crosshair when your skill is ready for use.
 - [Clean Damage Indicator](https://gamebanana.com/mods/655927) by lustie_  |  Makes the damage number indictor smaller and higher above the thing receiving damage.
 - [Daylock](https://gamebanana.com/mods/614857) by BreadRollius  |  Adds a bright starry skybox for visibility. Only install the pak file.
 - ['Fullbright' Mod](https://gamebanana.com/mods/664234) by Sadie Sinks Husband  |  A mod that removed all shading on textures and gives that "fullbright" look.
