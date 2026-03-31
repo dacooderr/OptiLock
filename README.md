@@ -23,6 +23,8 @@ Using this in conjunction with everything can further improve 1% lows by giving 
 
 You can find a tutorial on how to utilize Process Lasso [here](https://www.youtube.com/watch?v=xXpnCqXxwz8).
 
+[Windows and Linux Optimization Project](https://github.com/dacooderr/Windows-and-Linux-Optimization)
+
 # Pretty Important Announcement
 Valve has started restricting certain convars, as of late March. The config still works for now and Valve is aware of this config and is aware of the need for this. So only time will tell.
 
@@ -84,7 +86,3 @@ Major thanks to all of these individuals from the bottom of my heart. They are a
 - Piggy:         Contributed the video.txt file
 - Tamara Mochaccina: Contributed vindicta scope fix and the fog fix
 - Maihdenless:   Started the original OptiLock config & its Discord
-
-
-----
-[Windows and Linux Optimization Project](https://github.com/dacooderr/Windows-and-Linux-Optimization)
