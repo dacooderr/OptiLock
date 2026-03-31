@@ -533,8 +533,6 @@ citadel_damage_text_show_effectiveness      "0"             // Shows extra “ef
 panorama_disable_box_shadow                 "1"             // Disables UI box shadows in the UI (less GPU/UI cost).            [def: "0"]
 panorama_disable_blur                       "1"             // Disables UI blur effects in the UI.                              [def: "0"]
 panorama_allow_transitions                  "false"         // Turns off UI anim (shop,etc)                                     [def: "1"]
-citadel_minimap_use_canvas_for_neutrals     "0"             // Uses an alternate “canvas” rendering path for neutral icons on the minimap (render path toggle). [def: "1"]
-citadel_minimap_use_canvas_for_shop         "0"             // Uses an alternate “canvas” rendering path for shop icons on the minimap (render path toggle). [def: "1"]
 closecaption                                "false"         // I assume this does what it says on the tin
 panorama_use_new_occlusion_invalidation     "1"
 panorama_temp_comp_layer_min_dimension      "128"
@@ -600,19 +598,6 @@ phys_threaded_kinematic_bone_update         "1"             //                  
 phys_threaded_transform_update              "1"             //                                                                  [def: "0"]
 props_break_max_pieces_perframe             "1"             // Makes boxes break into a single pieces                           [def: "16"]
 
-// ================ ROPES ================
-r_drawropes                                 "0"             // Draw ropes.                                                      [def: "1"]
-rope_collide                                "0"             // Disables rope collision simulation.                              [def: "1"]
-rope_subdiv                                 "0"             // Sets rope subdivision (0 = minimal geometry).                    [def: "2"]
-rope_wind_dist                              "0"             // Disables rope wind influence.                                    [def: "1000"]
-rope_smooth_enlarge                         "0"             // How much to enlarge ropes in screen space for antialiasing effect. [def: "1.4"]
-rope_smooth_maxalpha                        "0"             // Alpha for rope antialiasing effect.                              [def: "0.5"]
-rope_smooth_maxalphawidth                   "0"             // Disables rope smoothing width-based alpha.                       [def: "1.75"]
-rope_smooth_minalpha                        "0"             // Disables rope minimum smoothing alpha.                           [def: "0.2"]
-rope_smooth_minwidth                        "0"             // Disables rope minimum smoothing width.                           [def: "0.3"]
-r_ropetranslucent                           "0"             // Disables translucent rope rendering.                             [def: "1"]
-r_particle_cables_cast_shadows              "0"             // Disables shadow casting from cable/rope-like particle effects. [def: "1"]
-
 // ================ VISUAL CLARITY ================
 mat_colorcorrection                         "1"             // Disables/ Enables color correction (game looks less vibrant when off). [def: "1"]
 r_drawdecals                                "1"             // *Render decals.                                              [def: "1"]
@@ -629,16 +614,9 @@ violence_agibs                              "0"             // Disables alien/ot
 sc_clutter_enable                           "false"         // Disables clutter props, improves visibility & FPS.               [def: "true"]
 "volume_fog_intermediate_textures_hdr"      "0"
 
-// ================ NETWORK ================
-cl_async_usercmd_send                       "true"
-//cl_updaterate                             "128"           // Client snapshot update rate requested from the server (higher = more frequent updates).      [def: "128"]
-//cl_interp                                 "0.01"          // Client-side interpolation time (smoothing delay) for rendering other players/entities.       [def: 0]
-//cl_interp_ratio                           "1"             // Multiplier that affects interpolation time (often cl_interp_ratio / cl_updaterate).              [def: "0"]
-//cl_smoothtime                             "0.01"          // Smooth client's view after prediction error over this many seconds (Lower = snappier but more abrupt, higher = smoother but floaty). [def: "0.2"]
-//cl_resend                                 "15"            // Delay in seconds between reconnect attempts (higher = less frequent, helps avoid kicks/timeouts on unstable connections). [def: "0.5"]
 
 // ================ SYSTEM RELATED ================
-gpu_level                                   "1"             // GPU level.                                                       [def: "3"]
+gpu_level                                   "2"             // GPU level.                                                       [def: "3"]
 gpu_mem_level                               "1"             // GPU Memory level.                                                [def: "2"]
 cpu_level                                   "1"             // CPU level.                                                       [def: "2"]
 battery_saver                               "0"             // Disables battery saver mode (no automatic throttling).       [def: "0"]
@@ -654,8 +632,6 @@ r_particle_max_size_cull                    "999"           // Particle systems 
 r_particle_max_detail_level                 "1"             // The maximum detail level of particle to create.                  [def: "3"]
 particle_cluster_nodraw                     "1"             // Skips drawing particle “clusters”/grouped particle batches (performance, fewer small effects). [def: "0"]
 r_physics_particle_op_spawn_scale           "0"             // Prevents physics-based particle spawns.                          [def: "1"]
-r_particle_model_new8                       "false"         // Not entirely sure what this does                                 [def: "true"]
-r_particle_model_new                        "true"          // Use new particles I'd imagine? not sure though.                  [def: "false"]
 r_RainParticleDensity                       "0"             // Density of Particle Rain 0-1.                                    [def: "1"]
 r_world_wind_strength                       "0"             // Disables wind effects, cosmetic only.                            [def: "40"]
 cl_particle_fallback_base                   "10"            // Base for falling back to cheaper effects under load.             [def: "0"] 
@@ -692,10 +668,6 @@ citadel_use_pvs_for_players                 "true"          // Default culls pla
 r_low_latency                               "0"             // Depends on if your hardware supports it I believe                [def: "1"]
 r_max_portal_render_targets                 "2"             // Maxium number of Doorman doors to allow rendering.               [def: "0"]
 
-// =============== Gibs. In Testing to See if it Makes Troopers not Explode ===========
-violence_agibs                              "false"         // "Alien" gibs. Leftover from neon prime I think. [def: "true"]
-violence_hgibs                              "false"         // "Human" gibs. Leftover from neon prime I think. [def: "true"]
-
 // ================ Grass ================
 r_grass_quality                             "0"             // Quality of the grass                                             [def: "2"]
 r_grass_start_fade                          "0"             // When to cull grass when it's close I think                       [def: "0"]
@@ -716,15 +688,10 @@ snd_mixahead                                "0.05"          // Adds some latency
 // README This ^ probably depends on how good your cpu is, the better it is the more threads you can allow
 snd_soundmixer_version                      "1"             // [def: "2"]
 
-// wug wug (big tests)
-sv_parallel_checktransmit                   "1"
-cl_enable_eye_occlusion                     "false"
-
 // ================ EVERYTHING BELOW THIS IS STABLE YAY ================
 
 // ================ Test Group 4 ================
 r_texturefilteringquality                   "3"             // Texture filtering, has very low fps impact. 0: Bilinear, 1: Trilinear, 2: Aniso 2x, 3: Aniso 4x, 4: Aniso 8x, 5: Aniso 16x
-r_texture_stream_mip_bias                   "1"             // Worth adjusting, practically how good your textures will look.
 r_texture_budget_threshold                  "0.7"           // Reduce texture memory pool size when this percentage of the budget is full. [def: "0.8"]
 r_renderdoc_auto_shader_pdbs                "false"         // Automatically generate shader debug info on capture. [def: "true"]
 
