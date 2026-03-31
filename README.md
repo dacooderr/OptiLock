@@ -63,6 +63,7 @@ Every variation of the config included in this repository has mod support added.
 - [Smart Cooldown Tracker](https://gamebanana.com/mods/654373) by iAfar  |  Adds tracking of your skill charges near the crosshair and a quick reminder over the crosshair when your skill is ready for use.
 - [Clean Damage Indicator](https://gamebanana.com/mods/655927) by lustie_  |  Makes the damage number indictor smaller and higher above the thing receiving damage.
 - [Bridge Buff Reminder](https://gamebanana.com/mods/645941) by Predi_i  |  Adds a sound queue for either 30 or 10 seconds before bridge buff spawns to help remind you of the buff.
+- ['Fullbright' Mod](https://gamebanana.com/mods/664234) by Sadie Sinks Husband  |  A mod that removed all shading on textures and gives that "fullbright" look.
 
 # Credits
 Major thanks to all of these individuals from the bottom of my heart. They are all lovely.
