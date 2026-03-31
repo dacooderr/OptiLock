@@ -11,7 +11,7 @@ To install the performance config replace the gameinfo.gi in ``steamapps/common/
 
 [*You're video.txt file should look like this, minus your resolution and refresh rate changes.*](https://ibb.co/NG5sZ9T)
 
-**IF YOU RAISE YOUR setting.r_texture_stream_mip_bias PAST 4, YOU WILL HAVE TO INSTALL THE SINNER'S LIGHT FIX MOD. THIS IS INCLUDED IN THE ESSENTIAL ADDONS FOLDER.**
+**IF YOU RAISE YOUR setting.r_texture_stream_mip_bias past 4, YOU WILL HAVE TO INSTALL THE SINNER'S LIGHT FIX MOD. THIS IS INCLUDED IN THE ESSENTIAL ADDONS FOLDER.**
 
 # Optional Optimizations
 
