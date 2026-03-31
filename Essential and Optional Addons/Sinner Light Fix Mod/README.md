@@ -1,5 +1,5 @@
 ### What The Mod Does
-This mod makes the sinner's lights able to be read if your mip bias is set to be below 4
+This mod makes the sinner's lights able to be read if your mip bias is set to be above 4.
 ### Credits  
 This sinner light fix mod was found on piggy's discord server. all credit goes to him.
 Youtube: youtube.com/@piggyxdd
