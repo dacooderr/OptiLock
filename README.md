@@ -15,14 +15,14 @@ To install the performance config replace the gameinfo.gi in ``steamapps/common/
 
 [Windows and Linux Optimization Project](https://github.com/dacooderr/Windows-and-Linux-Optimization)
 
-Improve 1% lows: Using RTSS and locking your fps in-game to 3 fps under your refresh rate and turning on Vsync + Gsync (Or AMD Freesync/Intel Adaptive-Sync) can significantly improve your 1% lows.
-[Download](https://www.guru3d.com/download/rtss-rivatuner-statistics-server-download/)
+<ins>Improve 1% lows</ins>: Using RTSS and locking your fps in-game to 3 fps under your refresh rate and turning on Vsync + Gsync (Or AMD Freesync/Intel Adaptive-Sync) can significantly improve your 1% lows.
+[Download Here](https://www.guru3d.com/download/rtss-rivatuner-statistics-server-download/).
 
-Process Lasso: 
+<ins>Process Lasso</ins>: 
 Using this in conjunction with everything can further improve 1% lows by giving Deadlock high priority and messing with the CPU affinity according to your Processor.
-[Download](https://bitsum.com/)
+[Download Here](https://bitsum.com/).
 
-You can find a tutorial on how to utilize Process Lasso [here](https://www.youtube.com/watch?v=xXpnCqXxwz8)
+You can find a tutorial on how to utilize Process Lasso [here](https://www.youtube.com/watch?v=xXpnCqXxwz8).
 
 # Pretty Important Announcement
 Valve has started restricting certain convars, as of late March. The config still works for now and Valve is aware of this config and is aware of the need for this. So only time will tell.
@@ -31,10 +31,10 @@ Valve has started restricting certain convars, as of late March. The config stil
 Here is a list of each config provided in this repository.
 | Config File                                                                                                                     | Purpose                                                                                                              |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| [OptiLock default](https://github.com/dacooderr/OptiLock-/blob/main/gameinfo.gi)                                    | Performance oriented config with the intent of competitive use.                                                    |
-| [kaizuchaneru's minimum spec](https://github.com/dacooderr/OptiLock-/blob/main/kaizuchaneru's%20minimum%20spec/gameinfo.gi) | This config prioritizes fps above all else and dramatically reduces graphical quality. Recommended for bad computers |
-| [Piggy's gameinfo.gi](https://github.com/dacooderr/OptiLock-/tree/main/piggy's%20config)                                    | Base optimizations but is here for if you want to use his config                                                     |
-| [cvarlist.md](https://github.com/dacooderr/OptiLock-/blob/main/cvarlist.md)                                                 | Every single convar in the game's code. Not a proper config but instead a reference.                                 |
+| [OptiLock default](https://github.com/dacooderr/OptiLock/blob/main/gameinfo.gi)                                    | Performance oriented config with the intent of competitive use.                                                    |
+| [kaizuchaneru's minimum spec](https://github.com/dacooderr/OptiLock/blob/main/kaizuchaneru's%20minimum%20spec/gameinfo.gi) | This config prioritizes fps above all else and dramatically reduces graphical quality. Recommended for bad computers |
+| [Piggy's gameinfo.gi](https://github.com/dacooderr/OptiLock/tree/main/piggy's%20config)                                    | Base optimizations but is here for if you want to use his config                                                     |
+| [cvarlist.md](https://github.com/dacooderr/OptiLock/blob/main/cvarlist.md)                                                 | Every single convar in the game's code. Not a proper config but instead a reference.                                 |
 
 
 # FAQ
