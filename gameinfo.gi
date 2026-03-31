@@ -613,6 +613,8 @@ violence_hgibs                              "0"             // Disables human gi
 violence_agibs                              "0"             // Disables alien/other gibs.                                       [def: "1"]
 sc_clutter_enable                           "false"         // Disables clutter props, improves visibility & FPS.               [def: "true"]
 "volume_fog_intermediate_textures_hdr"      "0"
+r_drawtracers 								"1"
+r_drawtracers_firstperson 					"1"
 
 
 // ================ SYSTEM RELATED ================
