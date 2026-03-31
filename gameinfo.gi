@@ -98,20 +98,20 @@
         "DefaultShader" "environment_texture_set"
     }
 
-    NetworkSystem
-    {
-        BetaUniverse
-        {
-            FakeLag         40
-            FakeLoss        .1
-            //FakeReorderPct 0.05
-            //FakeReorderDelay 10
-            //FakeJitter "low"
-            // Turning off fake jitter for now while I work on making the CQ totally solid
-            FakeReorderPct 0
-            FakeReorderDelay 0
-            FakeJitter "off"
-        }
+	NetworkSystem
+	{
+		BetaUniverse
+		{
+			FakeLag			0
+			FakeLoss		0
+			//FakeReorderPct 0.05
+			//FakeReorderDelay 10
+			//FakeJitter "low"
+			// Turning off fake jitter for now while I work on making the CQ totally solid
+			FakeReorderPct 0
+			FakeReorderDelay 0
+			FakeJitter "off"
+		}
 
         "SkipRedundantChangeCallbacks"  "1"
     }
@@ -154,7 +154,7 @@
         RenderingPipeline
         {
             SupportsMSAA 0
-            DistanceField 1
+            DistanceField 0
         }
         PauseSinglePlayerOnGameOverlay 1
         DefensiveConCommands 1
@@ -380,7 +380,7 @@
         "EnvironmentMapUseCubeArray"    1
         "EnvironmentMapCacheSizeTools"  300
         BindlessSceneObjectDesc         CitadelBindlessDesc
-        GrassCastsShadows               1
+        GrassCastsShadows               0
     }
 
     SceneSystem
@@ -600,19 +600,6 @@ phys_threaded_kinematic_bone_update         "1"             //                  
 phys_threaded_transform_update              "1"             //                                                                  [def: "0"]
 props_break_max_pieces_perframe             "1"             // Makes boxes break into a single pieces                           [def: "16"]
 
-// ================ ROPES ================
-r_drawropes                                 "0"             // Draw ropes.                                                      [def: "1"]
-rope_collide                                "0"             // Disables rope collision simulation.                              [def: "1"]
-rope_subdiv                                 "0"             // Sets rope subdivision (0 = minimal geometry).                    [def: "2"]
-rope_wind_dist                              "0"             // Disables rope wind influence.                                    [def: "1000"]
-rope_smooth_enlarge                         "0"             // How much to enlarge ropes in screen space for antialiasing effect. [def: "1.4"]
-rope_smooth_maxalpha                        "0"             // Alpha for rope antialiasing effect.                              [def: "0.5"]
-rope_smooth_maxalphawidth                   "0"             // Disables rope smoothing width-based alpha.                       [def: "1.75"]
-rope_smooth_minalpha                        "0"             // Disables rope minimum smoothing alpha.                           [def: "0.2"]
-rope_smooth_minwidth                        "0"             // Disables rope minimum smoothing width.                           [def: "0.3"]
-r_ropetranslucent                           "0"             // Disables translucent rope rendering.                             [def: "1"]
-r_particle_cables_cast_shadows              "0"             // Disables shadow casting from cable/rope-like particle effects. [def: "1"]
-
 // ================ VISUAL CLARITY ================
 mat_colorcorrection                         "1"             // Disables/ Enables color correction (game looks less vibrant when off). [def: "1"]
 r_drawdecals                                "1"             // *Render decals.                                              [def: "1"]
@@ -622,10 +609,6 @@ r_depth_of_field                            "0"             // Disables depth of
 r_effects_bloom                             "0"             // Disables effects bloom.                                          [def: "1"]
 r_post_bloom                                "0"             // Disables post-process bloom.                                     [def: "1"]
 cl_show_splashes                            "0"             // Disables splash effects (water/impact splashes).                 [def: "1"]
-violence_hblood                             "0"             // Disables human blood effects.                                    [def: "1"]
-violence_ablood                             "0"             // Disables alien/other blood effects.                              [def: "1"]
-violence_hgibs                              "0"             // Disables human gibs.                                             [def: "1"]
-violence_agibs                              "0"             // Disables alien/other gibs.                                       [def: "1"]
 sc_clutter_enable                           "false"         // Disables clutter props, improves visibility & FPS.               [def: "true"]
 "volume_fog_intermediate_textures_hdr"      "0"
 r_drawtracers 								"1"
@@ -633,11 +616,6 @@ r_drawtracers_firstperson 					"1"
 
 // ================ NETWORK ================
 cl_async_usercmd_send                       "true"
-//cl_updaterate                             "128"           // Client snapshot update rate requested from the server (higher = more frequent updates).      [def: "128"]
-//cl_interp                                 "0.01"          // Client-side interpolation time (smoothing delay) for rendering other players/entities.       [def: 0]
-//cl_interp_ratio                           "1"             // Multiplier that affects interpolation time (often cl_interp_ratio / cl_updaterate).              [def: "0"]
-//cl_smoothtime                             "0.01"          // Smooth client's view after prediction error over this many seconds (Lower = snappier but more abrupt, higher = smoother but floaty). [def: "0.2"]
-//cl_resend                                 "15"            // Delay in seconds between reconnect attempts (higher = less frequent, helps avoid kicks/timeouts on unstable connections). [def: "0.5"]
 
 // ================ SYSTEM RELATED ================
 gpu_level                                   "1"             // GPU level.                                                       [def: "3"]
@@ -693,10 +671,6 @@ citadel_use_pvs_for_players                 "true"          // Default culls pla
 // ================ Misc ================
 r_low_latency                               "0"             // Depends on if your hardware supports it I believe                [def: "1"]
 r_max_portal_render_targets                 "2"             // Maxium number of Doorman doors to allow rendering.               [def: "0"]
-
-// =============== Gibs. In Testing to See if it Makes Troopers not Explode ===========
-violence_agibs                              "false"         // "Alien" gibs. Leftover from neon prime I think. [def: "true"]
-violence_hgibs                              "false"         // "Human" gibs. Leftover from neon prime I think. [def: "true"]
 
 // ================ Grass ================
 r_grass_quality                             "0"             // Quality of the grass                                             [def: "2"]
