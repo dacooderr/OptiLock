@@ -487,6 +487,7 @@ citadel_player_glow_disabled                "0"             // Disables player g
 r_citadel_npr_outlines_max_dist             "1"             // Limits outline distance to reduce unnecessary processing.        [def: "1000"]
 r_citadel_selection_outline2_alpha          "0.2"           // Outlines on enemy players and abilities on a scale of 0-1.       [def: "0.8"]
 r_citadel_npr_outlines                      "false"         // Enable outlines on enemy players.                                [def: "true"]
+r_citadel_npr_force_solid_outline 			"false"			// Not sure what it does but it seems to cause issues with skin modifications. Set to true if seeing black hero bug with mods.			[def: "false"]
 
 // --- 2. Field of View ---
 r_aspectratio                             "2.15"          // 1.75=80fov | 2.15=90fov | 2.49=100fov (every .15 interval = 5 fov).      [def: "0"]
