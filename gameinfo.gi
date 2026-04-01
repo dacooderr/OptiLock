@@ -61,7 +61,7 @@
     
 // Deadlock Mod Manager - Start
 
-        SearchPaths
+		SearchPaths
         {  
             Game_Language       citadel_*LANGUAGE*
             Game                citadel/addons
@@ -581,6 +581,7 @@ r_citadel_ssao_thin_occluder_compensation   "0"             // Disables special 
 mat_set_shader_quality                      "0"             // Force shader quality setting (valid values are 0 or 1).          [def: null]
 r_distancefield_enable                      "0"             // Disables/ Enables distance-field system (used by some lighting/shadowing/occlusion features). [def: "1"]
 r_citadel_distancefield_farfield_enable     "0"             // Disables long-range distance field effects.                      [def: "1"]
+r_citadel_disable_npr_lighting 				"false"
 
 // ================ RAGDOLLS ================
 cl_disable_ragdolls                         "0"             // Keep set to 0 - enabling this (enabling ragdolls) can cause issue with doorman's ultimate. [def: "0"]
@@ -694,6 +695,25 @@ sv_parallel_checktransmit                   "1"
 cl_enable_eye_occlusion                     "false"
 
 // ================ EVERYTHING BELOW THIS IS STABLE YAY ================
+
+// ================ Test Group 5 ================
+csm_cascade0_override_dist "0"
+csm_cascade1_override_dist "0"
+csm_cascade2_override_dist "0"
+csm_cascade3_override_dist "0"
+csm_max_dist_between_caster_and_receiver "0"
+csm_max_num_cascades_override "0"
+csm_max_shadow_dist_override  "1"
+csm_max_visible_dist "0"
+csm_res_override_0 "1"
+csm_res_override_1 "1"
+csm_res_override_2 "1"
+csm_res_override_3 "1"
+csm_viewmodel_shadows "false" 
+r_citadel_depth_prepass_dynamic_objects     "false"
+citadel_unit_status_allies_see_thru_walls_max_distance "40"
+citadel_unit_status_old_update_rate         "15"
+snd_steamaudio_reverb_order_rendering       "0"
 
 // ================ Test Group 4 ================
 r_texturefilteringquality                   "3"             // Texture filtering, has very low fps impact. 0: Bilinear, 1: Trilinear, 2: Aniso 2x, 3: Aniso 4x, 4: Aniso 8x, 5: Aniso 16x
