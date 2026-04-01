@@ -13,7 +13,7 @@ To change your video.txt follow the instructions in the provided video.txt file 
 You *MUST* install both or else you will have a very weird looking game.
 **There is a video tutorial** for installation avaliable [here](www.youtube.com/watch?v=ZKyJP3u-Y60).
 
-[*You're video.txt file should look like this, minus your resolution and refresh rate changes.*](https://ibb.co/NG5sZ9T) 
+[*Your video.txt file should look like this, minus your resolution and refresh rate changes.*](https://ibb.co/NG5sZ9T) 
 
 **YOU MUST MAKE VIDEO.TXT READONLY AFTERWARDS OR THE GAME MAY RESET IT. THIS WILL ALSO CAUSE ANY CHANGES SET IN GAME NOT TO STICK AFTER RESTART SO YOU WILL HAVE TO SET THE CORRESPONDING COMMAND MANUALLY IN THE FILE YOURSELF OR DISABLE READ ONLY TEMPORARILY.**
 
