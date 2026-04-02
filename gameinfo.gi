@@ -639,7 +639,6 @@ cl_particle_fallback_base                   "10"            // Base for falling 
 cl_particle_fallback_multiplier             "20"            // Multiplier for falling back to cheaper effects under load.       [def: "0"]
 cl_particle_sim_fallback_base_multiplier    "40"            // How aggressive the switch to fallbacks will be depending on how far over the cl_particle_sim_fallback_threshold_ms the sim time is.  Higher numbers are more aggressive. [def: "5"]
 cl_particle_sim_fallback_threshold_ms       "0.001"         // Amount of simulation time that can elapse before new systems start falling back to cheaper versions [def: "6"]
-r_particle_skip_postsim                     "true"          // Not entirely sure what it does, going off of the name I'd imagine it skips the post simulation, this is a testvar [def: "false"]
 r_particle_timescale                        "1.1"           // Speeds up particle simulation, thus making them end sooner, however this causes visual desyncs, most notably with big effects that last a while such as infernus ult. Please tweak this to what you are comfortable with. [def: "1"]
 cl_particle_batch_mode                      "1"             // Has a range of 1 or 2, 2 will make celeste's auto rebound look weird and 0 will make them not batch [def: "1"]
 r_draw_particle_children_with_parents       "0"             //
