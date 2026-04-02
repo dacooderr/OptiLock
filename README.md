@@ -85,8 +85,7 @@ Every variation of the config included in this repository has mod support added.
 
 # Credits
 Major thanks to all of these individuals from the bottom of my heart. They are all lovely.
-- Sqooky:        Original manager of the Github
-- dacooder:      Manager of dacooderr fork and creator of tutorial videos
+- dacooder:      Manager of the Git and creator of tutorial videos
 - Brullee:       Removed fake cvars, redundant commands, added cvarlist.md, and reformatted config
 - Kaizuchaneru:  While not directly invovled in the deveopment, they tested most cvars
 - Artemon121:    Made the Citadel cvar unhider, which helped Abdalla fetch cvars and test in-game (You can find Artemon121's cvar unhider [here](https://github.com/Artemon121/cvar-unhide-s2-citadel))
@@ -94,4 +93,3 @@ Major thanks to all of these individuals from the bottom of my heart. They are a
 - pidjan:        Allowed config integration
 - Piggy:         Contributed the video.txt file
 - Tamara Mochaccina: Contributed vindicta scope fix and the fog fix
-- Maihdenless:   Started the original OptiLock config & its Discord
