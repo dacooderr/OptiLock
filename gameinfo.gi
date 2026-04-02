@@ -13,9 +13,9 @@
     }
     nodegraph 0
     perfwizard 0
-    tonemapping 0 
+    tonemapping 0
     GameData    "citadel.fgd"
-    
+
     Localize
     {
         DuplicateTokensAssert   1
@@ -42,9 +42,9 @@
         "turkish" "3"
         "ukrainian" "3"
     }
-    
+
     FileSystem
-    {   
+    {
         //
         // The code that loads this file automatically does a few things here:
         //
@@ -58,23 +58,23 @@
         //
         // Search paths are relative to the exe directory\..\
         //
-    
+
 // Deadlock Mod Manager - Start
 
 		SearchPaths
-        {  
+        {
             Game_Language       citadel_*LANGUAGE*
             Game                citadel/addons
             Mod                 citadel
-            Write               citadel          
+            Write               citadel
             Game                citadel
             Mod                 core
             Write               core
-            Game                core        
+            Game                core
         }
 // Deadlock Mod Manager - End
     }
-    
+
     MaterialSystem2
     {
         RenderModes
@@ -182,7 +182,7 @@
         "Engine"    "Source 2"
         "ToolsDir"  "../sdktools"   // NOTE: Default Tools path. This is relative to the mod path.
     }
-    
+
     pulse
     {
         "pulse_enabled"                 "1"
@@ -246,7 +246,7 @@
         // steps. Additionally this controls which builders are displayed in the hammer build dialog.
         DefaultMapBuilders
         {
-            "bakedlighting" "1" // Enable lightmapping during compile time      
+            "bakedlighting" "1" // Enable lightmapping during compile time
             "envmap"    "0" // turned off since it currently causes an assert and doesn't work due to some build issue
             "nav"       "1" // Generate nav mesh data
         }
@@ -279,23 +279,23 @@
         BakedLighting
         {
             Version 4
-            ImportanceVolumeTransitionRegion 512            // distance we transition from high to low resolution charts 
+            ImportanceVolumeTransitionRegion 512            // distance we transition from high to low resolution charts
             LightmapChannels
             {
                 direct_light_shadows 1
                 debug_chart_color 1
                 directional_irradiance_sh2_dc 1
-                
+
                 directional_irradiance_sh2_r
                 {
                     CompressedFormat DXT1
                 }
-                
+
                 directional_irradiance_sh2_g
                 {
                     CompressedFormat DXT1
                 }
-                
+
                 directional_irradiance_sh2_b
                 {
                     CompressedFormat DXT1
@@ -349,7 +349,7 @@
             GameOutputPath  "resource/localization/citadel_vdata"
             TokenPrefix     "Citadel_VData_"
         }
-        
+
         TextureCompiler
         {
             //Compressor              "lz4"
@@ -464,14 +464,14 @@
     }
 
     ConVars
-    {    
+    {
 
 // ------------------------------  OptiLock -- ver. 1 ------------------------------ \\
             // Check here for updates: https://gamebanana.com/mods/656341 \\
            //Downloaded from: https://github.com/dacooderr/OptimizationLock\\
           // In-Depth Tutorial: https://www.youtube.com/watch?v=ZKyJP3u-Y60 \\
 		 //	      	   Discord: https://discord.gg/vKT2myYC2R				 \\
-		 
+
 		//      If you would like to donate as a means of showing thanks  \\
 	   //               https://streamlabs.com/dacoder_/tip                \\
 
@@ -507,6 +507,8 @@ citadel_crosshair_hit_marker_duration       "0.00001"       // Removes the hitma
 lb_enable_stationary_lights                 "0"             // *Disables stationary lights (map looks flatter but more performant).         [def: "1"]
 lb_enable_dynamic_lights                    "0"             // *Disables dynamic lights eg. walker, shop, tp, character abilities etc. (hero silhouettes go dark in menus as a side effect) [def: "1"]
 lb_enable_baked_shadows                     "0"             // *Disables baked shadows (game looks bright if this is on while stationary lights = 1). [def: "1"]
+sc_disable_baked_lighting                   "true"
+mat_max_lighting_complexity                 "1"
 
 // --- 5. Skybox Rendering ---
 r_draw3dskybox                              "0"             //  Enables drawing the 3D skybox layer (distant geometry).         [def: "1"]
@@ -626,25 +628,29 @@ cl_input_enable_raw_keyboard                "1"             // Enables raw keybo
 
 // ================ PARTICLES ================
 cl_particle_max_count                       "1500"          // If console is flooded with max particles exceeded warnings.      [def: "0"]
-r_particle_max_size_cull                    "999"           // Particle systems larger than this in every dimension skip culling to save CPU.  They will be drawn anyway [def: "1200"]
-r_particle_max_detail_level                 "1"             // The maximum detail level of particle to create.                  [def: "3"]
+r_particle_max_size_cull                    "500"           // Particle systems larger than this in every dimension skip culling to save CPU.  They will be drawn anyway [def: "1200"]
+r_particle_max_detail_level                 "0"             // The maximum detail level of particle to create.                  [def: "3"]
 particle_cluster_nodraw                     "1"             // Skips drawing particle “clusters”/grouped particle batches (performance, fewer small effects). [def: "0"]
 r_physics_particle_op_spawn_scale           "0"             // Prevents physics-based particle spawns.                          [def: "1"]
 r_particle_model_new8                       "false"         // Not entirely sure what this does                                 [def: "true"]
 r_particle_model_new                        "true"          // Use new particles I'd imagine? not sure though.                  [def: "false"]
 r_RainParticleDensity                       "0"             // Density of Particle Rain 0-1.                                    [def: "1"]
 r_world_wind_strength                       "0"             // Disables wind effects, cosmetic only.                            [def: "40"]
-cl_particle_fallback_base                   "10"            // Base for falling back to cheaper effects under load.             [def: "0"] 
+cl_particle_fallback_base                   "10"            // Base for falling back to cheaper effects under load.             [def: "0"]
 cl_particle_fallback_multiplier             "20"            // Multiplier for falling back to cheaper effects under load.       [def: "0"]
-cl_particle_sim_fallback_base_multiplier    "40"            // How aggressive the switch to fallbacks will be depending on how far over the cl_particle_sim_fallback_threshold_ms the sim time is.  Higher numbers are more aggressive. [def: "5"] 
-cl_particle_sim_fallback_threshold_ms       "0.001"         // Amount of simulation time that can elapse before new systems start falling back to cheaper versions [def: "6"] 
+cl_particle_sim_fallback_base_multiplier    "40"            // How aggressive the switch to fallbacks will be depending on how far over the cl_particle_sim_fallback_threshold_ms the sim time is.  Higher numbers are more aggressive. [def: "5"]
+cl_particle_sim_fallback_threshold_ms       "0.001"         // Amount of simulation time that can elapse before new systems start falling back to cheaper versions [def: "6"]
 r_particle_skip_postsim                     "true"          // Not entirely sure what it does, going off of the name I'd imagine it skips the post simulation, this is a testvar [def: "false"]
 r_particle_timescale                        "1.1"           // Speeds up particle simulation, thus making them end sooner, however this causes visual desyncs, most notably with big effects that last a while such as infernus ult. Please tweak this to what you are comfortable with. [def: "1"]
 cl_particle_batch_mode                      "1"             // Has a range of 1 or 2, 2 will make celeste's auto rebound look weird and 0 will make them not batch [def: "1"]
-r_draw_particle_children_with_parents       "0"             // 
-r_late_particle_job_sync                    "true"          // 
-r_particle_batch_collections                "true"          // 
+r_draw_particle_children_with_parents       "0"             //
+r_late_particle_job_sync                    "true"          //
+r_particle_batch_collections                "true"          //
 r_particle_max_texture_layers               "4"             // Anything below 4 will make infernus afterburn, paige fire, and drifter's passive look very weird and blocky [def: "-1"]
+r_particle_multiplier                       "0"
+r_physics_particle_op_spawn_scale           "0"
+r_threaded_particles                        "0"
+cl_particle_fallback_base                   "1"
 
 // ================ Lod & Culling ================
 skeleton_instance_lod_optimization          "false"         // Compute LOD mask internally like since 2016, i.e. force all LOD groups' bones to compute [def: "false"]
@@ -699,7 +705,7 @@ csm_res_override_0 "1"
 csm_res_override_1 "1"
 csm_res_override_2 "1"
 csm_res_override_3 "1"
-csm_viewmodel_shadows "false" 
+csm_viewmodel_shadows "false"
 r_citadel_depth_prepass_dynamic_objects     "false"
 citadel_unit_status_allies_see_thru_walls_max_distance "40"
 citadel_unit_status_old_update_rate         "15"
@@ -726,7 +732,7 @@ cl_batch_entity_list_ops_during_latch       "true"
 citadel_damage_text_batching_window_ability "1000"
 sc_force_materials_batchable                "true"
 
-// ================ Test group 1 ================ 
+// ================ Test group 1 ================
 r_particle_allowprerender                   "false"
 citadel_outer_radius_scaler                 "0.25"
 iv_parallel_restore                         "false"
@@ -789,7 +795,7 @@ sparseshadowtree_parallel_generation        "true"
         "snd_steamaudio_invalid_path_length"    "0.0"
         "cl_disconnect_soundevent"              "citadel.convar.stop_all_game_layer_soundevents"
         "snd_event_browser_default_stack"       "citadel_default_3d"
-        
+
         // voip
         "voice_in_process"                      "1"
 
@@ -800,7 +806,7 @@ sparseshadowtree_parallel_generation        "true"
         "snd_sos_max_event_base_depth" "10"
         "sos_use_guid_filter" "1"
 
-        "voice_always_sample_mic"               
+        "voice_always_sample_mic"
         {
             "version"   "2"
             "default"   "0"
@@ -816,7 +822,7 @@ sparseshadowtree_parallel_generation        "true"
 
         // For perf reasons, since we don't use source-based DSP:
         "disable_source_soundscape_trace"       "1"
-        
+
         // Networking - Induced latency (pred offset)
         "cl_tickpacket_recvmargin_desired" "5"                  // 5 ms base, min. floor for protecting against thrashing the queue
         "cl_tickpacket_desired_queuelength" "0"                 // 0 = attempt to always reach the queue's min floor
@@ -832,7 +838,7 @@ sparseshadowtree_parallel_generation        "true"
         // Convars that control spatialization of UI audio.
         "snd_ui_positional"                             "false"
         "snd_ui_spatialization_spread"                  "2.4"
-        
+
         // sound volume rate change limiting
         "snd_envelope_rate"                             "100.0"
         "snd_soundmixer_update_maximum_frame_rate"      "0"
@@ -856,10 +862,10 @@ sparseshadowtree_parallel_generation        "true"
         "snd_event_browser_focus_events" "true"
 
         "cl_max_particle_pvs_aabb_edge_length" "100"
-        
+
         // Allow aggregation of particles (for perf)
         "cl_aggregate_particles" "false"
-        
+
         "citadel_enable_vdata_sound_preload" "true"
     }
 
