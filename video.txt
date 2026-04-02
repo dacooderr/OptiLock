@@ -4,21 +4,20 @@ COPY EVERYTHING UNDER THIS TEXT - GO TO YOUR OWN VIDEO.TXT IN CFG - PASTE THE TE
 // RESOLUTION AND REFRESH RATE SETTINGS
 "setting.defaultres" "1920"                // Change to your res | 1920
 "setting.defaultresheight" "1080"            // Change to your res | 1080
-"setting.recommendedheight" "1080"            // Change to your res | 1080 
-"setting.refreshrate_numerator" "144"        // Change to your monitor hz: 144Hz | 240Hz ect 
-
+"setting.recommendedheight" "1080"            // Change to your res | 1080
+"setting.refreshrate_numerator" "144"        // Change to your monitor hz: 144Hz | 240Hz ect
 
 //========================================
-"setting.fullscreen" "1"				// 0 = Borderless, 1 = Exclusive Fullscreen
+"setting.fullscreen" "0"				// 0 = Borderless, 1 = Exclusive Fullscreen
 "setting.nowindowborder" "1"
 "setting.fullscreen_min_on_focus_loss" "1"
 "setting.monitor_index" "0"
 "setting.high_dpi" "0"
 "setting.aspectratiomode" "0"
-"setting.cpu_level" "2"       				// 2 = best balance on modern CPUs. Lower to 0–1 only if CPU is weak or you get stutter.
+"setting.cpu_level" "1"       				// 2 = best balance on modern CPUs. Lower to 0–1 only if CPU is weak or you get stutter.
 "setting.mem_level" "0"
 "setting.gpu_mem_level" "2"    				// 0 = very low VRAM (≤4GB) 1 = medium (4–6GB) 2 = high (6GB+ recommended)
-"setting.gpu_level" "3"					// Higher values improve batching on modern GPUs. Use 0–1 ONLY if GPU is constantly 95–100% loaded.
+"setting.gpu_level" "1"					// Higher values improve batching on modern GPUs. Use 0–1 ONLY if GPU is constantly 95–100% loaded.
 "setting.mat_vsync" "0"
 "setting.r_low_latency" "1"
 "setting.fps_max" "0"   				// Change to cap fps (Leave at 0 if using RTSS)
@@ -50,15 +49,15 @@ COPY EVERYTHING UNDER THIS TEXT - GO TO YOUR OWN VIDEO.TXT IN CFG - PASTE THE TE
 "setting.r_citadel_ssao_quality" "0"
 "setting.r_citadel_distancefield_ao_quality" "0"
 "setting.r_citadel_fog_quality" "0"
-"setting.volume_fog_width" "32"
-"setting.volume_fog_height" "32"
-"setting.volume_fog_depth" "16"
-"setting.shaderquality" "1"
+"setting.volume_fog_width" "0"
+"setting.volume_fog_height" "0"
+"setting.volume_fog_depth" "0"
+"setting.shaderquality" "0"
 "setting.r_displacement_mapping" "0"
 "setting.r_dashboard_render_quality" "1"
 
 // ==================================
-"setting.r_texture_stream_mip_bias" "4" 
+"setting.r_texture_stream_mip_bias" "4"
 // 4 is the lowest you can go without adding sinner light mod (8 is the lowest aka roblox)
 // ==================================
 
@@ -75,7 +74,5 @@ COPY EVERYTHING UNDER THIS TEXT - GO TO YOUR OWN VIDEO.TXT IN CFG - PASTE THE TE
 "setting.useadvanced" "1"
 "setting.coop_fullscreen" "0"
 "setting.r_light_sensitivity_mode" "false"
-
-
 
 }
