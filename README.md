@@ -19,6 +19,8 @@ You *MUST* install both or else you will have a very weird looking game.
 
 **IF YOU RAISE YOUR setting.r_texture_stream_mip_bias past 4, YOU WILL HAVE TO INSTALL THE SINNER'S LIGHT FIX MOD. THIS IS INCLUDED IN THE ESSENTIAL ADDONS FOLDER.**
 
+________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
 # Optional Optimizations
 
 [Windows and Linux Optimization Project](https://github.com/dacooderr/Windows-and-Linux-Optimization)
@@ -31,6 +33,8 @@ Using this in conjunction with everything can further improve 1% lows by giving 
 [Download Here](https://bitsum.com/).
 
 You can find a tutorial on how to utilize Process Lasso [here](https://www.youtube.com/watch?v=xXpnCqXxwz8).
+
+________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 # Pretty Important Announcement
 Valve has started restricting certain convars, as of late March. The config still works for now and Valve is aware of this config and is aware of the need for this. So only time will tell.
@@ -45,6 +49,7 @@ Here is a list of each config provided in this repository.
 | [Piggy's gameinfo.gi](https://github.com/dacooderr/OptiLock/tree/main/piggy's%20config)                                    | Base optimizations but is here for if you want to use his config                                                          |
 | [cvarlist.md](https://github.com/dacooderr/OptiLock/blob/main/cvarlist.md)                                                 | Every single convar in the game's code. Not a proper config but instead a reference.                                      |
 
+________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 # FAQ
 - "How do I find a value in the config"  
@@ -67,6 +72,8 @@ The gameinfo.gi gets overwritten every major update. You need to manually replac
 - "I can't see trooper healthbars and boxes past a certain distance"  
 ``r_size_cull_threshold "0.7"``  comment this out.  
 
+________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
 # Mod Support
 Every variation of the config included in this repository has mod support added.
 
@@ -82,6 +89,8 @@ Every variation of the config included in this repository has mod support added.
 - [Clean Damage Indicator](https://gamebanana.com/mods/655927) by lustie_  |  Makes the damage number indictor smaller and higher above the thing receiving damage.
 - [Daylock](https://gamebanana.com/mods/614857) by BreadRollius  |  Adds a bright starry skybox for visibility. Only install the pak file.
 - ['Fullbright' Mod](https://gamebanana.com/mods/664234) by Sadie Sinks Husband  |  A mod that removed all shading on textures and gives that "fullbright" look.
+
+________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 # Credits
 Major thanks to all of these individuals from the bottom of my heart. They are all lovely.
