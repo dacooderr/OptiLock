@@ -92,7 +92,7 @@ ________________________________________________________________________________
 
 # Credits
 Major thanks to all of these individuals from the bottom of my heart. They are all lovely.
-- dacooder:      Manager of the Git and creator of tutorial videos
+- dacooder:      Config Creator
 - Artemon121:    Made the Citadel cvar unhider
 - pidjan:        Gameinfo contribution
 - Piggy:         Contributed the video.txt file
