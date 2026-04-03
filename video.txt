@@ -16,7 +16,7 @@ COPY EVERYTHING UNDER THIS TEXT - GO TO YOUR OWN VIDEO.TXT IN CFG - PASTE THE TE
 "setting.aspectratiomode" "0"
 "setting.cpu_level" "1"       				// 2 = best balance on modern CPUs. Lower to 0–1 only if CPU is weak or you get stutter.
 "setting.mem_level" "0"
-"setting.gpu_mem_level" "2"    				// 0 = very low VRAM (≤4GB) 1 = medium (4–6GB) 2 = high (6GB+ recommended)
+"setting.gpu_mem_level" "0"    				// 0 = very low VRAM (≤4GB) 1 = medium (4–6GB) 2 = high (6GB+ recommended)
 "setting.gpu_level" "1"					// Higher values improve batching on modern GPUs. Use 0–1 ONLY if GPU is constantly 95–100% loaded.
 "setting.mat_vsync" "0"
 "setting.r_low_latency" "1"
