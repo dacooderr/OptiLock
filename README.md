@@ -87,7 +87,8 @@ Every variation of the config included in this repository has mod support added.
 - [Daylock](https://gamebanana.com/mods/614857) by BreadRollius  |  Adds a bright starry skybox for visibility. Only install the pak file.
 - ['Fullbright' Mod](https://gamebanana.com/mods/664234) by Sadie Sinks Husband  |  A mod that removed all shading on textures and gives that "fullbright" look.
 
- 
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
   [Magic8Ball's Accessibility Mods](https://gamebanana.com/members/1550575)  |  Magic8Ball's mods that help with colorblindness (personal thanks <3)
 
 ________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
