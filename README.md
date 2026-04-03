@@ -1,5 +1,7 @@
 This modification is aimed at lowing the graphics settings as much as possible while keeping the <ins>competitive integrity</ins> for ranked play. It aims to update as *little as possible* and only when necessary. If you have any suggestions or concerns about this to help improve the config for this idea, please join the [OptiLock Discord](https://discord.gg/hkmmVHnVVT).
 
+**With the OptiLock config, you can potentially see a ~30% 1% low and ~40% average FPS gain on most low end systems.**
+
 _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 # Base Instructions
