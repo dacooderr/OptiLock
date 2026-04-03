@@ -554,7 +554,7 @@
           .       .      .    .    .  .    .   .      .    . .        .      . .  .       .      .     .     .   .  .   . .   . . .   .  .      . .   .      .  . . .     .    .      .       . .  .   .   .  .                     .    .  . .  .    .   . .  .   .                 .    .  .        .  .  
   .  . .     .  .   .  .   .     .      .    .   .  .   .      .  .  .  .  .        .  .     .       .   .        .   .     .          .   .  .     .   .  .          .     .   .  .    .  .             .      . . .  .  .  .  .      .       .    .    .    .  .     .  .   .   .    .   .    .  .        
           //CREDITS																				       \\
-         // dacooder     Mod and Github Manager, responsible for tutorials and documentation.           \\
+         // dacooder penis.           																	\\
 
         "rate"
         {
