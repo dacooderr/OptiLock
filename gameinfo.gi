@@ -484,10 +484,11 @@ citadel_trooper_glow_disabled               "1"             // 1 = Disable frien
 citadel_damage_offscreen_indicator_disabled "true"         // The little trooper portraits that show up behind walls.          [def: "true"]
 citadel_boss_glow_disabled                  "1"             // Disables boss and walker glow/highlight effect.                  [def: "0]
 citadel_player_glow_disabled                "0"             // Disables player glow/highlight effect when pinged.               [def: "0"]
-r_citadel_npr_outlines_max_dist             "1"             // Limits outline distance to reduce unnecessary processing.        [def: "1000"]
+r_citadel_npr_outlines_max_dist             "600"             // Limits outline distance to reduce unnecessary processing.        [def: "1000"]
 r_citadel_selection_outline2_alpha          "0.2"           // Outlines on enemy players and abilities on a scale of 0-1.       [def: "0.8"]
 r_citadel_npr_outlines                      "false"         // Enable outlines on enemy players.                                [def: "true"]
 r_citadel_npr_force_solid_outline 			"false"			// Not sure what it does but it seems to cause issues with skin modifications. Set to true if seeing black hero bug with mods.			[def: "false"]
+r_citadel_outlines							"1" 			// Enables enemy outlines for better visibility.
 
 // --- 2. Field of View ---
 r_aspectratio                             "2.15"          // 1.75=80fov | 2.15=90fov | 2.49=100fov (every .15 interval = 5 fov).      [def: "0"]
@@ -556,8 +557,9 @@ lb_csm_override_staticgeo_cascades_value    "-1"            // Base range of sta
 lb_sun_csm_size_cull_threshold_texels       "30"            // Culls tiny CSM contributions below a texel threshold (performance). [def: "10"]
 lb_dynamic_shadow_resolution_base           "256"           // Base resolution for dynamic shadows (lower = cheaper).           [def: "1536"]
 sc_disable_spotlight_shadows                "1"             // Disables spotlight shadows.                                      [def: "0"]
-sparseshadowtree_enable_rendering           "1"             // Enables Sparse Shadow Tree, rendering static geometry into shadow cascades. [def: "0"]
-sparseshadowtree_disable_for_viewmodel      "0"             // Disable SST generation and runtime for viewmodel (use original CSM rendering). [def: "1"]
+sc_disable_shadow_materials					"1" 			// Prevents expensive shadow materials from rendering.
+sparseshadowtree_enable_rendering           "0"             // Enables Sparse Shadow Tree, rendering static geometry into shadow cascades. [def: "0"]
+sparseshadowtree_disable_for_viewmodel      "1"             // Disable SST generation and runtime for viewmodel (use original CSM rendering). [def: "1"]
 cl_globallight_shadow_mode                  "0"                                                                   
 lb_csm_draw_alpha_tested                    "0"             // Prevents alpha-tested geometry from being included in CSM passes (cheaper, possible missing leaf/fence shadows). [def: "1"]
 lb_csm_draw_translucent                     "0"             // Prevents translucent objects from rendering into CSM (cheaper, fewer shadow details). [def: "1"]
@@ -580,16 +582,17 @@ r_ssao_strength                             "0"             // AO strength multi
 r_citadel_ssao_quality                      "0"             // SSAO quality level (0 = lowest/off-ish).                         [def: "3"]
 r_citadel_ssao_thin_occluder_compensation   "0"             // Disables special handling for thin occluders in SSAO (cheaper).  [def: "0.5"]
 mat_set_shader_quality                      "0"             // Force shader quality setting (valid values are 0 or 1).          [def: null]
-r_distancefield_enable                      "0"             // Disables/ Enables distance-field system (used by some lighting/shadowing/occlusion features). [def: "1"]
+r_distancefield_enable                      "1"             // Disables/ Enables distance-field system (used by some lighting/shadowing/occlusion features). [def: "1"]
 r_citadel_distancefield_farfield_enable     "0"             // Disables long-range distance field effects.                      [def: "1"]
 r_citadel_disable_npr_lighting 				"false"
 
 // ================ RAGDOLLS ================
-cl_disable_ragdolls                         "1"             // Keep set to 0 - enabling this (enabling ragdolls) can cause issue with doorman's ultimate. [def: "0"]
+cl_ragdoll_limit 							"1"				// Limits number of ragdolls active at once.
 ragdoll_parallel_pose_control               "1"             // Multithreaded ragdoll handling, better performance (if ragdolls aren't disabled). [def: "0"]
 
 // ================ MODELS ================
 enable_boneflex                             "0"             // Disables bone flexes (procedural facial/mesh flex drivers).      [def: "1"]
+r_drawmodeldecals							"0"
 r_hair_ao                                   "0"             // Disables hair ambient occlusion/shading pass.                    [def: "1"]
 cl_fasttempentcollision                     "1000"          // Limits/controls fast collision processing for temporary entities (impacts/tracers/etc.); higher usually = more work. [def: "5"]
 ik_final_fixup_enable                       "0"             // Disables final IK fixup pass (cheaper animations, potentially less accurate). [def: "1"]
@@ -619,7 +622,7 @@ r_drawtracers_firstperson 					"1"
 
 // ================ SYSTEM RELATED ================
 gpu_level                                   "1"             // GPU level.                                                       [def: "3"]
-gpu_mem_level                               "1"             // GPU Memory level.                                                [def: "2"]
+gpu_mem_level                               "0"             // GPU Memory level.                                                [def: "2"]
 cpu_level                                   "1"             // CPU level.                                                       [def: "2"]
 battery_saver                               "0"             // Disables battery saver mode (no automatic throttling).       [def: "0"]
 
@@ -628,11 +631,12 @@ cl_input_enable_raw_keyboard                "1"             // Enables raw keybo
 
 // ================ PARTICLES ================
 cl_particle_max_count                       "0"             // If console is flooded with max particles exceeded warnings.      [def: "0"]
+r_drawparticles								"1"
 r_particle_max_size_cull                    "999"           // Particle systems larger than this in every dimension skip culling to save CPU.  They will be drawn anyway [def: "1200"]
 r_particle_max_detail_level                 "1"             // The maximum detail level of particle to create.                  [def: "3"]
 particle_cluster_nodraw                     "1"             // Skips drawing particle “clusters”/grouped particle batches (performance, fewer small effects). [def: "0"]
 r_physics_particle_op_spawn_scale           "0"             // Prevents physics-based particle spawns.                          [def: "1"]
-r_particle_model_new8                       "false"         // Not entirely sure what this does                                 [def: "true"]
+r_particle_model_new8                       "0"         	// Not entirely sure what this does                                 [def: "true"]
 r_particle_model_new                        "true"          // Use new particles I'd imagine? not sure though.                  [def: "false"]
 r_RainParticleDensity                       "0"             // Density of Particle Rain 0-1.                                    [def: "1"]
 r_world_wind_strength                       "0"             // Disables wind effects, cosmetic only.                            [def: "40"]
@@ -650,22 +654,23 @@ r_particle_max_texture_layers               "4"             // Anything below 4 
 
 // ================ Lod & Culling ================
 cl_enable_eye_occlusion                     "true"          // Enables lowering of quality of anything out of sight 			[def: "true"]
-skeleton_instance_lod_optimization          "false"         // Compute LOD mask internally like since 2016, i.e. force all LOD groups' bones to compute [def: "false"]
+skeleton_instance_lod_optimization          "1"         
 sc_instanced_mesh_lod_bias                  "0.15"          // Bias for LOD selection of instanced mesh                         [def: "1.25"]
 sc_instanced_mesh_lod_bias_shadow           "0.10"          // Bias for LOD selection of instanced meshes in shadowmaps         [def: "1.75"]
 sc_instanced_mesh_motion_vectors            "0"             // Set 1 if you use motion blur                                     [def: "1"]
 //sc_instanced_mesh_size_cull_bias          "10"            // Bias for size culling of instanced meshes                        [def: "1.5"]
 sc_instanced_mesh_size_cull_bias_shadow     "10"            // Bias for size culling instanced meshes in shadowmaps             [def: "2"]
 sc_fade_distance_scale_override             "100"           // Distance objects fade in and out                                 [def: "-1"]
-sc_clutter_enable                           "false"         // No debris/props 1=Props visible                                  [def: "true"]
+sc_clutter_enable                           "0"         // No debris/props 1=Props visible                                  [def: "true"]
 sc_aggregate_bvh_threshold                  "16"            // Lower BVH threshold                                              [def: "128"]
 sc_layer_batch_threshold                    "16"            // Lower batch threshold                                            [default: "128"]
 sc_layer_batch_threshold_fullsort           "20"            //                                                                  [def: "80"]
 sv_remove_ent_from_pvs                      "1"             // Culls objects (creeps, boxes, objects) outside of view           [def: "0"]
 r_farz                                      "18000"          // Override the far clipping plane                                  [def: "-1"]
-mat_viewportscale                           "0.01"          // Scale down the main viewport I belive this gets overwritten by video.txt [def: "1"]
+r_mapextents                                "10000"
 phys_cull_internal_mesh_contacts            "true"          //                                                                  [def: "false"]
 citadel_use_pvs_for_players                 "true"          // Default culls players when out of view                           [def: "false"]
+sv_waterdist								"0"
 
 // ================ Misc ================
 r_low_latency                               "1"             // Depends on if your hardware supports it I believe                [def: "1"]
@@ -700,7 +705,7 @@ csm_cascade2_override_dist "0"
 csm_cascade3_override_dist "0"
 csm_max_dist_between_caster_and_receiver "0"
 csm_max_num_cascades_override "0"
-csm_max_shadow_dist_override  "1"
+csm_max_shadow_dist_override  "0"
 csm_max_visible_dist "0"
 csm_res_override_0 "1"
 csm_res_override_1 "1"
@@ -716,6 +721,10 @@ snd_steamaudio_reverb_order_rendering       "0"
 r_texturefilteringquality                   "0"             // Texture filtering, has very low fps impact. 0: Bilinear, 1: Trilinear, 2: Aniso 2x, 3: Aniso 4x, 4: Aniso 8x, 5: Aniso 16x
 r_texture_budget_threshold                  "0.7"           // Reduce texture memory pool size when this percentage of the budget is full. [def: "0.8"]
 r_renderdoc_auto_shader_pdbs                "false"         // Automatically generate shader debug info on capture. [def: "true"]
+r_texture_budget_update_period				"0.5"
+r_particle_parallel_simulation				"1"
+r_particle_batch_simulate					"1"
+threadpool_thread_limit						"0"
 
 // ================ Test group 3 ================
 enable_priority_boost                       "true"
