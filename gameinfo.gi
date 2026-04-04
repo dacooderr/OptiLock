@@ -504,13 +504,11 @@ r_citadel_npr_force_solid_outline 			"false"			// Not sure what it does but it s
 r_citadel_outlines							"1" 			// Enables enemy outlines for better visibility.
 
 // --- 2. Field of View ---
-r_aspectratio                             "2.15"          // 1.75=80fov | 2.15=90fov | 2.49=100fov (every .15 interval = 5 fov).      [def: "0"]
+r_aspectratio                             	"2.15"          // 1.75=80fov | 2.15=90fov | 2.49=100fov (every .15 interval = 5 fov).      [def: "0"]
 citadel_camera_hero_fov                     "100"           // The field of view angle of the camera when following a hero.     [def: "90"]
 
 // --- 3. HUD ---
 citadel_unit_status_use_new                 "1"             // This uses new Health Bar, to use old Health Bar change "true" to "false".    [def: "0"]
-//citadel_unit_status_use_v2                "0"             // Set to 1 to enable the new health bar that allows you to  see enemy stamina. [def: "0"]
-//citadel_unit_status_use_v2_for_nonplayers "0"             // Set to 1 to enable the new health bar but for troopers, objs, and camps.     [def: "0"]
 citadel_hud_objective_health_enabled        "2"             // 0=Off, 1=Shrines, 2=T1/T2, 3=Barracks.                           [def: "2"]
 citadel_damage_report_enable                "1"             // Enables/Disables incoming/outgoing damage tab (tuning this off is very questionable but okay). [def: "1"]
 citadel_hideout_ball_show_juggle_count      "1"             // Shows a fun juggle count minigame for hideout ball.              [def: "0"]
@@ -529,17 +527,12 @@ r_draw3dskybox                              "0"             //  Enables drawing 
 fps_max                                     "0"             // Max FPS while in game, limit fps to your monitor refresh rate. [def: "400"]
 engine_no_focus_sleep                       "20"            // Milliseconds the engine sleeps per frame when unfocused (0 = no sleep, not recommended for low-end PC). [def: "20"]
 engine_low_latency_sleep_after_client_tick  "true"          // Sleeps strategically after client tick to reduce latency/stutter (low-latency pacing). [def: "false"]
-panorama_max_fps                            "30"            // Menu FPS.                                                        [def: "120"]
-panorama_max_overlay_fps                    "30"            // Uncaps UI overlay FPS (I'm assuming steam overaly).              [def: "60"]
 
 // --- 7. Object Culling ---
 r_size_cull_threshold                       "0.7"           // *Culls small objects sooner based on screen size threshold (higher = more culling). [def: "0.8"]
 
 // --- 8. Camera Tweaks ---
 r_citadel_clip_sphere_min_opacity           "0"             // Removes the blur from the pinhole camera                         [def: "40"]
-//r_citadel_clip_sphere_skin                "0.01"          //                                                                  [def: "0.01"]
-//r_citadel_clip_sphere_cone_angle          "360"           //                                                                  [def: "40"]
-//r_citadel_clip_sphere_distance_max        "100"           //                                                                  [def: "75"]
 
 // ================= UI ================
 r_citadel_enable_pano_world_blur            "false"
@@ -550,12 +543,8 @@ panorama_disable_blur                       "1"             // Disables UI blur 
 panorama_allow_transitions                  "false"         // Turns off UI anim (shop,etc)                                     [def: "1"]
 citadel_minimap_use_canvas_for_neutrals     "0"             // Uses an alternate “canvas” rendering path for neutral icons on the minimap (render path toggle). [def: "1"]
 citadel_minimap_use_canvas_for_shop         "0"             // Uses an alternate “canvas” rendering path for shop icons on the minimap (render path toggle). [def: "1"]
-closecaption                                "false"         // I assume this does what it says on the tin
 panorama_use_new_occlusion_invalidation     "1"
 panorama_temp_comp_layer_min_dimension      "128"
-panorama_max_overlay_fps                    "15"
-panorama_max_fps                            "15"            // [ADJUST] UI FPS cap - 0=Unlimited (smooth UI) | 30/60=Standard | Higher = smoother HUD but more CPU
-panorama_async_compute_mipgen               "1"
 
 // ================ SHADOWS ================
 r_shadows                                   "0"             // Disables dynamic shadows.                                        [def: "1"]
@@ -621,7 +610,7 @@ props_break_max_pieces_perframe             "1"             // Makes boxes break
 // ================ VISUAL CLARITY ================
 mat_colorcorrection                         "1"             // Disables/ Enables color correction (game looks less vibrant when off). [def: "1"]
 r_texture_budget_dynamic 					"true"
-r_drawdecals                                "1"             // *Render decals.                                              [def: "1"]
+r_drawdecals                                "1"             // *Render decals.                                              	[def: "1"]
 r_decals                                    "1"             // Maximum number of decals allowed. (lower = fewer bullet holes/blood/impact marks). [def: "2048"]
 r_character_decal_resolution                "1"             // Resolution of character decal texture.                           [def: "1024"]
 r_depth_of_field                            "0"             // Disables depth of field.                                         [def: "1"]
@@ -635,9 +624,9 @@ r_drawtracers_firstperson 					"1"
 
 // ================ SYSTEM RELATED ================
 gpu_level                                   "1"             // GPU level.                                                       [def: "3"]
-gpu_mem_level                               "0"             // GPU Memory level.                                                [def: "2"]
+gpu_mem_level                               "1"             // GPU Memory level.                                                [def: "2"]
 cpu_level                                   "1"             // CPU level.                                                       [def: "2"]
-battery_saver                               "0"             // Disables battery saver mode (no automatic throttling).       [def: "0"]
+battery_saver                               "0"             // Disables battery saver mode (no automatic throttling).       	[def: "0"]
 
 // ================ INPUT ================
 cl_input_enable_raw_keyboard                "1"             // Enables raw keyboard input handling (more direct input path).[def: "0"]
@@ -671,7 +660,6 @@ skeleton_instance_lod_optimization          "1"
 sc_instanced_mesh_lod_bias                  "0.15"          // Bias for LOD selection of instanced mesh                         [def: "1.25"]
 sc_instanced_mesh_lod_bias_shadow           "0.10"          // Bias for LOD selection of instanced meshes in shadowmaps         [def: "1.75"]
 sc_instanced_mesh_motion_vectors            "0"             // Set 1 if you use motion blur                                     [def: "1"]
-//sc_instanced_mesh_size_cull_bias          "10"            // Bias for size culling of instanced meshes                        [def: "1.5"]
 sc_instanced_mesh_size_cull_bias_shadow     "10"            // Bias for size culling instanced meshes in shadowmaps             [def: "2"]
 sc_fade_distance_scale_override             "100"           // Distance objects fade in and out                                 [def: "-1"]
 sc_clutter_enable                           "0"         // No debris/props 1=Props visible                                  [def: "true"]
@@ -706,10 +694,7 @@ snd_occlusion_rays                          "0"             //                  
 audio_enable_vmix_mastering                 "false"         //                                                                  [def: "true"]
 snd_steamaudio_num_threads                  "4"             // Audio thread count                                               [def: "4"]
 snd_mixahead                                "0.05"          // Adds some latency that shouldn't be percivable to save cpu       [def: "0.001"]
-// README This ^ probably depends on how good your cpu is, the better it is the more threads you can allow
 snd_soundmixer_version                      "1"             // [def: "2"]
-
-// ================ EVERYTHING BELOW THIS IS STABLE YAY ================
 
 // ================ Test Group 5 ================
 csm_cascade0_override_dist "0"
@@ -762,9 +747,9 @@ citadel_outer_radius_scaler                 "0.25"          //
 iv_parallel_restore                         "false"         //
 r_decals_default_fade_duration              "1"             //
 r_texture_budget_update_period              "0.5"           //
-save_parallel                               "true"          // Absolutely no idea but typically paralell processing is good.
-r_particle_model_per_thread_count           "48"          //
-r_limit_particle_job_duration               "true"          // Seems to help with particle clutter, although I am not sure.
+save_parallel                               "true"          
+r_particle_model_per_thread_count           "48"          
+r_limit_particle_job_duration               "true"        
 ai_async_queue_max_jobs                     "1"
 ai_gather_conditions_async                  "true"
 ai_use_async_ragdoll_fixup                  "true"
@@ -774,15 +759,14 @@ r_async_compute_fog                         "true"
 sparseshadowtree_parallel_generation        "true"
 
 
-          //CREDITS																				       \\
-         // dacooder     Mod and Github Manager, responsible for tutorials and documentation.           \\
-        // Brullee      Removed fake cvars, redundant commands, added cvarlist.md, and reformatted config\\
-	   // Xeraa			Helped fix a major issue with console spam and fps drops late game				  \\
-      // Kaizuchaneru   While not directly invovled in the deveopment, they tested most cvars              \\
-     // Artemon121      Made the Citadel cvar unhider, which helped Abdalla fetch cvars and test in-game    \\
-    // Jaden            Nice guy and helped both test and support various newcomers                          \\
+         //CREDITS																				        \\
+        // dacooder     OptiLock Creator            													 \\
+       // Brullee       Removed fake cvars, redundant commands, added cvarlist.md, and reformatted config \\
+	  // Xeraa			Helped fix a major issue with console spam and fps drops late game				   \\
+     // Kaizuchaneru    Kaiz config             														    \\
+    // Artemon121       Made the Citadel cvar unhider														 \\
    // Pidjan            Worked on further gameinfo changes and let us integrate                               \\
-  // Piggy              Let me mirror his config                                                               \\
+  // Piggy              Video.txt contributer and cool streamer guy                                            \\
  // Tamara Mochaccina   Made the vindicta scope mod and contributed the fog fix                                 \\
 // ----------------------------------------- END OF CONFIG OptiLock -- ver. 1 ---------------------------------- \\
 
@@ -856,7 +840,7 @@ sparseshadowtree_parallel_generation        "true"
         "cl_clock_buffer_ticks" "1"
         "cl_interp_ratio" "0"
 
-        "fps_max"       "400"
+        "fps_max"       "0"
         "fps_max_ui"    "120"
 
         "in_button_double_press_window" "0.3"
