@@ -457,90 +457,72 @@
 
 	ConVars
 	{
-
-m_rawinput 1                          // Uses raw mouse input, better aim consistency, no FPS cost
-cl_input_enable_raw_keyboard 1        // Uses raw keyboard input, slightly lower input latency
-m_filter 0                            // Disables mouse smoothing, improves responsiveness
+// ============================================================
+ 
+r_aspectratio 2                                   // Forces higher aspect ratio (stretched view, wider perceived FOV)
  
 // -------------Delete this part if you care about lighting --------------------------
  
-r_directlighting 0                    // Disables direct lighting, large FPS gain
-r_rendersun 0                         // Disables sun lighting, reduces GPU load
-lb_enable_shadow_casting 0            // Turns off shadow casting, huge FPS boost
-lb_enable_dynamic_lights 0            // Disables dynamic lights, fewer draw calls
-lb_enable_lights 1                    // Disables static lights, saves GPU time
-lb_enable_stationary_lights 0         // Disables stationary lights, extra lighting savings
+r_directlighting 0                                // Disables direct dynamic lighting calculations
+lb_enable_shadow_casting 0                        // Prevents lights from casting shadows (removes shadow map passes)
+lb_enable_dynamic_lights 0                        // Disables runtime lights from abilities, explosions, etc.
+lb_enable_stationary_lights 0                     // Disables hybrid stationary lights
  
-// -----------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------
  
-lb_csm_draw_alpha_tested 0            // Disables alpha-tested shadows, reduces shadow passes	
-lb_csm_draw_translucent 0             // Disables translucent shadows, saves GPU
-csm_max_shadow_dist_override 0        // Forces shadows to stay disabled
-sc_disable_spotlight_shadows 1        // Disables spotlight shadows, very expensive feature
-sc_disable_shadow_materials 1         // Prevents special shadow materials from rendering
-cl_globallight_shadow_mode 0          // Forces lowest global shadow mode
-sparseshadowtree_enable_rendering 0   // Disables advanced sparse shadow system, big performance saver
-sparseshadowtree_disable_for_viewmodel 1 // Prevents viewmodel from using sparse shadows
-r_distancefield_enable 1              // Enables distance fields (needed for outlines, low cost)
-r_citadel_outlines 1                  // Enables enemy outlines, improves visibility
-r_citadel_distancefield_farfield_enable false // Disables long-range distance field effects
-r_citadel_npr_outlines_max_dist 600   // Limits outline distance to reduce unnecessary processing
-r_enable_volume_fog 0                 // Disables volumetric fog, large FPS gain
-r_enable_gradient_fog 0               // Disables gradient fog, saves GPU
-r_enable_cubemap_fog 0                // Disables cubemap fog, saves GPU
-volume_fog_intermediate_textures_hdr 0 // Disables HDR fog textures, reduces VRAM usage
-r_draw3dskybox 0                      // Disables 3D skybox, saves GPU time
-r_monitor_3dskybox 0                  // Prevents skybox monitoring updates
-r_world_wind_strength 0               // Disables wind effects, cosmetic only
-sv_waterdist 0                        // Reduces water rendering distance
-r_drawparticles 1                     // Keeps particles enabled (gameplay readability)
-r_particle_max_detail_level 0         // Lowest particle detail, better FPS
-r_particle_shadows 0                  // Disables particle shadows, high FPS gain
-r_particle_cables_cast_shadows 0      // Disables cable shadows, saves GPU
-r_RainParticleDensity 0               // Removes rain particles
-r_physics_particle_op_spawn_scale 0   // Prevents physics-based particle spawns
-r_particle_model_new8 0               // Disables newer particle models, saves performance
-cl_show_splashes 0                    // Disables water splashes, cosmetic only
-cl_particle_fallback_base 4           // Safe particle simplification threshold
-cl_particle_fallback_multiplier 4     // Controls how fast particles fall back to simple versions
-cloth_update 1                        // Keeps cloth enabled for model stability
-cloth_sim_on_tick 1                  // Updates cloth every tick, prevents jitter
-r_hair_ao 0                           // Disables hair ambient occlusion, cosmetic only
-cl_ragdoll_limit 1                    // Limits number of ragdolls, saves CPU
-ragdoll_parallel_pose_control 1       // Multithreaded ragdoll handling, better performance
-r_character_decal_resolution 1        // Low-resolution character decals
-r_drawmodeldecals 0                  // Disables model decals, saves GPU
-r_decals 16                           // Limits number of decals, improves FPS
-skeleton_instance_lod_optimization 1  // Enables model LOD optimization
-sc_clutter_enable 0                  // Disables clutter props, improves visibility & FPS
-r_size_cull_threshold 1.2             // Aggressive object culling to reduce draw calls
-r_drawropes 0                        // Disables rope rendering
-rope_collide 0                       // Disables rope collision physics
-rope_subdiv 0                        // Disables rope subdivisions
-rope_wind_dist 0                     // Disables rope wind simulation
-r_ropetranslucent 0                  // Disables translucent ropes
-r_grass_quality 0                    // Lowest grass quality
-r_grass_start_fade 0                 // Grass fades immediately
-r_grass_end_fade 0                   // Grass not rendered at distance
-panorama_disable_box_shadow 1         // Disables UI shadows, saves UI render cost
-panorama_max_overlay_fps 0            // Uncaps UI overlay FPS 
-panorama_max_fps 0                    // Uncaps UI FPS 
-rate 786432                          // Max network bandwidth allowed
-cl_predict 1                         // Enables client-side prediction
-cl_smooth 0                          // Disables view smoothing, reduces input latency
-mat_colorcorrection 1				// Colour stuff
-
-// End of piggy's config
-
-// ================ In Testing ================
-
-citadel_npc_force_animate_every_tick        "false"
-citadel_outer_radius_scaler                 "0.25"
-iv_parallel_restore                         "false"
-panorama_use_new_occlusion_invalidation     "false"
-r_decals_default_fade_duration                  "1"
-r_texture_budget_update_period                  "0.5"
-save_parallel                               "true"
+lb_csm_draw_alpha_tested 0                        // Disables alpha-tested shadow rendering
+lb_csm_draw_translucent 0                         // Disables translucent shadow rendering
+csm_max_shadow_dist_override 0                    // Forces shadow rendering distance to zero
+sc_disable_spotlight_shadows 1                    // Disables spotlight shadow calculations
+sc_disable_shadow_materials 1                     // Prevents expensive shadow materials from rendering
+cl_globallight_shadow_mode 0                      // Forces lowest global shadow mode
+sparseshadowtree_enable_rendering 0               // Disables sparse shadow tree system
+sparseshadowtree_disable_for_viewmodel 1          // Prevents viewmodel from using sparse shadows
+r_distancefield_enable 1                          // Enables distance fields required for hero outlines
+r_citadel_outlines 1                              // Enables enemy outlines for better visibility
+r_citadel_distancefield_farfield_enable 0         // Disables long-range distance field calculations
+r_citadel_npr_outlines_max_dist 600               // Limits outline rendering distance
+r_enable_volume_fog 0                             // Disables volumetric fog rendering
+r_enable_gradient_fog 0                           // Disables gradient fog
+r_enable_cubemap_fog 0                            // Disables cubemap fog
+r_draw3dskybox 0                                  // Disables distant 3D skybox rendering
+r_world_wind_strength 0                           // Disables environmental wind animation
+sv_waterdist 0                                    // Reduces water rendering distance
+r_drawparticles 1                                 // Keeps particle effects enabled for gameplay clarity
+r_RainParticleDensity 0                           // Removes rain particle effects
+r_physics_particle_op_spawn_scale 0               // Prevents physics-based particle spawning
+r_particle_model_new8 0                           // Disables newer particle models
+citadel_npc_force_animate_every_tick false        // Allows engine to skip NPC animation updates to reduce CPU load
+cl_ragdoll_limit 1                                // Limits number of ragdolls active at once
+ragdoll_parallel_pose_control 1                   // Enables multithreaded ragdoll simulation
+r_character_decal_resolution 1                    // Low-resolution character decals
+r_drawmodeldecals 0                               // Disables model decals
+r_decals 16                                       // Limits total decals in the world
+skeleton_instance_lod_optimization 1              // Enables model LOD optimization
+sc_clutter_enable 0                               // Disables small clutter props
+r_size_cull_threshold 1.2                         // Aggressive object culling threshold
+r_drawropes 0                                     // Disables rope rendering
+rope_collide 0                                    // Disables rope collision physics
+rope_subdiv 0                                     // Removes rope subdivisions
+rope_wind_dist 0                                  // Disables rope wind simulation
+r_ropetranslucent 0                               // Disables translucent ropes
+r_grass_quality 0                                 // Lowest grass quality
+r_grass_start_fade 0                              // Grass fades immediately
+r_grass_end_fade 0                                // Grass not rendered at distance
+panorama_disable_box_shadow 1                     // Disables UI box shadows
+panorama_max_overlay_fps 0                        // Uncaps overlay UI FPS
+panorama_max_fps 0                                // Uncaps UI FPS
+rate 786432                                       // Maximum network bandwidth
+cl_predict 1                                      // Enables client prediction
+cl_smooth 0                                       // Disables view smoothing to reduce input delay
+mat_colorcorrection 1                             // Enables color correction
+ 
+// -----------------------Testing-----------------------
+r_texture_budget_update_period 0.5            // Updates texture streaming budget more often to reduce asset-loading stutters
+r_particle_parallel_simulation 1             // Lets particle simulation run on multiple CPU threads for better 1% lows in heavy fights
+r_particle_batch_simulate 1                   // Batches particle simulation work for smoother frametimes and less CPU overhead
+threadpool_thread_limit 0                     // Allows the engine to use all available worker threads (helps most on 8+ core CPUs)
+engine_low_latency_sleep_after_client_tick 0  // Prevents extra engine sleep between frames for more consistent frametimes at the cost of slightly higher CPU usage
 
 
 		"rate"
