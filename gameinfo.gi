@@ -631,7 +631,6 @@ r_particle_cables_cast_shadows				"false"
 r_particle_cables_culling					"1"
 r_particle_cables_render					"false"
 
-
 // ================ Lod & Culling ================
 cl_enable_eye_occlusion                     "true"          // Enables lowering of quality of anything out of sight 			[def: "true"]
 skeleton_instance_lod_optimization          "1"         
