@@ -1,0 +1,1 @@
+Open the index.html with your browser of choice, customize however you like and click the green **Download gameinfo.gi** button
