@@ -571,7 +571,7 @@ r_size_cull_threshold                       "1.0"           // *Culls small obje
 r_citadel_clip_sphere_min_opacity           "0"             // Removes the blur from the pinhole camera                         [def: "40"]
 
 // ================= UI ================
-r_citadel_enable_pano_world_blur            "false"
+r_citadel_enable_pano_world_blur            "true"
 r_dashboard_render_quality                  "0"             // Sets dashboard/UI render quality (lower = cheaper UI rendering). [def: "1"]
 panorama_disable_box_shadow                 "1"             // Disables UI box shadows in the UI (less GPU/UI cost).            [def: "0"]
 panorama_disable_blur                       "1"             // Disables UI blur effects in the UI.                              [def: "0"]
