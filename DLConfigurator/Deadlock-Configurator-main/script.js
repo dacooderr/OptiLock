@@ -398,9 +398,9 @@ document.addEventListener('DOMContentLoaded', () => {
         "ukrainian" "3"
     }
     
-    FileSystem
-    {   
-        SearchPaths
+    // Deadlock Mod Manager - Start
+
+		SearchPaths
         {  
             Game_Language       citadel_*LANGUAGE*
             Game                citadel/addons
@@ -411,7 +411,7 @@ document.addEventListener('DOMContentLoaded', () => {
             Write               core
             Game                core        
         }
-    }
+// Deadlock Mod Manager - End
     
     MaterialSystem2
     {
