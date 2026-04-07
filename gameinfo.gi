@@ -641,7 +641,7 @@ cl_particle_sim_fallback_base_multiplier    "40"            // How aggressive th
 cl_particle_sim_fallback_threshold_ms       "0"             // Amount of simulation time that can elapse before new systems start falling back to cheaper versions [def: "6"] 
 r_particle_skip_postsim                     "1"          // Not entirely sure what it does, going off of the name I'd imagine it skips the post simulation, this is a testvar [def: "false"]
 r_particle_timescale                        "1.1"           // Speeds up particle simulation, thus making them end sooner, however this causes visual desyncs, most notably with big effects that last a while such as infernus ult. Please tweak this to what you are comfortable with. [def: "1"]
-cl_particle_batch_mode                      "2"             // Has a range of 1 or 2, 2 will make celeste's auto rebound look weird and 0 will make them not batch [def: "1"]
+cl_particle_batch_mode                      "1"             // Has a range of 1 or 2, 2 will make celeste's auto rebound look weird and 0 will make them not batch [def: "1"]
 r_draw_particle_children_with_parents       "0"             
 r_particle_max_texture_layers               "4"             // Anything below 4 will make infernus afterburn, paige fire, and drifter's passive look very weird and blocky [def: "-1"]
 r_particle_cables_cast_shadows				"false"
