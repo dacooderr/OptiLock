@@ -599,9 +599,10 @@ cloth_update								"1"
 r_render_hair								"0"
 
 // ================ VISUAL CLARITY ================
+r_texture_stream_mip_bias					"4"				// Effects Texture detail of most assets
 mat_colorcorrection                         "1"             // Disables/ Enables color correction (game looks less vibrant when off). [def: "1"]
 r_texture_budget_dynamic 					"true"
-r_drawdecals                                "0"             // *Render decals.                                              	[def: "1"]
+r_drawdecals                                "1"             // *Render decals.                                              	[def: "1"]
 r_decals                                    "1"             // Maximum number of decals allowed. (lower = fewer bullet holes/blood/impact marks). [def: "2048"]
 r_character_decal_resolution                "0.01"             // Resolution of character decal texture.                           [def: "1024"]
 r_depth_of_field                            "0"             // Disables depth of field.                                         [def: "1"]
