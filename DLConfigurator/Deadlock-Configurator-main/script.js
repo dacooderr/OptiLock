@@ -398,7 +398,9 @@ document.addEventListener('DOMContentLoaded', () => {
         "ukrainian" "3"
     }
     
-    // Deadlock Mod Manager - Start
+    FileSystem
+    {   
+        // Deadlock Mod Manager - Start
 
 		SearchPaths
         {  
@@ -411,7 +413,8 @@ document.addEventListener('DOMContentLoaded', () => {
             Write               core
             Game                core        
         }
-// Deadlock Mod Manager - End
+        // Deadlock Mod Manager - End
+    }
     
     MaterialSystem2
     {
