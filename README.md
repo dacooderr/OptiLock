@@ -12,9 +12,9 @@ You *MUST* install both or else you will have a very weird looking game.
 
 [*Your video.txt file should look like this, minus your resolution and refresh rate changes.*](https://ibb.co/NG5sZ9T) 
 
-**YOU MUST MAKE VIDEO.TXT READONLY AFTERWARDS OR THE GAME MAY RESET IT. THIS WILL ALSO CAUSE ANY CHANGES SET IN GAME NOT TO STICK AFTER RESTART SO YOU WILL HAVE TO SET THE CORRESPONDING COMMAND MANUALLY IN THE FILE YOURSELF.**
+**PLEASE MAKE SURE TO CAREFULLY READ THE INSTRUCTIONS IN OUR VIDEO.TXT**
 
-**IF YOU RAISE YOUR setting.r_texture_stream_mip_bias past 4, YOU WILL HAVE TO INSTALL THE SINNER'S LIGHT FIX MOD. THIS IS INCLUDED IN THE ESSENTIAL ADDONS FOLDER.**
+**IF YOU RAISE YOUR r_texture_stream_mip_bias past 4, YOU WILL HAVE TO INSTALL THE SINNER'S LIGHT FIX MOD. THIS IS INCLUDED IN THE ESSENTIAL ADDONS FOLDER.**
 
 ________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
