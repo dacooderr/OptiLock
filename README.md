@@ -1,4 +1,4 @@
-mastercomfig is coming to The Cursed Apple. Stay tuned.
+**mastercomfig is coming to The Cursed Apple. Stay tuned.**
 
 This modification is aimed at lowing the graphics settings as much as possible while keeping the <ins>competitive integrity</ins> for ranked play. It aims to update as *little as possible* and only when necessary. If you have any suggestions or concerns about this to help improve the config for this idea, please join the [OptiLock Discord](https://discord.gg/hkmmVHnVVT).
 
