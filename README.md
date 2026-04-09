@@ -97,6 +97,7 @@ ________________________________________________________________________________
 # Credits
 Major thanks to all of these individuals from the bottom of my heart. They are all lovely.
 - dacooder:      Config Creator
+- sqooky:        Original Config Creator
 - Artemon121:    Made the Citadel cvar unhider
 - simcasting: 	 Benchmarking
 - pidjan:        Gameinfo contribution
