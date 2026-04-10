@@ -1,5 +1,4 @@
-| COPY EVERYTHING UNDER THIS BOX - GO TO YOUR OWN VIDEO.TXT IN CFG - DELETE EVERYTHING AFTER DEVICEID - PASTE THE TEXT DIRECTLY UNDER DEVICEID (DO NOT REMOVE OR REPLACE ANYTHING ABOVE DEVICEID)  |
-|__________________________________________________________________________________________________________________________________________________________________________________________________|
+ **COPY EVERYTHING UNDER THIS TEXT STARTING WITH "setting.defaultres" - GO TO YOUR OWN VIDEO.TXT IN CFG - DELETE EVERYTHING **AFTER** DEVICEID - PASTE THE TEXT DIRECTLY UNDER DEVICEID (DO NOT REMOVE OR REPLACE ANYTHING ABOVE DEVICEID)**
 	"setting.defaultres"		"-1"
 	"setting.defaultresheight"		"-1"
 	"setting.recommendedheight"		"0"

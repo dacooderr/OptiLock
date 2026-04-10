@@ -7,16 +7,19 @@ This modification is aimed at lowing the graphics settings as much as possible w
 _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 # Base Instructions
-To install the performance config replace the gameinfo.gi with ours in ``steamapps/common/deadlock/game/citadel``.
-To change your video.txt follow the instructions in the provided video.txt file in this mod. Your video.txt file is located at ``steamapps/common/deadlock/game/citadel/cfg/video.txt``.
-You *MUST* install both or else you will have a very weird looking game.
-**There is a video tutorial** for installation avaliable [here](https://www.youtube.com/watch?v=XsycAaJlCRM).
+	Directions: 
+		1 Replace your gameinfo.gi entirely with this configs version at steamapps/common/deadlock/game/citadel
+		2 Open video.txt in OptiLock FPS Config folder and copy everything, open your own video.txt in your steamapps/common/deadlock/game/citadel/cfg/
+		3 Delete everything under DEVICEID. **DO NOT DELETE DEVICEID OR ANYTHING ABOVE, THIS WILL CAUSE A CRASH AND CHANGES TO RESET AND YOU WILL NEED TO TRY AGAIN FROM THE BEGINNING**
+		4 Paste what you copied **UNDER** DEVICEID.
+		5 Save and close. 
+		6 Enjoy :)
 
-[*Your video.txt file should look like this, minus your resolution and refresh rate changes.*](https://ibb.co/NG5sZ9T) 
+You *MUST* do both or else you will have a very weird looking game or you may **crash**.
 
-**PLEASE MAKE SURE TO CAREFULLY READ THE INSTRUCTIONS IN OUR VIDEO.TXT**
+[*Your video.txt file should look like this before game launch](https://imgur.com/a/3o2FJ1u) 
 
-**IF YOU RAISE YOUR r_texture_stream_mip_bias past 4, YOU WILL HAVE TO INSTALL THE SINNER'S LIGHT FIX MOD. THIS IS INCLUDED IN THE ESSENTIAL ADDONS FOLDER.**
+**IF YOU RAISE YOUR r_texture_stream_mip_bias past 4 IN GAMEINFO, YOU WILL HAVE TO INSTALL THE SINNER'S LIGHT FIX MOD. THIS IS INCLUDED IN THE ESSENTIAL ADDONS FOLDER.**
 
 ________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
