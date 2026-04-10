@@ -675,7 +675,7 @@
 
 // ================ TEXTURE STREAMING ================
 "r_texture_pool_size" "256"           // [ADJUST] VRAM usage in MB - Lower = less VRAM used, may cause texture pop-in | 512-1024 range
-"r_texture_stream_mip_bias" "4"         // [FPS IMPACT] Higher = blurrier textures, more FPS | 0=High quality | 2=Balanced | 4=Low quality
+"r_texture_stream_mip_bias" "8"         // [FPS IMPACT] Higher = blurrier textures, more FPS | 0=High quality | 2=Balanced | 4=Low quality
 "r_texture_lod_scale" "4"               // [FPS IMPACT] 0=High quality (sharp) | 2=Medium | 4=Low quality (blurry, max FPS)
 "r_fallback_texture_lod_scale" "4"
 "r_texture_budget_update_period" "0.5" // Faster texture streaming adjustment 0.05
