@@ -4,7 +4,7 @@ This modification is aimed at lowing the graphics settings as much as possible w
 
 **With the OptiLock config, you can potentially see a ~30% improvement in 1% lows and ~40% average FPS gain on most low to mid range systems.**
 
-_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 # Base Instructions
 	Directions: 
@@ -21,7 +21,7 @@ You *MUST* do both or else you will have a very weird looking game or you may **
 
 **IF YOU RAISE YOUR r_texture_stream_mip_bias past 4 IN GAMEINFO, YOU WILL HAVE TO INSTALL THE SINNER'S LIGHT FIX MOD. THIS IS INCLUDED IN THE ESSENTIAL ADDONS FOLDER.**
 
-________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 # Optional Optimizations
 
@@ -36,22 +36,21 @@ Using this in conjunction with everything can further improve 1% lows by giving 
 
 You can find a tutorial on how to utilize Process Lasso [here](https://www.youtube.com/watch?v=xXpnCqXxwz8).
 
-________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 # Pretty Important Announcement
 Valve has started restricting certain convars, as of late March. The config still works for now and Valve is aware of this config and is aware of the need for this. So only time will tell.
 
 # Table
 Here is a list of each config provided in this repository.
-| Config File                                                                                                                     | Purpose                                                                                                              |
-|---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| [OptiLock FPS Config](https://github.com/dacooderr/OptiLock/tree/main/OptiLock%20FPS%20Preset)                                         | Performance oriented config with the intent of competitive use.                                                           |
-| [OptiLock High-End PC Config](https://github.com/dacooderr/OptiLock/tree/main/OptiLock%20High-End%20Preset)                                       | Performance oriented config with the intent of use on Higer-End PCs.                                                      |
-| [kaizuchaneru's minimum spec](https://github.com/dacooderr/OptiLock/blob/main/kaizuchaneru's%20minimum%20spec/gameinfo.gi) | This config prioritizes fps above all else and dramatically reduces graphical quality. Recommended for bad puters      |
+| Config File                                                                                                                | Purpose                                                                                   |
+|----------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
+| [OptiLock FPS Config](https://github.com/dacooderr/OptiLock/tree/main/OptiLock%20FPS%20Preset)                             | Performance oriented config with the intent of competitive use.                           |
+| [OptiLock High-End PC Config](https://github.com/dacooderr/OptiLock/tree/main/OptiLock%20High-End%20Preset)                | Performance oriented config with the intent of use on Higer-End PCs.                      |
+| [kaizuchaneru's minimum spec](https://github.com/dacooderr/OptiLock/blob/main/kaizuchaneru's%20minimum%20spec/gameinfo.gi) | This config prioritizes fps above all else and dramatically reduces graphical quality.    |
+| [cvarlist.md](https://github.com/dacooderr/OptiLock/blob/main/cvarlist.md)                                                 | Every single convar in the game's code. Not a proper config but instead a reference.      |
 
-| [cvarlist.md](https://github.com/dacooderr/OptiLock/blob/main/cvarlist.md)                                                 | Every single convar in the game's code. Not a proper config but instead a reference.                                      |
-
-________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+_________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 # FAQ
 - "How do I find a value in the config"  
@@ -74,7 +73,7 @@ The gameinfo.gi gets overwritten every major update. You need to manually replac
 - "I can't see trooper healthbars and boxes past a certain distance"  
 ``r_size_cull_threshold "0.7"``  comment this out.  
 
-________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 # Mod Support
 Every variation of the config included in this repository has mod support added.
@@ -94,13 +93,13 @@ Every variation of the config included in this repository has mod support added.
 - [Daylock](https://gamebanana.com/mods/614857) by BreadRollius  |  Adds a bright starry skybox for visibility. Only install the pak file.
 - ['Fullbright' Mod](https://gamebanana.com/mods/664234) by Sadie Sinks Husband  |  A mod that removed all shading on textures and gives that "fullbright" look.
 
-________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 # Credits
 Major thanks to all of these individuals from the bottom of my heart. They are all lovely.
-- dacooder:      Config Creator
+- [dacooder](https://www.twitch.tv/dacoder_):      Config Creator
 - Artemon121:    Made the Citadel cvar unhider
-- simcasting: 	 Benchmarking
+- [simcasting](https://www.youtube.com/@GreatestToEverDoIt): 	 Benchmarking
 - pidjan:        Gameinfo contribution
-- Piggy:         Contributed the video.txt file
-- Tamara Mochaccina:       Contributed vindicta scope fix and the fog fix
+- [Piggy](https://www.twitch.tv/piggyxdd):         Contributed the video.txt file
+- Maidehnless:   Original OptimizationLock Creator
