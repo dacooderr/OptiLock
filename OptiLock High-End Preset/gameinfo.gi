@@ -506,7 +506,7 @@ r_aspectratio                             "2.15"          // 1.75=80fov | 2.15=9
 citadel_camera_hero_fov                     "100"           // The field of view angle of the camera when following a hero.     [def: "90"]
 
 // --- 3. HUD ---
-citadel_unit_status_use_new                 "1"             // This uses new Health Bar, to use old Health Bar change "true" to "false".    [def: "0"]
+citadel_unit_status_use_new                 "0"             // This uses new Health Bar, to use old Health Bar change "true" to "false".    [def: "0"]
 //citadel_unit_status_use_v2                "0"             // Set to 1 to enable the new health bar that allows you to  see enemy stamina. [def: "0"]
 //citadel_unit_status_use_v2_for_nonplayers "0"             // Set to 1 to enable the new health bar but for troopers, objs, and camps.     [def: "0"]
 citadel_hud_objective_health_enabled        "2"             // 0=Off, 1=Shrines, 2=T1/T2, 3=Barracks.                           [def: "2"]
@@ -603,7 +603,7 @@ phys_threaded_transform_update              "1"             //                  
 props_break_max_pieces_perframe             "1"             // Makes boxes break into a single pieces                           [def: "16"]
 
 // ================ VISUAL CLARITY ================
-r_texture_stream_mip_bias					"4"				// Effects Texture detail of most assets
+r_texture_stream_mip_bias					"1"				// Effects Texture detail of most assets
 mat_colorcorrection                         "1"             // Disables/ Enables color correction (game looks less vibrant when off). [def: "1"]
 r_texture_budget_dynamic 					"true"
 r_drawdecals                                "1"             // *Render decals.                                              	[def: "1"]
@@ -740,7 +740,7 @@ r_world_wind_strength						"0"
    // Artemon121      Made the Citadel cvar unhider, which helped Abdalla fetch cvars and test in-game      \\
   // Pidjan           Worked on further gameinfo changes and let us integrate                               \\
  // Piggy             Let me mirror his config                                                               \\
-// ----------------------------------------- END OF CONFIG OptiLock -- ver. 1 -------------------------------- \\
+// ----------------------------------------- END OF CONFIG OptiLock -- ver. 2 -------------------------------- \\
 
         "rate"
         {
