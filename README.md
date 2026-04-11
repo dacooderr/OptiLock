@@ -10,8 +10,8 @@ ________________________________________________________________________________
 	Directions: 
 		1 Replace your gameinfo.gi entirely with this configs version at steamapps/common/deadlock/game/citadel
 		2 Open video.txt in OptiLock FPS Config folder and copy everything, open your own video.txt in your steamapps/common/deadlock/game/citadel/cfg/
-		3 Delete everything under DEVICEID. **DO NOT DELETE DEVICEID OR ANYTHING ABOVE, THIS WILL CAUSE A CRASH AND CHANGES TO RESET AND YOU WILL NEED TO TRY AGAIN FROM THE BEGINNING**
-		4 Paste what you copied **UNDER** DEVICEID.
+		3 Delete everything under DEVICEID. DO NOT DELETE DEVICEID OR ANYTHING ABOVE, THIS WILL CAUSE A CRASH AND CHANGES TO RESET AND YOU WILL NEED TO TRY AGAIN FROM THE BEGINNING
+		4 Paste what you copied UNDER DEVICEID.
 		5 Save and close. 
 		6 Enjoy :)
 
@@ -46,7 +46,7 @@ Here is a list of each config provided in this repository.
 | Config File                                                                                                                     | Purpose                                                                                                              |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
 | [OptiLock FPS Config](https://github.com/dacooderr/OptiLock/tree/main/OptiLock%20FPS%20Preset)                                         | Performance oriented config with the intent of competitive use.                                                           |
-| [High-End PC Config](https://github.com/dacooderr/OptiLock/tree/main/OptiLock%20High-End%20Preset)                                       | Performance oriented config with the intent of use on Higer-End PCs.                                                      |
+| [OptiLock High-End PC Config](https://github.com/dacooderr/OptiLock/tree/main/OptiLock%20High-End%20Preset)                                       | Performance oriented config with the intent of use on Higer-End PCs.                                                      |
 | [kaizuchaneru's minimum spec](https://github.com/dacooderr/OptiLock/blob/main/kaizuchaneru's%20minimum%20spec/gameinfo.gi) | This config prioritizes fps above all else and dramatically reduces graphical quality. Recommended for bad puters      |
 
 | [cvarlist.md](https://github.com/dacooderr/OptiLock/blob/main/cvarlist.md)                                                 | Every single convar in the game's code. Not a proper config but instead a reference.                                      |
