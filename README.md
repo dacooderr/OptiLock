@@ -10,14 +10,14 @@ ________________________________________________________________________________
 	Directions: 
 		1 Replace your gameinfo.gi entirely with this configs version at steamapps/common/deadlock/game/citadel
 		2 Open video.txt in OptiLock FPS Config folder and copy everything, open your own video.txt in your steamapps/common/deadlock/game/citadel/cfg/
-		3 Delete everything under DEVICEID. **DO NOT DELETE DEVICEID OR ANYTHING ABOVE, THIS WILL CAUSE A CRASH AND CHANGES TO RESET AND YOU WILL NEED TO TRY AGAIN FROM THE BEGINNING**
-		4 Paste what you copied **UNDER** DEVICEID.
+		3 Delete everything under DEVICEID. DO NOT DELETE DEVICEID OR ANYTHING ABOVE, THIS WILL CAUSE A CRASH AND CHANGES TO RESET AND YOU WILL NEED TO TRY AGAIN FROM THE BEGINNING
+		4 Paste what you copied UNDER DEVICEID.
 		5 Save and close. 
 		6 Enjoy :)
 
 You *MUST* do both or else you will have a very weird looking game or you may **crash**.
 
-[*Your video.txt file should look like this before game launch](https://imgur.com/a/3o2FJ1u) 
+*[Your video.txt file should look like this before game launch](https://imgur.com/a/3o2FJ1u)*
 
 **IF YOU RAISE YOUR r_texture_stream_mip_bias past 4 IN GAMEINFO, YOU WILL HAVE TO INSTALL THE SINNER'S LIGHT FIX MOD. THIS IS INCLUDED IN THE ESSENTIAL ADDONS FOLDER.**
 
@@ -45,11 +45,10 @@ Valve has started restricting certain convars, as of late March. The config stil
 Here is a list of each config provided in this repository.
 | Config File                                                                                                                     | Purpose                                                                                                              |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| [OptiLock FPS Config](https://github.com/dacooderr/OptiLock/blob/main/gameinfo.gi)                                         | Performance oriented config with the intent of competitive use.                                                           |
-| [Deadlock Configurator](https://dacooderr.github.io/Deadlock-Configurator/)                                                | Customize your config to your liking minus engine and particle related optimizations. (Experimental)                      |
-| [High-End PC Config](https://github.com/dacooderr/OptiLock/tree/main/High-End%20PCs)                                       | Performance oriented config with the intent of use on Higer-End PCs.                                                      |
-| [kaizuchaneru's minimum spec](https://github.com/dacooderr/OptiLock/blob/main/kaizuchaneru's%20minimum%20spec/gameinfo.gi) | This config prioritizes fps above all else and dramatically reduces graphical quality. Recommended for bad computers      |
-| [Piggy's gameinfo.gi](https://github.com/dacooderr/OptiLock/tree/main/piggy's%20config)                                    | Base optimizations but is here for if you want to use his config                                                          |
+| [OptiLock FPS Config](https://github.com/dacooderr/OptiLock/tree/main/OptiLock%20FPS%20Preset)                                         | Performance oriented config with the intent of competitive use.                                                           |
+| [OptiLock High-End PC Config](https://github.com/dacooderr/OptiLock/tree/main/OptiLock%20High-End%20Preset)                                       | Performance oriented config with the intent of use on Higer-End PCs.                                                      |
+| [kaizuchaneru's minimum spec](https://github.com/dacooderr/OptiLock/blob/main/kaizuchaneru's%20minimum%20spec/gameinfo.gi) | This config prioritizes fps above all else and dramatically reduces graphical quality. Recommended for bad puters      |
+
 | [cvarlist.md](https://github.com/dacooderr/OptiLock/blob/main/cvarlist.md)                                                 | Every single convar in the game's code. Not a proper config but instead a reference.                                      |
 
 ________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
