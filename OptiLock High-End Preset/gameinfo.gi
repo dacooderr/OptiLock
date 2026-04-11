@@ -676,8 +676,6 @@ sc_aggregate_bvh_threshold                  "16"            // Lower BVH thresho
 sc_layer_batch_threshold                    "16"            // Lower batch threshold                                            [default: "128"]
 sc_layer_batch_threshold_fullsort           "20"            //                                                                  [def: "80"]
 sv_remove_ent_from_pvs                      "1"             // Culls objects (creeps, boxes, objects) outside of view           [def: "0"]
-r_farz                                      "14000"          // Override the far clipping plane                                  [def: "-1"]
-r_mapextents                                "10000"
 citadel_use_pvs_for_players                 "true"          // Default culls players when out of view                           [def: "false"]
 sv_waterdist								"0"
 lb_ssss_samples								"0"
