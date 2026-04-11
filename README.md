@@ -97,9 +97,9 @@ ________________________________________________________________________________
 
 # Credits
 Major thanks to all of these individuals from the bottom of my heart. They are all lovely.
-- dacooder:      Config Creator
+- [dacooder](https://www.twitch.tv/dacoder_):      Config Creator
 - Artemon121:    Made the Citadel cvar unhider
-- simcasting: 	 Benchmarking
+- [simcasting](https://www.youtube.com/@GreatestToEverDoIt): 	 Benchmarking
 - pidjan:        Gameinfo contribution
-- Piggy:         Contributed the video.txt file
+- [Piggy](https://www.twitch.tv/piggyxdd):         Contributed the video.txt file
 - Maidehnless:   Original OptimizationLock Creator
