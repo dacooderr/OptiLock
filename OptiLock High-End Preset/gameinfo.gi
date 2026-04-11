@@ -603,8 +603,7 @@ phys_threaded_transform_update              "1"             //                  
 props_break_max_pieces_perframe             "1"             // Makes boxes break into a single pieces                           [def: "16"]
 
 // ================ VISUAL CLARITY ================
-r_texture_stream_mip_bias					"1"				// Effects Texture detail of most assets
-mat_colorcorrection                         "1"             // Disables/ Enables color correction (game looks less vibrant when off). [def: "1"]
+mat_colorcorrection                         "0"             // Disables/ Enables color correction (game looks less vibrant when off). [def: "1"]
 r_texture_budget_dynamic 					"true"
 r_drawdecals                                "1"             // *Render decals.                                              	[def: "1"]
 r_decals                                    "1"             // Maximum number of decals allowed. (lower = fewer bullet holes/blood/impact marks). [def: "2048"]
@@ -722,7 +721,7 @@ r_grass_start_fade                          "0"             // When to cull gras
 r_grass_end_fade                            "0"             // When to cull grass when far                                      [def: "300"]
 
 // ================ Test Group 4 ================
-r_texturefilteringquality                   "0"             // Texture filtering, has very low fps impact. 0: Bilinear, 1: Trilinear, 2: Aniso 2x, 3: Aniso 4x, 4: Aniso 8x, 5: Aniso 16x
+r_texturefilteringquality                   "3"             // Texture filtering, has very low fps impact. 0: Bilinear, 1: Trilinear, 2: Aniso 2x, 3: Aniso 4x, 4: Aniso 8x, 5: Aniso 16x
 r_renderdoc_auto_shader_pdbs                "false"         // Automatically generate shader debug info on capture. [def: "true"]
 r_texture_budget_update_period				"0.5"
 r_particle_parallel_simulation				"1"
