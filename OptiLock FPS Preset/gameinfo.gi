@@ -479,7 +479,7 @@
     ConVars
     {    
 
-// ---------------------- GAMEINFO CONFIG OptiLock -- ver. 1  ------------------------ \\
+       // ---------------------- OptiLock -- ver. 2.1  ------------------------ \\
             // Check here for updates: https://gamebanana.com/mods/656341 \\
            //Downloaded from: https://github.com/dacooderr/OptimizationLock\\
           // In-Depth Tutorial: https://www.youtube.com/watch?v=ZKyJP3u-Y60 \\
@@ -740,7 +740,7 @@ r_directional_lightmaps						"false"
    // Artemon121       Made the Citadel cvar unhider														  \\
   // Pidjan            Worked on further gameinfo changes and let us integrate                                 \\
  // Piggy              Video.txt contributer and cool streamer guy                                              \\
-// ----------------------------------------- END OF CONFIG OptiLock -- ver. 1 ---------------------------------- \\
+// ----------------------------------------- END OF CONFIG OptiLock -- ver. 2.1 -------------------------------- \\
 
         "rate"
         {
