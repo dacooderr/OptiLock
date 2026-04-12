@@ -580,9 +580,10 @@ panorama_use_new_occlusion_invalidation     "1"
 panorama_temp_comp_layer_min_dimension      "128"
 
 // ================ RAGDOLLS ================
-cl_ragdoll_limit 							"0"				// Limits number of ragdolls active at once.
+g_ragdoll_fadespeed							"1"
+cl_ragdoll_limit 							"1"				// Limits number of ragdolls active at once.
 ragdoll_parallel_pose_control               "1"             // Multithreaded ragdoll handling, better performance (if ragdolls aren't disabled). [def: "0"]
-cl_disable_ragdolls                         "1"             // Keep set to 0 - enabling this (disabling ragdolls) can cause issue with doorman's ultimate. [def: "0"]
+cl_disable_ragdolls                         "0"             // Keep set to 0 - enabling this (disabling ragdolls) can cause issue with doorman's ultimate. [def: "0"]
 
 // ================ MODELS ================
 enable_boneflex                             "0"             // Disables bone flexes (procedural facial/mesh flex drivers).      [def: "1"]
@@ -600,7 +601,7 @@ r_render_hair								"0"
 
 // ================ VISUAL CLARITY ================
 r_texture_stream_mip_bias					"4"				// Effects Texture detail of most assets
-mat_colorcorrection                         "1"             // Disables/ Enables color correction (game looks less vibrant when off). [def: "1"]
+mat_colorcorrection                         "0"             // Disables/ Enables color correction (game looks less vibrant when off). [def: "1"]
 r_texture_budget_dynamic 					"true"
 r_drawdecals                                "1"             // *Render decals.                                              	[def: "1"]
 r_decals                                    "1"             // Maximum number of decals allowed. (lower = fewer bullet holes/blood/impact marks). [def: "2048"]
@@ -729,7 +730,6 @@ r_particle_batch_simulate					"1"
 threadpool_thread_limit						"0"
 r_world_wind_strength						"0"
 fs_async_threads							"-1"
-r_directional_lightmaps						"false"
 
 
         //CREDITS																				         \\
