@@ -479,14 +479,14 @@
     ConVars
     {    
 
-// ---------------------- GAMEINFO CONFIG OptiLock -- ver. 1  ------------------------ \\
+       // ---------------------- OptiLock -- ver. 2.1  ------------------------ \\
             // Check here for updates: https://gamebanana.com/mods/656341 \\
            //Downloaded from: https://github.com/dacooderr/OptimizationLock\\
           // In-Depth Tutorial: https://www.youtube.com/watch?v=ZKyJP3u-Y60 \\
 		 //	      	   Discord: https://discord.gg/vKT2myYC2R				 \\
-		 
-		//      If you would like to donate as a means of showing thanks  \\
-	   //               https://streamlabs.com/dacoder_/tip                \\
+	    //																	  \\
+	   //       If you would like to donate as a means of showing thanks       \\
+	  //               https://streamlabs.com/dacoder_/tip                      \\
 
 
 // Press ctrl+f and type * to highlight the more visually impactful commands that you could adjust
@@ -730,14 +730,15 @@ threadpool_thread_limit						"0"
 r_world_wind_strength						"0"
 
 
-       //CREDITS
-      // dacooder     Creator, responsible for tutorial and documentation            \\
-     // Brullee       Removed fake cvars, redundant commands, added cvarlist.md, and reformatted config   \\
-    // Kaizuchaneru   While not directly invovled in the deveopment, they tested most cvars                \\
-   // Artemon121      Made the Citadel cvar unhider, which helped Abdalla fetch cvars and test in-game      \\
-  // Pidjan           Worked on further gameinfo changes and let us integrate                               \\
- // Piggy             Let me mirror his config                                                               \\
-// ----------------------------------------- END OF CONFIG OptiLock -- ver. 2 -------------------------------- \\
+        //CREDITS																				         \\
+       // dacooder     OptiLock Creator            													      \\
+	  // Xeraa		   Helped fix a major issue with console spam and fps drops late game				   \\
+     // Kaizuchaneru   Kaiz config             														        \\
+	// simcasting 	   Benchmarking																		     \\
+   // Artemon121       Made the Citadel cvar unhider														  \\
+  // Pidjan            Worked on further gameinfo changes and let us integrate                                 \\
+ // Piggy              Video.txt contributer and cool streamer guy                                              \\
+// ----------------------------------------- END OF CONFIG OptiLock -- ver. 2.1 -------------------------------- \\
 
         "rate"
         {
