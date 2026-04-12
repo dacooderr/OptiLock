@@ -1,4 +1,3 @@
-**mastercomfig is coming to The Cursed Apple. Stay tuned.**
 
 This modification is aimed at lowing the graphics settings as much as possible while keeping the <ins>competitive integrity</ins> for ranked play. It aims to update as *little as possible* and only when necessary. If you have any suggestions or concerns about this to help improve the config for this idea, please join the [OptiLock Discord](https://discord.gg/hkmmVHnVVT).
 
@@ -22,6 +21,8 @@ You *MUST* do both or else you will have a very weird looking game or you may **
 **IF YOU RAISE YOUR r_texture_stream_mip_bias past 4 IN GAMEINFO, YOU WILL HAVE TO INSTALL THE SINNER'S LIGHT FIX MOD. THIS IS INCLUDED IN THE ESSENTIAL ADDONS FOLDER.**
 
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________
+# Linking to upstream
+This config is a fork of Sqooky's config which can be found [here](https://github.com/Sqooky/OptimizationLock). 
 
 # Optional Optimizations
 
@@ -39,7 +40,7 @@ You can find a tutorial on how to utilize Process Lasso [here](https://www.youtu
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 # Pretty Important Announcement
-Valve has started restricting certain convars, as of late March. The config still works for now and Valve is aware of this config and is aware of the need for this. So only time will tell.
+Valve has started restricting certain convars, as of late March. They have stated that the general assumption is they will restrict access to all convars. 
 
 # Table
 Here is a list of each config provided in this repository.
@@ -75,6 +76,7 @@ The gameinfo.gi gets overwritten every major update. You need to manually replac
 
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
+
 # Mod Support
 Every variation of the config included in this repository has mod support added.
 
@@ -95,11 +97,18 @@ Every variation of the config included in this repository has mod support added.
 
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
+
+
 # Credits
 Major thanks to all of these individuals from the bottom of my heart. They are all lovely.
+- [Sqooky](https://ko-fi.com/sqooky): Original config creator and documentor of the majority of included convars.
+- Brullee:          Removed fake cvars, redundant commands, added cvarlist.md, and reformatted config  
+- [Kaizuchanru](https://www.twitch.tv/kaizuchaneru): Contributed the low end preset
 - [dacooder](https://www.twitch.tv/dacoder_):      Config Creator
 - Artemon121:    Made the Citadel cvar unhider
 - [simcasting](https://www.youtube.com/@GreatestToEverDoIt): 	 Benchmarking
 - pidjan:        Gameinfo contribution
 - [Piggy](https://www.twitch.tv/piggyxdd):         Contributed the video.txt file
+- Jayie:                Made the optimized soul container model.
+- Soyer: Made the black skybox mod
 - Maidehnless:   Original OptimizationLock Creator
