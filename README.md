@@ -103,4 +103,3 @@ Major thanks to all of these individuals from the bottom of my heart. They are a
 - [simcasting](https://www.youtube.com/@GreatestToEverDoIt): 	 Benchmarking
 - pidjan:        Gameinfo contribution
 - [Piggy](https://www.twitch.tv/piggyxdd):         Contributed the video.txt file
-- Maidehnless:   Original OptimizationLock Creator
