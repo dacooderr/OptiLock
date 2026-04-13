@@ -1,9 +1,3 @@
-**Fuck sqooky**
-
-**Fuck Maidehnless**
-
-**Fuck GameBanana**
-
 Google Doc:
 https://docs.google.com/document/d/1ztkHI9JWHz000e22hjlIAe8boiqOzOGV6XokKB6gfCs/edit?tab=t.0
 
