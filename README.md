@@ -1,8 +1,4 @@
-**Fuck sqooky**
-
-**Fuck Maidehnless**
-
-**Fuck GameBanana**
+**OptiLock FPS CONFIG BANNED IN 100 COUNTRIES VERY LUCRATIVE**
 
 Google Doc:
 https://docs.google.com/document/d/1ztkHI9JWHz000e22hjlIAe8boiqOzOGV6XokKB6gfCs/edit?tab=t.0
@@ -109,4 +105,3 @@ Major thanks to all of these individuals from the bottom of my heart. They are a
 - [simcasting](https://www.youtube.com/@GreatestToEverDoIt): 	 Benchmarking
 - pidjan:        Gameinfo contribution
 - [Piggy](https://www.twitch.tv/piggyxdd):         Contributed the video.txt file
-- Maidehnless:   Original OptimizationLock Creator
