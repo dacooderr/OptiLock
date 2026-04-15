@@ -77,8 +77,7 @@ The gameinfo.gi gets overwritten every major update. You need to manually replac
 You may have to completely delete and reinstall the game by uninstalling and making sure there are no leftover files from previous configs.
 
 - "This and that is missing"
-
-No
+	No
 
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
