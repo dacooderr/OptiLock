@@ -68,7 +68,7 @@ to comment out a line put ``//`` at the front of the line. It will disable the c
 - "How do I change my fov"
 ``r_aspectratio``
 ``citadel_camera_hero_fov``
- + Adjust these two values to your liking.  
+ 	+ Adjust these two values to your liking.  
 
 - "The config broke this patch"  
 The gameinfo.gi gets overwritten every major update. You need to manually replace it again.
@@ -77,6 +77,7 @@ The gameinfo.gi gets overwritten every major update. You need to manually replac
 You may have to completely delete and reinstall the game by uninstalling and making sure there are no leftover files from previous configs.
 
 - "This and that is missing"
+
 No
 
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________
