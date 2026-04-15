@@ -668,7 +668,7 @@ sc_instanced_mesh_lod_bias                  "15"          // Bias for LOD select
 sc_instanced_mesh_lod_bias_shadow           "0.10"          // Bias for LOD selection of instanced meshes in shadowmaps         [def: "1.75"]
 sc_instanced_mesh_motion_vectors            "0"             // Set 1 if you use motion blur                                     [def: "1"]
 sc_instanced_mesh_size_cull_bias_shadow     "10"            // Bias for size culling instanced meshes in shadowmaps             [def: "2"]
-sc_fade_distance_scale_override             "100"           // Distance objects fade in and out                                 [def: "-1"]
+sc_fade_distance_scale_override             "0"           // Distance objects fade in and out                                 [def: "-1"]
 sc_clutter_enable                           "0"             // No debris/props 1=Props visible                                  [def: "true"]
 sc_aggregate_bvh_threshold                  "16"            // Lower BVH threshold                                              [def: "128"]
 sc_layer_batch_threshold                    "16"            // Lower batch threshold                                            [default: "128"]
