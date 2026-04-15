@@ -498,8 +498,8 @@ citadel_damage_offscreen_indicator_disabled "true"         // The little trooper
 citadel_boss_glow_disabled                  "1"             // Disables boss and walker glow/highlight effect.                  [def: "0]
 citadel_player_glow_disabled                "0"             // Disables player glow/highlight effect when pinged.               [def: "0"]
 r_citadel_npr_outlines_max_dist             "600"             // Limits outline distance to reduce unnecessary processing.        [def: "1000"]
-r_citadel_selection_outline2_alpha          "0.2"           // Outlines on enemy players and abilities on a scale of 0-1.       [def: "0.8"]
-r_citadel_npr_outlines                      "false"         // Enable outlines on enemy players.                                [def: "true"]
+r_citadel_selection_outline2_alpha          "0.8"           // Outlines on enemy players and abilities on a scale of 0-1.       [def: "0.8"]
+r_citadel_npr_outlines                      "true"         // Enable outlines on enemy players.                                [def: "true"]
 r_citadel_npr_force_solid_outline 			"false"			// Not sure what it does but it seems to cause issues with skin modifications. Set to true if seeing black hero bug with mods.			[def: "false"]
 r_citadel_outlines							"1" 			// Enables enemy outlines for better visibility.
 
@@ -511,7 +511,7 @@ citadel_camera_hero_fov                     "100"           // The field of view
 citadel_unit_status_use_new					"0"
 citadel_hideout_ball_show_juggle_count      "1"             // Shows a fun juggle count minigame for hideout ball.              [def: "0"]
 citadel_hideout_ball_show_juggle_fx         "1"             // Shows juggle visual FX for hideout ball minigame.                [def: "0"]
-citadel_crosshair_hit_marker_duration       "0.0001"        // Removes the hitmarker when shooting people.                  [def: "0.1"]
+//citadel_crosshair_hit_marker_duration       "0.1"        // Removes the hitmarker when shooting people.                  [def: "0.1"]
 
 // --- 4. Lighting & Shadows ---
 lb_enable_stationary_lights                 "0"             // *Disables stationary lights (map looks flatter but more performant).         [def: "1"]
@@ -613,7 +613,7 @@ cl_show_splashes                            "0"             // Disables splash e
 sc_clutter_enable                           "0"             // Disables clutter props, improves visibility & FPS.               [def: "true"]
 volume_fog_intermediate_textures_hdr        "false"
 r_drawtracers 								"1"
-r_drawtracers_firstperson 					"0"
+r_drawtracers_firstperson 					"1"
 violence_ablood 							"0"             // Disables alien/other blood effects. [def: "1"]
 violence_agibs 								"0"             // Disables alien/other gibs. [def: "1"]
 r_fallback_texture_lod_scale				"4"
