@@ -77,8 +77,6 @@ The gameinfo.gi gets overwritten every major update. You need to manually replac
 
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
-# Mod Support
-Every variation of the config included in this repository has mod support added.
 
 ## Useful Mods to Improve Gameplay and Awareness
 
