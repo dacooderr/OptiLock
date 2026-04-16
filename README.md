@@ -77,6 +77,7 @@ The gameinfo.gi gets overwritten every major update. You need to manually replac
 You may have to completely delete and reinstall the game by uninstalling and making sure there are no leftover files from previous configs.
 
 - "This and that is missing"
+
 	No
 
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________
@@ -101,7 +102,7 @@ ________________________________________________________________________________
 
 # Credits
 Major thanks to all of these individuals from the bottom of my heart. They are all lovely.
-- [dacooder](https://www.twitch.tv/dacoder_):      Config Creator
+- [dacooder](https://www.twitch.tv/dacooderr):      Config Creator
 - Artemon121:    Made the Citadel cvar unhider
 - [simcasting](https://www.youtube.com/@GreatestToEverDoIt): 	 Benchmarking
 - pidjan:        Gameinfo contribution
