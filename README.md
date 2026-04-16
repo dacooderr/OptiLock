@@ -55,30 +55,33 @@ Here is a list of each config provided in this repository.
 _________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 # FAQ
-- "How do I find a value in the config"  
-Press ctrl+f in your text editor and type in the string you want.  
-- "How do I restore a value to default"  
-Comment it out.  
-- "What does commenting mean"  
-to comment a line put ``//`` at the front of the line. It will make it not executed by the config.  
-- "Why are my characters dark in the portraits on the end screen and shop"  
-``r_directlighting`` set it to ``true``.   
-- "How do I change my fov"
 
-  ``r_aspectratio``
-  ``citadel_camera_hero_fov``
-    + Adjust these two values to your liking.  
+- "How do I find a value in the config"  
+Press ctrl+f in your text editor and type in the command you want to change.  
+
+- "How do I restore a value to default"  
+Removing the command entirely is the easiest way
+
+- "What does commenting out mean"  
+to comment out a line put ``//`` at the front of the line. It will disable the command.  
+
+- "How do I change my fov"
+``r_aspectratio``
+``citadel_camera_hero_fov``
+ 	+ Adjust these two values to your liking.  
 
 - "The config broke this patch"  
-The gameinfo.gi gets overwritten every major update. You need to manually replace it again.  
+The gameinfo.gi gets overwritten every major update. You need to manually replace it again.
 
-- "I can't see trooper healthbars and boxes past a certain distance"  
-``r_size_cull_threshold "0.7"``  comment this out.  
+- "My game is crashing"
+You may have to completely delete and reinstall the game by uninstalling and making sure there are no leftover files from previous configs.
+
+- "This and that is missing"
+
+	No
 
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
-# Mod Support
-Every variation of the config included in this repository has mod support added.
 
 ## Useful Mods to Improve Gameplay and Awareness
 
@@ -99,7 +102,7 @@ ________________________________________________________________________________
 
 # Credits
 Major thanks to all of these individuals from the bottom of my heart. They are all lovely.
-- [dacooder](https://www.twitch.tv/dacoder_):      Config Creator
+- [dacooder](https://www.twitch.tv/dacooderr):      Config Creator
 - Artemon121:    Made the Citadel cvar unhider
 - [simcasting](https://www.youtube.com/@GreatestToEverDoIt): 	 Benchmarking
 - pidjan:        Gameinfo contribution
