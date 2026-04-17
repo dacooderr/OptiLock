@@ -411,7 +411,7 @@
         DefaultShadowTextureHeight 0
         DynamicShadowResolution 0
 
-        TransformTextureRowCount    1024
+        TransformTextureRowCount    512
         TransformTextureRowCountToolsMode 6144
         SunLightMaxCascadeSize        0
         SunLightShadowRenderMode    Depth
@@ -512,6 +512,12 @@ citadel_hideout_ball_show_juggle_fx         "1"             // Shows juggle visu
 
 // --- 4. Lighting & Shadows ---
 sc_disable_baked_lighting					"true"
+lb_allow_time_sliced_shadow_map_rendering	"false"
+lb_dynamic_shadow_penumbra					"true"
+lb_dynamic_shadow_resolution				"true"
+lb_dynamic_shadow_resolution_base			"32"
+lb_dynamic_shadow_resolution_base_cmp_shadowmapsize	"true"
+lb_dynamic_shadow_resolution_quantization	"32"
 r_citadel_shadow_quality                    "0"             
 r_citadel_gpu_culling_shadows               "1"            
 csm_max_shadow_dist_override                "1"             
@@ -519,14 +525,15 @@ lb_barnlight_shadowmap_scale                "0.1"
 lb_csm_cascade_size_override                "0.25"            
 lb_csm_override_staticgeo_cascades          "0"             
 lb_csm_override_staticgeo_cascades_value    "0"            
-lb_sun_csm_size_cull_threshold_texels       "30"           
-lb_dynamic_shadow_resolution_base           "32"                                  
+lb_sun_csm_size_cull_threshold_texels       "30"                                            
 sparseshadowtree_enable_rendering           "0"             
-sparseshadowtree_disable_for_viewmodel      "1"             
+sparseshadowtree_disable_for_viewmodel      "1"  
+lb_enable_lights							"false" 
+lb_enable_newsum							"false"          
 cl_globallight_shadow_mode                  "0"                                                                   
 lb_csm_draw_alpha_tested                    "0"             
 lb_csm_draw_translucent                     "0"             
-lb_enable_shadow_casting                    "0"             
+lb_enable_shadow_casting                    "false"             
 mat_async_shader_load                       "1"            
 r_citadel_sun_shadow_slope_scale_depth_bias "0.5"                                                                  
 cl_retire_low_priority_lights               "1"             
@@ -569,8 +576,7 @@ cl_ragdoll_limit 							"1"				// Limits number of ragdolls active at once.
 ragdoll_parallel_pose_control               "1"             // Multithreaded ragdoll handling, better performance (if ragdolls aren't disabled). [def: "0"]
 cl_disable_ragdolls                         "0"             // Keep set to 0 - enabling this (disabling ragdolls) can cause issue with doorman's ultimate. [def: "0"]
 
-// ================ MODELS ================
-enable_boneflex                             "1"             
+// ================ MODELS ================             
 r_hair_ao                                   "false"            
 ik_final_fixup_enable                       "0"         
 ik_fabrik_align_chain                       "0"             
@@ -582,7 +588,8 @@ props_break_max_pieces_perframe             "0.5"
 cloth_update								"1"
 
 // ================ TEXTURES & VISUAL CLARITY ================
-r_texture_stream_mip_bias					"6"				// Effects Texture detail of most assets (1-8)
+citadel_video_preset						"0"
+r_texture_stream_mip_bias					"4"				// Effects Texture detail of most assets (1-8)
 r_texturefilteringquality                   "0"             // Texture filtering, has very low fps impact. 0: Bilinear, 1: Trilinear, 2: Aniso 2x, 3: Aniso 4x, 4: Aniso 8x, 5: Aniso 16x
 mat_colorcorrection                         "false"             
 r_texture_budget_dynamic 					"true"
@@ -610,7 +617,8 @@ cl_input_enable_raw_keyboard                "1"
 m_rawinput									"1"
 
 // ================ PARTICLES ================
-cl_particle_max_count                       "0"            
+cl_particle_max_count                       "0" 
+cl_particle_newinit							"true"           
 r_particle_max_size_cull                    "600"          
 r_particle_max_detail_level                 "0"             
 particle_cluster_nodraw                     "1"             
@@ -668,7 +676,9 @@ zipline_use_new_latch						"0"
 animgraph_enable_parallel_preupdate 		"1"             
 animgraph_enable_parallel_op_evaluation 	"1"             
 r_citadel_distancefield_farfield_enable 	"0"
-engine_low_latency_sleep_after_client_tick  "true"           
+engine_low_latency_sleep_after_client_tick  "true"
+engine_allow_multiple_simulates_per_frame	"true"  
+engine_accurate_input_processing_delta_time	"true"         
 cl_bone_cache_optimization					"1"
 cl_interp_parallel							"1"
 cl_batch_entity_list_ops_during_latch		"1"
