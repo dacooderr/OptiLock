@@ -56,5 +56,5 @@
 	"setting.coop_fullscreen"		"0"
 	"setting.r_light_sensitivity_mode"		"false"
 	"setting.refreshrate_denominator"		"0"
-	"setting.r_texture_stream_mip_bias"		"4"
+	"setting.r_texture_stream_mip_bias"		"1"
 }

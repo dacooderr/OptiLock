@@ -479,7 +479,7 @@
     ConVars
     {    
 
-       // ---------------------- OptiLock -- ver. 1  ------------------------ \\
+       // ---------------------- OptiLock -- ver. 1.02  ---------------------- \\
             //   Mod Page: https://deadlocker.net/mod/mod_1776212037617   \\
            //    Downloaded from: https://github.com/dacooderr/OptiLock    \\
           //     Tutorial: https://www.youtube.com/watch?v=JBB-dmaNxOE&     \\
@@ -589,7 +589,7 @@ cloth_update								"1"
 
 // ================ TEXTURES & VISUAL CLARITY ================
 citadel_video_preset						"0"
-r_texture_stream_mip_bias					"4"				// Effects Texture detail of most assets (1-8)
+r_texture_stream_mip_bias					"4"				// Must be adjusted in Video.txt instead (Roblox Graphics)
 r_texturefilteringquality                   "0"             // Texture filtering, has very low fps impact. 0: Bilinear, 1: Trilinear, 2: Aniso 2x, 3: Aniso 4x, 4: Aniso 8x, 5: Aniso 16x
 mat_colorcorrection                         "false"             
 r_texture_budget_dynamic 					"true"
@@ -728,7 +728,7 @@ fs_async_threads							"-1"
    // Artemon121       Made the Citadel cvar unhider														  \\
   // Pidjan            Worked on further gameinfo changes and let us integrate                                 \\
  // Piggy              Video.txt contributer and cool streamer guy                                              \\
-// ----------------------------------------- END OF CONFIG OptiLock -- ver. 1 ---------------------------------- \\
+// ----------------------------------------- END OF CONFIG OptiLock -- ver. 1.02 ------------------------------- \\
 
         "rate"
         {
