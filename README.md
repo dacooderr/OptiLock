@@ -104,6 +104,7 @@ ________________________________________________________________________________
 Major thanks to all of these individuals from the bottom of my heart. They are all lovely.
 - [dacooder](https://www.twitch.tv/dacooderr):      Config Creator
 - Artemon121:    Made the Citadel cvar unhider
+- boot:		Made potato config
 - [simcasting](https://www.youtube.com/@GreatestToEverDoIt): 	 Benchmarking
 - pidjan:        Gameinfo contribution
 - [Piggy](https://www.twitch.tv/piggyxdd):         Contributed the video.txt file
