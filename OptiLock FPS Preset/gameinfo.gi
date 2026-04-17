@@ -723,7 +723,7 @@ fs_async_threads							"-1"
         //CREDITS																				         \\
        // dacooder     OptiLock Creator            													      \\
 	  // Xeraa		   Helped fix a major issue with console spam and fps drops late game				   \\
-     // Kaizuchaneru   Kaiz config             														        \\
+     // Boot		   Potato Config             														    \\
 	// simcasting 	   Benchmarking																		     \\
    // Artemon121       Made the Citadel cvar unhider														  \\
   // Pidjan            Worked on further gameinfo changes and let us integrate                                 \\
