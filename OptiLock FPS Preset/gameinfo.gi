@@ -582,7 +582,7 @@ props_break_max_pieces_perframe             "0.5"
 cloth_update								"1"
 
 // ================ TEXTURES & VISUAL CLARITY ================
-r_texture_stream_mip_bias					"6"				// Effects Texture detail of most assets (1-8)
+r_texture_stream_mip_bias					"4"				// Effects Texture detail of most assets (1-8)
 r_texturefilteringquality                   "0"             // Texture filtering, has very low fps impact. 0: Bilinear, 1: Trilinear, 2: Aniso 2x, 3: Aniso 4x, 4: Aniso 8x, 5: Aniso 16x
 mat_colorcorrection                         "false"             
 r_texture_budget_dynamic 					"true"
