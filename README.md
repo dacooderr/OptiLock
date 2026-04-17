@@ -21,7 +21,7 @@ You *MUST* do both or else you will have a very weird looking game or you may **
 
 *[Your video.txt file should look like this before game launch](https://imgur.com/a/3o2FJ1u)*
 
-**IF YOU RAISE YOUR r_texture_stream_mip_bias past 4 IN GAMEINFO, YOU WILL HAVE TO INSTALL THE SINNER'S LIGHT FIX MOD. THIS IS INCLUDED IN THE ESSENTIAL ADDONS FOLDER.**
+**IF YOU RAISE YOUR setting.r_texture_stream_mip_bias past 4 IN VIDEO.TXT, YOU WILL HAVE TO INSTALL THE SINNER'S LIGHT FIX MOD. THIS IS INCLUDED IN THE ESSENTIAL ADDONS FOLDER.**
 
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
