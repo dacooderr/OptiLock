@@ -591,7 +591,7 @@ cloth_update								"1"
 citadel_video_preset						"0"
 r_texture_stream_mip_bias					"4"				// Must be adjusted in Video.txt instead (Roblox Graphics)
 r_texturefilteringquality                   "0"             // Texture filtering, has very low fps impact. 0: Bilinear, 1: Trilinear, 2: Aniso 2x, 3: Aniso 4x, 4: Aniso 8x, 5: Aniso 16x
-mat_colorcorrection                         "false"             
+mat_colorcorrection                         "true"             
 r_texture_budget_dynamic 					"true"
 r_drawdecals                                "true"            
 r_decals                                    "true"             
