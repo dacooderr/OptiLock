@@ -72,6 +72,7 @@
         // Search paths are relative to the exe directory\..\
         //
     
+
 // Deadlock Mod Manager - Start
 
 		SearchPaths
@@ -528,7 +529,7 @@ lb_csm_override_staticgeo_cascades_value    "0"
 lb_sun_csm_size_cull_threshold_texels       "30"                                            
 sparseshadowtree_enable_rendering           "0"             
 sparseshadowtree_disable_for_viewmodel      "1"  
-lb_enable_lights							"true" 
+lb_enable_lights							"false" 
 lb_enable_newsum							"false"          
 cl_globallight_shadow_mode                  "0"                                                                   
 lb_csm_draw_alpha_tested                    "0"             
