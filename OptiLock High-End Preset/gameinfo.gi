@@ -558,7 +558,7 @@ cloth_update								"1"
 citadel_video_preset						"0"
 r_texture_stream_mip_bias					"1"				// Must be adjusted in Video.txt instead (Roblox Graphics)
 r_texturefilteringquality                   "0"             // Texture filtering, has very low fps impact. 0: Bilinear, 1: Trilinear, 2: Aniso 2x, 3: Aniso 4x, 4: Aniso 8x, 5: Aniso 16x
-mat_colorcorrection                         "false"             
+mat_colorcorrection                         "true"             
 r_texture_budget_dynamic 					"true"
 r_drawdecals                                "true"            
 r_decals                                    "true"             
@@ -693,7 +693,7 @@ fs_async_threads							"-1"
    // Artemon121       Made the Citadel cvar unhider														  \\
   // Pidjan            Worked on further gameinfo changes and let us integrate                                 \\
  // Piggy              Video.txt contributer and cool streamer guy                                              \\
-// ----------------------------------------- END OF CONFIG OptiLock -- ver. 1.02 ------------------------------- \\
+// ----------------------------------------- END OF CONFIG OptiLock -- ver. 1.03 ------------------------------- \\
 
         "rate"
         {
