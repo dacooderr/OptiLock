@@ -728,7 +728,7 @@ fs_async_threads							"-1"
    // Artemon121       Made the Citadel cvar unhider														  \\
   // Pidjan            Worked on further gameinfo changes and let us integrate                                 \\
  // Piggy              Video.txt contributer and cool streamer guy                                              \\
-// ----------------------------------------- END OF CONFIG OptiLock -- ver. 1.02 ------------------------------- \\
+// ----------------------------------------- END OF CONFIG OptiLock -- ver. 1.03 ------------------------------- \\
 
         "rate"
         {
