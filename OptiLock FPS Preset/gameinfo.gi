@@ -480,7 +480,7 @@
     ConVars
     {    
 
-       // ---------------------- OptiLock -- ver. 1.04  ---------------------- \\
+       // ---------------------- OptiLock -- ver. 1.1  ---------------------- \\
             //   Mod Page: https://deadlocker.net/mod/mod_1776212037617   \\
            //    Downloaded from: https://github.com/dacooderr/OptiLock    \\
           //     Tutorial: https://www.youtube.com/watch?v=JBB-dmaNxOE&     \\
@@ -729,7 +729,7 @@ fs_async_threads							"-1"
    // Artemon121       Made the Citadel cvar unhider														  \\
   // Pidjan            Worked on further gameinfo changes and let us integrate                                 \\
  // Piggy              Video.txt contributer and cool streamer guy                                              \\
-// ----------------------------------------- END OF CONFIG OptiLock -- ver. 1.04 ------------------------------- \\
+// ----------------------------------------- END OF CONFIG OptiLock -- ver. 1.1 -------------------------------  \\
 
         "rate"
         {
