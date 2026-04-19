@@ -20,7 +20,7 @@
 	"setting.r_citadel_fsr_rcas_sharpness"		"0.000000"
 	"setting.r_citadel_fsr2_sharpness"		"0.000000"
 	"setting.r_effects_bloom"		"false"
-	"setting.r_post_bloom"		"true"
+	"setting.r_post_bloom"		"false"
 	"setting.r_depth_of_field"		"false"
 	"setting.r_citadel_motion_blur"		"0"
 	"setting.r_reduce_flash"		"1"
