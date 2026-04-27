@@ -86,7 +86,6 @@ ________________________________________________________________________________
 ## Useful Mods to Improve Gameplay and Awareness
 
 - [Top Bar Plus](https://gamebanana.com/mods/623518) by bonclide  |  Adds essential timers and indicators to the top of your screen for increased awareness.
-- [Better Map](https://gamebanana.com/mods/664456) by gfkm  |  Allows you to customize your minimap to your liking.
 - [QOLLock (4:3 Fix+More)](https://gamebanana.com/mods/648388) by civo  |  Fixes hud issues caused by 4:3 stretched res.
 - [Always Show Passive Items and Actives Icons](https://gamebanana.com/mods/601444) by Hanturaya  |  Always shows cooldowns on passives and actives.
 - [Mid/Bridge Buff/Neutrals Timer](https://gamebanana.com/mods/606414) by Hanturaya  |  Adds timers for Mid and Bridge without the need for Top Bar.
