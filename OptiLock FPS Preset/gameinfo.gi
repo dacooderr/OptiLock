@@ -480,14 +480,14 @@
     ConVars
     {    
 
-       // ---------------------- OptiLock -- ver. 1.1  ---------------------- \\
+       // ---------------------- OptiLock -- ver. 1.2  ---------------------- \\
             //   Mod Page: https://deadlocker.net/mod/mod_1776212037617   \\
            //    Downloaded from: https://github.com/dacooderr/OptiLock    \\
           //     Tutorial: https://www.youtube.com/watch?v=JBB-dmaNxOE&     \\
 		 //	      	   Discord: https://discord.gg/UxjsJB5Rp5				 \\
 	    //																	  \\
 	   //       If you would like to donate as a means of showing thanks       \\
-	  //               https://streamlabs.com/dacoder_/tip                      \\
+	  //               https://streamlabs.com/dacooderr/tip                     \\
 
 
 // Press ctrl+f and type * to highlight the more visually impactful commands that you could adjust
@@ -529,7 +529,7 @@ lb_csm_override_staticgeo_cascades_value    "0"
 lb_sun_csm_size_cull_threshold_texels       "30"                                            
 sparseshadowtree_enable_rendering           "0"             
 sparseshadowtree_disable_for_viewmodel      "1"  
-lb_enable_lights							"false" 
+lb_enable_lights							"true" 
 lb_enable_newsum							"false"          
 cl_globallight_shadow_mode                  "0"                                                                   
 lb_csm_draw_alpha_tested                    "0"             
@@ -560,7 +560,7 @@ r_draw3dskybox                              "0"             //  Enables drawing 
 r_size_cull_threshold                       "1.0"        
 
 // --- 8. Camera Tweaks ---
-r_citadel_clip_sphere_min_opacity           "0"            
+r_citadel_clip_sphere_min_opacity           "0"             // Removes the blur from the pinhole camera                         [def: "40"]
 
 // ================= UI ================
 r_citadel_enable_pano_world_blur            "true"
@@ -729,7 +729,7 @@ fs_async_threads							"-1"
    // Artemon121       Made the Citadel cvar unhider														  \\
   // Pidjan            Worked on further gameinfo changes and let us integrate                                 \\
  // Piggy              Video.txt contributer and cool streamer guy                                              \\
-// ----------------------------------------- END OF CONFIG OptiLock -- ver. 1.1 -------------------------------  \\
+// ----------------------------------------- END OF CONFIG OptiLock -- ver. 1.2 -------------------------------  \\
 
         "rate"
         {

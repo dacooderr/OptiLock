@@ -72,9 +72,10 @@
         // Search paths are relative to the exe directory\..\
         //
     
+
 // Deadlock Mod Manager - Start
 
-        SearchPaths
+		SearchPaths
         {  
             Game_Language       citadel_*LANGUAGE*
             Game                citadel/addons
@@ -111,20 +112,20 @@
         "DefaultShader" "environment_texture_set"
     }
 
-    NetworkSystem
-    {
-        BetaUniverse
-        {
-            FakeLag         40
-            FakeLoss        .1
-            //FakeReorderPct 0.05
-            //FakeReorderDelay 10
-            //FakeJitter "low"
-            // Turning off fake jitter for now while I work on making the CQ totally solid
-            FakeReorderPct 0
-            FakeReorderDelay 0
-            FakeJitter "off"
-        }
+	NetworkSystem
+	{
+		BetaUniverse
+		{
+			FakeLag			0
+			FakeLoss		0
+			//FakeReorderPct 0.05
+			//FakeReorderDelay 10
+			//FakeJitter "low"
+			// Turning off fake jitter for now while I work on making the CQ totally solid
+			FakeReorderPct 0
+			FakeReorderDelay 0
+			FakeJitter "off"
+		}
 
         "SkipRedundantChangeCallbacks"  "1"
     }
@@ -167,7 +168,7 @@
         RenderingPipeline
         {
             SupportsMSAA 0
-            DistanceField 1
+            DistanceField 0
         }
         PauseSinglePlayerOnGameOverlay 1
         DefensiveConCommands 1
@@ -259,7 +260,7 @@
         // steps. Additionally this controls which builders are displayed in the hammer build dialog.
         DefaultMapBuilders
         {
-            "bakedlighting" "1" // Enable lightmapping during compile time      
+            "bakedlighting" "0" // Enable lightmapping during compile time      
             "envmap"    "0" // turned off since it currently causes an assert and doesn't work due to some build issue
             "nav"       "1" // Generate nav mesh data
         }
@@ -292,10 +293,10 @@
         BakedLighting
         {
             Version 4
-            ImportanceVolumeTransitionRegion 512            // distance we transition from high to low resolution charts 
+            ImportanceVolumeTransitionRegion 256            // distance we transition from high to low resolution charts 
             LightmapChannels
             {
-                direct_light_shadows 1
+                direct_light_shadows 0
                 debug_chart_color 1
                 directional_irradiance_sh2_dc 1
                 
@@ -314,7 +315,7 @@
                     CompressedFormat DXT1
                 }
             }
-            LightmapGutterSize 2 // For bicubic filtering
+            LightmapGutterSize 0 // For bicubic filtering
             UseStaticLightProbes 0
             LPVAtlas 1
             BC6HHueShiftFixup 0 // Causes more artifacts than it solves atm
@@ -383,8 +384,8 @@
     WorldRenderer
     {
         EnvironmentMaps                 1
-        EnvironmentMapFaceSize          256
-        EnvironmentMapRenderSize        1024
+        EnvironmentMapFaceSize          128
+        EnvironmentMapRenderSize        512
         EnvironmentMapFormat            BC6H
         EnvironmentMapPreviewFormat         BC6H
         EnvironmentMapColorSpace        linear
@@ -393,7 +394,7 @@
         "EnvironmentMapUseCubeArray"    1
         "EnvironmentMapCacheSizeTools"  300
         BindlessSceneObjectDesc         CitadelBindlessDesc
-        GrassCastsShadows               1
+        GrassCastsShadows               0
     }
 
     SceneSystem
@@ -403,7 +404,7 @@
         FogCachedShadowAtlasWidth 0
         FogCachedShadowAtlasHeight 0
         FogCachedShadowTileSize 0
-        GpuLightBinnerSunLightFastPath 1
+        GpuLightBinnerSunLightFastPath 0
         CSMCascadeResolution 0
         SunLightManagerCount 0
         SunLightManagerCountTools 0
@@ -411,9 +412,9 @@
         DefaultShadowTextureHeight 0
         DynamicShadowResolution 0
 
-        TransformTextureRowCount    1024
+        TransformTextureRowCount    512
         TransformTextureRowCountToolsMode 6144
-        SunLightMaxCascadeSize        4
+        SunLightMaxCascadeSize        0
         SunLightShadowRenderMode    Depth
         LayerBatchThresholdFullsort 20
         NonTexturedGradientFog        0
@@ -479,14 +480,14 @@
     ConVars
     {    
 
-       // ---------------------- OptiLock -- ver. 1.1  ---------------------- \\
+       // ---------------------- OptiLock -- ver. 1.2  ---------------------- \\
             //   Mod Page: https://deadlocker.net/mod/mod_1776212037617   \\
            //    Downloaded from: https://github.com/dacooderr/OptiLock    \\
           //     Tutorial: https://www.youtube.com/watch?v=JBB-dmaNxOE&     \\
 		 //	      	   Discord: https://discord.gg/UxjsJB5Rp5				 \\
 	    //																	  \\
 	   //       If you would like to donate as a means of showing thanks       \\
-	  //               https://streamlabs.com/dacoder_/tip                      \\
+	  //               https://streamlabs.com/dacooderr/tip                     \\
 
 
 // Press ctrl+f and type * to highlight the more visually impactful commands that you could adjust
@@ -524,9 +525,6 @@ panorama_max_overlay_fps                    "30"            // Uncaps UI overlay
 
 // --- 8. Camera Tweaks ---
 r_citadel_clip_sphere_min_opacity           "0"             // Removes the blur from the pinhole camera                         [def: "40"]
-//r_citadel_clip_sphere_skin                "0.01"          //                                                                  [def: "0.01"]
-//r_citadel_clip_sphere_cone_angle          "360"           //                                                                  [def: "40"]
-//r_citadel_clip_sphere_distance_max        "100"           //                                                                  [def: "75"]
 
 // ================= UI ================
 r_citadel_enable_pano_world_blur            "true"
@@ -693,7 +691,7 @@ fs_async_threads							"-1"
    // Artemon121       Made the Citadel cvar unhider														  \\
   // Pidjan            Worked on further gameinfo changes and let us integrate                                 \\
  // Piggy              Video.txt contributer and cool streamer guy                                              \\
-// ----------------------------------------- END OF CONFIG OptiLock -- ver. 1.1 -------------------------------  \\
+// ----------------------------------------- END OF CONFIG OptiLock -- ver. 1.2 -------------------------------  \\
 
         "rate"
         {
@@ -764,9 +762,8 @@ fs_async_threads							"-1"
         "cl_async_usercmd_send_disabled_recvmargin_min" "0.5"   // Additional frame since we do not use the async usercmd send (potentially unneccessary)
         "cl_clock_buffer_ticks" "1"
         "cl_interp_ratio" "0"
-        "cl_async_usercmd_send" "true"
 
-        "fps_max"       "400"
+        "fps_max"       "0"
         "fps_max_ui"    "120"
 
         "in_button_double_press_window" "0.3"
