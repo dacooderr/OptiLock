@@ -503,7 +503,7 @@ r_citadel_selection_outline2_alpha          "0.2"           // Outlines on enemy
 r_citadel_npr_outlines                      "false"         // Enable outlines on enemy players.                                [def: "true"]
 
 // --- 2. Field of View ---
-r_aspectratio                             "2.15"          // 1.75=80fov | 2.15=90fov | 2.49=100fov (every .15 interval = 5 fov).      [def: "0"]
+r_aspectratio                               "2.00"          // 1.75=80fov | 2.15=90fov | 2.49=100fov (every .15 interval = 5 fov).      [def: "0"]
 citadel_camera_hero_fov                     "100"           // The field of view angle of the camera when following a hero.     [def: "90"]
 
 // --- 3. HUD ---

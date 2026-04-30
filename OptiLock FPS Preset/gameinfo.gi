@@ -502,7 +502,7 @@ r_citadel_npr_outlines                      "true"         // Enable outlines on
 r_citadel_outlines							"1" 			// Enables enemy outlines for better visibility.
 
 // --- 2. Field of View ---
-r_aspectratio                             	"2.15"          // 1.75=80fov | 2.15=90fov | 2.49=100fov (every .15 interval = 5 fov).      [def: "0"]
+r_aspectratio                             	"2.00"          // 1.75=80fov | 2.15=90fov | 2.49=100fov (every .15 interval = 5 fov).      [def: "0"]
 citadel_camera_hero_fov                     "100"           // The field of view angle of the camera when following a hero.     [def: "90"]
 
 // --- 3. Crosshair/Hud ---
@@ -529,7 +529,7 @@ lb_csm_override_staticgeo_cascades_value    "0"
 lb_sun_csm_size_cull_threshold_texels       "30"                                            
 sparseshadowtree_enable_rendering           "0"             
 sparseshadowtree_disable_for_viewmodel      "1"  
-lb_enable_lights							"true" 
+lb_enable_lights							"false" 
 lb_enable_newsum							"false"          
 cl_globallight_shadow_mode                  "0"                                                                   
 lb_csm_draw_alpha_tested                    "0"             
