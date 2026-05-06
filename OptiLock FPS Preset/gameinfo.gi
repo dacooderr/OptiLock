@@ -514,6 +514,9 @@ citadel_hideout_ball_show_juggle_fx         "1"             // Shows juggle visu
 // --- 4. Lighting & Shadows ---
 sc_disable_baked_lighting					"true"
 lb_allow_time_sliced_shadow_map_rendering	"false"
+lb_enable_shadow_casting                    "false"
+lb_enable_dynamic_lights					"false"  
+lb_enable_stationary_lights					"false"
 lb_dynamic_shadow_penumbra					"true"
 lb_dynamic_shadow_resolution				"true"
 lb_dynamic_shadow_resolution_base			"32"
