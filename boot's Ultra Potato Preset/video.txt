@@ -1,6 +1,10 @@
- **COPY EVERYTHING UNDER THIS TEXT STARTING WITH "setting.cpu_level" - GO TO YOUR OWN VIDEO.TXT IN CFG - DELETE EVERYTHING **AFTER** DEVICEID - PASTE THE TEXT DIRECTLY UNDER DEVICEID (DO NOT REMOVE OR REPLACE ANYTHING ABOVE DEVICEID)**
-	"setting.defaultres"		"-1"
-	"setting.defaultresheight"		"-1"
+"video.cfg"
+{
+	"Version"		"20"
+	"VendorID"		"4098"
+	"DeviceID"		"29663"
+	"setting.defaultres"		"2560"
+	"setting.defaultresheight"		"1440"
 	"setting.recommendedheight"		"0"
 	"setting.refreshrate_numerator"		"0"
 	"setting.fullscreen"		"0"
