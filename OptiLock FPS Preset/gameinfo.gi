@@ -480,7 +480,7 @@
     ConVars
     {    
 
-       // ---------------------- OptiLock -- ver. 1.4  ---------------------- \\
+       // ---------------------- OptiLock -- ver. 1.5  ---------------------- \\
             //   Mod Page: https://deadlocker.net/mod/mod_1776212037617   \\
            //    Downloaded from: https://github.com/dacooderr/OptiLock    \\
           //     Tutorial: https://www.youtube.com/watch?v=JBB-dmaNxOE&     \\
@@ -502,7 +502,7 @@ r_citadel_npr_outlines                      "true"         // Enable outlines on
 r_citadel_outlines							"1" 			// Enables enemy outlines for better visibility.
 
 // --- 2. Field of View ---
-r_aspectratio                             	"2.00"          // 1.75=80fov | 2.15=90fov | 2.49=100fov (every .15 interval = 5 fov).      [def: "0"]
+r_aspectratio                             	"2.00"          // 1.75=80fov | 2.15=90fov | 2.49=100fov      [def: "0"]
 citadel_camera_hero_fov                     "100"           // The field of view angle of the camera when following a hero.     [def: "90"]
 
 // --- 3. Crosshair/Hud ---
@@ -515,13 +515,13 @@ citadel_hideout_ball_show_juggle_fx         "1"             // Shows juggle visu
 sc_disable_baked_lighting					"true"
 lb_allow_time_sliced_shadow_map_rendering	"false"
 lb_enable_shadow_casting                    "false"
-lb_enable_dynamic_lights					"false"  
+lb_enable_dynamic_lights					"false"  		// Must be used in conjunction with lb_enable_lights for Hero Sillohouttes. (Will cause performance drop)
 lb_enable_stationary_lights					"false"
 lb_dynamic_shadow_penumbra					"true"
 lb_dynamic_shadow_resolution				"true"
-lb_dynamic_shadow_resolution_base			"32"
+lb_dynamic_shadow_resolution_base			"1"
 lb_dynamic_shadow_resolution_base_cmp_shadowmapsize	"true"
-lb_dynamic_shadow_resolution_quantization	"32"
+lb_dynamic_shadow_resolution_quantization	"1"
 r_citadel_shadow_quality                    "0"             
 r_citadel_gpu_culling_shadows               "1"            
 csm_max_shadow_dist_override                "1"             
@@ -532,12 +532,20 @@ lb_csm_override_staticgeo_cascades_value    "0"
 lb_sun_csm_size_cull_threshold_texels       "30"                                            
 sparseshadowtree_enable_rendering           "0"             
 sparseshadowtree_disable_for_viewmodel      "1"  
-lb_enable_lights							"false" 
+lb_enable_lights							"false" 		// Enables lights across the game. Must be used in conjunction with lb_enable_dynamic_lights for Hero Sillohouttes. (Will cause performance drop)
 lb_enable_newsum							"false"          
 cl_globallight_shadow_mode                  "0"                                                                   
 lb_csm_draw_alpha_tested                    "0"             
-lb_csm_draw_translucent                     "0"             
-lb_enable_shadow_casting                    "false"             
+lb_csm_draw_translucent                     "0"   
+lb_mixed_shadows							"false"      
+lb_precomputed_shadowmap_enable				"true"
+lb_precomputed_shadowmap_depth_bias			"1"
+lb_shadow_texture_height_override			"1"
+lb_shadow_texture_width_override			"1"
+lb_timesliced_shadows_dynamic_size			"true"
+mat_depthbias_shadowmap						"0.00000001"
+mat_slopescaledepthbias_shadowmap			"1"
+r_citadel_distancefield_shadows				"false"
 mat_async_shader_load                       "1"            
 r_citadel_sun_shadow_slope_scale_depth_bias "0.5"                                                                  
 cl_retire_low_priority_lights               "1"             
@@ -555,12 +563,17 @@ mat_set_shader_quality                      "0"
 r_distancefield_enable                      "false"            
 r_citadel_distancefield_farfield_enable     "false"                           
 csm_viewmodel_shadows						"false"
+r_citadel_gpu_preview_baked_shadows			"false"
+r_citadel_shadowdb							"512"
+r_citadel_sun_shadow_slope_scale_depth_bias	"512"
+r_hair_shadowtile							"false"
+r_mixed_shadows_fade_out_time				"0.0001"
 
 // --- 5. Skybox Rendering ---
 r_draw3dskybox                              "0"             //  Enables drawing the 3D skybox layer (distant geometry).         [def: "1"]
 
 // --- 7. Object Culling ---
-r_size_cull_threshold                       "1.0"        
+r_size_cull_threshold                       "0.8"        
 
 // --- 8. Camera Tweaks ---
 r_citadel_clip_sphere_min_opacity           "0"             // Removes the blur from the pinhole camera                         [def: "40"]
@@ -575,7 +588,6 @@ panorama_use_new_occlusion_invalidation     "1"
 panorama_temp_comp_layer_min_dimension      "128"
 
 // ================ RAGDOLLS ================
-g_ragdoll_fadespeed							"1"
 cl_ragdoll_limit 							"1"				// Limits number of ragdolls active at once.
 ragdoll_parallel_pose_control               "1"             // Multithreaded ragdoll handling, better performance (if ragdolls aren't disabled). [def: "0"]
 cl_disable_ragdolls                         "0"             // Keep set to 0 - enabling this (disabling ragdolls) can cause issue with doorman's ultimate. [def: "0"]
@@ -599,7 +611,7 @@ mat_colorcorrection                         "true"
 r_texture_budget_dynamic 					"true"
 r_drawdecals                                "true"            
 r_decals                                    "true"             
-r_character_decal_resolution                "0.01"             
+r_character_decal_resolution                "124"             
 r_depth_of_field                            "false"             
 r_effects_bloom                             "false"             
 r_post_bloom                                "false"          
@@ -615,6 +627,8 @@ r_texture_stream_max_resolution				"64"
 r_citadel_depthoffield_enable				"false"
 r_citadel_distancefield_blur				"false"
 r_texture_budget_threshold					"0.5"
+citadel_in_world_item_panel_dpi				"1"
+r_texture_hookup_uses_threadpool			"true"
 
 // ================ INPUT ================
 cl_input_enable_raw_keyboard                "1"             
@@ -636,7 +650,7 @@ r_particle_skip_postsim                     "true"
 r_particle_timescale                        "1.1"           
 cl_particle_batch_mode                      "1"             
 r_draw_particle_children_with_parents       "false"             
-r_particle_max_texture_layers               "4"             
+r_particle_max_texture_layers               "3"             
 r_particle_cables_cast_shadows				"false"
 r_particle_cables_culling					"1"
 r_particle_cables_render					"false"
@@ -672,6 +686,7 @@ r_aoproxy_cull_dist							"0.01"
 r_aoproxy_min_dist							"9999"
 r_character_decal_monitor_render_res		"128"
 r_haircull_percent							"100"
+r_citadel_gpu_culling_shadows				"true"
 
 // ================ Misc ================
 r_low_latency                               "1"             
@@ -732,7 +747,7 @@ fs_async_threads							"-1"
    // Artemon121       Made the Citadel cvar unhider														  \\
   // Pidjan            Worked on further gameinfo changes and let us integrate                                 \\
  // Piggy              Video.txt contributer and cool streamer guy                                              \\
-// ----------------------------------------- END OF CONFIG OptiLock -- ver. 1.4 -------------------------------  \\
+// ----------------------------------------- END OF CONFIG OptiLock -- ver. 1.5 -------------------------------  \\
 
         "rate"
         {
