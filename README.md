@@ -4,7 +4,7 @@ This modification is aimed at lowing the graphics settings as much as possible w
 
 **With the OptiLock config, you can potentially see a ~30% improvement in 1% lows and ~40% average FPS gain on most low to mid range systems.**
 
-**[GameBanana Mod Page]**(https://gamebanana.com/mods/678180)
+[GameBanana Mod Page](https://gamebanana.com/mods/678180)
 
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
