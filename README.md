@@ -1,4 +1,4 @@
-This modification is aimed at lowing the graphics settings as much as possible while keeping the <ins>competitive integrity</ins> for ranked play. It aims to update as *little as possible* and only when necessary.
+This modification is aimed at lowing the graphics settings as much as possible while keeping the <ins>competitive integrity</ins> for ranked play. It includes a modded PAK file that contains performance mods and essential fixes for better config support.
 
 **If you need any help please join the [OptiLock Discord](https://discord.gg/UxjsJB5Rp5) and/or watch the [Video Tutorial](https://www.youtube.com/watch?v=JBB-dmaNxOE)**
 
@@ -60,19 +60,17 @@ Press ctrl+f in your text editor and type in the command you want to change.
 - "How do I restore a value to default"  
 Removing the command entirely is the easiest way
 
-- "What does commenting out mean"  
-to comment out a line put ``//`` at the front of the line. It will disable the command.  
-
 - "How do I change my fov"
 ``r_aspectratio``
 ``citadel_camera_hero_fov``
  	+ Adjust these two values to your liking.  
 
 - "The config broke this patch"  
-The gameinfo.gi gets overwritten every major update. You need to manually replace it again.
+The gameinfo.gi gets overwritten in some patches, even small ones. You need to manually replace it again.
 
 - "My game is crashing"
-You may have to completely delete and reinstall the game by uninstalling and making sure there are no leftover files from previous configs.
+You may have to completely delete and reinstall the game by uninstalling and making sure there are no leftover files from previous configs or mods. (some mods replace original files and cause files to persist when doing a simple Steam Uninstall.
+Make sure to delete the Deadlock file **ENTIRELY** [Example](https://media.discordapp.net/attachments/1494139617090469980/1494139617249726535/delete.jpg?ex=6a1052b4&is=6a0f0134&hm=0fda70acb60a96ed746ed56c0817f357298c2fbec4b05b678b6cab25e54f09dc&=&format=webp)
 
 - "This and that is missing"
 
