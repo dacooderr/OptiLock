@@ -1,8 +1,10 @@
 This modification is aimed at lowing the graphics settings as much as possible while keeping the <ins>competitive integrity</ins> for ranked play. It includes a modded PAK file that contains performance mods and essential fixes for better config support.
 
-**If you need any help please join the [OptiLock Discord](https://discord.gg/UxjsJB5Rp5) and/or watch the [Video Tutorial](https://www.youtube.com/watch?v=JBB-dmaNxOE)**
+**If you need any help please join the [OptiLock Discord](https://discord.gg/UxjsJB5Rp5) and/or watch the [Video Tutorial.](https://www.youtube.com/watch?v=JBB-dmaNxOE)**
 
 **With the OptiLock config, you can potentially see a ~30% improvement in 1% lows and ~40% average FPS gain on most low to mid range systems.**
+
+**[GameBanana Mod Page]**(https://gamebanana.com/mods/678180)
 
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
@@ -47,7 +49,7 @@ Here is a list of each config provided in this repository.
 |----------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
 | [OptiLock FPS Config](https://github.com/dacooderr/OptiLock/tree/main/OptiLock%20FPS%20Preset)                             | Performance oriented config with the intent of competitive use.                           |
 | [OptiLock High-End PC Config](https://github.com/dacooderr/OptiLock/tree/main/OptiLock%20High-End%20Preset)                | Performance oriented config with the intent of use on Higer-End PCs.                      |
-| [kaizuchaneru's minimum spec](https://github.com/dacooderr/OptiLock/blob/main/kaizuchaneru's%20minimum%20spec/gameinfo.gi) | This config prioritizes fps above all else and dramatically reduces graphical quality.    |
+| [boots Potato Config](https://github.com/dacooderr/OptiLock/tree/main/boot's%20Ultra%20Potato%20Preset) | This config prioritizes fps above all else and dramatically reduces graphical quality.    |
 | [cvarlist.md](https://github.com/dacooderr/OptiLock/blob/main/cvarlist.md)                                                 | Every single convar in the game's code. Not a proper config but instead a reference.      |
 
 _________________________________________________________________________________________________________________________________________________________________________________________________________________________
@@ -73,8 +75,7 @@ You may have to completely delete and reinstall the game by uninstalling and mak
 Make sure to delete the Deadlock file **ENTIRELY.** - [Example](https://media.discordapp.net/attachments/1494139617090469980/1494139617249726535/delete.jpg?ex=6a1052b4&is=6a0f0134&hm=0fda70acb60a96ed746ed56c0817f357298c2fbec4b05b678b6cab25e54f09dc&=&format=webp)
 
 - "This and that is missing"
-
-	No
+	+ No
 
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
@@ -82,7 +83,6 @@ ________________________________________________________________________________
 ## Useful Mods to Improve Gameplay and Awareness
 
 - [Top Bar Plus](https://gamebanana.com/mods/623518) by bonclide  |  Adds essential timers and indicators to the top of your screen for increased awareness.
-- [QOLLock (4:3 Fix+More)](https://gamebanana.com/mods/648388) by civo  |  Fixes hud issues caused by 4:3 stretched res.
 - [Always Show Passive Items and Actives Icons](https://gamebanana.com/mods/601444) by Hanturaya  |  Always shows cooldowns on passives and actives.
 - [Mid/Bridge Buff/Neutrals Timer](https://gamebanana.com/mods/606414) by Hanturaya  |  Adds timers for Mid and Bridge without the need for Top Bar.
 - [See Friends Rank, Stats and See Account ID](https://gamebanana.com/mods/602711) by Hanturaya  |  See friends ranks and stats.
@@ -90,7 +90,7 @@ ________________________________________________________________________________
 - [Smart Cooldown Tracker](https://gamebanana.com/mods/654373) by iAfar  |  Adds tracking of your skill charges near the crosshair and a quick reminder over the crosshair when your skill is ready for use.
 - [Enhanced QuickBuy](https://gamebanana.com/mods/664041) by Aminsx  |  Custom quickbuy indicator with soul calculations.
 - [Clean Damage Indicator](https://gamebanana.com/mods/655927) by lustie_  |  Makes the damage number indictor smaller and higher above the thing receiving damage.
-- [Daylock](https://gamebanana.com/mods/614857) by BreadRollius  |  Adds a bright starry skybox for visibility. Only install the pak file.
+- [Daylock](https://gamebanana.com/mods/614857) by BreadRollius  |  Adds a bright starry skybox for visibility. Only install the pak file. (I just really like the look lol)
 - ['Fullbright' Mod](https://gamebanana.com/mods/664234) by Sadie Sinks Husband  |  A mod that removed all shading on textures and gives that "fullbright" look.
 
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________
@@ -102,4 +102,4 @@ Major thanks to all of these individuals from the bottom of my heart. They are a
 - boot:		Made potato config
 - [simcasting](https://www.youtube.com/@GreatestToEverDoIt): 	 Benchmarking
 - pidjan:        Gameinfo contribution
-- [Piggy](https://www.twitch.tv/piggyxdd):         Contributed the video.txt file
+- [Piggy](https://www.twitch.tv/piggyxdd):         Contributed the original now retired video.txt file
