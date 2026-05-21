@@ -70,7 +70,7 @@ The gameinfo.gi gets overwritten in some patches, even small ones. You need to m
 
 - "My game is crashing"
 You may have to completely delete and reinstall the game by uninstalling and making sure there are no leftover files from previous configs or mods. (some mods replace original files and cause files to persist when doing a simple Steam Uninstall.
-Make sure to delete the Deadlock file **ENTIRELY** [Example](https://media.discordapp.net/attachments/1494139617090469980/1494139617249726535/delete.jpg?ex=6a1052b4&is=6a0f0134&hm=0fda70acb60a96ed746ed56c0817f357298c2fbec4b05b678b6cab25e54f09dc&=&format=webp)
+Make sure to delete the Deadlock file **ENTIRELY.** - [Example](https://media.discordapp.net/attachments/1494139617090469980/1494139617249726535/delete.jpg?ex=6a1052b4&is=6a0f0134&hm=0fda70acb60a96ed746ed56c0817f357298c2fbec4b05b678b6cab25e54f09dc&=&format=webp)
 
 - "This and that is missing"
 
