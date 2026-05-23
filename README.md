@@ -1,4 +1,4 @@
-This modification is aimed at lowing the graphics settings as much as possible while keeping the <ins>competitive integrity</ins> for ranked play. It includes a modded PAK file that contains performance mods and essential fixes for better config support.
+This modification is aimed at lowing the graphics settings as much as possible while keeping the <ins>competitive integrity</ins> for ranked play. It includes a modded VPK file that contains performance mods and essential fixes for better config support.
 
 **If you need any help please join the [OptiLock Discord](https://discord.gg/UxjsJB5Rp5) and/or watch the [Video Tutorial.](https://www.youtube.com/watch?v=JBB-dmaNxOE)**
 
