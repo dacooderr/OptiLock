@@ -480,14 +480,14 @@
     ConVars
     {    
 
-       // ---------------------- OptiLock -- ver. 1.5  ---------------------- \\
-            //   Mod Page: https://deadlocker.net/mod/mod_1776212037617   \\
-           //    Downloaded from: https://github.com/dacooderr/OptiLock    \\
-          //     Tutorial: https://www.youtube.com/watch?v=JBB-dmaNxOE&     \\
-		 //	      	   Discord: https://discord.gg/UxjsJB5Rp5				 \\
-	    //																	  \\
-	   //       If you would like to donate as a means of showing thanks       \\
-	  //               https://streamlabs.com/dacooderr/tip                     \\
+       // ---------------------- OptiLock -- ver. 1.5  -------------------- \\
+            //        Mod Page: https://gamebanana.com/mods/678180           \\
+           //     Downloaded from: https://github.com/dacooderr/OptiLock      \\
+          //      Tutorial: https://www.youtube.com/watch?v=Kpoet2ebl70        \\
+		 //	      	   Discord: https://discord.gg/UxjsJB5Rp5				    \\
+	    //																	     \\
+	   //        If you would like to donate as a means of showing thanks         \\
+	  //                 https://streamlabs.com/dacooderr/tip                      \\
 
 
 // Press ctrl+f and type * to highlight the more visually impactful commands that you could adjust
@@ -524,7 +524,6 @@ lb_dynamic_shadow_resolution_base_cmp_shadowmapsize	"true"
 lb_dynamic_shadow_resolution_quantization	"1"
 r_citadel_shadow_quality                    "0"             
 r_citadel_gpu_culling_shadows               "1"            
-csm_max_shadow_dist_override                "1"             
 lb_barnlight_shadowmap_scale                "0.1"           
 lb_csm_cascade_size_override                "0.25"            
 lb_csm_override_staticgeo_cascades          "0"             
@@ -565,7 +564,6 @@ r_citadel_distancefield_farfield_enable     "false"
 csm_viewmodel_shadows						"false"
 r_citadel_gpu_preview_baked_shadows			"false"
 r_citadel_shadowdb							"512"
-r_citadel_sun_shadow_slope_scale_depth_bias	"512"
 r_hair_shadowtile							"false"
 r_mixed_shadows_fade_out_time				"0.0001"
 
@@ -619,7 +617,6 @@ cl_show_splashes                            "0"
 sc_clutter_enable                           "false"             
 volume_fog_intermediate_textures_hdr        "false"
 r_drawtracers 								"1"
-r_drawtracers_firstperson 					"1"
 violence_ablood 							"false"            
 violence_agibs 								"false"            
 r_fallback_texture_lod_scale				"4"
@@ -627,7 +624,6 @@ r_texture_stream_max_resolution				"64"
 r_citadel_depthoffield_enable				"false"
 r_citadel_distancefield_blur				"false"
 r_texture_budget_threshold					"0.5"
-citadel_in_world_item_panel_dpi				"1"
 r_texture_hookup_uses_threadpool			"true"
 
 // ================ INPUT ================
@@ -693,8 +689,6 @@ sc_clutter_enable 							"false"
 r_low_latency                               "1"             
 think_limit									"10"
 zipline_use_new_latch						"0"
-animgraph_enable_parallel_preupdate 		"1"             
-animgraph_enable_parallel_op_evaluation 	"1"             
 r_citadel_distancefield_farfield_enable 	"0"
 engine_low_latency_sleep_after_client_tick  "true"
 engine_allow_multiple_simulates_per_frame	"true"  
@@ -736,10 +730,319 @@ cl_entityiter_allow_world_occlusion 		"0"
 sv_force_transmit_players 					"1"
 r_lod 										"-5"
 
-// ================ Grass ================
-r_grass_quality                             "0"             
-r_grass_start_fade                          "0"                        
-r_grass_end_fade                            "0"                                             
+// boot's ConVars
+r_citadel_selection_outline2_alpha "255"
+r_render_hair "0"
+r_grass_quality "0"
+r_grass_start_fade "0"
+r_grass_end_fade "0"
+r_drawtracers_firstperson "0"
+r_particle_cables_render "false" // default true break lash ult, might need to set back to 1
+r_draw_particle_children_with_parents "0"
+func_break_max_pieces "1" // lets try 0 and 1
+r_particle_skip_postsim "1"
+cl_ragdoll_limit "0"
+r_texture_pool_size "256" // either 256 or 512
+r_max_portal_render_targets "2" // might set to 2 or more
+citadel_damage_text_lifetime "0.5"
+citadel_hud_objective_health_idle_timeout "4"
+citadel_unit_status_delta_decay_delay "0"
+citadel_unit_status_delta_decay_rate "10"
+snd_steamaudio_enable_reverb "0"
+snd_steamaudio_enable_perspective_correction "0"
+snd_spatialize_lerp "0"
+snd_mixahead "0.05"
+r_particle_cables_render_meshlets "0"
+fog_enable "0"
+fog_enableskybox "0"
+cl_smooth "true" // might change to false again
+// lb_enable_envmaps "0" gives fps but fucks up lighting
+cl_phys_enabled "false"
+csm_max_shadow_dist_override  "0"
+csm_viewmodel_shadows "false"
+anim_disable "true"
+phys_expensive_shape_threshold "100" // default: 6
+props_break_apply_radial_forces "0" // default: 1
+props_break_max_pieces_perframe "0.5" // default: 16, might set to 1
+r_aoproxy_cull_dist "0.01" // default: 12, might be able to do 0, idk
+r_aoproxy_min_dist "9999" // default: 3, 0 is always tricky so consider changing this to 1
+r_aoproxy_min_dist_box "9999"
+r_citadel_depthoffield_enable "false"
+r_citadel_disable_npr_lighting "false" // default: false - might change to true
+r_citadel_distancefield_blur "false" // default: true
+r_drawparticles "true" // default: true - might change to false again
+r_particle_batch_collections "true" // default: false
+// r_propsmaxdist "100" // default: 1200
+r_render_portals "true" // default: true
+r_rendersun "false" // default: true
+r_texture_budget_threshold "0.7" //default: 0.9
+r_texture_lod_scale "4" // default: 1
+r_texture_stream_mip_bias "8" // default: 0 ; might change to 3
+r_translucent "true" // default: true ; false gives fps but you cant see any trails, nor aoe effect, nothing
+sc_force_materials_batchable "true" // default: false
+sc_allow_dithered_lod "false" // default: true
+sc_hdr_enabled_override "0" // default: -1
+sc_disable_baked_lighting "true" // default: false
+r_citadel_selection_outline2_alpha "255"
+r_render_hair "0"
+sc_instanced_mesh_lod_bias "15"
+lb_ssss_samples "0"
+r_grass_quality "0"
+r_grass_start_fade "0"
+r_grass_end_fade "0"
+r_drawtracers_firstperson "0"
+r_particle_cables_render "false" // default true break lash ult, might need to set back to 1
+cl_aggregate_particles "1"
+r_draw_particle_children_with_parents "0"
+func_break_max_pieces "1" // lets try 0 and 1
+cl_bone_cache_optimization "1"
+r_particle_skip_postsim "1"
+r_fallback_texture_lod_scale "4"
+cl_ragdoll_limit "0"
+mat_async_shader_load "1"
+r_texture_pool_size "256" // either 256 or 512
+r_max_portal_render_targets "2" // might set to 2 or more
+cl_interp_parallel "1"
+cl_batch_entity_list_ops_during_latch "1"
+sc_dithered_lod_transition_amt "0"
+citadel_damage_text_lifetime "0.5"
+citadel_hud_objective_health_idle_timeout "4"
+citadel_unit_status_delta_decay_delay "0"
+citadel_unit_status_delta_decay_rate "10"
+snd_steamaudio_enable_reverb "0"
+snd_steamaudio_enable_perspective_correction "0"
+snd_spatialize_lerp "0"
+dsp_slow_cpu "1"
+snd_mixahead "0.05"
+r_texture_stream_max_resolution "128"
+r_drawtracers "0"
+r_particle_cables_render_meshlets "0"
+cl_phys_sleep_enable "1"
+r_enable_rigid_animation "0"
+fog_enable "0"
+fog_enableskybox "0"
+cl_smooth "true" // might change to false again
+// lb_enable_envmaps "0" gives fps but fucks up lighting
+cl_particle_batch_mode "1"
+cl_phys_enabled "false"
+csm_cascade0_override_dist "0"
+csm_cascade1_override_dist "0"
+csm_cascade2_override_dist "0"
+csm_cascade3_override_dist "0"
+csm_max_dist_between_caster_and_receiver "0"
+csm_max_num_cascades_override "0"
+csm_max_shadow_dist_override  "0"
+csm_max_visible_dist "0"
+csm_res_override_0 "1"
+csm_res_override_1 "1"
+csm_res_override_2 "1"
+csm_res_override_3 "1"
+csm_viewmodel_shadows "false"
+anim_disable "true"
+cl_simulate_dormant_entities "0"
+phys_expensive_shape_threshold "100" // default: 6
+props_break_apply_radial_forces "0" // default: 1
+props_break_max_pieces_perframe "0.5" // default: 16, might set to 1
+r_aoproxy_cull_dist "0.01" // default: 12, might be able to do 0, idk
+r_aoproxy_min_dist "9999" // default: 3, 0 is always tricky so consider changing this to 1
+r_aoproxy_min_dist_box "9999"
+r_character_decal_monitor_render_res "64" // default: 512
+r_citadel_depthoffield_enable "false"
+r_citadel_disable_npr_lighting "false" // default: false - might change to true
+r_citadel_distancefield_blur "false" // default: true
+r_drawparticles "true" // default: true - might change to false again
+r_particle_batch_collections "true" // default: false
+// r_propsmaxdist "100" // default: 1200
+r_render_portals "true" // default: true
+r_rendersun "false" // default: true
+r_texture_budget_threshold "0.7" //default: 0.9
+r_texture_lod_scale "4" // default: 1
+r_texture_stream_mip_bias "8" // default: 0 ; might change to 3
+r_translucent "true" // default: true ; false gives fps but you cant see any trails, nor aoe effect, nothing
+sc_force_materials_batchable "true" // default: false
+sc_allow_dithered_lod "false" // default: true
+sc_hdr_enabled_override "0" // default: -1
+sc_disable_baked_lighting "true" // default: false
+m_rawinput "1"
+
+// Kaiz ConVars
+
+// --- LIGHTING & SHADOWS ---
+lb_dynamic_shadow_resolution_quantization "32" // kai's cfg - 64
+lb_csm_receiver_plane_depth_bias "0.00002" // kai's cfg
+lb_csm_receiver_plane_depth_bias_transmissive_backface "0.0002" // kai's cfg
+lb_enable_fog_mixed_shadows "0" // kai's cfg
+sc_disable_shadow_materials "1" // kai's cfg
+lb_enable_lights "0" // kai's cfg - was 1
+lb_max_visible_barn_lights_override "1" // kai's cfg
+lb_max_visible_envmaps_override "4" // kai's cfg - default 4 DO NOT CHANGE OR IT BREAKS GAME
+r_citadel_shadowdb "256" // kai's cfg - Default: 2048<br>
+r_directional_lightmaps "false" // kai's cfg - default true
+r_citadel_distancefield_shadows "false" // kai's cfg - Default: true<br>
+mat_max_lighting_complexity "1" // kai's cfg - default 8
+lb_dynamic_shadow_resolution "false" // kai's cfg - default true
+lb_enable_sunlight "false" // kai's cfg - Default: true<br>SceneSystem/LightBinner/Enable Sunlight
+lb_mixed_shadows "false" // kai's cfg
+r_arealights "false" // kai's cfg - was true
+lb_csm_cross_fade_override "0" // kai's cfg
+lb_csm_distance_fade_override "0" // kai's cfg
+r_flashlightbrightness "0" // kai's cfg
+r_flashlightfar "0" // kai's cfg
+r_flashlightshadowatten "0" // kai's cfg
+lb_dynamic_shadow_penumbra "false" // kai's cfg - default true
+lb_barnlight_shadow_use_precomputed_vis "0" // kai's cfg
+
+// --- RENDERING, MATERIALS & POST-PROCESSING ---
+r_directlighting "true" // kai's cfg
+sc_cache_envmap_lpv_lookup "false" // kai's cfg - was true
+r_citadel_ssao_bent_normals "false" // kai's cfg
+r_citadel_ssao_denoise_passes "0" // kai's cfg
+r_citadel_ssao_radius "0" // kai's cfg
+r_gbuffer_disable_npr_lighting "true" // kai's cfg - might change to true
+r_citadel_npr_outlines "true" // kai's cfg
+r_postprocess_enable "true" // kai's cfg - default true
+cl_glow_brightness "0" // kai's cfg - default 1
+r_environment_map_roughness_range "0.01" // kai's cfg - Default: 0.2 0.3<br>Fade region for sampling environment maps on lightmapped nonmetals. Smoother values than the first param sample envmaps. Rougher values than the second sample only lightmap SH. r_environment_map_roughness_range 1 1 to always sample envmaps for comparison. BASICALLY TURN OFF REFLECTIONS ON MAP I THINK
+lb_cubemap_normalization_max "1" // kai's cfg - Default: 32<br>
+lb_cubemap_normalization_roughness_begin "0.01" // kai's cfg - Default: 0.1<br>
+thumper_use_plane_reflection "false" // kai's cfg - Default: true<br>
+r_fullscreen_gamma "2.2" // kai's cfg - recommended ppl to use this to make the game brighter, bigge number = darker (use again in console if game not bright, only work in fullscreen exclusive, try 2.1 then 1.4 to make it work i have 2 keys binded for this)
+r_citadel_antialiasing "0" // kai's cfg - default 1
+mat_viewportscale "1" // kai's cfg - was 1 this controls LOD on everything except trees and bushes (good) for some reason
+r_citadel_npr_force_solid_outline "true" // kai's cfg - default false
+r_light_sensitivity_mode "true" // kai's cfg
+r_ssao_blur "0" // kai's cfg
+mat_tonemap_bloom_scale "0" // kai's cfg
+r_renderdoc_auto_shader_pdbs "0" // kai's cfg
+r_citadel_enable_pano_world_blur "false" // kai's cfg - Default: true<br>Enable world-blur style
+sc_instanced_mesh_mesh_shader "false" // kai's cfg - default true Toggles mesh shader rendering for instanced meshes
+r_texture_budget_update_period "0.5" // kai's cfg - Faster texture streaming adjustment 0.05
+r_texture_pool_reduce_rate "512" // kai's cfg
+r_texture_budget_dynamic "1" // kai's cfg - Dynamic texture budget adjustment
+r_texture_stream_resolution_bias "0.01" // kai's cfg
+
+// --- PARTICLES & EFFECTS ---
+volume_fog_intermediate_textures_hdr "0" // kai's cfg
+r_particle_mixed_resolution_viewstart "800" // kai's cfg
+r_particle_max_draw_distance "300000" // kai's cfg - Lower = less particle range, more FPS, dont go below this value it doesnt draw trooper hp bar,
+r_limit_particle_job_duration "1" // kai's cfg
+cl_particle_sim_fallback_base_multiplier "100" // kai's cfg - default 10
+r_particle_min_timestep "0.001" // kai's cfg
+r_citadel_screenspace_particles_full_res "0" // kai's cfg
+cl_impacteffects "0" // kai's cfg
+r_muzzleflashbrightness "0.01" // kai's cfg - default 0.4 idk if this does anything
+fx_drawmetalspark "false" // kai's cfg - Default: true<br>Draw metal spark effects.
+
+// --- MODELS, LOD, CULLING & MAP EXTENTS ---
+r_monitor_3dskybox "0" // kai's cfg
+sv_waterdist "0" // kai's cfg
+r_propsmaxdist "700" // kai's cfg
+r_haircull_percent "100" // kai's cfg
+sc_instanced_mesh_lod_bias_shadow "10" // kai's cfg - Bias for LOD selection of instanced meshes in shadowmaps
+sc_instanced_mesh_motion_vectors "0" // kai's cfg - Set 1 if you use motion blur
+sc_instanced_mesh_size_cull_bias "10" // kai's cfg - Bias for size culling of instanced meshes
+sc_instanced_mesh_size_cull_bias_shadow "10" // kai's cfg - Bias for size culling instanced meshes in shadowmaps
+sc_fade_distance_scale_override "180" // kai's cfg
+sc_aggregate_bvh_threshold "16" // kai's cfg - Lower BVH threshold (default: 128)
+sc_layer_batch_threshold "16" // kai's cfg - Lower batch threshold (default: 128)
+sc_layer_batch_threshold_fullsort "20" // kai's cfg - default 80
+sv_pvs_max_distance "8500" // kai's cfg - default 4000, unrender things(boxes, creeps, objs,etc) behind walls or out of viewing distance, does not affect player model.
+sv_remove_ent_from_pvs "1" // kai's cfg - default 0 remove entities from potential view something, basically culling objs outside of view
+citadel_use_pvs_for_players "true" // kai's cfg - default false, culls players when out of view
+r_citadel_distancefield_down_sample "6" // kai's cfg - default 1
+sc_clutter_density_none_size "0.1" // kai's cfg - Default 0.0035
+sc_enable_discard "true" // kai's cfg - default true
+sc_clutter_density_full_size "0.5" // kai's cfg
+r_strip_invisible_during_sceneobject_update "1" // kai's cfg - Default: false<br>
+mesh_calculate_curvature_smooth_pass_count "0" // kai's cfg
+sc_max_framebuffer_copies_per_layer "0" // kai's cfg - no idea what this does ngl
+r_world_wind_frequency_grass "0" // kai's cfg
+r_world_wind_frequency_trees "0" // kai's cfg
+
+// --- PHYSICS, CLOTH & DECALS ---
+presettle_cloth_iterations "0" // kai's cfg - default 3
+pred_cloth_pos_max "0" // kai's cfg - Reduce cloth prediction was 1
+pred_cloth_pos_multiplier "0" // kai's cfg - was 0.3
+pred_cloth_pos_strength "0" // kai's cfg - was 0.1
+pred_cloth_rot_high "0" // kai's cfg - was 0.05
+pred_cloth_rot_low "0" // kai's cfg - was 0.005
+pred_cloth_rot_multiplier "0" // kai's cfg - was 0.2 changing these values does fucking nothing
+cl_phys_timescale "1" // kai's cfg - [FPS IMPACT] 0=Disable physics (max FPS) | 1=Normal physics | Lower = slower physics, less CPU
+phys_threaded_cloth_bone_update "1" // kai's cfg
+phys_threaded_kinematic_bone_update "1" // kai's cfg
+phys_threaded_transform_update "1" // kai's cfg
+cl_physics_highlight_active "0" // kai's cfg - Turns on the absbox for all active physics objects.<br>  0 : un-highlight.<br>
+phys_highlight_expensive_objects_strength "0" // kai's cfg - Default: 0.02<br>Highlight expensive physics objects strength, no need since expensive obj is disabled by default
+cl_ragdoll_default_scale "0" // kai's cfg - default 1 doesnt matter since ragdoll disabled
+phys_cull_internal_mesh_contacts "true" // kai's cfg - default false
+cl_phys_networked_start_sleep "true" // kai's cfg - try on and off, this is probably what causing result screen to pop up when idling
+phys_multithreading_enabled "1" // kai's cfg - default true, alr enabled no need to include ngl
+phys_dynamic_scaling "false" // kai's cfg - default true
+
+// --- ANIMATION ---
+anim_decode_forcewritealltransforms "true" // kai's cfg - Default: false<br>Force BatchAnimationDecode to write transformations for all bones
+animgraph_footlock_enabled "false" // kai's cfg
+r_morphing_enabled "false" // kai's cfg
+r_smooth_morph_normals "0" // kai's cfg
+animgraph_slowdownonslopes_enabled "false" // kai's cfg
+
+// --- UI, HUD & PANORAMA ---
+closecaption "false" // kai's cfg
+panorama_use_new_occlusion_invalidation "1" // kai's cfg SPOOKY TESTING CONVARS HAS IT SET TO ZERO
+panorama_temp_comp_layer_min_dimension "128" // kai's cfg
+panorama_async_compute_mipgen "1" // kai's cfg
+hud_free_cursor "0" // kai's cfg - Reduces UI input delay in minimap/spectator modes (not sure if this is true)
+mm_idle_show_warning_at_s "999" // kai's cfg - How many seconds to wait before showing the idle warning dialog
+panorama_allow_transitions "false" // kai's cfg - default true turns off UI anim (shop,etc)
+panorama_transition_time_factor "2" // kai's cfg - faster transition for the stuff that doesnt use animation
+
+// --- GAMEPLAY, CAMERA & ENTITY HIGHLIGHTS ---
+citadel_damage_offscreen_indicator_disabled "1" // kai's cfg - Set 1 to disable
+citadel_portrait_world_renderer_off "true" // kai's cfg - Set true to disable hero hud
+citadel_show_new_damage_feedback_numbers "0" // kai's cfg - Set 1 to enable
+citadel_camera_soft_collision "0" // kai's cfg
+citadel_camera_wobble_disable "1" // kai's cfg
+r_citadel_glow_health_bars "false" // kai's cfg - default true
+citadel_trooper_friendly_glow_disabled "false" // kai's cfg - was false doesnt work btw
+citadel_player_outline_enemies "true" // kai's cfg - turn off enemy outline DOES NOT BREAK BACKSTABBER OR PING THRU WALL
+citadel_trooper_outline_enabled "true" // kai's cfg - turn off trooper outline
+citadel_hideout_enable_testing_tools "true" // kai's cfg - default false doesnt work
+
+// --- NETWORK, PREDICTION & INPUT ---
+cl_eye_yaw_multiplier "0" // kai's cfg
+cl_prediction_savedata_postentitypacketreceived "1" // kai's cfg
+r_frame_sync_enable "0" // kai's cfg - was 0
+cl_async_usercmd_send "true" // kai's cfg
+cl_smooth_draw_debug "0" // kai's cfg
+cl_parallel_readpacketentities "1" // kai's cfg
+cl_parallel_readpacketentities_threshold "2" // kai's cfg
+net_async_clientconnect "1" // kai's cfg
+r_low_latency "1" // kai's cfg - Force enabling this for kaiz only, Default: 1<br>NVIDIA Low Latency/AMD Anti-Lag 2 (0 = off, 1 = on, 2 = NV-only, on + boost)
+
+// --- ENGINE, THREADING & AI ---
+engine_max_ticks_to_simulate "33" // kai's cfg
+ai_strong_optimizations_no_checkstand "1" // kai's cfg
+ai_expression_optimization "1" // kai's cfg
+ai_gather_conditions_async "true" // kai's cfg - default false
+enable_priority_boost "1" // kai's cfg
+ai_use_async_ragdoll_fixup "true" // kai's cfg - doesnt really need tbh since ragdoll is disabled
+nav_pathfind_multithread "1" // kai's cfg - default false test 1 and 0, moves npc pathing to separate thread
+// fs_async_threads "8" // kai's cfg
+
+// --- AUDIO ---
+audio_enable_vmix_mastering "0" // kai's cfg - [FPS IMPACT] 0=Off (saves CPU, +FPS) | 1=On (audio mastering enabled)"
+dsp_volume "0" // kai's cfg - idk
+snd_occlusion_bounces "0" // kai's cfg
+snd_steamaudio_num_threads "4" // kai's cfg - [ADJUST] Audio thread count - 1=Low CPU usage | Higher = better audio quality, more CPU By default, it might only use 1 thread. Increasing this allows the heavy sound math to spread out, preventing it from stalling the main game loop during loud teamfights
+snd_mix_async "1" // kai's cfg
+soundsystem_update_async "1" // kai's cfg
+update_voices_low_priority "true" // kai's cfg - default false
+
+// --- PIDJAN ---
+mm_idle_enabled "false"
+citadel_commend_toast_enemy_seconds "0"
+citadel_commend_toast_seconds "0"
+citadel_match_details_lane_stats_time "360"
 
 // ================ Test Group 4 ================
 r_renderdoc_auto_shader_pdbs                "false"       
