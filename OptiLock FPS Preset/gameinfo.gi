@@ -909,7 +909,6 @@ thumper_use_plane_reflection "false" // kai's cfg - Default: true<br>
 r_fullscreen_gamma "2.2" // kai's cfg - recommended ppl to use this to make the game brighter, bigge number = darker (use again in console if game not bright, only work in fullscreen exclusive, try 2.1 then 1.4 to make it work i have 2 keys binded for this)
 r_citadel_antialiasing "0" // kai's cfg - default 1
 mat_viewportscale "1" // kai's cfg - was 1 this controls LOD on everything except trees and bushes (good) for some reason
-r_citadel_npr_force_solid_outline "true" // kai's cfg - default false
 r_light_sensitivity_mode "true" // kai's cfg
 r_ssao_blur "0" // kai's cfg
 mat_tonemap_bloom_scale "0" // kai's cfg
@@ -1054,11 +1053,10 @@ r_world_wind_strength						"0"
 fs_async_threads							"-1"
 
 
-         //CREDITS																				        \\
-        // dacooder    Config Creator            													     \\
-	   // Xeraa		   Helped fix a major issue with console spam and fps drops late game				  \\
-      // Boot		   ConVar Contribution                                                                 \\
-	 // Kaiz		   ConVar Contribution																	\\
+        //CREDITS																				         \\
+       // dacooder     OptiLock Creator            													      \\
+	  // Xeraa		   Helped fix a major issue with console spam and fps drops late game				   \\
+     // Boot		   Potato Config             														    \\
 	// simcasting 	   Benchmarking																		     \\
    // Artemon121       Made the Citadel cvar unhider														  \\
   // Pidjan            Worked on further gameinfo changes and let us integrate                                 \\
