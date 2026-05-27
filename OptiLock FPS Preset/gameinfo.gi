@@ -1054,10 +1054,11 @@ r_world_wind_strength						"0"
 fs_async_threads							"-1"
 
 
-        //CREDITS																				         \\
-       // dacooder     OptiLock Creator            													      \\
-	  // Xeraa		   Helped fix a major issue with console spam and fps drops late game				   \\
-     // Boot		   Potato Config             														    \\
+         //CREDITS																				        \\
+        // dacooder    Config Creator            													     \\
+	   // Xeraa		   Helped fix a major issue with console spam and fps drops late game				  \\
+      // Boot		   ConVar Contribution                                                                 \\
+	 // Kaiz		   ConVar Contribution																	\\
 	// simcasting 	   Benchmarking																		     \\
    // Artemon121       Made the Citadel cvar unhider														  \\
   // Pidjan            Worked on further gameinfo changes and let us integrate                                 \\
