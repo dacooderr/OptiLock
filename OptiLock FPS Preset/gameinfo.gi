@@ -987,7 +987,7 @@ animgraph_slowdownonslopes_enabled "false" // kai's cfg
 
 // --- UI, HUD & PANORAMA ---
 closecaption "false" // kai's cfg
-panorama_use_new_occlusion_invalidation "1" // kai's cfg SPOOKY TESTING CONVARS HAS IT SET TO ZERO
+panorama_use_new_occlusion_invalidation "1" // kai's cfg 
 panorama_temp_comp_layer_min_dimension "128" // kai's cfg
 panorama_async_compute_mipgen "1" // kai's cfg
 hud_free_cursor "0" // kai's cfg - Reduces UI input delay in minimap/spectator modes (not sure if this is true)
