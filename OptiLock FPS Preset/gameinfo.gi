@@ -506,7 +506,7 @@ r_aspectratio                             	"2.00"          // 1.75=80fov | 2.15=
 citadel_camera_hero_fov                     "100"           // The field of view angle of the camera when following a hero.     [def: "90"]
 
 // --- 3. Crosshair/Hud ---
-citadel_unit_status_use_new					"0"				// Enables new healthbars. May be needed for certain mods or they will cause crashes. 
+citadel_unit_status_use_new					"1"				// Enables new healthbars. May be needed for certain mods or they will cause crashes. 
 citadel_hideout_ball_show_juggle_count      "1"             // Shows a fun juggle count minigame for hideout ball.              [def: "0"]
 citadel_hideout_ball_show_juggle_fx         "1"             // Shows juggle visual FX for hideout ball minigame.                [def: "0"]
 //citadel_crosshair_hit_marker_duration     "0.001"        // Removes the hitmarker when shooting people.                  [def: "0.1"]
