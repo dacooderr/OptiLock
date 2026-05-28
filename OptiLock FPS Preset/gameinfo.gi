@@ -736,12 +736,10 @@ r_render_hair "0"
 r_grass_quality "0"
 r_grass_start_fade "0"
 r_grass_end_fade "0"
-r_drawtracers_firstperson "0"
 r_particle_cables_render "false" // default true break lash ult, might need to set back to 1
 r_draw_particle_children_with_parents "0"
 func_break_max_pieces "1" // lets try 0 and 1
 r_particle_skip_postsim "1"
-cl_ragdoll_limit "0"
 r_texture_pool_size "256" // either 256 or 512
 r_max_portal_render_targets "2" // might set to 2 or more
 citadel_damage_text_lifetime "0.5"
@@ -757,7 +755,7 @@ fog_enable "0"
 fog_enableskybox "0"
 cl_smooth "true" // might change to false again
 // lb_enable_envmaps "0" gives fps but fucks up lighting
-cl_phys_enabled "false"
+cl_phys_enabled "true"
 csm_max_shadow_dist_override  "0"
 csm_viewmodel_shadows "false"
 anim_disable "true"
@@ -790,7 +788,6 @@ lb_ssss_samples "0"
 r_grass_quality "0"
 r_grass_start_fade "0"
 r_grass_end_fade "0"
-r_drawtracers_firstperson "0"
 r_particle_cables_render "false" // default true break lash ult, might need to set back to 1
 cl_aggregate_particles "1"
 r_draw_particle_children_with_parents "0"
@@ -798,7 +795,6 @@ func_break_max_pieces "1" // lets try 0 and 1
 cl_bone_cache_optimization "1"
 r_particle_skip_postsim "1"
 r_fallback_texture_lod_scale "4"
-cl_ragdoll_limit "0"
 mat_async_shader_load "1"
 r_texture_pool_size "256" // either 256 or 512
 r_max_portal_render_targets "2" // might set to 2 or more
@@ -815,7 +811,6 @@ snd_spatialize_lerp "0"
 dsp_slow_cpu "1"
 snd_mixahead "0.05"
 r_texture_stream_max_resolution "128"
-r_drawtracers "0"
 r_particle_cables_render_meshlets "0"
 cl_phys_sleep_enable "1"
 r_enable_rigid_animation "0"
@@ -824,7 +819,6 @@ fog_enableskybox "0"
 cl_smooth "true" // might change to false again
 // lb_enable_envmaps "0" gives fps but fucks up lighting
 cl_particle_batch_mode "1"
-cl_phys_enabled "false"
 csm_cascade0_override_dist "0"
 csm_cascade1_override_dist "0"
 csm_cascade2_override_dist "0"
@@ -838,7 +832,7 @@ csm_res_override_1 "1"
 csm_res_override_2 "1"
 csm_res_override_3 "1"
 csm_viewmodel_shadows "false"
-anim_disable "true"
+anim_disable "false"
 cl_simulate_dormant_entities "0"
 phys_expensive_shape_threshold "100" // default: 6
 props_break_apply_radial_forces "0" // default: 1
@@ -863,7 +857,6 @@ sc_force_materials_batchable "true" // default: false
 sc_allow_dithered_lod "false" // default: true
 sc_hdr_enabled_override "0" // default: -1
 sc_disable_baked_lighting "true" // default: false
-m_rawinput "1"
 
 // Kaiz ConVars
 
@@ -997,7 +990,6 @@ panorama_transition_time_factor "2" // kai's cfg - faster transition for the stu
 
 // --- GAMEPLAY, CAMERA & ENTITY HIGHLIGHTS ---
 citadel_damage_offscreen_indicator_disabled "1" // kai's cfg - Set 1 to disable
-citadel_portrait_world_renderer_off "true" // kai's cfg - Set true to disable hero hud
 citadel_show_new_damage_feedback_numbers "0" // kai's cfg - Set 1 to enable
 citadel_camera_soft_collision "0" // kai's cfg
 citadel_camera_wobble_disable "1" // kai's cfg
@@ -1039,8 +1031,6 @@ update_voices_low_priority "true" // kai's cfg - default false
 
 // --- PIDJAN ---
 mm_idle_enabled "false"
-citadel_commend_toast_enemy_seconds "0"
-citadel_commend_toast_seconds "0"
 citadel_match_details_lane_stats_time "360"
 
 // ================ Test Group 4 ================
@@ -1053,15 +1043,16 @@ r_world_wind_strength						"0"
 fs_async_threads							"-1"
 
 
-        //CREDITS																				         \\
-       // dacooder     OptiLock Creator            													      \\
-	  // Xeraa		   Helped fix a major issue with console spam and fps drops late game				   \\
-     // Boot		   Potato Config             														    \\
-	// simcasting 	   Benchmarking																		     \\
-   // Artemon121       Made the Citadel cvar unhider														  \\
-  // Pidjan            Worked on further gameinfo changes and let us integrate                                 \\
- // Piggy              Video.txt contributer and cool streamer guy                                              \\
-// ----------------------------------------- END OF CONFIG OptiLock -- ver. 1.5 -------------------------------  \\
+         //CREDITS																				      \\
+        // dacooder    Config Creator            													   \\
+	   // Xeraa		   Helped fix a major issue with console spam and fps drops late game				\\
+      // Boot		   ConVar Contribution           												     \\
+	 // Kaiz		   ConVar Contribution                                                                \\
+	// simcasting 	   Benchmarking																		   \\
+   // Artemon121       Made the Citadel cvar unhider														\\
+  // Pidjan            Worked on further gameinfo changes and let us integrate                               \\
+ // Piggy              Video.txt contributer and cool streamer guy                                            \\
+// ----------------------------------------- END OF CONFIG OptiLock -- ver. 1.5 ------------------------------ \\
 
         "rate"
         {
