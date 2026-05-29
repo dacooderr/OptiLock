@@ -8,7 +8,7 @@
 //																																    \\
 //						If this config helped you, you wanna be extra nice, let me know by giving a little back or					\\
 //										check out my YouTube and Twitch! -dacooder													\\
-//											https://streamlabs.com/dacoder_/tip               										\\
+//											https://streamlabs.com/dacooderr/tip               										\\
 //|________________________________________________________________________________________________________________________________|\\	
 
 "GameInfo"
