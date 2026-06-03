@@ -1,0 +1,1 @@
+## Make sure to rename BareEssentials to pak02_dir.vpk at the most if using QOL Lock.
