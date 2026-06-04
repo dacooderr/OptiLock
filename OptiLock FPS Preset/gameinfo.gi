@@ -75,20 +75,21 @@ GameInfo
         // Search paths are relative to the exe directory\..\
         //
 
-        // Deadlock Mod Manager - Start
+        
+// Deadlock Mod Manager - Start
 
-        SearchPaths
-        {
-            Game_Language "citadel_*LANGUAGE*"
-            Game          "citadel/addons"
-            Mod           "citadel"
-            Write         "citadel"
-            Game          "citadel"
-            Mod           "core"
-            Write         "core"
-            Game          "core"
+		SearchPaths
+        {  
+            Game_Language       citadel_*LANGUAGE*
+            Game                citadel/addons
+            Mod                 citadel
+            Write               citadel          
+            Game                citadel
+            Mod                 core
+            Write               core
+            Game                core        
         }
-        // Deadlock Mod Manager - End
+// Deadlock Mod Manager - End
     }
 
     MaterialSystem2
@@ -287,7 +288,7 @@ GameInfo
         // steps. Additionally this controls which builders are displayed in the hammer build dialog.
         DefaultMapBuilders
         {
-            bakedlighting "0" // Enable lightmapping during compile time
+            bakedlighting "1" // Enable lightmapping during compile time
             envmap        "0" // turned off since it currently causes an assert and doesn't work due to some build issue
             nav           "1" // Generate nav mesh data
         }
@@ -539,7 +540,7 @@ GameInfo
 
     ConVars
     {    
-	       // ---------------------- OptiLock -- ver. 2.5  -------------------------- \\
+	       // ---------------------- OptiLock -- ver. 3.0  -------------------------- \\
             //        Mod Page: https://gamebanana.com/mods/678180           \\
            //     Downloaded from: https://github.com/dacooderr/OptiLock      \\
           //      Tutorial: https://www.youtube.com/watch?v=Kpoet2ebl70        \\
@@ -579,11 +580,11 @@ citadel_hud_objective_health_idle_timeout               "4"
 citadel_in_world_item_panel_dpi                         "0.75"
 citadel_minimap_use_canvas_for_neutrals                 "0"  // Uses an alternate “canvas” rendering path for neutral icons on the minimap (render path toggle). [def: "1"]
 citadel_minimap_use_canvas_for_shop                     "0"  // Uses an alternate “canvas” rendering path for shop icons on the minimap (render path toggle). [def: "1"]
-citadel_portrait_world_renderer_off                     "true"  // Set true to disable hero hud
+citadel_portrait_world_renderer_off                     "false"  // Set true to disable hero hud
 citadel_unit_status_old_update_rate                     "15"  // might fuck with health bars
 
 // --- 4. Lighting & Shadows ---
-sc_disable_baked_lighting                               "true"
+sc_disable_baked_lighting                               "false"
 lb_allow_time_sliced_shadow_map_rendering               "false"
 lb_enable_shadow_casting                                "false"
 lb_enable_dynamic_lights                                "false"  // Must be used in conjunction with lb_enable_lights for Hero Sillohouttes. (Will cause performance drop)
@@ -1092,10 +1093,6 @@ sc_barnlight_enable_precomputed_vis                     "1"
 sc_force_single_display_list_per_layer                  "1"
 sc_aggregate_gpu_occlusion_culling                      "1"
 sc_aggregate_gpu_vis_culling                            "1"
-citadel_damage_indicator_radius                         "1"
-citadel_damage_indicator_height                         "10"
-citadel_damage_indicator_width                          "10"
-citadel_damage_text_lifetime_new                        "0.1"
 r_threaded_particles                                    "1"
 panorama_draw_text_fast_path                            "1"  // Forces text rendering through a hardware fast-path
 panorama_draw_text_fast_path_text_shadow                "1"  // Forces text shadows through a hardware fast-path
@@ -1129,7 +1126,7 @@ v8_maximum_heap_size_mb                                 "1024"  // (Default is 5
    // Artemon121       Made the Citadel cvar unhider														\\
   // Pidjan            Worked on further gameinfo changes and let us integrate                               \\
  // Piggy              Video.txt contributer and cool streamer guy                                            \\
-// ----------------------------------------- END OF CONFIG OptiLock -- ver. 2.5 ------------------------------ \\
+// ----------------------------------------- END OF CONFIG OptiLock -- ver. 3.0 ------------------------------ \\
 
         rate
         {
