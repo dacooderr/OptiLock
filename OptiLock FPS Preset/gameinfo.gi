@@ -576,7 +576,7 @@ citadel_damage_report_enable                            "1"  // Enables/Disables
 citadel_damage_text_show_effectiveness                  "0"  // Shows extra “effectiveness” info in damage text (e.g., resist/weakness style feedback). [def: "0"]
 citadel_hud_objective_health_enabled                    "2"  // 0=Off, 1=Shrines, 2=T1/T2, 3=Barracks.                           [def: "2"]
 citadel_hud_objective_health_idle_timeout               "4"
-citadel_in_world_item_panel_dpi                         "0.25"
+citadel_in_world_item_panel_dpi                         "0.75"
 citadel_minimap_use_canvas_for_neutrals                 "0"  // Uses an alternate “canvas” rendering path for neutral icons on the minimap (render path toggle). [def: "1"]
 citadel_minimap_use_canvas_for_shop                     "0"  // Uses an alternate “canvas” rendering path for shop icons on the minimap (render path toggle). [def: "1"]
 citadel_portrait_world_renderer_off                     "true"  // Set true to disable hero hud
@@ -1010,7 +1010,7 @@ r_particle_model_per_thread_count                       "32"  // I believe it is
 mat_viewportscale                                       "1"  // Scale down the main viewport I belive this gets overwritten by video.txt [def: "1"]
 sc_instanced_mesh_mesh_shader                           "false"  // default true Toggles mesh shader rendering for instanced meshes
 sc_instanced_mesh_opaque_fade                           "false"
-sc_screen_size_lod_scale_override                       "0.001"  // Controls LOD scale. Lower values will have less polys            [def: "-1"]
+sc_screen_size_lod_scale_override                       "1"  // Controls LOD scale. Lower values will have less polys            [def: "-1"]
 
 // ================ Misc ================
 citadel_cinematic_intro_duration_npc                    "0.01"
