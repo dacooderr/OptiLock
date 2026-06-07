@@ -3,11 +3,11 @@
 //										 / / / / __ \/ __/ / /   / __ \/ ___/ //_/													\\
 //										/ /_/ / /_/ / /_/ / /___/ /_/ / /__/ ,<   													\\
 //										\____/ .___/\__/_/_____/\____/\___/_/|_|  													\\
-//											/_/   																					\\
-//										----------------------------------------												  	\\
+//											/_/   																		            \\
+//										---------------------------------------- ver. 3.2 							                \\
 //																																    \\
 //						If this config helped you, you wanna be extra nice, let me know by giving a little back or					\\
-//										check out my YouTube and Twitch! -dacooder													\\
+//										check out my YouTube and Twitch! -dacooderr													\\
 //											https://streamlabs.com/dacooderr/tip               										\\
 //|________________________________________________________________________________________________________________________________|\\	
 
@@ -540,7 +540,7 @@ GameInfo
 
     ConVars
     {    
-	       // ---------------------- OptiLock -- ver. 3.0  -------------------------- \\
+	       // ---------------------- OptiLock -- ver. 3.2  -------------------------- \\
             //        Mod Page: https://gamebanana.com/mods/678180           \\
            //     Downloaded from: https://github.com/dacooderr/OptiLock      \\
           //      Tutorial: https://www.youtube.com/watch?v=Kpoet2ebl70        \\
@@ -1126,7 +1126,7 @@ v8_maximum_heap_size_mb                                 "1024"  // (Default is 5
    // Artemon121       Made the Citadel cvar unhider														\\
   // Pidjan            Worked on further gameinfo changes and let us integrate                               \\
  // Piggy              Video.txt contributer and cool streamer guy                                            \\
-// ----------------------------------------- END OF CONFIG OptiLock -- ver. 3.0 ------------------------------ \\
+// ----------------------------------------- END OF CONFIG OptiLock -- ver. 3.2 ------------------------------ \\
 
         rate
         {
