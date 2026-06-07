@@ -288,7 +288,7 @@ GameInfo
         // steps. Additionally this controls which builders are displayed in the hammer build dialog.
         DefaultMapBuilders
         {
-            bakedlighting "1" // Enable lightmapping during compile time
+            bakedlighting "0" // Enable lightmapping during compile time
             envmap        "0" // turned off since it currently causes an assert and doesn't work due to some build issue
             nav           "1" // Generate nav mesh data
         }
@@ -584,7 +584,7 @@ citadel_portrait_world_renderer_off                     "false"  // Set true to 
 citadel_unit_status_old_update_rate                     "15"  // might fuck with health bars
 
 // --- 4. Lighting & Shadows ---
-sc_disable_baked_lighting                               "false"
+sc_disable_baked_lighting                               "true"
 lb_allow_time_sliced_shadow_map_rendering               "false"
 lb_enable_shadow_casting                                "false"
 lb_enable_dynamic_lights                                "false"  // Must be used in conjunction with lb_enable_lights for Hero Sillohouttes. (Will cause performance drop)
