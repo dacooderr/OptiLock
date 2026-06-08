@@ -1017,8 +1017,6 @@ sc_screen_size_lod_scale_override                       "1"  // Controls LOD sca
 citadel_cinematic_intro_duration_npc                    "0.01"
 citadel_cinematic_intro_duration_player                 "0.01"
 citadel_cinematic_intro_enabled                         "-1"
-citadel_commend_toast_enemy_seconds                     "0"
-citadel_commend_toast_seconds                           "0"
 citadel_hideout_enable_testing_tools                    "true"  // default false doesnt work
 nav_obstruction_async_update                            "true"  // Not fully sure but async good wowie                              [def: "false"]
 r_async_compute_fog                                     "true"  // Just whether to asyncroniously render fog                        [def: "false"]
@@ -1058,7 +1056,6 @@ nav_pathfind_multithread                                "1"  // default false te
 
 // ================ Audio ================
 snd_use_baked_occlusion                                 "1"
-update_voices_low_priority                              "true"  // default false
 
 // ================ SHADER & RENDERING ================
 sv_hide_ent_in_pvs                                      "1"
