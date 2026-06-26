@@ -554,14 +554,14 @@ GameInfo
 // ================ PREFERENCES ================
 
 // --- 1. Outlines ---
-citadel_trooper_glow_disabled                           "0"  // 1 = Disable friendly/enemy minion glow.                          [def: "0"]
+citadel_trooper_glow_disabled                           "1"  // 1 = Disable friendly/enemy minion glow.                          [def: "0"]
 citadel_boss_glow_disabled                              "1"  // Disables boss and walker glow/highlight effect.                  [def: "0]
 r_citadel_npr_outlines_max_dist                         "600"  // Limits outline distance to reduce unnecessary processing.        [def: "1000"]
 r_citadel_selection_outline2_alpha                      "0.8"  // Outlines on enemy players and abilities on a scale of 0-1.       [def: "0.8"]
 r_citadel_npr_outlines                                  "true"  // Enable outlines on enemy players.                                [def: "true"]
 r_citadel_outlines                                      "1"  // Enables enemy outlines for better visibility.
 citadel_player_glow_disabled                            "0"  // Disables player glow/highlight effect when pinged.               [def: "0"]
-citadel_trooper_friendly_glow_disabled                  "false" 
+citadel_trooper_friendly_glow_disabled                  "1" 
 cl_glow_brightness                                      "0"  
 
 // --- 2. Field of View ---
