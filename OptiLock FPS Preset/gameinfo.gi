@@ -4,12 +4,12 @@
 //										/ /_/ / /_/ / /_/ / /___/ /_/ / /__/ ,<   													\\
 //										\____/ .___/\__/_/_____/\____/\___/_/|_|  													\\
 //											/_/   																		            \\
-//										---------------------------------------- ver. 3.2 							                \\
+//										---------------------------------------- ver. 3.6 							                \\
 //																																    \\
 //						If this config helped you, you wanna be extra nice, let me know by giving a little back or					\\
 //										check out my YouTube and Twitch! -dacooderr													\\
 //											https://streamlabs.com/dacooderr/tip               										\\
-//|________________________________________________________________________________________________________________________________|\\	
+//__________________________________________________________________________________________________________________________________\\	
 
 GameInfo
 {
@@ -540,7 +540,7 @@ GameInfo
 
     ConVars
     {    
-	       // ---------------------- OptiLock -- ver. 3.2  -------------------------- \\
+	       // ---------------------- OptiLock -- ver. 3.6  -------------------------- \\
             //        Mod Page: https://gamebanana.com/mods/678180           \\
            //     Downloaded from: https://github.com/dacooderr/OptiLock      \\
           //      Tutorial: https://www.youtube.com/watch?v=Kpoet2ebl70        \\
@@ -566,10 +566,10 @@ cl_glow_brightness                                      "0"
 
 // --- 2. Field of View ---
 r_aspectratio                                           "2.00"  // 1.75=80fov | 2.15=90fov | 2.49=100fov      [def: "0"]
-citadel_camera_hero_fov                                 "100"  // The field of view angle of the camera when following a hero.     [def: "90"]
+citadel_camera_hero_fov                                 "90"  // The field of view angle of the camera when following a hero.     [def: "90"]
 
 // --- 3. Crosshair/Hud ---
-citadel_unit_status_use_new                             "1"  // Enables new healthbars. May be needed for certain mods or they will cause crashes.
+citadel_unit_status_use_new                             "1"  // Enables new healthbars. May be needed for certain mods or they will cause crashes. (Change to 0 or False to use Old Healthbars)
 citadel_hideout_ball_show_juggle_count                  "1"  // Shows a fun juggle count minigame for hideout ball.              [def: "0"]
 citadel_hideout_ball_show_juggle_fx                     "1"  // Shows juggle visual FX for hideout ball minigame.                [def: "0"]
 //citadel_crosshair_hit_marker_duration                   "0.01"  // Removes the hitmarker when shooting people.                      [def: "0.1"]
@@ -1123,7 +1123,7 @@ v8_maximum_heap_size_mb                                 "1024"  // (Default is 5
    // Artemon121       Made the Citadel cvar unhider														\\
   // Pidjan            Worked on further gameinfo changes and let us integrate                               \\
  // Piggy              Video.txt contributer and cool streamer guy                                            \\
-// ----------------------------------------- END OF CONFIG OptiLock -- ver. 3.2 ------------------------------ \\
+// ----------------------------------------- END OF CONFIG OptiLock -- ver. 3.6 ------------------------------ \\
 
         rate
         {
