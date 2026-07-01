@@ -3,7 +3,7 @@
 	"setting.defaultresheight"		"-1"
 	"setting.recommendedheight"		"0"
 	"setting.refreshrate_numerator"		"0"
-	"setting.fullscreen"		"1"
+	"setting.fullscreen"		"0"
 	"setting.nowindowborder"		"1"
 	"setting.fullscreen_min_on_focus_loss"		"0"
 	"setting.monitor_index"		"0"
