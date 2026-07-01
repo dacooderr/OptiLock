@@ -1,4 +1,4 @@
- **COPY EVERYTHING UNDER THIS TEXT STARTING WITH "setting.defaultres" - GO TO YOUR OWN VIDEO.TXT IN CFG - DELETE EVERYTHING **AFTER** DEVICEID - PASTE THE TEXT DIRECTLY UNDER DEVICEID (DO NOT REMOVE OR REPLACE ANYTHING ABOVE DEVICEID)**
+# COPY EVERYTHING UNDER THIS TEXT STARTING WITH "setting.defaultres" - GO TO YOUR OWN VIDEO.TXT IN CFG - DELETE EVERYTHING **AFTER** DEVICEID - PASTE THE TEXT DIRECTLY UNDER DEVICEID (DO NOT REMOVE OR REPLACE ANYTHING ABOVE DEVICEID)
 	"setting.defaultres"		"-1"
 	"setting.defaultresheight"		"-1"
 	"setting.recommendedheight"		"0"
@@ -75,4 +75,3 @@
 	"setting.lb_csm_override_staticgeo_cascades_value"		"-1"
 	"setting.r_texture_stream_mip_bias"		"4"
 }
-
