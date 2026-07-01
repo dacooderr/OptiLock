@@ -4,7 +4,7 @@
 //										/ /_/ / /_/ / /_/ / /___/ /_/ / /__/ ,<   													\\
 //										\____/ .___/\__/_/_____/\____/\___/_/|_|  													\\
 //											/_/   																		            \\
-//										---------------------------------------- ver. 4.0 							                \\
+//										---------------------------------------- ver. 3.6 							                \\
 //																																    \\
 //						If this config helped you, you wanna be extra nice, let me know by giving a little back or					\\
 //										check out my YouTube and Twitch! -dacooderr													\\
@@ -73,18 +73,22 @@
 		//
 		// Search paths are relative to the exe directory\..\
 		//
+	
+
+// Deadlock Mod Manager - Start
+
 		SearchPaths
-		{
-			// These are optional language paths. They must be mounted first, which is why there are first in the list.
-			// *LANGUAGE* will be replaced with the actual language name. If not running a specific language, these paths will not be mounted
-			Game_Language		citadel_*LANGUAGE*
-
-			// These are optional low-violence paths. They will only get mounted if you're in a low-violence mode.
-			Game_LowViolence	citadel_lv
-
-			Game				citadel
-			Game				core
-		}
+        {  
+            Game_Language       citadel_*LANGUAGE*
+            Game                citadel/addons
+            Mod                 citadel
+            Write               citadel          
+            Game                citadel
+            Mod                 core
+            Write               core
+            Game                core        
+        }
+// Deadlock Mod Manager - End
 	}
 	
 	MaterialSystem2
@@ -537,9 +541,8 @@
 
 	ConVars
 	{	 
-	   // ---------------------- OptiLock -- ver. 4.0  -------------------------- \\
-             //        OptiLock: https://gamebanana.com/mods/690233         \\
-		    //         QOL Lite: https://gamebanana.com/mods/690233          \\
+	       // ---------------------- OptiLock -- ver. 4.0  -------------------------- \\
+            //        Mod Page: https://gamebanana.com/mods/678180           \\
            //     Downloaded from: https://github.com/dacooderr/OptiLock      \\
           //      Tutorial: https://www.youtube.com/watch?v=Kpoet2ebl70        \\
 		 //	      	   Discord: https://discord.gg/UxjsJB5Rp5				    \\
