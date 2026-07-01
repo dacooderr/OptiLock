@@ -1,5 +1,3 @@
-**QOL Lite** acts as a QOL Lock replacement to avoid 1% low issues. It includes the basic mods included in QOL Lock without the big performance hit.
-
 **OptiLock FPS Config** is aimed at lowing the graphics settings as much as possible while keeping the <ins>competitive integrity</ins> for ranked play. It includes a modded VPK file that contains performance mods and essential fixes for better config support.
 
 **If you need any help please join the [OptiLock Discord](https://discord.gg/UxjsJB5Rp5) and/or watch the [Video Tutorial.](https://www.youtube.com/watch?v=JBB-dmaNxOE)**
