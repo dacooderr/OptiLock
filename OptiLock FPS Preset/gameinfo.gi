@@ -4,7 +4,7 @@
 //										/ /_/ / /_/ / /_/ / /___/ /_/ / /__/ ,<   													\\
 //										\____/ .___/\__/_/_____/\____/\___/_/|_|  													\\
 //											/_/   																		            \\
-//										---------------------------------------- ver. 3.6 							                \\
+//										---------------------------------------- ver. 4.0 							                \\
 //																																    \\
 //						If this config helped you, you wanna be extra nice, let me know by giving a little back or					\\
 //										check out my YouTube and Twitch! -dacooderr													\\
@@ -537,8 +537,9 @@
 
 	ConVars
 	{	 
-	       // ---------------------- OptiLock -- ver. 4.0  -------------------------- \\
-            //        Mod Page: https://gamebanana.com/mods/678180           \\
+	   // ---------------------- OptiLock -- ver. 4.0  -------------------------- \\
+             //        OptiLock: https://gamebanana.com/mods/690233         \\
+		    //         QOL Lite: https://gamebanana.com/mods/690233          \\
            //     Downloaded from: https://github.com/dacooderr/OptiLock      \\
           //      Tutorial: https://www.youtube.com/watch?v=Kpoet2ebl70        \\
 		 //	      	   Discord: https://discord.gg/UxjsJB5Rp5				    \\
