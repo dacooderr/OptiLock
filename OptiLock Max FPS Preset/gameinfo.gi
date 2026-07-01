@@ -10,6 +10,7 @@
 //										check out my YouTube and Twitch! -dacooderr													\\
 //											https://streamlabs.com/dacooderr/tip               										\\
 //__________________________________________________________________________________________________________________________________\\	
+
 "GameInfo"
 {
 	game 		"citadel"
