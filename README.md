@@ -10,17 +10,17 @@ ________________________________________________________________________________
 
 # Base Instructions
 	Directions: 
-       1 Replace your gameinfo.gi *entirely* with the FPS Config of your choice in the provided file at steamapps/common/deadlock/game/citadel (**OptiLock Max FPS Preset is recommended**)
+        Replace your gameinfo.gi *entirely* with the FPS Config of your choice in the provided file at steamapps/common/deadlock/game/citadel (**OptiLock Max FPS Preset is recommended**)
 
-       2 Open the provided video.txt and copy all of the text
+        Open the provided video.txt and copy all of the text
 
-       3 Open your video.txt in C:\Program Files (x86)\Steam\steamapps\common\Deadlock\game\citadel\cfg
+        Open your video.txt in C:\Program Files (x86)\Steam\steamapps\common\Deadlock\game\citadel\cfg
 
-       4 Delete everything under deviceid (See Screenshots for Reference)
+        Delete everything under deviceid (See Screenshots for Reference)
 
-       5 Paste what you copied earlier (It should look like this)
+        Paste what you copied earlier (It should look like this)
 
-       6 Save and Exit and you are done. (Your game **MAY** crash on first load, this is normal. Just open the game again. If it continues to crash you did something wrong and will need to try again)
+        Save and Exit and you are done. (Your game **MAY** crash on first load, this is normal. Just open the game again. If it continues to crash you did something wrong and will need to try again)
 
 You *MUST* do both or else you will have a very weird looking game or you may **crash**.
 
