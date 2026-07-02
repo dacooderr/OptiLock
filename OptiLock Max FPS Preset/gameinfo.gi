@@ -1,3 +1,16 @@
+//										   ____        __  _ __               __  													\\
+//										  / __ \____  / /_(_) /   ____  _____/ /__													\\
+//										 / / / / __ \/ __/ / /   / __ \/ ___/ //_/													\\
+//										/ /_/ / /_/ / /_/ / /___/ /_/ / /__/ ,<   													\\
+//										\____/ .___/\__/_/_____/\____/\___/_/|_|  													\\
+//											/_/   																		            \\
+//										---------------------------------------- ver. 4.0 							                \\
+//																																    \\
+//						If this config helped you, you wanna be extra nice, let me know by giving a little back or					\\
+//										check out my YouTube and Twitch! -dacooderr													\\
+//											https://streamlabs.com/dacooderr/tip               										\\
+//__________________________________________________________________________________________________________________________________\\	
+
 "GameInfo"
 {
 	game 		"citadel"
@@ -77,36 +90,36 @@
         }
         // Deadlock Mod Manager - End
     }
+	
+	MaterialSystem2
+	{
+		RenderModes
+		{
+			game Default
+			game Forward
+			game Deferred
+			game Outline
+			game Depth
+			game FrontDepth
 
-    MaterialSystem2
-    {
-        RenderModes
-        {
-            game "Default"
-            game "Forward"
-            game "Deferred"
-            game "Outline"
-            game "Depth"
-            game "FrontDepth"
+			dev ToolsVis // Visualization modes for all shaders (lighting only, normal maps only, etc.)
+			dev ToolsWireframe // This should use the ToolsVis mode above instead of being its own mode\
 
-            dev "ToolsVis"       // Visualization modes for all shaders (lighting only, normal maps only, etc.)
-            dev "ToolsWireframe" // This should use the ToolsVis mode above instead of being its own mode\
+			tools ToolsUtil // Meant to be used to render tools sceneobjects that are mod-independent, like the origin grid
+		}
+	}
 
-            tools "ToolsUtil" // Meant to be used to render tools sceneobjects that are mod-independent, like the origin grid
-        }
-    }
+	MaterialEditor
+	{
+		"DefaultShader" "environment_texture_set"
+	}
 
-    MaterialEditor
-    {
-        DefaultShader "environment_texture_set"
-    }
-
-    NetworkSystem
+ NetworkSystem
     {
         BetaUniverse
         {
             FakeLag             "0" 
-            FakeLoss            "0" 
+            FakeLoss            "0"
             // FakeReorderPct   "0.05"
             // FakeReorderDelay "10"
             // FakeJitter       "low"
@@ -124,28 +137,28 @@
     {
         // Stolen from CS2
         AllowPartialMipChainImmediateTexLoads "1"
-        UseHardwareGammaRamp                  "0" 
+        UseHardwareGammaRamp                  "0"
         // End of stolen from CS2
 
-        GraphicsPipelineLibrary            "1"    
-        IndexBufferPoolSizeMB              "64"  
-        LowLatency                         "1"    
-        MinStreamingPoolSizeMB             "512" 
+        GraphicsPipelineLibrary            "1"            
+        IndexBufferPoolSizeMB              "64"   
+        LowLatency                         "1"   
+        MinStreamingPoolSizeMB             "512"  
         MinStreamingPoolSizeMBTools        "2048" 
         SwapChainSampleableDepth           "1"    
-        Use32BitDepthBuffer                "0"   
+        Use32BitDepthBuffer                "0"    
         Use32BitDepthBufferWithoutStencil  "0"    
         UseReverseDepth                    "1"    
         VulkanAdditionalShaderCache        "vulkan_shader_cache.foz"
-        VulkanDefrag                       "1"  
+        VulkanDefrag                       "1"   
         VulkanMutableSwapchain             "1"   
-        VulkanOnlyTestProbability          "0"  
-        VulkanOnly_Linux                   "1"   
-        VulkanRequireDescriptorIndexing    "1"  
-        VulkanRequireSubgroupWaveOpSupport "1" 
+        VulkanOnlyTestProbability          "0"   
+        VulkanOnly_Linux                   "0"   
+        VulkanRequireDescriptorIndexing    "1"   
+        VulkanRequireSubgroupWaveOpSupport "1"   
         VulkanStagingPMBSizeLimitMB        "384" 
         VulkanSteamAppShaderCache          "1"   
-        VulkanSteamDownloadedShaderCache   "1"   
+        VulkanSteamDownloadedShaderCache   "1"  
         VulkanSteamShaderCache             "1"   
 
 
@@ -162,18 +175,17 @@
 
     }
 
-    NVNGX
+  NVNGX
     {
         AppID "103371621"
-        //DLSSDefaultPreset   
+        //DLSSDefaultPreset    
         //ReflexLateWarp
         SupportsDLSS "1"
     }
 
     Engine2
     {
-        SinglePlayerAsyncRendering "1" 
-        AllowKeyChordBindings      "1" 
+        SinglePlayerAsyncRendering "1"
         HasModAppSystems           "1"
         Capable64Bit               "1"
         URLName                    "citadel"
@@ -266,22 +278,17 @@
 	{
 	}
 
-RenderPipelineAliases
-    {
-    }
-
-    // Removing this makes everything functionally fullbright! It disables baked shadows and lighting so it might help if your gpu is low on vram
-    ResourceCompiler
-    {
-        // Overrides of the default builders as specified in code, this controls which map builder steps
-        // will be run when resource compiler is run for a map without specifiying any specific map builder
-        // steps. Additionally this controls which builders are displayed in the hammer build dialog.
-        DefaultMapBuilders
-        {
-            bakedlighting "1" // Enable lightmapping during compile time
-            envmap        "0" // turned off since it currently causes an assert and doesn't work due to some build issue
-            nav           "1" // Generate nav mesh data
-        }
+	ResourceCompiler
+	{
+		// Overrides of the default builders as specified in code, this controls which map builder steps
+		// will be run when resource compiler is run for a map without specifiying any specific map builder
+		// steps. Additionally this controls which builders are displayed in the hammer build dialog.
+		DefaultMapBuilders
+		{
+			"bakedlighting"	"1"	// Enable lightmapping during compile time		
+			"envmap"	"0" // turned off since it currently causes an assert and doesn't work due to some build issue
+			"nav"		"1"	// Generate nav mesh data
+		}
 
 		MeshCompiler
 		{
@@ -399,31 +406,32 @@ RenderPipelineAliases
 		"forcevtxfileupconvert" 1
 	}
 
-  WorldRenderer
+    WorldRenderer
     {
 
 
         // Build cubemaps into a cube array instead of individual cubemaps.
         BindlessSceneObjectDesc      "CitadelBindlessDesc"
-        EnvironmentMapCacheSizeTools "300"  
-        EnvironmentMapColorSpace     "linear"
-        EnvironmentMapFaceSize       "256"    
+        EnvironmentMapCacheSizeTools "300"                                                              
+        EnvironmentMapColorSpace     "linear"                                                  
+        EnvironmentMapFaceSize       "256"                                                                                       
         EnvironmentMapFormat         "BC6H"   
         EnvironmentMapMipProcessor   "GGXCubeMapBlur"
-        EnvironmentMapPreviewFormat  "BC6H" 
+        EnvironmentMapPreviewFormat  "BC6H"   
         EnvironmentMapRenderSize     "1024" 
-        EnvironmentMapUseCubeArray   "1"    
-        EnvironmentMaps              "1"   
+        EnvironmentMapUseCubeArray   "1"   
+        EnvironmentMaps              "1"                                                                                                       
         GrassCastsShadows            "0"
 
         EnvironmentMapCacheSize "256"
 
         // These are stolen from CS2
-        LPVEdgeBlending "0" // Don't apply the edge fade distance to LPV bounds, we don't blend LPVs in CS2 shaders
+        LPVEdgeBlending "0" 
 
-        // EnvironmentMapPreviewFormat "RGBA16161616F" // This is from CS2 where it is also commented out. I would imagine setting it enables HDR of some format considering this is the integer HDR format, but I do not have an HDR monitor to test
+        // EnvironmentMapPreviewFormat "RGBA16161616F" 
 
     }
+
 
     SceneSystem
     {
@@ -440,30 +448,28 @@ RenderPipelineAliases
         //CSMCascadeResolution       "0" 
         //CharacterDecals            "0"
         //CubemapFog                 "0"
-        //DefaultShadowTextureHeight "0"
+        //DefaultShadowTextureHeight "0" 
         //DefaultShadowTextureWidth  "0" 
-        // Temp till I can add support in citadel shaders
         DisableLateAllocatedTransformBuffer         "1"          
-        DynamicShadowResolution                     "1"          
-        FogCachedShadowAtlasHeight                  "0"         
+        DynamicShadowResolution                     "1"        
+        FogCachedShadowAtlasHeight                  "0"       
         FogCachedShadowAtlasWidth                   "0"         
         FogCachedShadowTileSize                     "0"         
         FrameBufferCopyFormat                       "R11G11B10F" 
         GpuLightBinner                              "1"          
-        GpuLightBinnerSunLightFastPath              "1"         
         GpuLightBinnerSupportViewModelCascade       "0"
         HDRFrameBuffer                              "0"
         LayerBatchThresholdFullsort                 "80"    
         MinimumLateAllocatedVertexCacheBufferSizeMB "64"    
-        NonTexturedGradientFog                      "0"     
-        SunLightManagerCount                        "0"    
-        SunLightManagerCountTools                   "0"     
+        NonTexturedGradientFog                      "0"    
+        SunLightManagerCount                        "0"     
+        SunLightManagerCountTools                   "0"    
         SunLightMaxCascadeSize                      "2"     
         SunLightShadowRenderMode                    "Depth" 
         SupportsInstancedFade                       "0"
         Tonemapping                                 "0"    
         TransformTextureRowCount                    "1024" 
-        TransformTextureRowCountToolsMode           "6144" 
+        TransformTextureRowCountToolsMode           "6144"
         VolumetricFog                               "0"   
 
         // Stolen from CS2
@@ -535,7 +541,7 @@ RenderPipelineAliases
 
 	ConVars
 	{	 
-		   // ---------------------- OptiLock -- ver. 4.0  -------------------------- \\
+	   // ---------------------- OptiLock -- ver. 4.0  -------------------------- \\
              //        OptiLock: https://gamebanana.com/mods/690233         \\
 		    //         QOL Lite: https://gamebanana.com/mods/690233          \\
            //     Downloaded from: https://github.com/dacooderr/OptiLock      \\
@@ -1120,9 +1126,8 @@ v8_maximum_heap_size_mb                                 "1024"  // (Default is 5
   // Pidjan            Worked on further gameinfo changes and let us integrate                               \\
  // Piggy              Video.txt contributer and cool streamer guy                                            \\
 // ----------------------------------------- END OF CONFIG OptiLock -- ver. 4.0 ------------------------------ \\
-
-	 rate
-        {
+		"rate"
+		{
             min     "98304"
             default "786432"
             max     "1000000"
@@ -1132,22 +1137,22 @@ v8_maximum_heap_size_mb                                 "1024"  // (Default is 5
         sv_maxunlag_player           "0.200"
         sv_lagcomp_filterbyviewangle "false"
 
-        // Spew warning when adding/removing classes to/from the top of the hierarchy
+
         panorama_classes_perf_warning_threshold_ms "0.75"
 
-        // Panorama - enable minidumps on JS exceptions
+
         panorama_js_minidumps "1"
-        // Enable the render target cache optimization.
+
         panorama_disable_render_target_cache "0"
 
-        // Enable the composition layer optimization
+
         panorama_skip_composition_layer_content_paint "1"
 
-        // too expensive (500MB+) to load this
+
         snd_steamaudio_load_reverb_data  "0"
         snd_steamaudio_load_pathing_data "0"
 
-        // Steam Audio project specific convars
+
         snd_steamaudio_enable_custom_hrtf  "0"
         snd_steamaudio_active_hrtf         "0"
         snd_steamaudio_reverb_update_rate  "10.0"
@@ -1181,7 +1186,7 @@ v8_maximum_heap_size_mb                                 "1024"  // (Default is 5
         // Perf/Parallelism
         iv_parallel_restore "1"
 
-        // For perf reasons, since we don't use source-based DSP:
+
         disable_source_soundscape_trace "1"
 
         // Networking - Induced latency (pred offset)
@@ -1204,7 +1209,7 @@ v8_maximum_heap_size_mb                                 "1024"  // (Default is 5
         snd_envelope_rate                        "100.0"
         snd_soundmixer_update_maximum_frame_rate "0"
 
-        //don't let people mess with speaker config settings.
+
         speaker_config
         {
             min     "0"
