@@ -20,7 +20,7 @@ ________________________________________________________________________________
 
         Paste what you copied earlier (It should look like this)
 
-        Save and Exit and you are done. (Your game **MAY** crash on first load, this is normal. Just open the game again. If it continues to crash you did something wrong and will need to try again)
+        Save and Exit and you are done. (Your game **may** crash on first load, this is normal. Just open the game again. If it continues to crash you did something wrong and will need to try again)
 
 You *MUST* do both or else you will have a very weird looking game or you may **crash**.
 
