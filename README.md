@@ -10,7 +10,7 @@ ________________________________________________________________________________
 
 # Base Instructions
 	Directions: 
-        Replace your gameinfo.gi *entirely* with the FPS Config of your choice in the provided file at steamapps/common/deadlock/game/citadel (OptiLock Max FPS Preset is recommended)
+        Replace your gameinfo.gi ENTIRELY with the FPS Config of your choice in the provided file at steamapps/common/deadlock/game/citadel (OptiLock Max FPS Preset is recommended)
 
         Open the provided video.txt and copy all of the text
 
