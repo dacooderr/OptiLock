@@ -59,37 +59,37 @@
 		"ukrainian" "3"
 	}
 	
-    FileSystem
-    {
-        //
-        // The code that loads this file automatically does a few things here:
-        //
-        // 1. For each "Game" search path, it adds a "GameBin" path, in <dir>\bin
-        // 2. For each "Game" search path, it adds another "Game" path in front of it with _<language> at the end.
-        //    For example: c:\hl2\cstrike on a french machine would get a c:\hl2\cstrike_french path added to it.
-        // 3. If no "Mod" key, for the first "Game" search path, it adds a search path called "MOD".
-        // 4. If no "Write" key, for the first "Game" search path, it adds a search path called "DEFAULT_WRITE_PATH".
-        //
+	FileSystem
+	{	
+		//
+		// The code that loads this file automatically does a few things here:
+		//
+		// 1. For each "Game" search path, it adds a "GameBin" path, in <dir>\bin
+		// 2. For each "Game" search path, it adds another "Game" path in front of it with _<language> at the end.
+		//    For example: c:\hl2\cstrike on a french machine would get a c:\hl2\cstrike_french path added to it.
+		// 3. If no "Mod" key, for the first "Game" search path, it adds a search path called "MOD".
+		// 4. If no "Write" key, for the first "Game" search path, it adds a search path called "DEFAULT_WRITE_PATH".
+		//
 
-        //
-        // Search paths are relative to the exe directory\..\
-        //
+		//
+		// Search paths are relative to the exe directory\..\
+		//
+	
+// Deadlock Mod Manager - Start
 
-        // Deadlock Mod Manager - Start
-
-        SearchPaths
-        {
-            Game_Language "citadel_*LANGUAGE*"
-            Game          "citadel/addons"
-            Mod           "citadel"
-            Write         "citadel"
-            Game          "citadel"
-            Mod           "core"
-            Write         "core"
-            Game          "core"
+		SearchPaths
+        {  
+            Game_Language       citadel_*LANGUAGE*
+            Game                citadel/addons
+            Mod                 citadel
+            Write               citadel          
+            Game                citadel
+            Mod                 core
+            Write               core
+            Game                core        
         }
-        // Deadlock Mod Manager - End
-    }
+// Deadlock Mod Manager - End
+	}
 	
 	MaterialSystem2
 	{
@@ -572,15 +572,15 @@ citadel_camera_hero_fov                                 "100"  // The field of v
 
 // --- 3. Crosshair/Hud ---
 citadel_unit_status_use_new                             "1"  // Enables new healthbars. May be needed for certain mods or they will cause crashes. (Change to 0 or False to use Old Healthbars)
-citadel_hideout_ball_show_juggle_count                  "1"  // Shows a fun juggle count minigame for hideout ball.              [def: "0"]
-citadel_hideout_ball_show_juggle_fx                     "1"  // Shows juggle visual FX for hideout ball minigame.                [def: "0"]
-//citadel_crosshair_hit_marker_duration                   "0.01"  // Removes the hitmarker when shooting people.                      [def: "0.1"]
-citadel_damage_report_enable                            "1"  // Enables/Disables incoming/outgoing damage tab. [def: "1"]
-citadel_damage_text_show_effectiveness                  "0"  // Shows extra “effectiveness” info in damage text (e.g., resist/weakness style feedback). [def: "0"]
-citadel_hud_objective_health_enabled                    "2"  // 0=Off, 1=Shrines, 2=T1/T2, 3=Barracks.                           [def: "2"]
+citadel_hideout_ball_show_juggle_count                  "1"  // Shows a fun juggle count minigame for hideout ball.             
+citadel_hideout_ball_show_juggle_fx                     "1"  // Shows juggle visual FX for hideout ball minigame.            
+//citadel_crosshair_hit_marker_duration                   "0.01"  // Removes the hitmarker when shooting people.                     
+citadel_damage_report_enable                            "1"  // Enables/Disables incoming/outgoing damage tab. 
+citadel_damage_text_show_effectiveness                  "0"  // Shows extra “effectiveness” info in damage text (e.g., resist/weakness style feedback).
+citadel_hud_objective_health_enabled                    "2"  // 0=Off, 1=Shrines, 2=T1/T2, 3=Barracks.                        
 citadel_hud_objective_health_idle_timeout               "4"
 citadel_in_world_item_panel_dpi                         "0.75"
-citadel_minimap_use_canvas_for_neutrals                 "0"  // Uses an alternate “canvas” rendering path for neutral icons on the minimap (render path toggle). [def: "1"]
+citadel_minimap_use_canvas_for_neutrals                 "0"  /
 citadel_minimap_use_canvas_for_shop                     "0"  // Uses an alternate “canvas” rendering path for shop icons on the minimap (render path toggle). [def: "1"]
 citadel_portrait_world_renderer_off                     "false"  // Set true to disable hero hud
 citadel_unit_status_old_update_rate                     "15"  // might fuck with health bars
