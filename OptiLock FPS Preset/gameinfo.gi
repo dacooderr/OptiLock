@@ -654,9 +654,6 @@ r_mixed_shadows_fade_out_time                           "0.0001"
 // --- 5. Skybox Rendering ---
 r_draw3dskybox                                          "0"  //  Enables drawing the 3D skybox layer (distant geometry).         [def: "1"]
 
-// --- 7. Object Culling ---
-r_size_cull_threshold                                   "0.8"
-
 // --- 8. Camera Tweaks ---
 r_citadel_clip_sphere_min_opacity                       "0"  // Removes the blur from the pinhole camera                         [def: "40"]
 
@@ -756,8 +753,8 @@ sc_aggregate_bvh_threshold                              "16"
 sc_layer_batch_threshold                                "16"
 sc_layer_batch_threshold_fullsort                       "20"
 sv_remove_ent_from_pvs                                  "1"
-r_farz                                                  "10000"
-r_mapextents                                            "10000"
+//r_farz                                                  "10000"
+//r_mapextents                                            "10000"
 citadel_use_pvs_for_players                             "true"
 sv_waterdist                                            "0"
 lb_ssss_samples                                         "0"
