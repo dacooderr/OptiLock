@@ -835,7 +835,6 @@ lb_csm_receiver_plane_depth_bias                        "0.00002"  // kai's cfg
 lb_csm_receiver_plane_depth_bias_transmissive_backface  "0.0002"  // kai's cfg
 lb_enable_fog_mixed_shadows                             "0"  // kai's cfg
 sc_disable_shadow_materials                             "1"  // kai's cfg
-//lb_max_visible_barn_lights_override                     "1"  // kai's cfg
 r_directional_lightmaps                                 "false"  // kai's cfg - default true
 mat_max_lighting_complexity                             "1"  // kai's cfg - default 8
 lb_enable_sunlight                                      "false"  // kai's cfg - Default: true<br>SceneSystem/LightBinner/Enable Sunlight
@@ -950,7 +949,7 @@ mat_tonemap_bloom_scale                                 "0"
 r_citadel_ssao_bent_normals                             "false"
 r_citadel_ssao_denoise_passes                           "0"
 r_citadel_ssao_radius                                   "0"
-r_directlighting                                        "true"  // Set to true to have your characters not be black in the shop     [def:"true"]
+r_directlighting                                        "false"  // Set to true to have your characters not be black in the shop     [def:"true"]
 r_environment_map_roughness_range                       "0.01"  // Default: 0.2 0.3 Fade region for sampling environment maps on lightmapped nonmetals... BASICALLY TURN OFF REFLECTIONS ON MAP I THINK
 r_gbuffer_disable_npr_lighting                          "true"  // might change to true
 r_light_sensitivity_mode                                "true"
