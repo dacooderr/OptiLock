@@ -4,7 +4,7 @@
 //										/ /_/ / /_/ / /_/ / /___/ /_/ / /__/ ,<   													\\
 //										\____/ .___/\__/_/_____/\____/\___/_/|_|  													\\
 //											/_/   																		            \\
-//										---------------------------------------- ver. 4.1 							                \\
+//										---------------------------------------- ver. 4.2 							                \\
 //																																    \\
 //						If this config helped you, you wanna be extra nice, let me know by giving a little back or					\\
 //										check out my YouTube and Twitch! -dacooderr													\\
@@ -75,20 +75,23 @@ GameInfo
         // Search paths are relative to the exe directory\..\
         //
 
-        // Deadlock Mod Manager - Start
+        
 
-        SearchPaths
-        {
-            Game_Language "citadel_*LANGUAGE*"
-            Game          "citadel/addons"
-            Mod           "citadel"
-            Write         "citadel"
-            Game          "citadel"
-            Mod           "core"
-            Write         "core"
-            Game          "core"
+
+// Deadlock Mod Manager - Start
+
+		SearchPaths
+        {  
+            Game_Language       citadel_*LANGUAGE*
+            Game                citadel/addons
+            Mod                 citadel
+            Write               citadel          
+            Game                citadel
+            Mod                 core
+            Write               core
+            Game                core        
         }
-        // Deadlock Mod Manager - End
+// Deadlock Mod Manager - End
     }
 
     MaterialSystem2
@@ -548,7 +551,7 @@ GameInfo
 	
 	ConVars
 	{	 
-	   // ---------------------- OptiLock -- ver. 4.1  -------------------------- \\
+	   // ---------------------- OptiLock -- ver. 4.2  -------------------------- \\
              //        OptiLock: https://gamebanana.com/mods/690233         \\
 		    //         QOL Lite: https://gamebanana.com/mods/690233          \\
            //     Downloaded from: https://github.com/dacooderr/OptiLock      \\
@@ -596,7 +599,8 @@ citadel_hud_objective_health_idle_timeout               "4"
 citadel_in_world_item_panel_dpi                         "0.75"
 citadel_minimap_use_canvas_for_neutrals                 "0" 
 citadel_minimap_use_canvas_for_shop                     "0"  
-citadel_portrait_world_renderer_off                     "false"  
+citadel_portrait_world_renderer_off                     "false"
+citadel_unit_status_old_update_rate                     "15"  
 
 // ================ RAGDOLLS ================
 cl_ragdoll_limit                                        "1"  
@@ -609,7 +613,6 @@ g_ragdoll_important_maxcount                            "1"
 
 // ================ TEXTURES & VISUAL CLARITY & MODELS ================
 citadel_video_preset                                    "0"
-r_texture_stream_mip_bias                               "4"  
 r_texturefilteringquality                               "0"  
 mat_colorcorrection                                     "true"
 r_texture_budget_dynamic                                "true"
@@ -617,9 +620,23 @@ r_depth_of_field                                        "false"
 r_effects_bloom                                         "false"
 r_post_bloom                                            "false"
 cl_show_splashes                                        "0"
+r_lod													"-5"
+r_texture_pool_size										"256"
+r_hair_indirect_transmittance							"false"
+r_render_hair											"0"
 sc_clutter_enable                                       "false"
 volume_fog_intermediate_textures_hdr                    "false"
+r_character_decal_resolution							"64"
 r_drawtracers                                           "1"
+r_hair_ao												"false"
+ik_final_fixup_enable									"false"
+ik_fabrik_align_chain									"false"
+animgraph_enable_parallel_preupdate                     "1"
+animgraph_enable_parallel_op_evaluation                 "1"
+cloth_sim_on_tick                                       "false"
+phys_threaded_cloth_bone_update							"true"
+props_break_max_pieces_perframe 						"0.5"
+cloth_update											"1"
 violence_ablood                                         "false"
 violence_agibs                                          "false"
 r_fallback_texture_lod_scale                            "4"
@@ -644,6 +661,8 @@ r_decals_max_on_deformables                             "0"
 r_decals_overlap_threshold                              "5"
 r_drawmodeldecals                                       "0"  
 r_drawtracers_firstperson                               "0"
+fog_enable                                              "0"
+fog_enableskybox                                        "0"
 r_enable_cubemap_fog                                    "0"  
 r_enable_gradient_fog                                   "0" 
 r_enable_volume_fog                                     "0" 
@@ -656,11 +675,22 @@ enable_boneflex											"false"
 
 // ================ LIGHTING & EFFECTS ================
 sc_disable_baked_lighting                               "true"
+r_citadel_disable_npr_lighting							"false"
 r_directlighting 										"false"
+mat_tonemap_bloom_scale									"0"
+r_citadel_ssao_bent_normals                             "false"
+r_citadel_ssao_denoise_passes                           "0"
+r_environment_map_roughness_range 						"0.01"
+r_citadel_ssao_radius                                   "0"
+r_gbuffer_disable_npr_lighting							"true"
+r_light_sensitivity_mode                                "true"
+sc_cache_envmap_lpv_lookup                              "false"
+thumper_use_plane_reflection                            "false" 
+vis_sunlight_enable                                     "0"
 r_indirectlighting 										"true"
 lb_enable_dynamic_lights								"true"
 lb_enable_stationary_lights								"true"
-lb_max_visible_barn_lights_override						"1"
+lb_max_visible_barn_lights_override						"1"			// Directly affects lights in Hideout and Hero Sillouettes
 cl_retire_low_priority_lights                           "1"
 r_multiscattering                                       "1"
 r_light_flickering_enabled                              "0"
@@ -677,6 +707,7 @@ r_distancefield_enable                                  "false"
 r_citadel_distancefield_farfield_enable                 "false"
 r_directional_lightmaps                                 "false"  
 mat_max_lighting_complexity                             "1" 
+r_world_wind_strength									"0"
 lb_enable_sunlight                                      "false"  
 r_arealights                                            "false"  
 r_flashlightbrightness                                  "0" 
@@ -703,7 +734,14 @@ r_citadel_clip_sphere_min_opacity                       "0"
 // =========== SHADOWS ============
 lb_enable_shadow_casting								"false"
 lb_mixed_shadows										"false"
+csm_max_shadow_dist_override                            "0"
 lb_shadow_map_cull_empty_mixed							"true"
+lb_barnlight_shadow_use_precomputed_vis                 "0"
+lb_csm_cross_fade_override                              "0"
+lb_csm_distance_fade_override                           "0"
+lb_dynamic_shadow_resolution_quantization               "32"
+r_size_cull_threshold_shadow                            "200"
+sparseshadowtree_parallel_generation					"2"
 r_citadel_distancefield_shadows 						"false"
 sc_disable_spotlight_shadows							"false"
 csm_viewmodel_shadows									"false"
@@ -753,7 +791,9 @@ lb_csm_receiver_plane_depth_bias                        "0.00002"
 lb_csm_receiver_plane_depth_bias_transmissive_backface  "0.0002" 
 sparseshadowtree_disable_add_layers                     "1"
 
+
 // ================ PHYSICS, CLOTH & DECALS ================
+cl_phys_enabled                                         "true"
 presettle_cloth_iterations                              "0" 
 pred_cloth_pos_max                                      "0"  
 pred_cloth_pos_multiplier                               "0" 
@@ -778,7 +818,8 @@ m_rawinput                                              "1"
 steam_inputhandler_enabled								"0"
 
 // ================ PARTICLES ================
-r_drawparticles 										"false"
+r_drawparticles 										"true"
+r_particle_batch_collections                            "true" 
 r_particle_max_draw_distance                            "1"
 r_citadel_screenspace_particles_full_res                "0"
 cl_particle_max_count                                   "0"
@@ -825,6 +866,7 @@ sc_instanced_mesh_lod_bias                              "15"
 sc_instanced_mesh_lod_bias_shadow                       "0.10"
 sc_instanced_mesh_motion_vectors                        "0"
 sc_instanced_mesh_size_cull_bias_shadow                 "10"
+sc_instanced_mesh_size_cull_bias						"10"
 sc_fade_distance_scale_override                         "0"
 sc_aggregate_bvh_threshold                              "16"
 sc_layer_batch_threshold                                "16"
@@ -832,6 +874,7 @@ sc_layer_batch_threshold_fullsort                       "20"
 sv_remove_ent_from_pvs                                  "1"
 r_farz                                                  "15000"
 r_mapextents                                            "15000"
+r_size_cull_threshold									"0.8"
 citadel_use_pvs_for_players                             "true"
 sv_waterdist                                            "0"
 lb_ssss_samples                                         "0"
@@ -844,6 +887,8 @@ sc_enable_discard                                       "true"
 sc_clutter_density_full_size                            "0.5"
 r_strip_invisible_during_sceneobject_update             "1"
 mesh_calculate_curvature_smooth_pass_count              "0"
+r_world_wind_frequency_grass                            "0"
+r_world_wind_frequency_trees                            "0"
 sc_max_framebuffer_copies_per_layer                     "0"
 r_grass_density_mode                                    "0"  
 r_grass_alpha_test                                      "0" 
@@ -855,7 +900,57 @@ r_monitor_3dskybox										"0"
 
 // ================ Misc ================
 r_low_latency                                           "true"
+think_limit												"10"
+cl_smooth                                               "true"
+zipline_use_new_latch									"0"
+mm_idle_enabled											"false"
+citadel_match_details_lane_stats_time                   "360"
+r_translucent 											"true"
+engine_low_latency_sleep_after_client_tick				"true"
+engine_allow_multiple_simulates_per_frame               "true"
+engine_accurate_input_processing_delta_time             "true"
+cl_bone_cache_optimization                              "1"
+cl_interp_parallel                                      "1"
+cl_batch_entity_list_ops_during_latch                   "1"
+sc_dithered_lod_transition_amt                          "0"
+dsp_slow_cpu                                            "1"
+cl_phys_sleep_enable									"1"
+r_enable_rigid_animation                                "0"
+anim_decode_forcewritealltransforms						"true"
+animgraph_footlock_enabled                              "false"
+r_morphing_enabled                                      "false"
+r_smooth_morph_normals                                  "0"
+animgraph_slowdownonslopes_enabled                      "false"
+csm_cascade0_override_dist                              "0"
+csm_cascade1_override_dist                              "0"
+csm_cascade2_override_dist                              "0"
+csm_cascade3_override_dist                              "0"
+csm_max_dist_between_caster_and_receiver                "0"
+csm_max_num_cascades_override                           "0"
+csm_max_visible_dist                                    "0"
+csm_res_override_0                                      "1"
+csm_res_override_1                                      "1"
+csm_res_override_2                                      "1"
+csm_res_override_3                                      "1"
+anim_disable											"true"
+cl_simulate_dormant_entities                            "0"
+phys_expensive_shape_threshold                          "100"
+props_break_apply_radial_forces                         "0"
+sc_force_materials_batchable                            "true"
+sc_allow_dithered_lod                                   "false"
+enable_priority_boost                                   "true"
+r_ambientmin                                            "0.35"
+r_ambientfactor                                         "12"
+r_ambientboost                                          "1"
+mm_prefer_solo_only                                     "true"
+mat_tonemapping_occlusion_use_stencil                   "0"
+r_fastzreject                                           "1"
+r_force_ambient                                         "2"
+mat_tonemap_boost                                       "1.15"
+cl_entityiter_allow_world_occlusion                     "0"
+sv_force_transmit_players                               "1"
 r_render_portals										"false"
+r_max_portal_render_targets								"2"
 r_rendersun                                             "false"
 citadel_cinematic_intro_duration_npc                    "0.01"
 citadel_cinematic_intro_duration_player                 "0.01"
@@ -903,7 +998,11 @@ dsp_volume                                              "0"
 snd_occlusion_bounces                                   "0"  
 snd_steamaudio_num_threads                              "4"  
 snd_mix_async                                           "1"  
-soundsystem_update_async                                "1"  
+soundsystem_update_async                                "1"
+snd_steamaudio_enable_reverb 							"0"
+snd_steamaudio_enable_perspective_correction            "0"
+snd_spatialize_lerp                                     "0"  
+snd_mixahead                                            "0.05"
 
 // ================ UI ================
 citadel_damage_offscreen_indicator_disabled             "1" 
@@ -919,9 +1018,10 @@ panorama_draw_text_fast_path_text_shadow                "1"
 panorama_hsbc_through_fast_path                         "1"  
 panorama_use_backbuffer_directly                        "1" 
 panorama_script_cache_enabled                           "1"
+panorama_disable_descendant_filtering					"true"
 r_citadel_selection_outline2_offset                     "2"
 r_citadel_selection_outline2_width                      "50"
-minimap_update_rate_hz                                  "60"
+minimap_update_rate_hz                                  "30"
 r_citadel_glow_health_bars                              "false"
 citadel_player_outline_enemies                          "true"
 citadel_trooper_outline_enabled                         "true"
@@ -949,7 +1049,7 @@ engine_max_ticks_to_simulate                            "33"
 gpu_level                                               "0"  
 gpu_mem_level                                           "0"  
 
-// ================ Lod & Culling ================
+// ================ Lod, Rendering & Culling ================
 mat_viewportscale                                       "1"  
 sc_instanced_mesh_mesh_shader                           "false" 
 sc_instanced_mesh_opaque_fade                           "false"
@@ -958,6 +1058,11 @@ sc_aggregate_gpu_occlusion_culling                      "1"
 sc_aggregate_gpu_vis_culling 							"1"
 sc_instanced_mesh_gpu_culling                           "true"
 sc_aggregate_gpu_culling                                "true"
+r_aoproxy_min_dist_box                                  "9999"
+r_grass_end_fade 										"0"
+r_grass_quality                                         "0"                             
+r_grass_start_fade                                      "0"
+r_flush_on_pooled_ib_resize								"false"
 
 // ================ AI & Animgraph ===============
 ai_async_queue_max_jobs                                 "1"
@@ -973,6 +1078,8 @@ citadel_npc_force_animate_every_tick                    "false"
 nav_pathfind_multithread                                "1"  
 animgraph_enable_dirty_netvar_optimization				"true"
 ai_lod_auto_enabled                                     "true"
+ai_think_interval_lod_med								"0.4"
+
 
 // ================ Audio ================
 snd_use_baked_occlusion                                 "1"
@@ -987,7 +1094,7 @@ snd_use_baked_occlusion                                 "1"
    // Artemon121       Made the Citadel cvar unhider														\\
   // Pidjan            Worked on further gameinfo changes and let us integrate                               \\
  // Piggy              Video.txt contributer and cool streamer guy                                            \\
-// ----------------------------------------- END OF CONFIG OptiLock -- ver. 4.1 ------------------------------ \\
+// ----------------------------------------- END OF CONFIG OptiLock -- ver. 4.2 ------------------------------ \\
 
  rate
         {
