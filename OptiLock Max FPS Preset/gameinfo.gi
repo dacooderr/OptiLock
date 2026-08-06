@@ -4,7 +4,7 @@
 //										/ /_/ / /_/ / /_/ / /___/ /_/ / /__/ ,<   													\\
 //										\____/ .___/\__/_/_____/\____/\___/_/|_|  													\\
 //											/_/   																		            \\
-//										---------------------------------------- ver. 4.0 							                \\
+//										---------------------------------------- ver. 4.3 							                \\
 //																																    \\
 //						If this config helped you, you wanna be extra nice, let me know by giving a little back or					\\
 //										check out my YouTube and Twitch! -dacooderr													\\
@@ -548,7 +548,7 @@ GameInfo
 	
 	ConVars
 	{	 
-	   // ---------------------- OptiLock -- ver. 4.0  -------------------------- \\
+	   // ---------------------- OptiLock -- ver. 4.3  -------------------------- \\
              //        OptiLock: https://gamebanana.com/mods/690233         \\
 		    //         QOL Lite: https://gamebanana.com/mods/690233          \\
            //     Downloaded from: https://github.com/dacooderr/OptiLock      \\
@@ -558,8 +558,6 @@ GameInfo
 	   //        If you would like to donate as a means of showing thanks         \\
 	  //                 https://streamlabs.com/dacooderr/tip                      \\
 
-
-// Press ctrl+f and type * to highlight the more visually impactful commands that you could adjust
 // ================ PREFERENCES ================
 
 // --- 1. Outlines ---
@@ -1132,7 +1130,7 @@ v8_maximum_heap_size_mb                                 "1024"  // (Default is 5
    // Artemon121       Made the Citadel cvar unhider														\\
   // Pidjan            Worked on further gameinfo changes and let us integrate                               \\
  // Piggy              Video.txt contributer and cool streamer guy                                            \\
-// ----------------------------------------- END OF CONFIG OptiLock -- ver. 4.0 ------------------------------ \\
+// ----------------------------------------- END OF CONFIG OptiLock -- ver. 4.3 ------------------------------ \\
 
  rate
         {

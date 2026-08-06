@@ -4,7 +4,7 @@
 //										/ /_/ / /_/ / /_/ / /___/ /_/ / /__/ ,<   													\\
 //										\____/ .___/\__/_/_____/\____/\___/_/|_|  													\\
 //											/_/   																		            \\
-//						    Modified -- KAIZ ---------------------------------------- ver. 4.2   https://www.twitch.tv/kaizuchaneru	\\
+//						    Modified -- KAIZ ---------------------------------------- ver. 4.3   https://www.twitch.tv/kaizuchaneru	\\
 //																																    \\
 //						If this config helped you, you wanna be extra nice, let me know by giving a little back or					\\
 //										check out my YouTube and Twitch! -dacooderr													\\
@@ -560,7 +560,6 @@ GameInfo
 				 //        If you would like to donate as a means of showing thanks          \\
 				//                 https://streamlabs.com/dacooderr/tip                       \\
 				
-		// Press ctrl+f and type * to highlight the more visually impactful commands that you could adjust
 		// ================ PREFERENCES ================
 				
 		// --- OUTLINES ---
@@ -575,19 +574,19 @@ GameInfo
 		cl_glow_brightness                                      "0"  		
 				
 		// --- HIT MARKER/HEALTHBAR ---
-		citadel_unit_status_use_new                             "1"     * // Enables new healthbars. May be needed for certain mods or they will cause crashes. (Change to 0 or False to use Old Healthbars)
-		//citadel_crosshair_hit_marker_duration                 "0.01"  * // Removes the hitmarker when shooting people.                      [def: "0.1"]
+		citadel_unit_status_use_new                             "1"      // Enables new healthbars. May be needed for certain mods or they will cause crashes. (Change to 0 or False to use Old Healthbars)
+		//citadel_crosshair_hit_marker_duration                 "0.01"   // Removes the hitmarker when shooting people.                      [def: "0.1"]
 		 
 
         // ================ FOV ================
-        r_aspectratio 											"2.15"  * // [ADJUST] FOV control: 1.33=70fov | 1.56=75fov | 1.75=80fov | 2.0=85fov | 2.15=90fov | 2.49=100fov | 3.0=110fov | 3.5=120fov
-		citadel_camera_hero_fov                                 "100"   * // The field of view angle of the camera when following a hero.     [def: "90"]
+        r_aspectratio 											"2.15"   // [ADJUST] FOV control: 1.33=70fov | 1.56=75fov | 1.75=80fov | 2.0=85fov | 2.15=90fov | 2.49=100fov | 3.0=110fov | 3.5=120fov
+		citadel_camera_hero_fov                                 "100"    // The field of view angle of the camera when following a hero.     [def: "90"]
 		
 
         // ================ LIGHTING & SHADOWS ================
 		sc_disable_baked_lighting                               "true"
 		r_citadel_disable_npr_lighting							"false"
-		r_directlighting 										"false" *
+		r_directlighting 										"false" 
 		mat_tonemap_bloom_scale									"0"
 		r_citadel_ssao_bent_normals                             "false"
 		r_citadel_ssao_denoise_passes                           "0"
@@ -598,10 +597,10 @@ GameInfo
 		sc_cache_envmap_lpv_lookup                              "false"
 		thumper_use_plane_reflection                            "false" 
 		vis_sunlight_enable                                     "0"
-		r_indirectlighting 										"true" *
-		lb_enable_dynamic_lights								"true" *
-		lb_enable_stationary_lights								"true" *
-		lb_max_visible_barn_lights_override						"1"			* // Directly affects lights in Hideout and Hero Sillouettes
+		r_indirectlighting 										"true" 
+		lb_enable_dynamic_lights								"true" 
+		lb_enable_stationary_lights								"true" 
+		lb_max_visible_barn_lights_override						"1"			 // Directly affects lights in Hideout and Hero Sillouettes
 		cl_retire_low_priority_lights                           "1"
 		r_multiscattering                                       "1"
 		r_light_flickering_enabled                              "0"
@@ -699,7 +698,7 @@ GameInfo
 		lb_csm_receiver_plane_depth_bias                        "0.00002"
 		lb_csm_receiver_plane_depth_bias_transmissive_backface  "0.0002" 
 		sparseshadowtree_disable_add_layers                     "1"
-		r_rendersun 											"false" *
+		r_rendersun 											"false" 
 
         // ================ SPARSE SHADOW TREE ================
         sparseshadowtree_enable_rendering      "0"
@@ -759,13 +758,13 @@ GameInfo
         cl_fasttempentcollision    "999999" //test Temp Entities" are things like shell casings hitting the floor. Increasing this number usually tells the engine to skip collision checks for them entirely or expire them instantly to avoid physics costs.
 
 		// ================ RAGDOLLS ================
-		cl_ragdoll_limit                                        "1" * 
+		cl_ragdoll_limit                                        "1"  
 		ragdoll_parallel_pose_control                           "1"  
-		cl_disable_ragdolls                                     "0" *
-		g_ragdoll_maxcount                                      "1" * // Unsure which ragdoll limit command is prioritized so I change both
+		cl_disable_ragdolls                                     "0" 
+		g_ragdoll_maxcount                                      "1"  // Unsure which ragdoll limit command is prioritized so I change both
 		ai_use_async_ragdoll_fixup                              "true" 
 		cl_ragdoll_default_scale                                "0"  
-		g_ragdoll_important_maxcount                            "1" *
+		g_ragdoll_important_maxcount                            "1" 
 
 
         // ================ MODEL & DECAL OPTIMIZATIONS ================
@@ -920,13 +919,13 @@ GameInfo
         r_citadel_depthoffield_enable        "false"
         //"mat_viewportscale" "0.01" //controls render resolution, change via video.txt not here
         fx_drawmetalspark                 "false" //Default: true<br>Draw metal spark effects.
-        r_mapextents                      "12000"  * //Default: 16384<br>Set the max dimension for the map.  This determines the far clipping plane, set to higher number if no like popping building
+        r_mapextents                      "12000"   //Default: 16384<br>Set the max dimension for the map.  This determines the far clipping plane, set to higher number if no like popping building
 
         //"citadel_player_outline_enemies" "false" //turn off enemy outline DOES NOT BREAK BACKSTABBER OR PING THRU WALL
 
         sc_screen_size_lod_scale_override "0.000001" //was -1
 
-        r_farz "9500" * //default -1 far clipping plane, controlled by mapextent, then this value applies on top of it
+        r_farz "9500"  //default -1 far clipping plane, controlled by mapextent, then this value applies on top of it
 
         citadel_trooper_outline_enabled "false" //turn off trooper outline
 
@@ -1004,7 +1003,7 @@ GameInfo
         csm_max_num_cascades_override "2"
         r_hair_indirect_transmittance "false"
 
-        r_drawdecals           "true" * //defaul true
+        r_drawdecals           "true"  //defaul true
         minimap_update_rate_hz "30"
 
 
