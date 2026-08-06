@@ -75,20 +75,21 @@ GameInfo
         // Search paths are relative to the exe directory\..\
         //
 
-        // Deadlock Mod Manager - Start
+        
+// Deadlock Mod Manager - Start
 
-        SearchPaths
-        {
-            Game_Language "citadel_*LANGUAGE*"
-            Game          "citadel/addons"
-            Mod           "citadel"
-            Write         "citadel"
-            Game          "citadel"
-            Mod           "core"
-            Write         "core"
-            Game          "core"
+		SearchPaths
+        {  
+            Game_Language       citadel_*LANGUAGE*
+            Game                citadel/addons
+            Mod                 citadel
+            Write               citadel          
+            Game                citadel
+            Mod                 core
+            Write               core
+            Game                core        
         }
-        // Deadlock Mod Manager - End
+// Deadlock Mod Manager - End
     }
 
     MaterialSystem2
@@ -558,17 +559,35 @@ GameInfo
 				  //																	    \\
 				 //        If you would like to donate as a means of showing thanks          \\
 				//                 https://streamlabs.com/dacooderr/tip                       \\
+				
+		// Press ctrl+f and type * to highlight the more visually impactful commands that you could adjust
+		// ================ PREFERENCES ================
+				
+		// --- OUTLINES ---
+		citadel_trooper_glow_disabled                           "1"  // 1 = Disable friendly/enemy minion glow.                          [def: "0"]
+		citadel_boss_glow_disabled                              "1"  // Disables boss and walker glow/highlight effect.                  [def: "0]
+		r_citadel_npr_outlines_max_dist                         "600"  // Limits outline distance to reduce unnecessary processing.        [def: "1000"]
+		r_citadel_selection_outline2_alpha                      "0.8"  // Outlines on enemy players and abilities on a scale of 0-1.       [def: "0.8"]
+		r_citadel_npr_outlines                                  "true"  // Enable outlines on enemy players.                                [def: "true"]
+		r_citadel_outlines                                      "1"  // Enables enemy outlines for better visibility.
+		citadel_player_glow_disabled                            "0"  // Disables player glow/highlight effect when pinged.               [def: "0"]
+		citadel_trooper_friendly_glow_disabled                  "1" 
+		cl_glow_brightness                                      "0"  		
+				
+		// --- HIT MARKER/HEALTHBAR ---
+		citadel_unit_status_use_new                             "1"     * // Enables new healthbars. May be needed for certain mods or they will cause crashes. (Change to 0 or False to use Old Healthbars)
+		//citadel_crosshair_hit_marker_duration                 "0.01"  * // Removes the hitmarker when shooting people.                      [def: "0.1"]
 		 
 
         // ================ FOV ================
-        r_aspectratio 											"2.00" // [ADJUST] FOV control: 1.33=70fov | 1.56=75fov | 1.75=80fov | 2.0=85fov | 2.15=90fov | 2.49=100fov | 3.0=110fov | 3.5=120fov
-		citadel_camera_hero_fov                                 "100"  // The field of view angle of the camera when following a hero.     [def: "90"]
+        r_aspectratio 											"2.15"  * // [ADJUST] FOV control: 1.33=70fov | 1.56=75fov | 1.75=80fov | 2.0=85fov | 2.15=90fov | 2.49=100fov | 3.0=110fov | 3.5=120fov
+		citadel_camera_hero_fov                                 "100"   * // The field of view angle of the camera when following a hero.     [def: "90"]
 		
 
         // ================ LIGHTING & SHADOWS ================
 		sc_disable_baked_lighting                               "true"
 		r_citadel_disable_npr_lighting							"false"
-		r_directlighting 										"false"
+		r_directlighting 										"false" *
 		mat_tonemap_bloom_scale									"0"
 		r_citadel_ssao_bent_normals                             "false"
 		r_citadel_ssao_denoise_passes                           "0"
@@ -579,10 +598,10 @@ GameInfo
 		sc_cache_envmap_lpv_lookup                              "false"
 		thumper_use_plane_reflection                            "false" 
 		vis_sunlight_enable                                     "0"
-		r_indirectlighting 										"true"
-		lb_enable_dynamic_lights								"true"
-		lb_enable_stationary_lights								"true"
-		lb_max_visible_barn_lights_override						"1"			// Directly affects lights in Hideout and Hero Sillouettes
+		r_indirectlighting 										"true" *
+		lb_enable_dynamic_lights								"true" *
+		lb_enable_stationary_lights								"true" *
+		lb_max_visible_barn_lights_override						"1"			* // Directly affects lights in Hideout and Hero Sillouettes
 		cl_retire_low_priority_lights                           "1"
 		r_multiscattering                                       "1"
 		r_light_flickering_enabled                              "0"
@@ -680,7 +699,7 @@ GameInfo
 		lb_csm_receiver_plane_depth_bias                        "0.00002"
 		lb_csm_receiver_plane_depth_bias_transmissive_backface  "0.0002" 
 		sparseshadowtree_disable_add_layers                     "1"
-		r_rendersun 											"false"
+		r_rendersun 											"false" *
 
         // ================ SPARSE SHADOW TREE ================
         sparseshadowtree_enable_rendering      "0"
@@ -689,7 +708,6 @@ GameInfo
 
         // ================ DISTANCE FIELD ================
         r_citadel_distancefield_farfield_enable "false"
-        r_citadel_npr_outlines_max_dist         "800"
 
         // ================ FOG & ATMOSPHERE ================
         r_enable_volume_fog                  "0"
@@ -741,13 +759,13 @@ GameInfo
         cl_fasttempentcollision    "999999" //test Temp Entities" are things like shell casings hitting the floor. Increasing this number usually tells the engine to skip collision checks for them entirely or expire them instantly to avoid physics costs.
 
 		// ================ RAGDOLLS ================
-		cl_ragdoll_limit                                        "1"  
+		cl_ragdoll_limit                                        "1" * 
 		ragdoll_parallel_pose_control                           "1"  
-		cl_disable_ragdolls                                     "0" 
-		g_ragdoll_maxcount                                      "1"
+		cl_disable_ragdolls                                     "0" *
+		g_ragdoll_maxcount                                      "1" * // Unsure which ragdoll limit command is prioritized so I change both
 		ai_use_async_ragdoll_fixup                              "true" 
 		cl_ragdoll_default_scale                                "0"  
-		g_ragdoll_important_maxcount                            "1"
+		g_ragdoll_important_maxcount                            "1" *
 
 
         // ================ MODEL & DECAL OPTIMIZATIONS ================
@@ -802,7 +820,6 @@ GameInfo
         r_dashboard_render_quality                  "0"
         closecaption                                "false"
         citadel_hud_objective_health_enabled        "2" // [ADJUST] Objective health display: 0=Off | 1=Shrines only | 2=T1/T2 Towers | 3=Barracks
-        citadel_boss_glow_disabled                  "1"
         citadel_damage_offscreen_indicator_disabled "1"    // Set 1 to disable lane minion HP thru wall
         citadel_portrait_world_renderer_off         "false" // Set true to disable hero hud
         panorama_use_new_occlusion_invalidation     "1"
@@ -861,7 +878,6 @@ GameInfo
         r_max_portal_render_targets  "2" // Set how many amount to render portals
         //"mat_colcorrection_disableentities" "1" // Disable map color-correction entities
         r_gbuffer_disable_npr_lighting "true"
-        r_citadel_npr_outlines         "false"
 
         // test
 
@@ -880,7 +896,6 @@ GameInfo
         r_particle_cables_render                  "true"  //default true break lash ult do not disable
         r_postprocess_enable                      "true"  //default true TURNED ON BECAUSE I WANT TO USE SUNLOCK
         lb_dynamic_shadow_resolution              "false" //default true
-        cl_glow_brightness                        "0"     //default 1
         r_distancefield_enable                    "false" //default true Graphics/Enable Distance Field rendering
         lb_enable_sunlight                        "false" //Default: true<br>SceneSystem/LightBinner/Enable Sunlight
 
@@ -896,7 +911,6 @@ GameInfo
         r_fullscreen_gamma "1.4" //recommended ppl to use this to make the game brighter, bigge number = darker (use again in console if game not bright, only work in fullscreen exclusive, try 2.1 then 1.4 to make it work i have 2 keys binded for this)
 
         //"mat_colorcorrection" "0"
-        citadel_trooper_glow_disabled "true"
 
 
         lb_mixed_shadows                     "false"
@@ -906,13 +920,13 @@ GameInfo
         r_citadel_depthoffield_enable        "false"
         //"mat_viewportscale" "0.01" //controls render resolution, change via video.txt not here
         fx_drawmetalspark                 "false" //Default: true<br>Draw metal spark effects.
-        r_mapextents                      "12000"  //Default: 16384<br>Set the max dimension for the map.  This determines the far clipping plane, set to higher number if no like popping building
+        r_mapextents                      "12000"  * //Default: 16384<br>Set the max dimension for the map.  This determines the far clipping plane, set to higher number if no like popping building
 
         //"citadel_player_outline_enemies" "false" //turn off enemy outline DOES NOT BREAK BACKSTABBER OR PING THRU WALL
 
         sc_screen_size_lod_scale_override "0.000001" //was -1
 
-        r_farz "9500" //default -1 far clipping plane, controlled by mapextent, then this value applies on top of it
+        r_farz "9500" * //default -1 far clipping plane, controlled by mapextent, then this value applies on top of it
 
         citadel_trooper_outline_enabled "false" //turn off trooper outline
 
@@ -990,7 +1004,7 @@ GameInfo
         csm_max_num_cascades_override "2"
         r_hair_indirect_transmittance "false"
 
-        r_drawdecals           "false" //defaul true
+        r_drawdecals           "true" * //defaul true
         minimap_update_rate_hz "30"
 
 
@@ -1006,7 +1020,6 @@ GameInfo
         r_particle_model_per_thread_count "32"
 
         r_citadel_selection_outline2_offset "2"
-        r_citadel_selection_outline2_alpha  "255"
         r_citadel_selection_outline2_width  "50"
         battery_saver                       "false"
 
