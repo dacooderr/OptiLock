@@ -757,7 +757,7 @@ GameInfo
         r_propsmaxdist               							"600"
         r_citadel_screenspace_particles_full_res 				"false"
         r_citadel_gpu_culling_shadows            				"1"
-        r_size_cull_threshold 									"1.65" // do not go over or youll have wall hack
+        r_size_cull_threshold 									"0.50" // do not go over or youll have wall hack
         r_hair_ao             									"0"
         r_haircull_percent    									"100"
         ik_final_fixup_enable 									"0"
