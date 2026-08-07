@@ -725,7 +725,7 @@ GameInfo
         r_citadel_ssao_thin_occluder_compensation "0"
 
         // ================ PARTICLE SYSTEM ================
-		cl_particle_max_count 						"1"       // hard cap should play with this value to find the best hardcap
+		cl_particle_max_count 						"256"       // hard cap should play with this value to find the best hardcap
         r_particle_max_detail_level       "0 " //was 0
         r_particle_cables_cast_shadows    "0"
         r_RainParticleDensity             "0"
@@ -751,6 +751,8 @@ GameInfo
 		ai_use_async_ragdoll_fixup                              "true" 
 		cl_ragdoll_default_scale                                "0"  
 		g_ragdoll_important_maxcount                            "1" 
+		g_ragdoll_fadespeed										"1"
+		g_ragdoll_lvfadespeed									"1"
 
         // ================ VISUAL CLARITY, MODEL & DECAL OPTIMIZATIONS ================
 		r_drawdecals           									"true" 
