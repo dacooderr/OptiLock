@@ -732,11 +732,11 @@ GameInfo
         r_physics_particle_op_spawn_scale "0"
         r_particle_max_size_cull          "600" //was 800 Particle systems larger than this in every dimension skip culling to save CPU.  They will be drawn anyway
         r_particle_mixed_resolution_viewstart "800"
-        r_particle_max_draw_distance          "50000" // Lower = less particle range, more FPS, dont go below this value it doesnt draw trooper hp bar,
+        r_particle_max_draw_distance          "300000" // Lower = less particle range, more FPS, dont go below this value it doesnt draw trooper hp bar,
         r_particle_model_new8                 "0"
         cl_show_splashes                      "0"
         r_particle_skip_postsim               "1"
-        r_limit_particle_job_duration 		  "1"
+        //r_limit_particle_job_duration 		  "1"
         cl_particle_sim_fallback_threshold_ms    "2" // [ADJUST] Lower = more aggressive fallback to simple particles (higher FPS, less detail)
         cl_particle_fallback_base                "10"
         cl_particle_fallback_multiplier          "10"    //was 10
@@ -837,7 +837,6 @@ GameInfo
         r_grass_end_fade   "0"
 
         // ================ UI & HUD ================
-		citadel_commend_use_toasts 					"false"
         panorama_disable_box_shadow                 "0"
         r_dashboard_render_quality                  "0"
         closecaption                                "false"
@@ -1050,7 +1049,7 @@ GameInfo
         sc_aggregate_gpu_occlusion_culling      "1"
         sc_aggregate_gpu_vis_culling            "1"
         r_threaded_particles "1"
-        panorama_enable_secondary_layout_pass 	  "0"     // Skips the secondary CSS layout check (drastically reduces UI calculation time)
+        //panorama_enable_secondary_layout_pass 	  "0"     // Skips the secondary CSS layout check (drastically reduces UI calculation time)
         panorama_draw_text_fast_path              "1" // Forces text rendering through a hardware fast-path
         panorama_draw_text_fast_path_text_shadow  "1" // Forces text shadows through a hardware fast-path
         panorama_hsbc_through_fast_path           "1" // Forces UI hue/saturation/brightness changes through a fast-path
@@ -1060,7 +1059,7 @@ GameInfo
         citadel_hud_objective_health_idle_timeout "0" // Boss/Tower health bars vanish the millisecond they stop taking damage.
         citadel_camera_parrot_smoothing_rate      "0" // Stops the camera from running math to "smooth" itself back into place after hitting a wall.
         steam_inputhandler_enabled                "0" // Completely disables Steam Input API polling. Huge for 1% lows if you only use Keyboard/Mouse.
-        panorama_worldpanel_update_culling 		  "1"          // Forces the engine to cull (hide/stop updating) floating UI elements that are off-screen or occluded.
+        //panorama_worldpanel_update_culling 		  "1"          // Forces the engine to cull (hide/stop updating) floating UI elements that are off-screen or occluded.
         //"panorama_worldpanel_update_cull_distance" "15000" // Distance (in units) at which floating UI completely stops updating. (Lower this to 800 or 500 for extreme culling). DONT PLAY AROUND WITH THESE WORLDPANEL VALUE
         //"panorama_worldpanel_update_cull_size_threshold" "20" // If a floating UI element takes up less than this % of the screen, stop updating it. (Default is 5, making it 20 aggressively hides small UI elements far away).
         //"citadel_camera_see_distance_max" "2000"
@@ -1229,7 +1228,7 @@ GameInfo
 
         snd_event_browser_focus_events "true"
 
-        cl_max_particle_pvs_aabb_edge_length "10"
+        cl_max_particle_pvs_aabb_edge_length "100"
 
         // Allow aggregation of particles (for perf)
         // cl_aggregate_particles "true"
