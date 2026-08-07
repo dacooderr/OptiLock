@@ -4,7 +4,7 @@
 //										/ /_/ / /_/ / /_/ / /___/ /_/ / /__/ ,<   													\\
 //										\____/ .___/\__/_/_____/\____/\___/_/|_|  													\\
 //											/_/   																		            \\
-//						    Modified -- KAIZ ---------------------------------------- ver. 4.3   https://www.twitch.tv/kaizuchaneru	\\
+//						   			 ---------------------------------------- ver. 4.4  											\\
 //																																    \\
 //						If this config helped you, you wanna be extra nice, let me know by giving a little back or					\\
 //										check out my YouTube and Twitch! -dacooderr													\\
@@ -550,7 +550,7 @@ GameInfo
     ConVars
     {
 	
-				   // ----------------------- OptiLock -- ver. 4.3  ---------------------- \\
+				   // ----------------------- OptiLock -- ver. 4.4  ---------------------- \\
 					   //        OptiLock: https://gamebanana.com/mods/690233          \\
 					  //         QOL Lite: https://gamebanana.com/mods/690233           \\
 					 //     Downloaded from: https://github.com/dacooderr/OptiLock       \\
@@ -1124,7 +1124,7 @@ GameInfo
    // Artemon121       Made the Citadel cvar unhider														\\
   // Pidjan            Worked on further gameinfo changes and let us integrate                               \\
  // Piggy              Video.txt contributer and cool streamer guy                                            \\
-// ----------------------------------------- END OF CONFIG OptiLock -- ver. 4.3 ------------------------------ \\
+// ----------------------------------------- END OF CONFIG OptiLock -- ver. 4.4 ------------------------------ \\
 
 	rate
         {
