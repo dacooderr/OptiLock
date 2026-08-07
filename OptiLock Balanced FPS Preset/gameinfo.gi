@@ -581,8 +581,8 @@ GameInfo
 		citadel_camera_hero_fov                                 "100"    // The field of view angle of the camera when following a hero.     [def: "90"]
 		
 		// --- COLOR ACCURACY & POST PROCESSING ---
-		mat_colorcorrection 									"true"  //  Makes your game REALLY dark.
-		r_postprocess_enable                                    "true"  //  Disable postprocessing effects game-wide. (Also controls colorcorrection as its a post-processing effect)
+		mat_colorcorrection 									"true"  //  Color Accuracy
+		r_postprocess_enable                                    "true"  //  Disable postprocessing effects game-wide. Makes your game REALLY dark. (Also controls colorcorrection as its a post-processing effect)
 		
         // ================ LIGHTING & SHADOWS ================
 		sc_disable_baked_lighting                               "true"
