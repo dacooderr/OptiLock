@@ -4,7 +4,7 @@
 //										/ /_/ / /_/ / /_/ / /___/ /_/ / /__/ ,<   													\\
 //										\____/ .___/\__/_/_____/\____/\___/_/|_|  													\\
 //											/_/   																		            \\
-//									 KAIZ ---------------------------------------- ver. 4.3   https://www.twitch.tv/kaizuchaneru	\\
+//									 KAIZ ---------------------------------------- ver. 4.4   https://www.twitch.tv/kaizuchaneru	\\
 //																																    \\
 //						If this config helped you, you wanna be extra nice, let me know by giving a little back or					\\
 //										check out my YouTube and Twitch! -dacooderr													\\
@@ -522,13 +522,29 @@ GameInfo
 
     ConVars
     {
-        // ================ CORE QUALITY ================
+	
+				   //  --------------------- OptiLock -- ver. 4.4  --------------------- \\
+					   //        OptiLock: https://gamebanana.com/mods/690233         \\
+					  //         QOL Lite: https://gamebanana.com/mods/690233          \\
+					 //     Downloaded from: https://github.com/dacooderr/OptiLock      \\
+					//      Tutorial: https://www.youtube.com/watch?v=Kpoet2ebl70        \\
+				   //	      	   Discord: https://discord.gg/UxjsJB5Rp5				  \\
+				  //																	   \\
+				 //        If you would like to donate as a means of showing thanks         \\
+				//	 And please support Kaiz as this version of the config is 99% his work!	 \\
+			   //					https://www.twitch.tv/kaizuchaneru						  \\
+			  //                   https://streamlabs.com/dacooderr/tip                        \\
+				
+		// ================ PREFERENCES ================
+		
+        // ---------- CORE QUALITY ---------
         gpu_level              "1" // Minimum Shader Details Level 0= high
         cpu_level              "1" // Minimum Effect Details Level
         mat_set_shader_quality "0"
 
         // ================ FOV ================
-        //"r_aspectratio" "2.5"              // [ADJUST] FOV control: 1.33=70fov | 1.56=75fov | 1.75=80fov | 2.0=85fov | 2.15=90fov | 2.49=100fov | 3.0=110fov | 3.5=120fov
+        r_aspectratio 											"2.15"    // [ADJUST] FOV control: 1.33=70fov | 1.56=75fov | 1.75=80fov | 2.0=85fov | 2.15=90fov | 2.49=100fov | 3.0=110fov | 3.5=120fov
+		citadel_camera_hero_fov                                 "100"    // The field of view angle of the camera when following a hero.     [def: "90"]
 
         // ================ LIGHTING & SHADOWS ================
         r_directlighting                                       "false"
@@ -1062,6 +1078,8 @@ GameInfo
         citadel_npc_ag2_enable               "0" //disable ag2 for npc
         citadel_visibility_queue_rate        "4"
 
+				 // ========= CREDITS =========																				     
+				// KAIZ  |  Config Creator           													   
 
         rate
         {
