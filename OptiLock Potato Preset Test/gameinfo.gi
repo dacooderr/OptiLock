@@ -910,7 +910,6 @@ GameInfo
         fx_drawmetalspark                 "false" //Default: true<br>Draw metal spark effects.
         r_mapextents                      "12000"   //Default: 16384<br>Set the max dimension for the map.  This determines the far clipping plane, set to higher number if no like popping building
         //"citadel_player_outline_enemies" "false" //turn off enemy outline DOES NOT BREAK BACKSTABBER OR PING THRU WALL
-        sc_screen_size_lod_scale_override "0.000001" //was -1
         r_farz "9500"  //default -1 far clipping plane, controlled by mapextent, then this value applies on top of it
         citadel_trooper_outline_enabled "false" //turn off trooper outline
         citadel_hideout_enable_testing_tools "true" //default false doesnt work

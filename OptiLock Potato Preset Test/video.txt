@@ -12,7 +12,7 @@
 	"setting.cpu_level"		"1"
 	"setting.mem_level"		"0"
 	"setting.gpu_mem_level"		"0"
-	"setting.gpu_level"		"1"
+	"setting.gpu_level"		"0"
 	"setting.mat_vsync"		"0"
 	"setting.r_low_latency"		"1"
 	"setting.fps_max"		"0"
