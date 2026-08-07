@@ -67,7 +67,7 @@
 	"setting.refreshrate_denominator"		"0"
 	"setting.r_citadel_distancefield_reflections"		"false"
 	"setting.r_screen_space_shadows"		"false"
-	"setting.r_render_portals"		"0"
+	"setting.r_render_portals"		"1"
 	"setting.r_env_map_uses_height_map"		"0"
 	"setting.r_citadel_mboit"		"false"
 	"setting.lb_csm_override_staticgeo_cascades"		"true"
