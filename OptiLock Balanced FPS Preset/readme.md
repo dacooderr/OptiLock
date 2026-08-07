@@ -1,4 +1,4 @@
-# This is the core OptiLock FPS config with certain lighting effects turned on for Hero Sillouettes. This is NOT the most performant FPS Config. If you want **roblox graphics**, make sure to change r_texture_stream_mip_bias in VIDEO.TXT. **DO NOT MAKE GAMEINFO OR VIDEO.TXT READONLY.**
+# This is the core OptiLock FPS config with certain lighting effects turned on for Hero Sillouettes, smooth UI animations, and Text/Pop-up Box Shadows. This is NOT the most performant FPS Config.
 
 	Directions: 
 		1 Replace your gameinfo.gi entirely with this configs version at steamapps/common/deadlock/game/citadel
