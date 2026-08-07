@@ -702,7 +702,6 @@ GameInfo
         sparseshadowtree_enable_rendering      "0"
         sparseshadowtree_disable_for_viewmodel "1"
 
-
         // ================ DISTANCE FIELD ================
         r_citadel_distancefield_farfield_enable "false"
 
@@ -719,7 +718,6 @@ GameInfo
         r_world_wind_strength "0"
 
         // ================ SSAO ================
-
         r_citadel_ssao_quality                    "0"
         r_citadel_ssao_thin_occluder_compensation "0"
 
@@ -742,19 +740,6 @@ GameInfo
         cl_particle_sim_fallback_base_multiplier "100"   //default 10
         r_particle_min_timestep                  "0.01" // default "0", every old config "0.001" ,"0.016" (caps particle sim to 60fps smoother) or "0.033" (caps to 30fps more stable perf)
 
-        // ================ PHYSICS & CLOTH ================
-        cloth_update               "1" // [FPS IMPACT] 0=Off (cosmetic only, +FPS) | 1=On (cloth physics enabled)
-        cloth_sim_on_tick          "0"
-        presettle_cloth_iterations "0"      //default 3
-        pred_cloth_pos_max         "0"      // Reduce cloth prediction was 1
-        pred_cloth_pos_multiplier  "0"      //was 0.3
-        pred_cloth_pos_strength    "0"      //was 0.1
-        pred_cloth_rot_high        "0"      //was 0.05
-        pred_cloth_rot_low         "0"      //was 0.005
-        pred_cloth_rot_multiplier  "0"      //was 0.2 changing these values does fucking nothing
-        cl_phys_timescale          "1"      // [FPS IMPACT] 0=Disable physics (max FPS) | 1=Normal physics | Lower = slower physics, less CPU
-        cl_fasttempentcollision    "999999" //test Temp Entities" are things like shell casings hitting the floor. Increasing this number usually tells the engine to skip collision checks for them entirely or expire them instantly to avoid physics costs.
-
 		// ================ RAGDOLLS ================
 		cl_ragdoll_limit                                        "1"  
 		ragdoll_parallel_pose_control                           "1"  
@@ -764,25 +749,59 @@ GameInfo
 		cl_ragdoll_default_scale                                "0"  
 		g_ragdoll_important_maxcount                            "1" 
 
-
-        // ================ MODEL & DECAL OPTIMIZATIONS ================
-        r_drawmodeldecals            "0"    //does not exist in master convar
-        r_character_decal_resolution "0.01" //default 1
-        r_decals                     "1"    // im p sure valve killed this command [ADJUST] Max decals visible: 1= only 1 bullet hole(max FPS) | 16=default
-        r_propsmaxdist               "600"
-
-        r_citadel_screenspace_particles_full_res "false"
-        r_citadel_gpu_culling_shadows            "1"
-
-        r_size_cull_threshold "1.65" // do not go over or youll have wall hack
-        r_hair_ao             "0"
-        r_render_hair         "0" // doesnt work [FPS IMPACT] 0=Off (max FPS boost, bald heroes) | 1=On (hair rendered)
-        r_haircull_percent    "100"
-        ik_final_fixup_enable "0"
-        ik_fabrik_align_chain "0"
-        cl_impacteffects      "0"
-        enable_boneflex       "false" // cloth flexing
-        cl_eye_yaw_multiplier "0"
+        // ================ VISUAL CLARITY, MODEL & DECAL OPTIMIZATIONS ================
+		r_drawdecals           									"true" 
+		r_drawmodeldecals            							"0"    //does not exist in master convar
+        r_character_decal_resolution 							"0.60" //default 1
+        r_decals                     							"1"    // im p sure valve killed this command [ADJUST] Max decals visible: 1= only 1 bullet hole(max FPS) | 16=default
+        r_propsmaxdist               							"600"
+        r_citadel_screenspace_particles_full_res 				"false"
+        r_citadel_gpu_culling_shadows            				"1"
+        r_size_cull_threshold 									"1.65" // do not go over or youll have wall hack
+        r_hair_ao             									"0"
+        r_haircull_percent    									"100"
+        ik_final_fixup_enable 									"0"
+        ik_fabrik_align_chain 									"0"
+        cl_impacteffects      									"0"
+        enable_boneflex       									"false" // cloth flexing
+        cl_eye_yaw_multiplier 									"0"
+		cl_fasttempentcollision                                 "999999"  // Limits/controls fast collision processing for temporary entities (impacts/tracers/etc.); higher usually = more work. [def: "5"]
+		enable_boneflex                                         "false"  // Disables bone flexes (procedural facial/mesh flex drivers).      [def: "1"]
+		r_hair_indirect_transmittance                           "false"
+		r_render_hair                                           "0"
+		citadel_per_weapon_per_surface_impact_effects           "false"
+		mat_colcorrection_disableentities                       "0"  // Allows entity-based color correction. [def: "0"]
+		r_citadel_antialiasing                                  "0"  // default 1
+		r_citadel_fog_quality                                   "0"  // Deadlock/Citadel fog quality (0 = lowest). [def: "1"]
+		r_decals_default_fade_duration                          "0.001"  // How quickly decals (bullet holes) fade                           [def: "3"]
+		r_decals_default_start_fade                             "0.001"
+		r_decals_max_on_deformables                             "0"
+		r_decals_overlap_threshold                              "5"
+		r_drawmodeldecals                                       "0"  // does not exist in master convar
+		r_drawtracers_firstperson                               "0"
+		r_enable_cubemap_fog                                    "0"  // Disables cubemap-based fog. [def: "1"]
+		r_enable_gradient_fog                                   "0"  // Disables gradient fog. [def: "1"]
+		r_enable_volume_fog                                     "0"  // Disables volumetric fog. [def: "1"]
+		r_fullscreen_gamma                                      "2.2"  // recommended ppl to use this to make the game brighter, bigge number = darker
+		r_postprocess_enable                                    "true"  // default true
+		violence_hblood                                         "false"  // Disables human blood effects.                                    [def: "1"]
+		violence_hgibs                                          "false"  // Disables human gibs.                                             [def: "1"]
+		presettle_cloth_iterations                              "0"  // kai's cfg - default 3
+		pred_cloth_pos_max                                      "0"  // kai's cfg - Reduce cloth prediction was 1
+		pred_cloth_pos_multiplier                               "0"  // kai's cfg - was 0.3
+		pred_cloth_pos_strength                                 "0"  // kai's cfg - was 0.1
+		pred_cloth_rot_high                                     "0"  // kai's cfg - was 0.05
+		pred_cloth_rot_low                                      "0"  // kai's cfg - was 0.005
+		pred_cloth_rot_multiplier                               "0"  // kai's cfg - was 0.2 changing these values does fucking nothing
+		cl_phys_timescale                                       "1"  // kai's cfg - [FPS IMPACT] 0=Disable physics (max FPS) | 1=Normal physics | Lower = slower physics, less CPU
+		phys_threaded_kinematic_bone_update                     "1"  // kai's cfg
+		phys_threaded_transform_update                          "1"  // kai's cfg
+		cl_physics_highlight_active                             "0"  // kai's cfg - Turns on the absbox for all active physics objects.<br>  0 : un-highlight.<br>
+		phys_highlight_expensive_objects_strength               "0"  // kai's cfg - Default: 0.02<br>Highlight expensive physics objects strength, no need since expensive obj is disabled by default
+		phys_cull_internal_mesh_contacts                        "true"  // kai's cfg - default false
+		cl_phys_networked_start_sleep                           "true"  // kai's cfg - try on and off, this is probably what causing result screen to pop up when idling
+		phys_multithreading_enabled                             "1"  // kai's cfg - default true, alr enabled no need to include ngl
+		phys_dynamic_scaling                                    "false"  // kai's cfg - default true
 
         // ================ LOD & CULLING ================
         sc_instanced_mesh_lod_bias              "15" // [FPS IMPACT] Higher = lower quality models, more FPS | 0=High quality | 10=Low quality
@@ -822,11 +841,9 @@ GameInfo
         panorama_use_new_occlusion_invalidation     "1"
         panorama_temp_comp_layer_min_dimension      "128"
         panorama_async_compute_mipgen               "1"
-
         hud_free_cursor "0" // Reduces UI input delay in minimap/spectator modes (not sure if this is true)
         //"citadel_camera_soft_collision" "0" // 0 = no collision, 2= game default
         citadel_camera_wobble_disable "1"
-
         mm_idle_show_warning_at_s              "999" // How many seconds to wait before showing the idle warning dialog
         citadel_hideout_ball_show_juggle_count "1"
         citadel_hideout_ball_show_juggle_fx    "1"
@@ -874,13 +891,12 @@ GameInfo
         //"mat_colcorrection_disableentities" "1" // Disable map color-correction entities
         r_gbuffer_disable_npr_lighting "true"
 
-        // test
-
+        // ================ TEST ================
         phys_highlight_expensive_objects_strength "0"     //Default: 0.02<br>Highlight expensive physics objects strength, no need since expensive obj is disabled by default
         r_citadel_shadowdb                        "256"   //Default: 2048<br>
         r_citadel_shadow_quality                  "0"     //Default: 1<br>Shadow Quality
         r_effects_bloom                           "false" //Default: true<br>
-        r_citadel_glow_health_bars                "true"  //default true
+        r_citadel_glow_health_bars                "false"  //default true
         r_citadel_enable_pano_world_blur          "false" //Default: true<br>Enable world-blur style
         r_depth_of_field                          "false" //default true
         r_directional_lightmaps                   "false" //default true
@@ -909,7 +925,7 @@ GameInfo
         //"mat_viewportscale" "0.01" //controls render resolution, change via video.txt not here
         fx_drawmetalspark                 "false" //Default: true<br>Draw metal spark effects.
         r_mapextents                      "12000"   //Default: 16384<br>Set the max dimension for the map.  This determines the far clipping plane, set to higher number if no like popping building
-        //"citadel_player_outline_enemies" "false" //turn off enemy outline DOES NOT BREAK BACKSTABBER OR PING THRU WALL
+        citadel_player_outline_enemies "true" //turn off enemy outline DOES NOT BREAK BACKSTABBER OR PING THRU WALL
         r_farz "9500"  //default -1 far clipping plane, controlled by mapextent, then this value applies on top of it
         citadel_trooper_outline_enabled "false" //turn off trooper outline
         citadel_hideout_enable_testing_tools "true" //default false doesnt work
@@ -961,7 +977,6 @@ GameInfo
         r_texture_nonstreaming_load         "1"
         csm_max_num_cascades_override "2"
         r_hair_indirect_transmittance "false"
-        r_drawdecals           "true"  //defaul true
         minimap_update_rate_hz "30"
         wind_system_temporal_smoothing    "false"
         wind_system_default_resolution_xy "64"
