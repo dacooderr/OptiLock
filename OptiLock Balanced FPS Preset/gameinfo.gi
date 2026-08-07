@@ -4,7 +4,7 @@
 //										/ /_/ / /_/ / /_/ / /___/ /_/ / /__/ ,<   													\\
 //										\____/ .___/\__/_/_____/\____/\___/_/|_|  													\\
 //											/_/   																		            \\
-//						   			 ---------------------------------------- ver. 4.4  											\\
+//						   			 ---------------------------------------- ver. 4.5  											\\
 //																																    \\
 //						If this config helped you, you wanna be extra nice, let me know by giving a little back or					\\
 //										check out my YouTube and Twitch! -dacooderr													\\
@@ -75,7 +75,6 @@ GameInfo
         // Search paths are relative to the exe directory\..\
         //
 
-        
 // Deadlock Mod Manager - Start
 
 		SearchPaths
@@ -550,7 +549,7 @@ GameInfo
     ConVars
     {
 	
-				   // ----------------------- OptiLock -- ver. 4.4  ---------------------- \\
+				   // ----------------------- OptiLock -- ver. 4.5  ---------------------- \\
 					   //        OptiLock: https://gamebanana.com/mods/690233          \\
 					  //         QOL Lite: https://gamebanana.com/mods/690233           \\
 					 //     Downloaded from: https://github.com/dacooderr/OptiLock       \\
@@ -581,6 +580,10 @@ GameInfo
         r_aspectratio 											"2.15"   // [ADJUST] FOV control: 1.33=70fov | 1.56=75fov | 1.75=80fov | 2.0=85fov | 2.15=90fov | 2.49=100fov | 3.0=110fov | 3.5=120fov
 		citadel_camera_hero_fov                                 "100"    // The field of view angle of the camera when following a hero.     [def: "90"]
 		
+		// --- COLOR ACCURACY & POST PROCESSING ---
+		mat_colorcorrection 									"true"  //  Makes your game REALLY dark.
+		r_postprocess_enable                                    "true"  //  Disable postprocessing effects game-wide. (Also controls colorcorrection as its a post-processing effect)
+		
         // ================ LIGHTING & SHADOWS ================
 		sc_disable_baked_lighting                               "true"
 		r_citadel_disable_npr_lighting							"false"
@@ -595,10 +598,10 @@ GameInfo
 		sc_cache_envmap_lpv_lookup                              "false"
 		thumper_use_plane_reflection                            "false" 
 		vis_sunlight_enable                                     "0"
-		r_indirectlighting 										"true" 
-		lb_enable_dynamic_lights								"true" 
-		lb_enable_stationary_lights								"true" 
-		lb_max_visible_barn_lights_override						"1"			 // Directly affects lights in Hideout and Hero Sillouettes
+		r_indirectlighting 										"true"  
+		lb_enable_dynamic_lights								"true"  
+		lb_enable_stationary_lights								"true"  
+		lb_max_visible_barn_lights_override						"1"	     // Directly affects lights in Hideout and Hero Sillouettes
 		cl_retire_low_priority_lights                           "1"
 		r_multiscattering                                       "1"
 		r_light_flickering_enabled                              "0"
@@ -722,18 +725,18 @@ GameInfo
         r_citadel_ssao_thin_occluder_compensation "0"
 
         // ================ PARTICLE SYSTEM ================
+		cl_particle_max_count 						"1"       // hard cap should play with this value to find the best hardcap
         r_particle_max_detail_level       "0 " //was 0
         r_particle_cables_cast_shadows    "0"
         r_RainParticleDensity             "0"
         r_physics_particle_op_spawn_scale "0"
         r_particle_max_size_cull          "600" //was 800 Particle systems larger than this in every dimension skip culling to save CPU.  They will be drawn anyway
-
         r_particle_mixed_resolution_viewstart "800"
-        r_particle_max_draw_distance          "300000" // Lower = less particle range, more FPS, dont go below this value it doesnt draw trooper hp bar,
+        r_particle_max_draw_distance          "50000" // Lower = less particle range, more FPS, dont go below this value it doesnt draw trooper hp bar,
         r_particle_model_new8                 "0"
         cl_show_splashes                      "0"
         r_particle_skip_postsim               "1"
-        //"r_limit_particle_job_duration" "1"
+        r_limit_particle_job_duration 		  "1"
         cl_particle_sim_fallback_threshold_ms    "2" // [ADJUST] Lower = more aggressive fallback to simple particles (higher FPS, less detail)
         cl_particle_fallback_base                "10"
         cl_particle_fallback_multiplier          "10"    //was 10
@@ -783,8 +786,8 @@ GameInfo
 		r_enable_gradient_fog                                   "0"  // Disables gradient fog. [def: "1"]
 		r_enable_volume_fog                                     "0"  // Disables volumetric fog. [def: "1"]
 		r_fullscreen_gamma                                      "2.2"  // recommended ppl to use this to make the game brighter, bigge number = darker
-		r_postprocess_enable                                    "true"  // default true
 		violence_hblood                                         "false"  // Disables human blood effects.                                    [def: "1"]
+		r_post_bloom											"false"
 		violence_hgibs                                          "false"  // Disables human gibs.                                             [def: "1"]
 		presettle_cloth_iterations                              "0"  // kai's cfg - default 3
 		pred_cloth_pos_max                                      "0"  // kai's cfg - Reduce cloth prediction was 1
@@ -832,6 +835,7 @@ GameInfo
         r_grass_end_fade   "0"
 
         // ================ UI & HUD ================
+		citadel_commend_use_toasts 					"false"
         panorama_disable_box_shadow                 "0"
         r_dashboard_render_quality                  "0"
         closecaption                                "false"
@@ -905,7 +909,6 @@ GameInfo
         mat_max_lighting_complexity               "1"     //default 8
         r_muzzleflashbrightness                   "0.01"  //default 0.4 idk if this does anything
         r_particle_cables_render                  "true"  //default true break lash ult do not disable
-        r_postprocess_enable                      "true"  //default true TURNED ON BECAUSE I WANT TO USE SUNLOCK
         lb_dynamic_shadow_resolution              "false" //default true
         r_distancefield_enable                    "false" //default true Graphics/Enable Distance Field rendering
         lb_enable_sunlight                        "false" //Default: true<br>SceneSystem/LightBinner/Enable Sunlight
@@ -916,7 +919,6 @@ GameInfo
         sc_instanced_mesh_mesh_shader "true" //default true Toggles mesh shader rendering for instanced meshes
         r_citadel_disable_npr_lighting "false" //True to make lighting ass, save you just a bit more fps like 1 extra frame
         r_fullscreen_gamma "1.4" //recommended ppl to use this to make the game brighter, bigge number = darker (use again in console if game not bright, only work in fullscreen exclusive, try 2.1 then 1.4 to make it work i have 2 keys binded for this)
-        //"mat_colorcorrection" "0"
         lb_mixed_shadows                     "false"
         r_arealights                         "false" //was true
         r_citadel_antialiasing               "0"     //default 1
@@ -1010,7 +1012,6 @@ GameInfo
         mm_idle_enabled  "false"
         r_aoproxy_cull_dist          "0.01"
         r_lightmap_size              "1"
-        r_post_bloom                 "0"
         r_ssao_strength              "0" //alr disabled ssao above shouldnt matter
         sc_disable_baked_lighting    "false"
         sc_force_materials_batchable "true"
@@ -1035,7 +1036,7 @@ GameInfo
         sparseshadowtree_disable_add_layers "1"  // Completely breaks Sparse Shadow Tree layering
         mat_slopescaledepthbias_shadowmap   "0"  // Disables shadow depth bias math
         mat_depthbias_shadowmap             "0"  // Disables shadow depth bias math
-        sc_allow_dynamic_constant_batching  "1"
+        sc_allow_dynamic_constant_batching  "0"
         sc_disable_culling_boxes "0" // Skips calculating bounding boxes for culling
         //"r_draw_instances" "0"               // Deletes small props and details from the map entirely
         r_flashlightambient  "0" // Disables ambient lighting math on flashlights/muzzle flashes
@@ -1047,7 +1048,7 @@ GameInfo
         sc_aggregate_gpu_occlusion_culling      "1"
         sc_aggregate_gpu_vis_culling            "1"
         r_threaded_particles "1"
-        //"panorama_enable_secondary_layout_pass" "0"     // Skips the secondary CSS layout check (drastically reduces UI calculation time)
+        panorama_enable_secondary_layout_pass 	  "0"     // Skips the secondary CSS layout check (drastically reduces UI calculation time)
         panorama_draw_text_fast_path              "1" // Forces text rendering through a hardware fast-path
         panorama_draw_text_fast_path_text_shadow  "1" // Forces text shadows through a hardware fast-path
         panorama_hsbc_through_fast_path           "1" // Forces UI hue/saturation/brightness changes through a fast-path
@@ -1057,7 +1058,7 @@ GameInfo
         citadel_hud_objective_health_idle_timeout "0" // Boss/Tower health bars vanish the millisecond they stop taking damage.
         citadel_camera_parrot_smoothing_rate      "0" // Stops the camera from running math to "smooth" itself back into place after hitting a wall.
         steam_inputhandler_enabled                "0" // Completely disables Steam Input API polling. Huge for 1% lows if you only use Keyboard/Mouse.
-        //"panorama_worldpanel_update_culling" "1"          // Forces the engine to cull (hide/stop updating) floating UI elements that are off-screen or occluded.
+        panorama_worldpanel_update_culling 		  "1"          // Forces the engine to cull (hide/stop updating) floating UI elements that are off-screen or occluded.
         //"panorama_worldpanel_update_cull_distance" "15000" // Distance (in units) at which floating UI completely stops updating. (Lower this to 800 or 500 for extreme culling). DONT PLAY AROUND WITH THESE WORLDPANEL VALUE
         //"panorama_worldpanel_update_cull_size_threshold" "20" // If a floating UI element takes up less than this % of the screen, stop updating it. (Default is 5, making it 20 aggressively hides small UI elements far away).
         //"citadel_camera_see_distance_max" "2000"
@@ -1089,7 +1090,6 @@ GameInfo
         cl_phys_sleep_enable                            "true"
         engine_low_latency_sleep_after_client_tick "1" // helps when r_low_latency on
         r_particle_allowprerender "0"
-        //"cl_particle_max_count" "500"       // hard cap should play with this value to find the best hardcap
         sc_instanced_gpu_culling "1"
         r_particle_gpu_implicit      "1"
         r_force_thick_hair           "0"
@@ -1124,7 +1124,7 @@ GameInfo
    // Artemon121       Made the Citadel cvar unhider														\\
   // Pidjan            Worked on further gameinfo changes and let us integrate                               \\
  // Piggy              Video.txt contributer and cool streamer guy                                            \\
-// ----------------------------------------- END OF CONFIG OptiLock -- ver. 4.4 ------------------------------ \\
+// ----------------------------------------- END OF CONFIG OptiLock -- ver. 4.5 ------------------------------ \\
 
 	rate
         {
@@ -1227,7 +1227,7 @@ GameInfo
 
         snd_event_browser_focus_events "true"
 
-        cl_max_particle_pvs_aabb_edge_length "100"
+        cl_max_particle_pvs_aabb_edge_length "10"
 
         // Allow aggregation of particles (for perf)
         // cl_aggregate_particles "true"
