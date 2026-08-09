@@ -72,5 +72,5 @@
 	"setting.r_citadel_mboit"		"false"
 	"setting.lb_csm_override_staticgeo_cascades"		"true"
 	"setting.lb_csm_override_staticgeo_cascades_value"		"-1"
-	"setting.r_texture_stream_mip_bias"		"2"
+	"setting.r_texture_stream_mip_bias"		"3"
 }
