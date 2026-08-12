@@ -75,6 +75,7 @@ GameInfo
         // Search paths are relative to the exe directory\..\
         //
 
+
 // Deadlock Mod Manager - Start
 
 		SearchPaths
@@ -289,7 +290,7 @@ GameInfo
         // steps. Additionally this controls which builders are displayed in the hammer build dialog.
         DefaultMapBuilders
         {
-            bakedlighting "1" // Enable lightmapping during compile time
+            bakedlighting "0" // Enable lightmapping during compile time
             envmap        "0" // turned off since it currently causes an assert and doesn't work due to some build issue
             nav           "1" // Generate nav mesh data
         }
@@ -325,7 +326,7 @@ GameInfo
             ImportanceVolumeTransitionRegion "512" // distance we transition from high to low resolution charts
             LightmapChannels
             {
-                direct_light_shadows          "1"
+                direct_light_shadows          "0"
                 debug_chart_color             "1"
                 directional_irradiance_sh2_dc "1"
 
@@ -471,7 +472,7 @@ GameInfo
         NonTexturedGradientFog                      "0"     
         SunLightManagerCount                        "0"   
         SunLightManagerCountTools                   "0"     
-        SunLightMaxCascadeSize                      "2"    
+        SunLightMaxCascadeSize                      "0"    
         SunLightShadowRenderMode                    "Depth" 
         SupportsInstancedFade                       "0"
         Tonemapping                                 "0"    
@@ -601,16 +602,12 @@ GameInfo
 				// --- RENDER DISTANCE ---
 				r_mapextents                      "12000"
 				r_farz 							  "10000"  						// Changes how far the 3dskybox renders away from your hero, adjust these 2 values to your liking to reduce rendering issues.
-				r_nearz      					  "10"									
+				r_nearz      					  "10"						
 				
-				// ================ LIGHTING & SHADOWS ================		  		  
-				r_directlighting 										"false"		
-				r_indirectlighting 										"true"
-				lb_enable_dynamic_lights								"true"  
-				lb_enable_stationary_lights								"true"  	  
+				// ================ LIGHTING & SHADOWS ================
 				sc_disable_baked_lighting                               "true"
-				r_citadel_disable_npr_lighting							"false" 
-				lb_max_visible_barn_lights_override						"1"	     // Directly affects lights in Hideout and Hero Sillouettes		
+				r_citadel_disable_npr_lighting							"false"
+				r_directlighting 										"false" 
 				mat_tonemap_bloom_scale									"0"
 				r_citadel_ssao_bent_normals                             "false"
 				r_citadel_ssao_denoise_passes                           "0"
@@ -620,9 +617,12 @@ GameInfo
 				r_light_sensitivity_mode                                "true"
 				sc_cache_envmap_lpv_lookup                              "false"
 				thumper_use_plane_reflection                            "false" 
-				vis_sunlight_enable                                     "0" 
+				vis_sunlight_enable                                     "0"
+				r_indirectlighting 										"true"  
+				lb_enable_dynamic_lights								"true"  
+				lb_enable_stationary_lights								"true"  
+				lb_max_visible_barn_lights_override						"1"	     // Directly affects lights in Hideout and Hero Sillouettes
 				cl_retire_low_priority_lights                           "1"
-				lb_enable_newsum       									"0"		
 				r_multiscattering                                       "1"
 				r_light_flickering_enabled                              "0"
 				r_lightmap_size                                         "1"  
@@ -648,7 +648,6 @@ GameInfo
 				r_citadel_distancefield_down_sample						"6"
 				r_world_wind_frequency_grass                            "0"
 				r_world_wind_frequency_trees                            "0"
-				r_gbuffer_disable_npr_lighting 							"true"		
 				citadel_melee_shake_amplitude                           "0"  
 				citadel_melee_shake_duration                            "0"
 				r_citadel_cloak_refract_amount                          "0"  
@@ -664,18 +663,6 @@ GameInfo
 				lb_enable_shadow_casting								"false"
 				lb_mixed_shadows										"false"
 				csm_max_shadow_dist_override                            "0"
-				csm_max_num_cascades_override 							"2"	
-				csm_cascade0_override_dist               				"0"
-				csm_cascade1_override_dist               				"0"
-				csm_cascade2_override_dist               				"0"
-				csm_cascade3_override_dist               				"0"
-				csm_max_dist_between_caster_and_receiver 				"0"
-				csm_max_visible_dist                     				"0"
-				csm_res_override_0                       				"1"
-				csm_res_override_1                       				"1"
-				csm_res_override_2                       				"1"
-				csm_res_override_3                       				"1"
-				csm_viewmodel_shadows                    				"false"		
 				lb_shadow_map_cull_empty_mixed							"true"
 				lb_barnlight_shadow_use_precomputed_vis                 "0"
 				lb_csm_cross_fade_override                              "0"
@@ -686,15 +673,15 @@ GameInfo
 				r_citadel_distancefield_shadows 						"false"
 				sc_disable_spotlight_shadows							"false"
 				csm_viewmodel_shadows									"false"
-				lb_enable_baked_shadows									"false"
+				lb_enable_baked_shadows									"true"
 				lb_enable_fog_mixed_shadows								"false"
 				r_citadel_gpu_culling_shadows							"true"
+				r_citadel_gpu_preview_baked_shadows						"false"
 				sc_instanced_gpu_culling 								"1"		
 				sc_instanced_mesh_gpu_culling 						    "true"
 				sc_aggregate_gpu_culling     							"true"	
 				sc_aggregate_gpu_occlusion_culling      				"1"
-				sc_aggregate_gpu_vis_culling            				"1"		
-				r_citadel_gpu_preview_baked_shadows						"false"
+				sc_aggregate_gpu_vis_culling            				"1"					
 				r_mixed_shadows_fade_in_time							"0"
 				r_mixed_shadows_fade_out_time							"0"
 				lb_allow_time_sliced_shadow_map_rendering               "false"
@@ -702,6 +689,7 @@ GameInfo
 				lb_dynamic_shadow_resolution                            "true"
 				lb_dynamic_shadow_resolution_base                       "64"
 				lb_dynamic_shadow_resolution_base_cmp_shadowmapsize     "true"
+				lb_shadow_map_cull_empty_mixed                          "true"
 				lb_enable_binning                                       "false"
 				r_citadel_shadow_quality                                "0"
 				r_citadel_gpu_culling_shadows                           "1"
@@ -733,10 +721,20 @@ GameInfo
 				sc_disable_shadow_materials                             "1"  
 				lb_csm_receiver_plane_depth_bias                        "0.00002"
 				lb_csm_receiver_plane_depth_bias_transmissive_backface  "0.0002" 
+				csm_max_num_cascades_override 							"2"	
+				csm_cascade0_override_dist               				"0"
+				csm_cascade1_override_dist               				"0"
+				csm_cascade2_override_dist               				"0"
+				csm_cascade3_override_dist               				"0"
+				csm_max_dist_between_caster_and_receiver 				"0"
+				csm_max_visible_dist                     				"0"
+				csm_res_override_0                       				"1"
+				csm_res_override_1                       				"1"
+				csm_res_override_2                       				"1"
+				csm_res_override_3                       				"1"
+				csm_viewmodel_shadows                    				"false"						
 				sparseshadowtree_disable_add_layers                     "1"
 				r_rendersun 											"false" 
-				r_citadel_shadowdb                        				"256"   //Default: 2048
-				r_citadel_shadow_quality                  				"0"     //Default: 1 
 
 				// ================ SPARSE SHADOW TREE ================
 				sparseshadowtree_enable_rendering      					"0"
@@ -793,8 +791,6 @@ GameInfo
 				ai_use_async_ragdoll_fixup                              "true" 
 				cl_ragdoll_default_scale                                "0"  
 				g_ragdoll_important_maxcount                            "1" 
-				g_ragdoll_fadespeed										"1"
-				g_ragdoll_lvfadespeed									"1"
 
 				// ================ VISUAL CLARITY, MODEL, DECAL OPTIMIZATIONS, CUBEMAP & Etc. ================
 				r_drawdecals           									"true" 
@@ -1008,7 +1004,7 @@ GameInfo
 				phys_continuous_kinematic_update     					"0"
 				citadel_npc_force_animate_every_tick					"0"
 				citadel_npc_ag2_enable               					"0" //disable ag2 for npc
-				citadel_visibility_queue_rate        					"4"       
+				citadel_visibility_queue_rate        					"4" 			
 
 				 //CREDITS																				      \\
 				// dacooder    Config Creator            													   \\
