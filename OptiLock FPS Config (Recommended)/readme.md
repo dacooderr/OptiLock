@@ -1,4 +1,5 @@
 # This is the core OptiLock FPS config with certain lighting effects turned on for Hero Sillouettes, smooth UI animations, and Text/Pop-up Box Shadows. This is NOT the most performant FPS Config.
+## This preset is the recommended one for most PCs, for the best peformance increase while maintaining the look of the game and formatted in a way so user customization is much easier.
 
 	Directions: 
 		1 Replace your gameinfo.gi entirely with this configs version at steamapps/common/deadlock/game/citadel
