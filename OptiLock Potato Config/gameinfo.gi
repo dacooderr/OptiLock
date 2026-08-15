@@ -590,6 +590,10 @@ GameInfo
 		citadel_minimap_use_canvas_for_shop                     "0"  // Uses an alternate “canvas” rendering path for shop icons on the minimap (render path toggle). [def: "1"]
 		citadel_portrait_world_renderer_off                     "false"  // Set true to disable hero hud
 		citadel_unit_status_old_update_rate                     "15"  // might fuck with health bars
+		
+		//  ---- IMPORTANT  ----
+		mat_colorcorrection 									"false"  //  Color Accuracy
+		r_postprocess_enable                                    "true"  //  Disable postprocessing effects game-wide. Makes your game REALLY dark. (Controls all of these convars in Post-Processing section as they are post-processing effects)
 
 		// --- 4. Lighting & Shadows ---
 		sc_disable_baked_lighting                               "true"
@@ -1050,7 +1054,6 @@ GameInfo
         fog_enable                                    			"0"
         fx_drawmetalspark                             			"false" // Default: true Draw metal spark effects.
         mat_colcorrection_disableentities             			"1"     // Allows entity-based color correction. [def: "0"]
-        mat_colorcorrection                           			"0"     // Disables/ Enables color correction (game looks less vibrant when off).   [def: "1"]
         r_character_decal_monitor_render_res          			"32"    // default: 512
         r_character_decal_resolution                  			"0.01"  // Resolution of character decal texture.                           [def: "1024"]
         r_citadel_antialiasing                        			"0"     // default 1
@@ -1074,7 +1077,6 @@ GameInfo
         r_fullscreen_gamma                            			"2.2"   // recommended ppl to use this to make the game brighter, bigge number = darker
         r_muzzleflashbrightness                       			"0.01"  // default 0.4 idk if this does anything
         r_post_bloom                                  			"0"     // Disables post-process bloom.                                     [def: "1"]
-        r_postprocess_enable                          			"false"  // default true
         sc_clutter_enable                             			"0"     // Disables clutter props, improves visibility & FPS.               [def: "true"]
         violence_ablood                               			"false" // Disables alien/other blood effects.                              [def: "1"]
         violence_agibs                                			"false" // Disables alien/other gibs.                                       [def: "1"]
