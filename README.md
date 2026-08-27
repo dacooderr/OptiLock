@@ -61,7 +61,7 @@ ________________________________________________________________________________
 
 # FAQ
 
-- "How do I find a value in the config"  
+- "How do I find a command in the config"  
 Press ctrl+f in your text editor and type in the command you want to change.  
 
 - "How do I restore a value to default"  
@@ -73,20 +73,18 @@ Removing the command entirely is the easiest way
  	+ Adjust these two values to your liking.  
 
 - "The config broke this patch"  
-The gameinfo.gi gets overwritten in some patches, even small ones. You need to manually replace it again.
+The gameinfo.gi gets overwritten in some patches, even small ones. You may need to manually replace it again.
 
 - "My game is crashing"
 You may have to completely delete and reinstall the game by uninstalling and making sure there are no leftover files from previous configs or mods. (some mods replace original files and cause files to persist when doing a simple Steam Uninstall.
 Make sure to delete the Deadlock file **ENTIRELY.** - [Example](https://media.discordapp.net/attachments/1494139617090469980/1494139617249726535/delete.jpg?ex=6a1052b4&is=6a0f0134&hm=0fda70acb60a96ed746ed56c0817f357298c2fbec4b05b678b6cab25e54f09dc&=&format=webp)
-
-- "This and that is missing"
-	+ No
 
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 
 ## Useful Mods to Improve Gameplay and Awareness
 
+- [QoL Lite](https://gamebanana.com/mods/678180) by dacooderr  |  A collection of Quality of Life Mods all in one mod. (Ex. Top Bar Plus, Better Map, Always Show Passive Items and Actives Icons, & More)
 - [Top Bar Plus](https://gamebanana.com/mods/623518) by bonclide  |  Adds essential timers and indicators to the top of your screen for increased awareness.
 - [Always Show Passive Items and Actives Icons](https://gamebanana.com/mods/601444) by Hanturaya  |  Always shows cooldowns on passives and actives.
 - [Mid/Bridge Buff/Neutrals Timer](https://gamebanana.com/mods/606414) by Hanturaya  |  Adds timers for Mid and Bridge without the need for Top Bar.
@@ -102,7 +100,7 @@ ________________________________________________________________________________
 
 # Credits
 Major thanks to all of these individuals from the bottom of my heart. They are all lovely.
-- [dacooder](https://www.twitch.tv/dacooderr):      Config Creator
+- [dacooderr](https://www.twitch.tv/dacooderr):      QoL Lite & OptiLock Creator
 - Artemon121:    Made the Citadel cvar unhider
 - boot:		Made potato config
 - [simcasting](https://www.youtube.com/@GreatestToEverDoIt): 	 Benchmarking
