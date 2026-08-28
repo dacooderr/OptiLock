@@ -36,7 +36,7 @@ Here is a list of each config provided in this repository.
 |----------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
 | [OptiLock FPS Config (Recommended)](https://github.com/dacooderr/OptiLock/tree/main/OptiLock%20FPS%20Config%20(Recommended))                             | Performance oriented config with the intent of competitive use.                           |
 | [OptiLock Potato Config](https://github.com/dacooderr/OptiLock/tree/main/OptiLock%20Potato%20Config)                | For Lower End Systems                      |
-| [Kaiz Potato Config](https://github.com/dacooderr/OptiLock/tree/main/Kaiz%20Potato%20Preset) | This config prioritizes fps above all else and dramatically reduces graphical quality.    |
+| [Kaiz Potato Config](https://github.com/dacooderr/OptiLock/tree/main/Kaiz%20Potato%20Config) | This config prioritizes fps above all else and dramatically reduces graphical quality.    |
 | [cvarlist.md](https://github.com/dacooderr/OptiLock/blob/main/cvarlist.md)                                                 | Every single convar in the game's code. Not a proper config but instead a reference.      |
 | [Language/Localization/Translations](https://github.com/dacooderr/OptiLock/tree/main/Localization)          | Encontre seu idioma
 
