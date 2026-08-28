@@ -48,7 +48,7 @@ ________________________________________________________________________________
 # Pretty Important Announcement
 Valve has started restricting certain convars, as of late March. The config still works for now and Valve is aware of this config and is aware of the need for this. So only time will tell.
 
-# Table
+# Quick Access
 Here is a list of each config provided in this repository.
 | Config File                                                                                                                | Purpose                                                                                   |
 |----------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
@@ -56,7 +56,7 @@ Here is a list of each config provided in this repository.
 | [OptiLock Potato Config](https://github.com/dacooderr/OptiLock/tree/main/OptiLock%20Potato%20Config)                | Performance oriented config with the intent of competitive use.                      |
 | [Kaiz Potato Config](https://github.com/dacooderr/OptiLock/tree/main/Kaiz%20Potato%20Preset) | This config prioritizes fps above all else and dramatically reduces graphical quality.    |
 | [cvarlist.md](https://github.com/dacooderr/OptiLock/blob/main/cvarlist.md)                                                 | Every single convar in the game's code. Not a proper config but instead a reference.      |
-
+| [Language/Localization/Translations](https://github.com/dacooderr/OptiLock/tree/main/Localization)          | Encontre seu idioma
 _________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 # FAQ
