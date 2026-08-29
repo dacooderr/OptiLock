@@ -562,25 +562,25 @@ GameInfo
 				// --- PREFERÊNCIAS ---
 
 				// --- CONTORNO ---
-				citadel_trooper_glow_disabled                           "1"  // 1 = Disable friendly/enemy minion glow.                          [def: "0"]
-				citadel_boss_glow_disabled                              "1"  // Disables boss and walker glow/highlight effect.                  [def: "0]
-				r_citadel_npr_outlines_max_dist                         "600"  // Limits outline distance to reduce unnecessary processing.        [def: "1000"]
-				r_citadel_selection_outline2_alpha                      "0.8"  // Outlines on enemy players and abilities on a scale of 0-1.       [def: "0.8"]
-				r_citadel_npr_outlines                                  "true"  // Enable outlines on enemy players.                                [def: "true"]
-				r_citadel_outlines                                      "1"  // Enables enemy outlines for better visibility.
-				citadel_player_glow_disabled                            "0"  // Disables player glow/highlight effect when pinged.               [def: "0"]
+				citadel_trooper_glow_disabled                           "1"  // 1 = Desabilita contorno de minions aliados e inimigos.                           [Padrão: "0"]
+				citadel_boss_glow_disabled                              "1"  // Desabilita o brilho/destaque do boss e walker.                                   [Padrão: "0"]
+				r_citadel_npr_outlines_max_dist                         "600"  // Limita distância do contorno para reduzir processamento desnecessário.         [Padrão: "1000"]
+				r_citadel_selection_outline2_alpha                      "0.8"  // Contorno em jogadores inimigos e habilidades em uma escala de 0-1.             [Padrão: "0.8"]
+				r_citadel_npr_outlines                                  "true" // Habilita o contorno em jogadores inimigos.                                    [Padrão: "true"]
+				r_citadel_outlines                                      "1"  // Habilita o contorno de objetivos inimigos para melhor visibilidade.
+				citadel_player_glow_disabled                            "0"  // Desabilita o efeito de brilho/destaque quando usar um ping.                      [Padrão: "0"]
 				citadel_trooper_friendly_glow_disabled                  "1" 
 				cl_glow_brightness                                      "0"  
 
 				// --- CAMPO DE VISÃO ---
-				r_aspectratio                                           "2.15"  // 1.75=80fov | 2.15=90fov | 2.49=100fov      [def: "0"]
-				citadel_camera_hero_fov                                 "100"  // The field of view angle of the camera when following a hero.     [def: "90"]
+				r_aspectratio                                           "2.15" // [AJUSTE] Controle do campo de visão: 1.33=70 fov | 1.56 = 75 fov | 1.75 = 80 fov | 2.0 = 85 fov | 2.15 = 90 fov | 2.49 = 100 fov | 3.0 = 110 fov | 3.5 = 120 fov
+				citadel_camera_hero_fov                                 "100"  // O ângulo do campo de visão quando seguindo um herói.                           [Padrão: "90"]
 
 				// --- MARCADOR DE ACERTO/BARRA DE VIDA ---
-				citadel_unit_status_use_new                             "1"  // Enables new healthbars. May be needed for certain mods or they will cause crashes. (Change to 0 or False to use Old Healthbars)
+				citadel_unit_status_use_new                             "1"  // Habilita as novas barras de vida. Pode ser necessário para certos mods, ou eles iram causar crashs. (Mude para 0 ou False para usar as barras de vida antigas)
 				citadel_hideout_ball_show_juggle_count                  "1"  // Shows a fun juggle count minigame for hideout ball.              [def: "0"]
 				citadel_hideout_ball_show_juggle_fx                     "1"  // Shows juggle visual FX for hideout ball minigame.                [def: "0"]
-				//citadel_crosshair_hit_marker_duration                   "0.01"  // Removes the hitmarker when shooting people.                      [def: "0.1"]
+				//citadel_crosshair_hit_marker_duration                 "0.01"  // Remove o marcador de acerto quando atira em alguém.                           [Padrão: "0.1"]
 				citadel_damage_report_enable                            "1"  // Enables/Disables incoming/outgoing damage tab. [def: "1"]
 				citadel_damage_text_show_effectiveness                  "0"  // Shows extra “effectiveness” info in damage text (e.g., resist/weakness style feedback). [def: "0"]
 				citadel_hud_objective_health_enabled                    "2"  // 0=Off, 1=Shrines, 2=T1/T2, 3=Barracks.                           [def: "2"]
@@ -590,10 +590,11 @@ GameInfo
 				citadel_minimap_use_canvas_for_shop                     "0"  // Uses an alternate “canvas” rendering path for shop icons on the minimap (render path toggle). [def: "1"]
 				citadel_portrait_world_renderer_off                     "false"  // Set true to disable hero hud
 				citadel_unit_status_old_update_rate                     "15"  // might fuck with health bars
+				r_citadel_glow_health_bars                 				"false" // Remove o efeito de brilho/destaque ao redor das barras de vida.
 				
 				// --- IMPORTANTE ---
-				mat_colorcorrection 									"false"  //  Color Accuracy
-				r_postprocess_enable                                    "true"  //  Disable postprocessing effects game-wide. Makes your game REALLY dark. (Controls all of these convars in Post-Processing section as they are post-processing effects)
+				mat_colorcorrection 									"false"  //  Precisão das cores.
+				r_postprocess_enable                                    "true"  //  Desabilita efeitos de pós-processamento em todo o jogo. Faz o jogo ficar BEM escuro. (Controla todas as convars da seção do Pós-processamento já que ela são efeitos de pós-processamento)
 
 				// --- DISTÂNCIA DE RENDERIZAÇÃO ---   
 				r_farz                                                  "8000"  // Muda o quão longe do herói a skybox 3D carrega, ajuste esses 2 valores de acordo com seu gosto para reduzir problemas de renderização.
@@ -856,7 +857,6 @@ GameInfo
 				citadel_show_new_damage_feedback_numbers                "0"  // kai's cfg - Set 1 to enable
 				citadel_camera_soft_collision                           "0"  // kai's cfg
 				citadel_camera_wobble_disable                           "1"  // kai's cfg
-				r_citadel_glow_health_bars                              "false"
 				citadel_player_outline_enemies                          "true"
 				citadel_trooper_outline_enabled                         "true"
 
