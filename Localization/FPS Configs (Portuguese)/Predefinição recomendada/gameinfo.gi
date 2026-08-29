@@ -558,7 +558,7 @@ GameInfo
 						   //	      	   Discord: https://discord.gg/UxjsJB5Rp5				   \\
 						  //																	    \\
 						 //           Se você quiser doar como forma de agradecimento                \\
-						//                 https://streamlabs.com/dacooderr/tip                       \\
+						//                  https://streamlabs.com/dacooderr/tip                      \\
 						
 				// --- PREFERÊNCIAS ---
 
