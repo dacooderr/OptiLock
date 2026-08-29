@@ -1,4 +1,4 @@
-**Instruções:
+**Instruções:**
 
 	Substitua seu gameinfo.gi COMPLETAMENTE com a FPS Config de sua escolha no steamapps/common/deadlock/game/citadel (Versão recomendada: OptiLock Max FPS)
 
