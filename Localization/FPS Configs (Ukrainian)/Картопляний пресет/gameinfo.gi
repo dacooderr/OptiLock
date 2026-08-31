@@ -1222,16 +1222,16 @@ GameInfo
 		v8_maximum_heap_size_mb                                 "512"  // (Default is 512) Doubles UI memory heap to prevent CPU GC stutters
 
 
-				 //CREDITS																				      \\
-				// dacooder    Config Creator            													   \\
-			   // Xeraa		   Helped fix a major issue with console spam and fps drops late game				\\
-			  // Boot		   ConVar Contribution           												     \\
-			 // Kaiz		   ConVar Contribution                                                                \\
-			// simcasting 	   Benchmarking																		   \\
-		   // Artemon121       Made the Citadel cvar unhider														\\
-		  // Pidjan            Worked on further gameinfo changes and let us integrate                               \\
-		 // Piggy              Video.txt contributer and cool streamer guy                                            \\
-		// ----------------------------------------- END OF CONFIG OptiLock -- ver. 4.6 ------------------------------ \\
+				 //ПОДЯКИ																				                      \\
+				// dacooder    Автор конфігу            													                   \\
+			   // Xeraa		   Допоміг вирішити серйозну проблему зі спамом на консолі та падінням FPS у кінці гри.				\\
+			  // Boot		   Вклад в ConVar(консольні змінні)           												         \\
+			 // Kaiz		   Вклад в ConVar(консольні змінні)                                                                   \\
+			// simcasting 	   Тестування(бенчмарки)																		       \\
+		   // Artemon121       Розшифрував Citadel cvar(консольні змінні)     														\\
+		  // Pidjan            Працював над подальшими змінами в gameinfo та дозволили нам інтегрувати                               \\
+		 // Piggy              Вклад в Video.txt і крутий стрімер                                                                     \\
+		// ----------------------------------------- Кінець конфігу OptiLock -- ver. 4.6 ----------------------------------------------\\
 
  rate
         {
