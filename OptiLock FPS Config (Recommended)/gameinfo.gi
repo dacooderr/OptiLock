@@ -76,6 +76,8 @@ GameInfo
         //
 
 
+
+
 // Deadlock Mod Manager - Start
 
 		SearchPaths
@@ -619,8 +621,8 @@ GameInfo
 				thumper_use_plane_reflection                            "false" 
 				vis_sunlight_enable                                     "0"
 				r_indirectlighting 										"true"  
-				lb_enable_dynamic_lights								"true"  
-				lb_enable_stationary_lights								"true"  
+				lb_enable_dynamic_lights								"false"  
+				lb_enable_stationary_lights								"false"  
 				lb_max_visible_barn_lights_override						"1"	     // Directly affects lights in Hideout and Hero Sillouettes
 				cl_retire_low_priority_lights                           "1"
 				r_multiscattering                                       "1"
