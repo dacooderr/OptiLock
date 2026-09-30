@@ -760,7 +760,6 @@ GameInfo
 		csm_bias_override_1                                     "1"
 		csm_bias_override_2                                     "1"
 		csm_bias_override_3                                     "1"
-		anim_disable                                            "true"
 		cl_simulate_dormant_entities                            "0"
 		phys_expensive_shape_threshold                          "100"
 		props_break_apply_radial_forces                         "0"
