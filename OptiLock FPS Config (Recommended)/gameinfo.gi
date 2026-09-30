@@ -78,12 +78,28 @@ GameInfo
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Deadlock Mod Manager - Start
 
 		SearchPaths
         {  
             Game_Language       citadel_*LANGUAGE*
-            Game                citadel/addons
+            Game                citadel/addons/profile_1788286995090_8lc3039pw_qollite
             Mod                 citadel
             Write               citadel          
             Game                citadel
@@ -607,6 +623,8 @@ GameInfo
 				r_nearz      					  "10"						
 				
 				// ================ LIGHTING & SHADOWS ================
+				csm_viewmodel_max_shadow_dist							"1"
+				r_shadows												"false"
 				sc_disable_baked_lighting                               "true"
 				r_citadel_disable_npr_lighting							"false"
 				r_directlighting 										"false" 
@@ -639,7 +657,7 @@ GameInfo
 				r_distancefield_enable                                  "false"
 				r_citadel_distancefield_farfield_enable                 "false"
 				r_directional_lightmaps                                 "false"  
-				mat_max_lighting_complexity                             "1" 
+				mat_max_lighting_complexity                             "0" 
 				r_world_wind_strength									"0"
 				lb_enable_sunlight                                      "false"  
 				r_arealights                                            "false"  
@@ -673,7 +691,7 @@ GameInfo
 				r_size_cull_threshold_shadow                            "200"
 				sparseshadowtree_parallel_generation					"2"
 				r_citadel_distancefield_shadows 						"false"
-				sc_disable_spotlight_shadows							"false"
+				sc_disable_spotlight_shadows							"true"
 				csm_viewmodel_shadows									"false"
 				lb_enable_baked_shadows									"true"
 				lb_enable_fog_mixed_shadows								"false"
@@ -695,7 +713,7 @@ GameInfo
 				lb_enable_binning                                       "false"
 				r_citadel_shadow_quality                                "0"
 				r_citadel_gpu_culling_shadows                           "1"
-				lb_barnlight_shadowmap_scale                            "0.1"
+				lb_barnlight_shadowmap_scale                            "0.0001"
 				lb_csm_cascade_size_override                            "0.25"
 				lb_csm_override_staticgeo_cascades                      "0"
 				lb_csm_override_staticgeo_cascades_value                "0"
@@ -758,7 +776,7 @@ GameInfo
 				r_world_wind_strength 									"0"
 
 				// ================ PARTICLE SYSTEM ================
-				cl_particle_max_count 									"500"       // hard cap should play with this value to find the best hardcap
+				cl_particle_max_count 									"800"       // hard cap should play with this value to find the best hardcap
 				r_particle_max_detail_level      						"0 " //was 0
 				r_particle_cables_cast_shadows    						"0"
 				r_RainParticleDensity             						"0"
