@@ -618,8 +618,8 @@ GameInfo
 				fx_drawmetalspark                 						"false" //Default: true Draw metal spark effects.
 				
 				// --- RENDER DISTANCE ---
-				r_mapextents                      "12000"
-				r_farz 							  "10000"  						// Changes how far the 3dskybox renders away from your hero, adjust these 2 values to your liking to reduce rendering issues.
+				r_mapextents                      "100"
+				r_farz 							  "8500"  						// Changes how far the 3dskybox renders away from your hero, adjust these 2 values to your liking to reduce rendering issues.
 				r_nearz      					  "10"						
 				
 				// ================ LIGHTING & SHADOWS ================
@@ -639,7 +639,7 @@ GameInfo
 				thumper_use_plane_reflection                            "false" 
 				vis_sunlight_enable                                     "0"
 				r_indirectlighting 										"true"  
-				lb_enable_dynamic_lights								"false"  
+				lb_enable_dynamic_lights								"true"  
 				lb_enable_stationary_lights								"false"  
 				lb_max_visible_barn_lights_override						"1"	     // Directly affects lights in Hideout and Hero Sillouettes
 				cl_retire_low_priority_lights                           "1"
@@ -686,7 +686,7 @@ GameInfo
 				lb_shadow_map_cull_empty_mixed							"true"
 				lb_barnlight_shadow_use_precomputed_vis                 "0"
 				lb_csm_cross_fade_override                              "0"
-				lb_csm_distance_fade_override                           "0"
+				lb_csm_distance_fade_override                           "1"
 				lb_dynamic_shadow_resolution_quantization               "32"
 				r_size_cull_threshold_shadow                            "200"
 				sparseshadowtree_parallel_generation					"2"
@@ -707,7 +707,7 @@ GameInfo
 				lb_allow_time_sliced_shadow_map_rendering               "false"
 				lb_dynamic_shadow_penumbra                              "true"
 				lb_dynamic_shadow_resolution                            "true"
-				lb_dynamic_shadow_resolution_base                       "64"
+				lb_dynamic_shadow_resolution_base                       "32"
 				lb_dynamic_shadow_resolution_base_cmp_shadowmapsize     "true"
 				lb_shadow_map_cull_empty_mixed                          "true"
 				lb_enable_binning                                       "false"
@@ -741,13 +741,19 @@ GameInfo
 				sc_disable_shadow_materials                             "1"  
 				lb_csm_receiver_plane_depth_bias                        "0.00002"
 				lb_csm_receiver_plane_depth_bias_transmissive_backface  "0.0002" 
-				csm_max_num_cascades_override 							"2"	
-				csm_cascade0_override_dist               				"0"
-				csm_cascade1_override_dist               				"0"
-				csm_cascade2_override_dist               				"0"
-				csm_cascade3_override_dist               				"0"
-				csm_max_dist_between_caster_and_receiver 				"0"
-				csm_max_visible_dist                     				"0"
+				csm_cascade0_override_dist                              "1"
+				csm_cascade1_override_dist                              "1"
+				csm_cascade2_override_dist                              "1"
+				csm_cascade3_override_dist                              "1"
+				csm_max_dist_between_caster_and_receiver                "0"
+				csm_max_num_cascades_override                           "1"
+				csm_max_num_cascades_override 							"1"	
+				csm_cascade0_override_dist               				"1"
+				csm_cascade1_override_dist               				"1"
+				csm_cascade2_override_dist               				"1"
+				csm_cascade3_override_dist               				"1"
+				csm_max_dist_between_caster_and_receiver 				"1"
+				csm_max_visible_dist                     				"10"
 				csm_res_override_0                       				"1"
 				csm_res_override_1                       				"1"
 				csm_res_override_2                       				"1"
@@ -776,14 +782,15 @@ GameInfo
 				r_world_wind_strength 									"0"
 
 				// ================ PARTICLE SYSTEM ================
-				cl_particle_max_count 									"800"       // hard cap should play with this value to find the best hardcap
-				r_particle_max_detail_level      						"0 " //was 0
+				cl_particle_max_count 									"700"       // hard cap should play with this value to find the best hardcap
+				cl_particle_newinit										"true"
+				r_particle_max_detail_level      						"0" //was 0
 				r_particle_cables_cast_shadows    						"0"
 				r_RainParticleDensity             						"0"
 				r_physics_particle_op_spawn_scale 						"0"
-				r_particle_max_size_cull          						"600" //was 800 Particle systems larger than this in every dimension skip culling to save CPU.  They will be drawn anyway
+				r_particle_max_size_cull          						"126" //was 800 Particle systems larger than this in every dimension skip culling to save CPU.  They will be drawn anyway
 				r_particle_mixed_resolution_viewstart 					"800"
-				r_particle_max_draw_distance          					"300000" // Lower = less particle range, more FPS, dont go below this value it doesnt draw trooper hp bar,
+				r_particle_max_draw_distance          					"250000" // Lower = less particle range, more FPS, dont go below this value it doesnt draw trooper hp bar,
 				r_particle_model_new8                 					"0"
 				cl_show_splashes                      					"0"
 				r_particle_skip_postsim               					"1"
@@ -822,7 +829,7 @@ GameInfo
 				r_propsmaxdist               							"600"
 				r_citadel_screenspace_particles_full_res 				"false"
 				r_citadel_gpu_culling_shadows            				"1"
-				r_size_cull_threshold 									"0.50" // do not go over or youll have wall hack
+				r_size_cull_threshold 									"0.8" 
 				r_hair_ao             									"0"
 				r_haircull_percent    									"100"
 				ik_final_fixup_enable 									"0"
@@ -884,6 +891,7 @@ GameInfo
 				sc_aggregate_bvh_threshold              				"1"     // Lower BVH threshold (default: 128)
 				sc_layer_batch_threshold                				"128"   // Lower batch threshold (default: 128)
 				sc_layer_batch_threshold_fullsort       				"20"    //default 80
+				sc_screen_size_lod_scale_override                       "0.001"
 
 				// ================ ROPE PHYSICS ================
 				rope_collide              								"0"
@@ -934,6 +942,9 @@ GameInfo
 				animgraph_footlock_calculate_tilt       				"0"		
 				animgraph_footlock_ground_roll          				"0"		
 				animgraph_enable_dirty_netvar_optimization 				"true"  // Only updates the animation graph if the network variables actually changed.		
+				panorama_allow_transitions								"false"
+				panorama_disable_blur                   				"1"     // Disables UI blur effects in the UI.                              [def: "0"]
+				panorama_disable_box_shadow             				"1"     // Disables UI box shadows in the UI (less GPU/UI cost).            [def: "0"]
 				
 				// ================ NETWORK & PREDICTION ================
 				cl_smooth 												"0"
@@ -969,7 +980,7 @@ GameInfo
 
 				// ================ TEST ================
 				cl_simulate_dormant_entities 							"false"
-				sc_clutter_density_none_size 							"0.5" //Default 0.0035
+				sc_clutter_density_none_size 							"0.1" //Default 0.0035
 				sc_clutter_density_full_size      						"1"
 				sc_allow_dithered_lod          							"0"
 				sc_dithered_lod_transition_amt 							"0"
@@ -1024,7 +1035,29 @@ GameInfo
 				phys_continuous_kinematic_update     					"0"
 				citadel_npc_force_animate_every_tick					"0"
 				citadel_npc_ag2_enable               					"0" //disable ag2 for npc
-				citadel_visibility_queue_rate        					"4" 			
+				citadel_visibility_queue_rate        					"4" 
+				sv_pvs_max_distance                                     "4000"
+				cl_removedecals											"1"
+				csm_sst_max_visible_dist								"10"
+				csm_max_visible_dist									"1"
+				csm_sst_shadow_focus_region_maxz						"-1000"
+				csm_sst_shadow_focus_region_minz						"-2000"
+				csm_sst_vertical_depth_shear_enable						"false"
+				csm_viewmodel_max_shadow_dist							"1"
+				lb_shadow_map_culling 									"1"
+				mat_shading_complexity_max_instruction_count			"1"
+				mat_shading_complexity_max_register_count				"1"
+				csm_cascade_viewdir_shadow_bias_scale					"0.1"
+				csm_sst_pushback_distance                               "100"
+				csm_sst_shadow_focus_region_caster_headroom 			"8"
+				csm_viewmodel_max_visible_dist                          "100"
+				csm_viewmodel_nearz										"0.1"
+				r_particle_parallel_simulation                          "1"
+				r_particle_batch_simulate                               "1"
+				threadpool_thread_limit 								"0"
+				sc_instanced_mesh_mesh_shader                           "false"
+				
+
 
 				 //CREDITS																				      \\
 				// dacooder    Config Creator            													   \\

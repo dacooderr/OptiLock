@@ -1015,7 +1015,6 @@ GameInfo
 		r_hair_indirect_transmittance                           "false"
 		r_render_hair                                           "0"
 		anim_decode_forcewritealltransforms        				"true" // Default: false Force BatchAnimationDecode to write transformations for all bones
-        anim_disable                               				"true"
         animgraph_enable_parallel_op_evaluation    				"1" // Allows animgraph operator evaluation to run in parallel (performance).   [def: "0"]
         animgraph_enable_parallel_preupdate        				"1" // Allows animgraph pre-update work to run in parallel (performance).       [def: "0"]
         animgraph_footlock_enabled                 				"false"
