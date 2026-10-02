@@ -326,7 +326,7 @@ GameInfo
             ImportanceVolumeTransitionRegion "512" // distance we transition from high to low resolution charts
             LightmapChannels
             {
-                direct_light_shadows          "1"
+                direct_light_shadows          "0"
                 debug_chart_color             "1"
                 directional_irradiance_sh2_dc "1"
 
