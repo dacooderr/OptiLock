@@ -102,3 +102,4 @@ Major thanks to all of these individuals from the bottom of my heart. They are a
 - [simcasting](https://www.youtube.com/@GreatestToEverDoIt): 	 Benchmarking
 - pidjan:        Gameinfo contribution
 - [Piggy](https://www.twitch.tv/piggyxdd):         Contributed the original now retired video.txt file
+- Sqooky:		Lied about me stealing and was proven wrong and brought me more attention in the long run (Thank you for giving me the inspiration)
