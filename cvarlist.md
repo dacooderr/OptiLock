@@ -1,23 +1,19 @@
-Name | Description | Default | Flags
----- | ----------- | ------- | -----
+Name | Description | Default Value | Flags
+---- | ----------- | ------------- | -----
 +bugvoice | Start recording bug voice attachment. | cmd | norecord
 +camdistance |  | cmd | cl
 +cammousemove |  | cmd | cl
-+chatwheel | Opens chatwheel menu while held | cmd | cl, release
-+chatwheel_pingwheel | Opens the second chatwheel menu while held | cmd | cl, release
++chatwheel | Opens the comms wheel instantly while held | cmd | cl, release
 +citadel_swtich_player_cam | Player Cam switching button pressed | cmd | cl, release
-+herochatwheel | Opens hero chatwheel menu while held | cmd | cl, release
-+in_ability_ping | Ping button pressed | cmd | cl, release
-+show_ability_upgrade_radial | Opens radial abilities menu while held | cmd | cl
++in_ability_instant_ping | Ping without radial | cmd | cl, release
++in_ability_ping | Ping button pressed. Long hold opens comms wheel. | cmd | cl, release
 -bugvoice | Finish recording bug voice attachment. | cmd | norecord
 -camdistance |  | cmd | cl
 -cammousemove |  | cmd | cl
--chatwheel | Executes the highlighted chatwheel menu item | cmd | cl, release
--chatwheel_pingwheel | Executes the highlighted chatwheel menu item | cmd | cl, release
+-chatwheel | Sends the hovered comms wheel option | cmd | cl, release
 -citadel_swtich_player_cam | Player Cam switching button released | cmd | cl, release
--herochatwheel | Executes the highlighted hero chatwheel menu item | cmd | cl, release
--in_ability_ping | Ping button released | cmd | cl, release
--show_ability_upgrade_radial | Closest radial abilities menu on release | cmd | cl
+-in_ability_instant_ping | Ping without radial | cmd | cl, release
+-in_ability_ping | Ping button released. Long hold opens comms wheel. | cmd | cl, release
 StackStats_Dump | Dump a named stackstats structure to disk. Usage: stackstats_dump "structname" \["filename"\] | cmd | 
 Test_Checkpoint | Indicate to a test script that a checkpoint has been reached | cmd | 
 Test_CreateEntity |  | cmd | sv, cheat
@@ -57,133 +53,126 @@ adsp_room_min |  | 102 |
 adsp_street_min |  | 118 | 
 adsp_tunnel_min |  | 114 | 
 adsp_wall_height |  | 128 | 
+ag2_network_recipeshape_cache_size | Cache size for recently-used pose recipe shapes. | 32 | sv, norecord
 ag2_preserve_params_on_reload | When an animgraph is reloaded, should the underlying system restore all params? | false | sv, cl, rep
 ag2_use_networked_serialization_context_demo | Use networked compatibility serialization context in demo playback. | true | sv, cl, rep, norecord
 ag2_use_networked_serialization_context_game | Use networked compatibility serialization context in games. | false | sv, cl, rep
 ai_animgraph_lerp_movement_yaw | If set, forces animgraph-using NPCs to lerp their movement yaw. | false | sv
 ai_async_queue_debug | Dump the ai async work queue jobs each tick.  0 = off, 1 = on, 2 = also dump entries | 0 | sv
-ai_async_queue_max_jobs | Limit on number of jobs that will be run(serially) in a frame. - 1 = no limit | -1 | sv
+ai_async_queue_max_jobs | Limit on number of jobs that will be run(serially) in a frame. - 1 = no limit | 1 | sv
 ai_async_queue_stop_on_request | Should queue stop processing new jobs when the frame stop request happens? | true | sv
 ai_auto_contact_solver |  | true | sv
-ai_auto_select_enemy_finder | 1 = also npc select enemy finders in my squad | true | sv
 ai_autoselect_class | Automatically sets debug flags on NPCs spawned that match this class name. Flags with be set based on the value of the ai_autoselect_class_settings convar. |  | sv
-ai_autoselect_class_settings | Flag value to set on NPCs targeted by ai_autoselect_class. Valid values: 'combat', 'selected', 'tasks', 'all'. | combat | sv
+ai_autoselect_class_settings | Flag value to set on NPCs targeted by ai_autoselect_class. Valid values: 'combat', 'selected', 'tasks', 'route', 'all'. | combat | sv
 ai_block_damage |  | false | sv
 ai_debug_decisionmaking | Draw sparks on NPCs in their thinks. Sparks at their feet mean they skipped decision making, sparks high above them means they didn't. | false | sv, a
-ai_debug_detect_bad_schedules |  | true | sv
+ai_debug_detect_bad_schedules |  | false | sv
+ai_debug_detect_bad_schedules_ignore_movement |  | true | sv
 ai_debug_detect_bad_schedules_print_conditions |  | false | sv
-ai_debug_directnavprobe |  | false | sv
-ai_debug_doors |  | false | sv
 ai_debug_dyninteractions | Debug the NPC dynamic interaction system. | 0 | sv, cheat
 ai_debug_enemies |  | 0 | sv
 ai_debug_enemy_position | Draw a debug line from a selected NPC to its enemy. | false | sv, cheat
 ai_debug_initial_position | Draw debug lines and boxes indicating how NPCs are initially positioned and oriented. | 0 | sv
-ai_debug_interrupt_paths |  | false | sv
-ai_debug_loners |  | false | sv
+ai_debug_interrupt_paths |  | false | sv, cheat
 ai_debug_los | NPC Line-Of-Sight debug mode. If 1, solid entities that block NPC LOC will be highlighted with white bounding boxes. If 2, it'll show non-solid entities that would do it if they were solid. | 0 | sv, cheat
 ai_debug_nav |  | false | sv
 ai_debug_navlinks |  | false | sv, rep
-ai_debug_phys_force |  | false | sv
+ai_debug_pathcorner_lookahead | Draw path corner look-ahead paths for N seconds (0 = off). Green = kept path to corner A, yellow = discarded look-ahead tail toward the next corner. | 0 | sv, cheat
 ai_debug_radial_goal |  | false | sv
 ai_debug_ragdoll_magnets |  | false | sv
+ai_debug_schedule_one_select_per_think |  | true | sv
 ai_debug_schedule_stoppages |  | false | sv
+ai_debug_schedule_use_per_schedule_gather |  | false | sv
 ai_debug_scripted_sequence |  | false | sv, cheat
 ai_debug_shoot_positions |  | 0 | sv, cl, rep, cheat
 ai_debug_speech |  | 0 | sv
-ai_debug_squads |  | false | sv
-ai_debug_squadslotusage | Report squad slot usage for npc_selected NPCs. | false | sv, cheat
 ai_debug_volumetric_event | Reports events being entered into the AI events list. Set to 1 to see all events, set to 2 to only see DANGER events. | 0 | sv
 ai_debug_volumetric_event_duration | Length of time to display ai_debug_volumetric_event visual displays. | 0.1 | sv
 ai_debugscriptconditions |  | false | sv
 ai_disable | Bi-passes all AI logic routines and puts all NPCs into their idle animations.  Can be used to get NPCs out of your way and to test effect of AI logic routines on frame rate | cmd | sv, cheat
 ai_disabled |  | false | sv, cl, rep, cheat
-ai_doors_force_animation |  | -1 | sv
 ai_drop_hint | Drop an ai_hint at the player's current eye position. | cmd | sv, cheat
 ai_dump_hints |  | cmd | sv
-ai_elude_time |  | 8 | sv
 ai_facingservices_debug_reasonablefacing | Debug logic for finding reasonable facing. | 0 | sv, cheat
 ai_facingservices_debug_spew | Adds spew to the facing target for the selected NPC | false | sv, cheat
 ai_facingservices_draw_entity_facing |  | false | sv, cheat
 ai_facingservices_generated_target_min_duration |  | 1.2 | sv
 ai_foot_sweep_debug |  | false | sv
-ai_foot_sweep_enable |  | true | sv
+ai_foot_sweep_enable |  | false | sv
 ai_foot_sweep_hit_impulse |  | 75 | sv
 ai_foot_sweep_hit_impulse_min_mass |  | 10 | sv
 ai_foot_sweep_move_scale |  | 1.4 | sv
 ai_foot_sweep_perp_apply |  | 0.5 | sv
 ai_foot_sweep_perp_base |  | 30 | sv
 ai_foot_sweep_perp_scale |  | 0.5 | sv
-ai_footstep_delay |  | 0.5 | sv
 ai_force_serverside_ragdoll |  | false | sv
-ai_gather_conditions_async | Allow gathering of conditions to be done asynchronously. | false | sv
+ai_gather_conditions_async | Allow gathering of conditions to be done asynchronously. | true | sv
+ai_ground_motor_strafe_debug |  | false | sv, cheat
+ai_ground_motor_strafe_lookahead |  | 12 | sv, cheat
 ai_hull_trace_epsilon |  | 0.01 | sv
 ai_ignore_collision_player_noclip |  | false | sv, a, cheat
 ai_inhibit_spawners |  | false | sv, cheat
 ai_keep_interrupt_path_across_schedules |  | true | sv, cheat
-ai_local_navigator_direct_test_versus_static_collision |  | true | sv
+ai_local_navigator_flying_enable |  | false | sv
 ai_local_navigator_navmesh_enable |  | true | sv
-ai_lod_auto_enabled |  | false | sv
+ai_lod_auto_enabled |  | true | sv
 ai_lod_debug_display |  | 0 | sv
 ai_motor_debug |  | 0 | sv, cheat
 ai_motor_debug_additional_movement_settings |  | false | sv, cheat
 ai_motor_debug_ag1_path |  | false | sv, cheat
 ai_motor_debug_hop |  | false | sv, cheat
 ai_motor_debug_idle_turn |  | false | sv, cheat
-ai_motor_debug_move_heading |  | false | sv, cheat
-ai_motor_debug_move_heading_bad_zones |  | false | sv, cheat
+ai_motor_debug_lean |  | false | sv, cheat
 ai_motor_debug_override_path |  | false | sv, cheat
+ai_motor_debug_path |  | false | sv, rep
+ai_motor_debug_path_direction |  | false | sv, cheat
 ai_motor_debug_show_current_state |  | false | sv, cheat
 ai_motor_debug_show_speed_info |  | false | sv, cheat
-ai_motor_debug_state_deadlocks |  | false | sv, cheat
 ai_motor_debug_stop |  | false | sv, cheat
 ai_motor_debug_transitions |  | false | sv, cheat
-ai_motor_enable_move_heading_bad_zones |  | true | sv, cheat
 ai_motor_ground_enable_detailed_debug_data |  | false | sv, cheat
 ai_motor_max_state_time_active |  | 6 | sv, cheat
-ai_motor_move_direction_lookahead |  | 6 | sv, cheat
 ai_motor_nav_links_force_facing_time |  | 12 | sv, cheat
-ai_motor_path_alignment_max_angular_velocity |  | 300 | sv, cheat
+ai_motor_path_direction_smoothing_factor |  | 0.1 | sv, cheat
 ai_motor_planted_turn_lookahead_distance |  | 100 | sv, cheat
 ai_motor_planted_turn_lookahead_distance_speed |  | 150 | sv, cheat
 ai_motor_procedural_idle_turn_speed |  | 20 | sv, cheat
 ai_motor_procedural_idle_turn_threshold |  | 2 | sv, cheat
 ai_motor_procedural_turn_while_stopping_threshold |  | 5 | sv, cheat
-ai_motor_use_fast_move_heading_bad_zone_pass |  | true | sv, cheat
+ai_motor_too_short_path_treshold |  | 4 | sv, cheat
 ai_moveprobe_debug |  | false | sv
 ai_moveprobe_jump_debug |  | 0 | sv
-ai_navigator_clipped_path_save |  | true | sv
-ai_navigator_clipped_path_use_interrupt |  | true | sv
 ai_navigator_disable_collision_on_stuck |  | true | sv, cheat
 ai_navigator_draw_type_change |  | 0 | sv
 ai_navigator_draw_wait_for_facing | Show when a NPC is waiting for facing tolerance to be reached while at the end of its path | false | sv, rep
 ai_navigator_place_waypoints_on_ground |  | false | sv, rep
 ai_navigator_repath_enable | Enable dynamic repathing based on goal movement. | true | sv, cheat
 ai_navigator_repath_on_change | When nav mesh changes along an NPC's existing path, force a repath. | true | sv, cheat
-ai_navigator_repath_tolerance_alpha | The distance a target entity can move before triggering a repath is ( arrival time * ai_navigator_repath_tolerance_alpha ), clamped to the min / max allowed values. | 20 | sv, cheat
-ai_navigator_repath_tolerance_max | The maximum distance that a target entity can move before triggering a repath to that target. | 300 | sv, cheat
-ai_navigator_repath_tolerance_min | The minimum distance that a target entity can move before triggering a repath to that target. | 8 | sv, cheat
-ai_navigator_repath_tolerance_min_speed | When calculating repathing tolerance, clamp entity speed to be at least this value (i.e. consider slow entities to be this fast). | 100 | sv, cheat
+ai_navigator_repath_tolerance_alpha | The distance a target entity can move before triggering a repath is ( arrival time * ai_navigator_repath_tolerance_alpha ), clamped to the min / max allowed values. | 20 | sv
+ai_navigator_repath_tolerance_max | The maximum distance that a target entity can move before triggering a repath to that target. | 300 | sv
+ai_navigator_repath_tolerance_min | The minimum distance that a target entity can move before triggering a repath to that target. | 8 | sv
+ai_navigator_repath_tolerance_min_speed | When calculating repathing tolerance, clamp entity speed to be at least this value (i.e. consider slow entities to be this fast). | 100 | sv
 ai_navigator_snap_to_ground_goal |  | false | sv, cheat
-ai_navigator_use_arrival_direction |  | true | sv, cheat
-ai_no_steer |  | false | sv
 ai_off_nav_show_nearest |  | false | sv, cheat
+ai_path_clip_against_goal_constraints | After pathfinding clip the path such that it ends at a location that satisfies the goal constraints if they're available. | true | sv
+ai_path_discard_ignore_stops |  | false | sv
 ai_path_draw_active | 0 = no debug, 1 = draw waypoint path | false | sv, rep
-ai_path_draw_cached_values | Display draw cached values like Actual Goal Position. | false | sv, rep
-ai_path_draw_fail | Draw failed pathfinding attempts | 0 | sv, rep
-ai_path_draw_on_calc | Number of seconds to draw an AI path after it is calculated. | 0 | sv, rep
-ai_path_draw_selected | If true, draw AI path for selected NPC. | 0 | sv, rep
-ai_path_draw_src | Display calling code that created the path goal. | false | sv, rep
-ai_path_draw_waypoint_mark | 0: Draw nothing at waypoints; 1: Draw a tick mark at waypoints; 2: Draw a shape around waypoints. | 0 | sv, rep
-ai_path_draw_waypoint_type_label | 1 = draw labels of waypoint types during ai_path_draw_active | false | sv, rep
-ai_path_draw_yaw | Display yaw value for path goal. | false | sv, rep
+ai_path_draw_cached_values | Display draw cached values like Actual Goal Position. | false | sv
+ai_path_draw_fail | Draw failed pathfinding attempts | 0 | sv, cheat
+ai_path_draw_nav_elem_info | Draw info about the nav associated with this waypoint. 0 = off, 1 = show IDs, 2 = show nav elem. | 0 | sv
+ai_path_draw_nav_search_id | Display the ID of the nav search that created this path. | false | sv
+ai_path_draw_on_calc | Number of seconds to draw an AI path after it is calculated. | 0 | sv, cheat
+ai_path_draw_selected | If true, draw AI path for selected NPC. | 0 | sv, cheat
+ai_path_draw_src | Display calling code that created the path goal. | false | sv
+ai_path_draw_waypoint_mark | 0: Draw nothing at waypoints; 1: Draw a tick mark at waypoints; 2: Draw a shape around waypoints. | 0 | sv
+ai_path_draw_waypoint_type_label | 1 = draw labels of waypoint types during ai_path_draw_active | false | sv
+ai_path_draw_yaw | Display yaw value for path goal. | false | sv
 ai_path_return_a |  | 0.5 | sv
 ai_path_return_d |  | 50 | sv
 ai_path_return_parallel_speed |  | 100 | sv
 ai_path_return_t |  | 2 | sv
-ai_path_show_discard_immediately |  | false | sv, cheat
-ai_plane_solver_debug |  | true | sv
-ai_plane_solver_use_navmesh |  | false | sv
-ai_ragdoll_phys_death_multiplier |  | 1 | sv
+ai_path_show_discard_immediately |  | false | sv
+ai_pathfinder_max_path_detour | How far a path may detour from the direct route. Negative means no limit. | 500 | sv, cheat
 ai_report_task_timings_on_limit |  | false | sv, a
 ai_resume | If NPC is stepping through tasks (see ai_step ) will resume normal processing. | cmd | sv, cheat
 ai_select_box_alpha | The select box alpha. | 20 | sv, a
@@ -197,33 +186,31 @@ ai_show_hitlocation |  | false | sv
 ai_show_task_fail |  | 0 | sv, cheat
 ai_show_think_tolerance |  | 0 | sv
 ai_step | NPCs will freeze after completing their current task.  To complete the next task, use 'ai_step' again.  To resume processing normally use 'ai_resume' | cmd | sv, cheat
-ai_strong_optimizations_no_checkstand |  | false | sv
-ai_temp_difference_for_instant_ignite | how much hotter than the npc's flashpoint a heat source should be to instantly ignite them. | 100 | sv, cheat
+ai_strong_optimizations_no_checkstand |  | true | sv
 ai_test_los_from_player_pov | Test AI LOS from the player's POV | cmd | sv
 ai_test_moveprobe_ignoresmall |  | false | sv
-ai_think_interval | Time interval between NPC thinks | 0.1 | sv
-ai_think_interval_lod_low | Time interval between NPC thinks when set to AI LOD low. | 0.5 | sv
-ai_think_interval_lod_med | Time interval between NPC thinks when set to AI LOD medium. | 0.25 | sv
+ai_think_interval | Time interval between NPC thinks | 0.3 | sv
+ai_think_interval_lod_low | Time interval between NPC thinks when set to AI LOD low. | 1 | sv
+ai_think_interval_lod_med | Time interval between NPC thinks when set to AI LOD medium. | 0.4 | sv
 ai_think_interval_lod_very_low | Time interval between NPC thinks when set to AI LOD very low. | 1 | sv
 ai_think_limit_label |  | false | sv, a
 ai_threaded_pathfind |  | true | sv
-ai_time_to_ignite | How long an npc has to be exposed to heat above their flashpoint to catch on fire. | 0.3 | sv, cheat
-ai_use_async_ragdoll_fixup |  | false | sv
+ai_use_async_ragdoll_fixup |  | true | sv
 ai_use_visibility_cache | Sets whether or not NPCs can cache their Visibility checks against other entities. If set to 2, also tests to make sure that NPC-&gt;Target results match that of Target-&gt;NPC. | 1 | sv
 ai_use_visibility_cache_reciprocation | Sets whether or not the visibility check cache should be reciprocal. | true | sv
-ai_vehicle_avoidance |  | true | sv, cheat
 ai_waypoint_arrival_tolerance |  | 2 | sv
 ainet_generate_report | Generate a report to the console. | cmd | sv
 ainet_generate_report_only | Generate a report to the console. | cmd | sv
 alias | Alias a command. | cmd | release
 always_perform_full_spatial_partition_update |  | false | sv, cl, rep
-anim_decode_forcewritealltransforms | Force BatchAnimationDecode to write transformations for all bones | false | 
+anim_decode_forcewritealltransforms | Force BatchAnimationDecode to write transformations for all bones | true | 
 anim_disable |  | false | sv, cl, rep
 anim_eval_stats | Displays stats about how many EvaluatePose calls are unused | cmd | sv
 anim_resource_validate_on_load | Validates the animation group channel list against the animations on load for every animation | true | release
 animated_material_attributes |  | true | cl, cheat
 animevents_dump | List all the currently registered anim events.<br> | cmd | sv, cheat
 animgraph2_enable_parallel_update |  | true | sv, cl, rep
+animgraph2_serialize_pose_recipe_in_pre_pack_entities |  | true | sv, cl, rep
 animgraph_debug | Debug animation graph | false | sv, cl, rep, cheat
 animgraph_debug_animevents | Print info about animevents emitted by AnimGraph | false | sv, cl, rep
 animgraph_debug_entindex | The entity to specifically debug | 0 | sv, cl, rep, cheat
@@ -241,16 +228,13 @@ animgraph_draw_traces |  | false | sv, cl, rep
 animgraph_dump_update_list | Displays stats about which animations are updating | cmd | sv
 animgraph_enable | Enable animation graph | true | sv, cl, rep
 animgraph_enable_dirty_netvar_optimization |  | true | rep
-animgraph_enable_parallel_op_evaluation |  | false | sv, cl, rep
-animgraph_enable_parallel_preupdate |  | false | sv, cl, rep
-animgraph_enable_parallel_update |  | true | sv, cl, rep
 animgraph_footlock_auto_ledge_detection | Attempt to detect when the foot is partially hanging off a ledge and stop it tilting to reach the bottom | true | rep
 animgraph_footlock_auto_stair_detection | Attempt to detect when the foot is on a stair and will stop it from tilting to reach the next step | true | rep
 animgraph_footlock_calculate_tilt |  | true | rep
 animgraph_footlock_debug_foot_index |  | -1 | rep
 animgraph_footlock_debug_type |  | 2 | rep
 animgraph_footlock_draw_footbase |  | false | rep
-animgraph_footlock_enabled | A master convar that effectively disables the entire footlock node. | true | rep
+animgraph_footlock_enabled | A master convar that effectively disables the entire footlock node. | false | rep
 animgraph_footlock_ground_roll |  | true | rep
 animgraph_footlock_hip_offset_enable |  | true | rep
 animgraph_footlock_ik_enable | Enable IK. | true | rep, cheat
@@ -263,17 +247,13 @@ animgraph_ik_debug |  | false | rep
 animgraph_motionmatching_print_compressionstats |  | false | rep
 animgraph_network_enable | Enable animation graph networking. The setting is only read at graph creation time; to use please set on the command line. | true | sv, cl, rep
 animgraph_parallel_postdataupdate |  | true | cl
-animgraph_record_all | Automatically start recording AnimGraphs when they get created, and save them to disk when they are destroyed | false | sv, cl, rep, cheat
 animgraph_slope_draw_raycasts |  | false | sv, cl, rep, cheat
 animgraph_slope_enable |  | false | sv, cl, rep, cheat
-animgraph_slowdownonslopes_enabled |  | true | rep
+animgraph_slowdownonslopes_enabled |  | false | rep
 animgraph_trace_ignore_prop_physics |  | true | sv, cl, rep
 animgraph_trace_static_only |  | false | sv, cl, rep, cheat
 animgraph_verify_dirty_netvar_optimization |  | false | rep
-announce_create | &lt;title&gt; &lt;message&gt; &lt;URL&gt; \[Priority\] Create a new announcement with the specified title, message, and URL. use empty quotes if you want to skip message or URL | cmd | cl, release
-announce_delete | &lt;ID&gt; Deletes the specified announcement ID | cmd | cl, release
 announce_show_ids | When set, will show the IDs of the various announcements, making updating/deleting easier | false | cl, release
-announce_update | &lt;ID&gt; &lt;title&gt; &lt;message&gt; &lt;URL&gt; \[Priority\] Create a new announcement with the specified title, message, and URL. use empty quotes if you want to skip message or URL | cmd | cl, release
 announcer_vo_disable_hero_test | Toggles announcer in the hideout. | true | sv
 announcer_vo_disable_hideout | Toggles announcer in the hideout. | true | sv
 astro_bouncepad_early_inactive_time | How long to deactivate the bounce pad prior to its deletion to compensate for the server. | 0.15 | sv, cl, rep
@@ -281,9 +261,11 @@ attached_output_stall_ms |  | 250 |
 audio_debug_health_fraction_change | Prints/renders change in health fraction over course of buffer length. | false | cl
 audio_display_soundstack_debug_base_3d | Displays citadel_base_3d sound stack debug. | false | sv, cheat
 audio_display_soundstack_debug_dialog | Displays citadel_dialog sound stack debug. | false | sv, cheat
+audio_draw_dimension_probe_debug | Toggle on debug spheres for enclosure/probe reverb | false | sv, cheat
+audio_draw_enclosure_debug | Draws debug associated with amount interior vs exterior | false | sv, cl, rep
 audio_draw_opvar_obb_debug | Draws obb opvar debug. | false | cl
 audio_enable_spawn_mask_mix_layer | Enables the mix layer which mutes certain sounds at map load boundaries. | true | cl
-audio_enable_vmix_mastering | Enables mastering DSP in vmix. | true | cl, cheat
+audio_enable_vmix_mastering | Enables mastering DSP in vmix. | false | cl, cheat
 audio_enclosure_calc_enabled | Enables/disabled calculations that determine entity interior vs exterior. | true | sv, cl, rep
 audio_enclosure_speed | Adjusts rate of change for enclosure value over time. | 0.45 | sv, cl, rep
 audio_enemy_relevance_debug | Enable debug spheres and screen text for enemy relevance. | false | cl
@@ -291,7 +273,7 @@ audio_enemy_relevance_targeting_range | Range to consider targeting local player
 audio_health_change_damage_priority_threshold | Above this health fraction change damage audio is deprioritized in the sound system. | -0.02 | cl, cheat
 audio_health_delta_effect_release_rate | Rate of interpolation once hold time has elapsed. | 0.25 | cl
 audio_health_loss_effect_debug | Render health loss fraction change. | false | cl
-audio_health_loss_effect_enabled | Enable/disable health loss audio effect. | false | cl
+audio_health_loss_effect_enabled | Enable/disable health loss audio effect. | true | cl
 audio_health_loss_effect_hold_time | Rate of interpolation once hold time has elapsed. | 0.5 | cl
 audio_input_test_signal | For testing the audio input pathway with a sine tone instead of SDL3. | false | 
 audio_input_use_sdl_roles |  | false | 
@@ -299,12 +281,12 @@ audio_limiter_debug | Renders limiter debug spheres and enables logging. | false
 audio_log_damage_recency_bias | Prints player damage recency information. | false | sv, cheat
 audio_relevance_debug_enabled | Displays audio relevance info. | false | cl
 audio_render_mixlayer_debug | Renders mix layer debug. | false | cl
+audio_render_processing_volume_debug | Renders audio processing volumes. | false | cl
 audio_viewing_damage_debug | Enable debug spheres for recent damage. | false | cl
 audio_viewing_damage_decay_time | Duration for viewing damage to decays to 0.0. | 3 | cl
 audio_viewing_damage_hold_time | Duration before viewing damage begins to decay. | 3 | cl
 audio_voice_volume_protection | Sets linear scale volume limit for SOS. | 2 | cl, cheat
 auto_bug | auto_bug : create non-interactive bug report. | cmd | norecord
-automatically_open_saved_animgraph_recording |  | false | sv, cl, a, rep
 autosave | Autosave | cmd | sv
 autosave_fully_async | Set to 1 to have autosaves execute completely on the save thread, forces 'render only' mode while the save completes | true | sv
 autosavedangerous | AutoSaveDangerous | cmd | sv
@@ -313,7 +295,6 @@ axis | Draw an axis<br>	Arguments:  x y z pitch yaw roll &lt;lifetime = 10.0&gt;
 ban_ignore_after_player_abandons | After this many players have abandoned a match, no longer penalize additional abandons for the match. Set to 0 to not penalize abandoners | 1 | sv, cheat
 banid | Add a user ID to the ban list. | cmd | 
 banip | Add an IP address to the ban list. | cmd | 
-battery_saver | OBSOLETE replaced by mobile_fps_* - Battery saver mode. 0=off, 1=on | false | a
 benchframe | Takes a snapshot of a particular frame in a time demo. | cmd | release
 bind | Bind a key. | cmd | release
 binddefaults | Bind all keys to their default values. | cmd | release
@@ -323,6 +304,7 @@ blink | Blink specified convar value between two values at the specified duratio
 bookworm_debug_ult |  | false | sv, cl, rep
 boss_use_los_ultimate |  | true | sv, cl, rep
 bot_command | &lt;bot name&gt; &lt;command string...&gt;. Sends specified command to one or more player bots: \[all\], \[east/west\], \[bot name\] | cmd | sv
+bot_command_target | Sends specified command to target bot under reticle | cmd | sv, cheat, release
 bot_force_zipline | Make all the bots get on nearby ziplines | cmd | sv
 bot_kick_all | Kick all the bots | cmd | sv, cheat
 bot_mimic | Allows bots to mimic player | 0 | sv, cl, rep, cheat, release
@@ -392,15 +374,9 @@ cast_sphere | Tests sphere cast | cmd | sv, cheat
 cc_captiontrace | Show missing closecaptions (0 = no, 1 = devconsole, 2 = show in hud) | 1 | cl
 cc_delay_time | Close caption delay before showing caption. | 0.25 | cl, a
 cc_emit | Emits a closed caption | cmd | cl
-cc_findsound | Searches for soundname which emits specified text. | cmd | cl
-cc_flush | Flushes async'd captions. | cmd | cl
 cc_lang | Current close caption language (emtpy = use game UI language) |  | cl, a
 cc_linger_time | Close caption linger time. | 1 | cl, a
 cc_log | Log caption names and contents (0 = off, 1 = found captions, 2 = unfound captions, 3 = all captions) | 0 | cl
-cc_norepeat | In multiplayer games, don't repeat captions more often than this many seconds. | 5 | sv
-cc_random | Emits a random caption | cmd | cl
-cc_showblocks | Toggles showing which blocks are pending/loaded async. | cmd | cl
-cc_showmissing | Show missing closecaption entries. | false | sv, rep
 cc_spectator_only |  | false | cl, a
 cc_subtitles | If set, don't show sound effect captions, just voice overs (i.e., won't help hearing impaired players). | false | cl, a
 cc_vr_caption_catchup_interval | Duration it takes for attached caption to ideal point | 0.3 | cl
@@ -413,11 +389,15 @@ cc_vr_forward_offset | Subtitle offset distance (forward, in front of player) | 
 cc_vr_vertical_offset | Subtitle vertical offset distance (positive is up) | -6.5 | cl
 cc_vr_width | 0 = narrow, 1 = med (default), 2 = wide | 1 | cl, a
 changelevel | changelevel &lt;mapname&gt; :Multiplayer change level. | cmd | release
+chat_dismiss_after_send |  | true | cl
 chat_fake_player_say_all | &lt;player_slot&gt; &lt;message&gt; | cmd | cl
 chat_fake_player_say_allies | &lt;player_slot&gt; &lt;message&gt; | cmd | cl
 chat_fake_quick_response |  | cmd | cl
 chat_max_messages |  | 50 | cl
-chat_ping_repeat_seconds |  | 5 | cl
+chat_ping_repeat_location_tolerance | How far apart, in 2D world units, two pings with no pinged entity can be and still count as the same ping. | 256 | cl
+chat_ping_repeat_max | How many times a ping can fold into one chat bubble before the next repeat starts a new bubble instead. | 16 | cl
+chat_ping_repeat_requires_same_message | If set, a contextual ping only folds into the previous bubble when it resolved to the same line, not just the same target. | false | cl
+chat_ping_repeat_seconds | Seconds after a ping during which repeating it folds into the same chat bubble instead of making a new one. Restarts on each repeat. | 2.5 | cl
 chat_sequence_max_messages |  | 10 | cl
 chat_sequence_within_seconds |  | 10 | cl
 chat_top_bar_max_messages | The maximum amount of chat panels we allow total | 6 | cl
@@ -430,18 +410,26 @@ citadel_1v1_bonus_tech_power |  | 0 | sv, cl, rep, cheat
 citadel_1v1_bonus_weapon_power |  | 0 | sv, cl, rep, cheat
 citadel_1v1_bullet_damage_multiplier |  | 1 | sv, cl, rep, cheat
 citadel_1v1_tech_damage_multiplier |  | 1 | sv, cl, rep, cheat
+citadel_21x9_clamp_hud |  | true | cl, a, per_user
 citadel_FindUnitsInRadius | Run UTIL_FindUnitsInRadius centered around  | cmd | sv
 citadel_abandon_match | Force abandons current match | cmd | cl
 citadel_abandon_pregame_if_not_connected_in_s | After N seconds, if we don't have all the players connect to the match, the match will be abandoned. This only applies to the initial match start when going from players connecting to pregame | 180 | sv
-citadel_abandon_pregame_if_not_connected_in_s_dev | After N seconds, if we don't have all the players connect to the match, the match will be abandoned. This only applies to the initial match start when going from players connecting to pregame, for dev | 360 | sv
+citadel_abandon_pregame_if_not_connected_in_s_dev | After N seconds, if we don't have all the players connect to the match, the match will be abandoned. This only applies to the initial match start when going from players connecting to pregame, for dev | 600 | sv
 citadel_abandon_pregame_if_not_connected_in_s_streaming | After N seconds, if we don't have all the players connect to the match with the streaming map, the match will be abandoned. This only applies to the initial match start when going from players connecting to pregame | 120 | sv
-citadel_abandon_pregame_if_not_connected_in_s_streaming_dev | After N seconds, if we don't have all the players connect to the match with the streaming map, the match will be abandoned. This only applies to the initial match start when going from players connecting to pregame, for dev | 120 | sv
-citadel_abandon_time_for_match_not_scored | If someone abandons before this match time (in seconds), we will call the match forfeit and not update mmr for anyone in the match. | 300 | sv
+citadel_abandon_pregame_if_not_connected_in_s_streaming_dev | After N seconds, if we don't have all the players connect to the match with the streaming map, the match will be abandoned. This only applies to the initial match start when going from players connecting to pregame, for dev | 600 | sv
+citadel_abandon_time_for_match_not_scored | If someone abandons before this match time (in seconds), we will call the match forfeit and not update mmr for anyone in the match. | 180 | sv
+citadel_ability_active_report | Print per-ability active window transition counts and dwell times. Use citadel_ability_active_reset_stats to clear. | cmd | sv, cheat
+citadel_ability_active_reset_stats | Clear the counters printed by citadel_ability_active_report. | cmd | sv, cheat
+citadel_ability_activeness_debug | Log every ability active reason edge, one line per opened or closed window. | false | sv, cl, rep, cheat
+citadel_ability_activeness_modifier_values_audit | Record ability MODIFIER_VALUE contributions that will stop counting once active-ness is enforced. 0=off, 1=silent counters, 2=also warn once per ability and value, 3=also assert. | 0 | sv, cl, rep
+citadel_ability_activeness_modifier_values_enforce | Suppress MODIFIER_VALUE contributions from abilities that are not active. | false | sv, cl, rep
+citadel_ability_activeness_report | Print ability MODIFIER_VALUE contributions recorded while the ability was untrained or inactive. Use citadel_ability_activeness_reset_stats to clear. | cmd | sv
+citadel_ability_activeness_reset_stats | Clear the counters printed by citadel_ability_activeness_report. | cmd | sv
+citadel_ability_activeness_validate | Recompute each ability's active reason mask from the raw predicates every think and assert on mismatch. | false | sv, cl, rep
 citadel_ability_busy_queue_time | How long we will queue an ability activation to happen if the player tried to use it while busy. | 0.25 | sv, cl, rep
 citadel_ability_cancel_time | Min Time for a Channel before we can cancel it | 0.2 | sv, cl, rep
 citadel_ability_cast_cancel_mash_protection_time | Pressing a recently cast or channeled ability key will extend its mash protection by this much | 0.2 | sv, cl, rep
-citadel_ability_cooldown_max |  | 0 | sv, cl, rep, cheat
-citadel_ability_damage_falloff | Ability ability damage falloff (start_dist, end_dist, end_scale_pct) | 40 70 0 | sv, cl, rep
+citadel_ability_cooldown_max | Cheat cap applied to ability cooldowns/recharges. 0=off. | 0 | sv, cl, rep, cheat
 citadel_ability_damage_vdata_tweak | Command to tweak base damage from abilities. <br>** Usage<br>- arg1 - Scale Value 1.0 being no change.<br>- arg2 - 2: Affect Abilities and Upgrades, 1: Affects Upgrades Only, 0: Do no Affect Upgrades\] | cmd | cl
 citadel_ability_debug |  | false | sv, cl, rep, cheat
 citadel_ability_force_gold_collection | Adds the flag for ability targeting to find gold orbs. Sorta hacky. | false | sv, cl, rep
@@ -460,25 +448,14 @@ citadel_accolades_in_metadata_per_player | The number of accolades stored in the
 citadel_action_refresh_interval |  | 0.1 | cl
 citadel_activate_cps_for_team | Makes the CPs for a team available to capture | cmd | sv, cheat
 citadel_activate_window_for_pregame | If set, brings Citadel to the foreground when unpaused | false | cl, release
-citadel_activate_window_on_unpause | If set, brings Citadel to the foreground when unpaused | false | cl, a, release
+citadel_activate_window_on_unpause | If set, brings Citadel to the foreground when unpaused | false | cl, a, per_user, release
 citadel_active_lane | Which lane should be active? 0 means all | 0 | sv, cl, rep, release
 citadel_afk_detection_enabled | Is AFK detection turned on? | true | sv
 citadel_ag2_controller_parallel_update_enabled |  | true | sv, cl, rep
-citadel_ag2_crouch_spring_strength |  | 20 | sv, cl, rep
-citadel_ag2_debug_draw_crouch_spring |  | false | sv, cl, rep
 citadel_ag2_debug_draw_facing |  | false | cl
 citadel_ag2_debug_draw_look_target |  | false | cl
-citadel_ag2_direction_commit_blend_time |  | 0.15 | sv, cl, rep
-citadel_ag2_direction_commit_min_time |  | 0.3 | sv, cl, rep
-citadel_ag2_fidget_max_interval |  | 10 | sv, cl, rep
-citadel_ag2_fidget_min_interval |  | 5 | sv, cl, rep
-citadel_ag2_loco_lean_trigger_speed |  | 50 | sv, cl, rep
-citadel_ag2_min_running_with_no_input_speed |  | 90 | sv, cl, rep
 citadel_ag2_remove_param | Remove a param from AG2 graphs | cmd | cl
 citadel_ag2_rename_param | Rename a param in AG2 graphs | cmd | cl
-citadel_ag2_run_to_stop_prime_speed |  | 85 | sv, cl, rep
-citadel_ag2_run_to_stop_trigger_speed |  | 70 | sv, cl, rep
-citadel_ag2_turn_spring_strength |  | 75 | sv, cl, rep
 citadel_ai_path_pathing_time_ms_per_tick |  | 0.5 | sv
 citadel_aim_capsule_trace_debugdraw |  | false | sv, cl, rep
 citadel_aim_debug_duration | Duration to draw the various traces that formed a shot.  Set to a negative number to view the current angles without shooting. | 0 | sv, cl, rep
@@ -488,37 +465,35 @@ citadel_air_drag_min |  | 0.2 | sv, cl, rep, cheat
 citadel_air_jumps_enabled | Enable to disable air jumps | true | sv, cl, rep
 citadel_aircontrol_speed_fast |  | 50 | sv, cl, rep, cheat
 citadel_aircontrol_speed_slow |  | 80 | sv, cl, rep, cheat
-citadel_airheart_debugdraw |  | -1 | sv, cl, rep, cheat
-citadel_airheart_freefly |  | false | sv, cl, rep, cheat
-citadel_allow_ally_pings |  | true | cl, a, release
-citadel_allow_ally_text |  | true | cl, a, release
-citadel_allow_ally_voice |  | true | cl, a, release
+citadel_allow_ally_pings |  | true | cl, a, per_user, release
+citadel_allow_ally_text |  | true | cl, a, per_user, release
+citadel_allow_ally_voice |  | true | cl, a, per_user, release
+citadel_allow_biased_urn_pickups |  | true | sv, cl, rep
 citadel_allow_client_higher_version_for_reconnect | When set to true, the client is allowed to connect so long as the client compat version is higher than the server's | true | cl, release
 citadel_allow_duplicate_heroes | If enabled, heroes can be selected by multiple players | false | sv, cl, rep, release
 citadel_allow_new_player_flow_finished_override | citadel_new_player_flow_finished can't be turned off (because of the callback) unless you reset the other new player convars. This allows you to turn it off. | false | cl, a
-citadel_allow_opponent_text |  | true | cl, a, release
-citadel_allow_party_pings |  | true | cl, a, release
-citadel_allow_party_text |  | true | cl, a, release
-citadel_allow_party_voice |  | true | cl, a, release
+citadel_allow_opponent_text |  | true | cl, a, per_user, release
+citadel_allow_party_pings |  | true | cl, a, per_user, release
+citadel_allow_party_text |  | true | cl, a, per_user, release
+citadel_allow_party_voice |  | true | cl, a, per_user, release
 citadel_allow_pause_in_match | Allow players to pause in matchmade games | true | sv
 citadel_allow_pausing | Determines if pausing is enabled. Temporary until we get pausing stable | true | sv, cl, rep
 citadel_allow_playofthegame | If enabled, play of the game will happen | false | sv, cl, rep, cheat, release
 citadel_allow_purchasing_anywhere | If enabled, you can purchase upgrades anywhere | false | sv, cl, rep, cheat
-citadel_allow_spectated_pings |  | true | cl, a, release
-citadel_allow_spectated_text |  | true | cl, a, release
+citadel_allow_purchasing_corrupted_items_anywhere |  | false | sv, cheat
+citadel_allow_spectated_pings |  | true | cl, a, per_user, release
+citadel_allow_spectated_text |  | true | cl, a, per_user, release
 citadel_allow_team_change_when_assigned |  | false | sv
 citadel_always_show_active_hud_stats |  | false | cl, a
 citadel_always_transmit_abilities | Enable to always force transmit ability entities | false | sv
 citadel_announcement_banned_heroes_display_time |  | 10 | cl
-citadel_announcement_display_time |  | 4 | cl
-citadel_announcement_game_over_msg_display_time |  | 11 | cl
-citadel_arrow_brightness | Changes the zipline arrow brightness | 0.6 | cl
+citadel_announcement_display_time |  | 8 | cl
 citadel_assume_pawn_control | Take control of the pawn under the crosshair, or by name if specified | cmd | sv, cheat
 citadel_auto_highlight_seconds_after | How many seconds after the highlight event to show when viewing highlights. | 8 | cl, release
 citadel_auto_highlight_seconds_before | How many seconds before the highlight event to show when viewing highlights. | 20 | cl, release
-citadel_auto_ping_window | If the chat wheel is opened and closed within this time, trigger a ping when it's closed. | 0.35 | cl
 citadel_auto_queue_build | Automatically queue the selected build at game start | false | cl, a, user
 citadel_autobuy_refund_time | Time Allowed for a full refund when buy anywhere (Auto/Quick Buy) is enabled | 12 | sv, cl, rep
+citadel_autoqueue_build_window |  | 60 | cl
 citadel_averaged_normal_debug_draw |  | 0 | sv, cl, rep
 citadel_ban_account |  | cmd | cl, release
 citadel_ban_account_aim_assist |  | cmd | cl, release
@@ -541,18 +516,19 @@ citadel_bebop_beam_point_bias |  | 0.8 | sv, cl, rep
 citadel_bebop_beam_wiggle_speed |  | 1 | sv, cl, rep
 citadel_bebop_beam_wiggle_speed_x |  | 1 | sv, cl, rep
 citadel_bebop_beam_wiggle_speed_x2 |  | 1.5 | sv, cl, rep
+citadel_body_target_debugdraw | Debug draw result of BodyTarget() | false | cl
 citadel_book_open | \[BookID/Book Name\] Opens up the specified book by ID or name | cmd | cl, release
 citadel_book_page_auto_play_delay_s | When a page has no audio queue, this delay will be used before auto play advancing unless it specifies an override value | 2 | cl
 citadel_book_page_sound_auto_play_delay_s | When a page has an audio queue, this delay will be used before auto play advancing unless it specifies an override value | 0.2 | cl
 citadel_book_reset | \[BookID=1\] Resets the current book progress | cmd | cl
 citadel_book_xp | &lt;xp&gt; \[BookID=1\] Grants the specified amount of XP to the book | cmd | cl
-citadel_boss_glow_disabled |  | false | cl, release
+citadel_boss_glow_disabled |  | true | cl, release
+citadel_boss_tier2_bull_wip |  | false | sv, cl, rep
 citadel_boss_tier2_ping_interval |  | 10 | sv
-citadel_boss_tier2_use_wip_model |  | false | sv
-citadel_boss_tier3_use_wip_model |  | false | sv
 citadel_boss_tier_2_schedule_force |  | 0 | sv
 citadel_boss_tier_3_check_pit_modifier |  | true | sv
 citadel_boss_tier_3_damage_reduction_no_troopers |  | 0.2 | sv
+citadel_boss_tier_3_laser_disable_body_rotation |  | false | sv
 citadel_boss_tier_3_sight_range |  | 3000 | sv
 citadel_boss_tier_3_test_arm_smash |  | false | sv
 citadel_boss_tier_3_test_bomb |  | false | sv
@@ -584,6 +560,7 @@ citadel_bot_brain_parry_tick_frequency |  | 20 | sv, rep, release
 citadel_bot_brain_stop_shooting_los_time | Amount of time for no Los to stop shooting at enemy | 0.5 | sv, rep, release
 citadel_bot_broadcast_updates | Bots will say updates in all talk | false | sv
 citadel_bot_buddy | List of heroes to choose from that should follow a player around |  | sv, cl, rep, release
+citadel_bot_copyrecording | Copy a bot's recorded commands to the clipboard as a share code (aim at the bot, or the first bot with a recording) | cmd | sv, cheat
 citadel_bot_crouch | Forces citadel bots to crouch | false | sv, rep, release
 citadel_bot_director_base_threat_distance | Distance from core we consider to be a threat | 3000 | sv, rep
 citadel_bot_director_debug_spew | Enable for Bot Director log messages | false | sv
@@ -596,27 +573,35 @@ citadel_bot_director_respawn_window | Amount of Respawn time remaining for Hero 
 citadel_bot_director_zipline_min | Minimum % of Captured Zipline nodes we care about | 0.1 | sv, rep
 citadel_bot_director_zipline_stable | How much to push out a lane before deprioritizing it | 0.4 | sv, rep
 citadel_bot_disconnect_takeover_enabled |  | false | sv, cl, rep
-citadel_bot_give_all_abilities | Gives all bots all abilities.  Use with citadel_bot_use_ability 1-4 | cmd | sv
+citadel_bot_force_abandon | Force bot into the abandon state | cmd | sv
+citadel_bot_forward_back | Forces citadel bots to move back and forth | false | sv, rep, release
+citadel_bot_give_all_abilities | Gives all bots all abilities.  Use with citadel_bot_use_ability 1-4 | cmd | sv, cheat, release
 citadel_bot_give_all_abilities_base | Gives all bots all abilities without perks.  Use with citadel_bot_use_ability 1-4 | cmd | sv
+citadel_bot_give_all_bots_all_items | Gives all bots all items. Not limited by slot count (last I checked, this resulted in ~200 items being added to every bot) | cmd | sv
 citadel_bot_give_team_gold | Give all bots on a particular team gold | cmd | sv, cheat
 citadel_bot_hero_testing_pitch | Aim Pitch in Hero Testing | 5 | sv, rep, release
 citadel_bot_jump | Forces citadel bots to jump | false | sv, rep, release
+citadel_bot_kick | Kick bot &lt;name&gt; | cmd | sv
 citadel_bot_list_ents | List ent id of all players that are bots in this game | cmd | sv, cheat
 citadel_bot_list_objectives_ent | List all entities that are associated with a Citadel Game Objective | cmd | sv, cheat
+citadel_bot_match_host_locally | Host solo bot matches locally instead of using a valve hosted dedicated server | false | cl, release
+citadel_bot_match_host_locally_hide_console | Hide the console window of the local bot match server process - set this to false to see/interact with the console | true | cl
+citadel_bot_match_host_locally_listen_server | When hosting a solo bot match locally, run it on our own listen server rather than in a dedicated server child process | false | cl, release
 citadel_bot_match_on_dedicated_server |  | true | cl
-citadel_bot_max_path_length | Max path length for pathing calculations. | 2000 | sv
 citadel_bot_melee | Forces citadel bots to melee continuously, 1: light, 2:Heavy | 0 | sv, rep, release
 citadel_bot_mimic_player_pitch | User player's pitch in hero testing | true | sv, rep, release
-citadel_bot_move_random | Forces citadel bots to move all around | false | sv, rep, release
 citadel_bot_net_worth_max_spawn_time |  | 10000 | sv
 citadel_bot_override_spawn_time |  | -1 | sv
 citadel_bot_parry | Forces citadel bots to Parry continuously | false | sv, rep, release
 citadel_bot_passive_gold_enabled |  | true | sv
+citadel_bot_pasterecording | Load a bot recording share code from the clipboard. Aim at a bot to load it into that bot as the recorded hero, otherwise a new bot of that hero is spawned | cmd | sv, cheat
 citadel_bot_playrecording | Play back commands recorded via 'citadel_bot_record' | cmd | sv, cheat
 citadel_bot_practice_opponent |  | hero_gigawatt | sv, rep, release
 citadel_bot_practice_teammate |  | hero_kelvin | sv, rep, release
 citadel_bot_purchase_random_draft_option | Makes the bots purchase a random draft option | cmd | sv
 citadel_bot_record | Causes bots to mimic your commands as well as record them to be replayed | 0 | sv, rep, release
+citadel_bot_record_loop | Bot recording playback restarts from the recorded start each time it finishes | false | sv, rep, release
+citadel_bot_recordstop | Stop bot recording and any bot recording playback | cmd | sv, cheat
 citadel_bot_report_verbose | Bot Chat is Verbose (debug) | false | sv
 citadel_bot_run_dps_test | Run a gun DPS test and record the results<br>usage: &lt;hero_target&gt; | cmd | sv
 citadel_bot_run_mantle_tests | Causes bots to teleport to bot test nodes and attempt mantling<br>usage: &lt;all \| hero_name&gt; | cmd | sv
@@ -630,12 +615,13 @@ citadel_bot_takeover_time | Time for a disconnected player to be taken over by a
 citadel_bot_team_sensing_tick_interval | How many ticks between the bot performing sensing | 100 | sv, rep
 citadel_bot_teamsense_homebase_range | Distance(m) from Base center to be considered in base | 75 | sv, rep
 citadel_bot_teamsense_pushed_range | Distance(m) from Objective to consider it pushed to | 20 | sv, rep
+citadel_bot_test_disconnect |  | false | sv
 citadel_bot_test_mode | Set citadel bots to be and in test mode (default idle) | false | sv, rep, release
 citadel_bot_use_ability | Causes Bot to Constantly use Ability when its available | 0 | sv, rep, release
-citadel_bot_use_ability_once | Set if you only want enemy to use ability once and stop | false | sv, rep, release
-citadel_bot_use_ability_rate | Interval in seconds that the bot attempts to use an ability | -1 | sv, rep, release
+citadel_bot_use_ability_rate | Interval in seconds that the bot attempts to use an ability | 5 | sv, rep, release
+citadel_bot_use_ability_repeated | Set if you want bot to repeat ability over and over | true | sv, rep, release
 citadel_bot_use_item_ability | Causes Bot to Constantly use Ability when its available | 0 | sv, rep, release
-citadel_bot_zig_zag | Forces citadel bots to zig-zag side to side if &gt; 0 or back and forth if &lt; 0 | 0 | sv, rep, release
+citadel_bot_zig_zag | Forces citadel bots to zig-zag side to side | false | sv, rep, release
 citadel_botmatch_tick_rate_override |  | 32 | sv, cl, rep, release
 citadel_bots_go_mid | Force bots to path to the origin | false | sv
 citadel_bounty_allow_melee_autoclaim | Whether or not melees autoclaim orbs. | true | sv, cl, rep, cheat
@@ -653,10 +639,15 @@ citadel_brawl_hero_roster_preferred | A comma separated list of hero IDs that ho
 citadel_brawl_hero_roster_random | Is the brawl hero roster set to random | false | cl, a, release
 citadel_breakable_prop_break_airtime |  | 0.6 | sv, cl, rep
 citadel_breakable_prop_break_velocity |  | 400 | sv, cl, rep
-citadel_breakable_prop_breakable_enabled |  | true | sv
-citadel_breakable_prop_initial_spawn_time_override | If positive, override initial spawn time (in seconds) for all breakable_prop camps | -1 | sv
+citadel_breakable_prop_breakable_enabled |  | true | sv, rep, cheat, release
+citadel_breakable_prop_initial_spawn_time_override | If positive, override initial spawn time (in seconds) for all breakable_prop camps | -1 | sv, rep, cheat, release
+citadel_breakable_prop_reject_cooldown |  | 0.75 | sv, cl, rep
 citadel_breakable_prop_respawn_spread | Spread the respawn of breakables out by this many seconds (perf) | 0.5 | sv, rep
-citadel_breakable_prop_spawn_interval_override | If positive, override initial spawn interval (in seconds) for all breakable_prop camps | -1 | sv
+citadel_breakable_prop_spawn_interval_override | If positive, override initial spawn interval (in seconds) for all breakable_prop camps | -1 | sv, rep, cheat, release
+citadel_build_default_width_per_mod |  | 90 | cl
+citadel_build_double_row_category_height |  | 274 | cl
+citadel_build_double_row_count |  | 11 | cl
+citadel_build_single_row_category_height |  | 171 | cl
 citadel_build_tag_picker | &lt;HeroID&gt; | cmd | cl
 citadel_bullet_log_entities_hit |  | false | sv, cl, rep
 citadel_bullet_obscured_shot_distance |  | 256 | sv, cl, rep, cheat
@@ -673,60 +664,75 @@ citadel_bullet_whiz_side_dot_tolerance |  | 0.98 | cl
 citadel_buttons_tweak | Command to tweak level boons.  Pass in scale factor | cmd | cl
 citadel_bypass_reconnect_version_check | Ignore the compat version check when reconnecting to a server. This generally shouldn't be done as there could be legitimate differences. | false | cl
 citadel_calc_guided_bot_match_report_card |  | true | sv
-citadel_camera_adjust_aim_fov | 0: Use Absolute GunZoom FOV. 1: Relative FOV - Add the difference between old default fov and absolute gun aim.  | 1 | cl, cheat
-citadel_camera_aiming_fov | What aiming FOV is | 65 | cl
-citadel_camera_allow_controller_when_controlling_other |  | true | cl, cheat
 citadel_camera_debug | 0: Off. 1: Show Stand-up trace. 2: Show stand up to ideal ParrotPos. 3: Show Parrot Pos to Desired Pos (cyan) | 0 | cl
 citadel_camera_dist |  | 150 | sv, cl, rep
 citadel_camera_draw_clip_sphere |  | false | cl, cheat
 citadel_camera_draw_vmdl_debug | Draw curves | false | cl
 citadel_camera_fade_ally_tier2_far_dist | At this distance ally tier2's opacity will be at 1 | 400 | cl
 citadel_camera_fade_entity_speed | How rapidly we fade the character to transparent when using first person mode. | 50 | cl
-citadel_camera_fade_other_far_dist | At this distance non-viewed character's opacity will be at 1 | 100 | cl
-citadel_camera_fade_other_near_dist | At this distance non-viewed character's opacity will be at citadel_camera_fade_other_near_opacity | 20 | cl
-citadel_camera_fade_other_near_opacity | The opacity of non-viewed character when they are at citadel_camera_fade_near_dist | 0.4 | cl
-citadel_camera_fade_viewed_far_dist | At this distance viewed character's opacity will be at 1 | 50 | cl
-citadel_camera_fade_viewed_near_dist | At this distance viewed character's opacity will be at citadel_camera_fade_near_opacity | 20 | cl
-citadel_camera_fade_viewed_near_opacity | The opacity of viewed character when they are at citadel_camera_fade_near_dist | 0.4 | cl
+citadel_camera_fade_other_far_dist | While spectating or watching a replay, at this distance non-viewed character's opacity will be at 1 | 100 | cl, a, release
+citadel_camera_fade_other_near_dist | While spectating or watching a replay, at this distance non-viewed character's opacity will be at citadel_camera_fade_other_near_opacity | 20 | cl, a, release
+citadel_camera_fade_other_near_opacity | While spectating or watching a replay, the opacity of non-viewed character when they are at citadel_camera_fade_other_near_dist | 0.4 | cl, a, release
+citadel_camera_fade_viewed_far_dist | While spectating or watching a replay, at this distance viewed character's opacity will be at 1 | 50 | cl, a, release
+citadel_camera_fade_viewed_near_dist | While spectating or watching a replay, at this distance viewed character's opacity will be at citadel_camera_fade_near_opacity | 20 | cl, a, release
+citadel_camera_fade_viewed_near_opacity | While spectating or watching a replay, the opacity of viewed character when they are at citadel_camera_fade_near_dist | 0.4 | cl, a, release
 citadel_camera_force_tunnel_alpha |  | -1 | cl, cheat
 citadel_camera_fov | The field of view angle of the camera. | 75 | sv, cl, rep
 citadel_camera_free_roam | Set to 1 to disconnect the camera from the player.  Set to 2 to allow moving the camera around with WASD | 0 | sv, cl, rep
 citadel_camera_hard_trace_radius | The radius of the cylinder to trace for hard camera occlusion. | 16 | sv, cl, rep
 citadel_camera_height | The look at point of the camera is vertically offset by this distance. | 63 | cl, cheat
-citadel_camera_height_approach_speed |  | 800 | cl, cheat
-citadel_camera_height_ceiling_distance |  | 20 | cl
-citadel_camera_height_npc | The look at point of the camera is vertically offset by this distance when viewing NPC units. | 33 | cl, cheat
-citadel_camera_hero_fov | The field of view angle of the camera when following a hero. | 90 | cl, a
-citadel_camera_inspect_mode | Set to 1 to allow orbiting the camera around the player.  Set to 2 to lock the camera, but then be able to directly control the player | 0 | sv, cl, rep
+citadel_camera_height_approach_speed |  | 80 | cl, cheat
+citadel_camera_hero_fov | The field of view angle of the camera when following a hero. | 100 | cl, a, per_user
+citadel_camera_hideout_backward_offset_max |  | 330 | cl
+citadel_camera_hideout_backward_offset_min |  | 80 | cl
+citadel_camera_hideout_upward_offset_max |  | 0 | cl
+citadel_camera_hideout_upward_offset_min_frac | Set the fraction of the character's pivot height that the fully zoomed in mode lands at. i.e. 0.5 looks at bellybutton, 1.0 at head, 0.0f feet. | 0.75 | cl
+citadel_camera_inspect_mode | Set to 1 to allow orbiting the camera around the player.  Set to 2 to lock the camera, but then be able to directly control the player | 0 | sv, cl, rep, cheat, release
 citadel_camera_listening_offset |  | 0 | cl
 citadel_camera_max_transition_distance | Max distance that the camera will transition to the next target. | 1500 | cl
-citadel_camera_offset | The look at point of the camera is horizontally offset by this distance. | -25 | cl, cheat
-citadel_camera_parrot_pov | Force the camera to be in parrot POV. Useful for tuning the closest position. | false | cl
+citadel_camera_offset_shrink_ray_scaler | How much to shrink the character's offsets by when they get shrunk. | 0.5 | cl
+citadel_camera_override_ads_fov | Override the base Fov from the player when aiming down sights | 45 | cl, a, release
+citadel_camera_override_ads_x_offset | Offset in the camera rotation space while aiming down sights: +Forward -Backward | -110 | cl, a, release
+citadel_camera_override_ads_y_offset | Offset in the camera rotation space while aiming down sights: +Left -Right | -34 | cl, a, release
+citadel_camera_override_ads_z_offset | Offset in the camera rotation space while aiming down sights: +Up -Down | 0 | cl, a, release
+citadel_camera_override_fov | Override the base Fov from the player | 90 | cl, a, release
+citadel_camera_override_pivot_x_offset | Camera Pivot Offset in the hero model space: +Forward -Backward | 0 | cl, a, release
+citadel_camera_override_pivot_x_offset_crouching | Camera Pivot Offset in the hero model space while crouching: +Forward -Backward | 0 | cl, a, release
+citadel_camera_override_pivot_y_offset | Camera Pivot Offset in the hero model space: +Left -Right | 0 | cl, a, release
+citadel_camera_override_pivot_y_offset_crouching | Camera Pivot Offset in the hero model space while crouching: +Left -Right | 0 | cl, a, release
+citadel_camera_override_pivot_z_offset | Camera Pivot Offset in the hero model space: +Up -Down | 86 | cl, a, release
+citadel_camera_override_pivot_z_offset_crouching | Camera Pivot Offset in the hero model space while crouching: +Up -Down | 55 | cl, a, release
+citadel_camera_override_x_offset | Offset in the camera rotation space: +Forward -Backward | -135 | cl, a, release
+citadel_camera_override_x_worst_case_offset | Offset in the camera rotation space while near walls: +Forward -Backward | -10 | cl, a, release
+citadel_camera_override_y_offset | Offset in the camera rotation space: +Left -Right | -34 | cl, a, release
+citadel_camera_override_y_worst_case_offset | Offset in the camera rotation space while near walls: +Left -Right | -10 | cl, a, release
+citadel_camera_override_z_offset | Offset in the camera rotation space: +Up -Down | 0 | cl, a, release
+citadel_camera_override_z_worst_case_offset | Offset in the camera rotation space while near walls: +Up -Down | 10 | cl, a, release
+citadel_camera_overrides_enabled | Ignore hero camera offset data and explicitly use citadel_camera_overrides_xxx | false | cl, a, release
 citadel_camera_parrot_pov_radius | Radius of the parrot sausage cast | 8.25 | cl
 citadel_camera_parrot_pov_x_offset | X Axis offset from our camera pivot. +Forward and -Back. | -10 | cl
 citadel_camera_parrot_pov_y_offset | Y Axis offset from our camera pivot. +Left and -Right. | -10 | cl
 citadel_camera_parrot_pov_z_offset | Z Axis offset from our camera pivot. +Up and -Down | 10 | cl
-citadel_camera_parrot_smoothing_rate | When the camera stops being clipped, smooth the motion back to the desired resting position. | 60 | cl
 citadel_camera_pitch_default | The default camera pitch. | 20 | cl
-citadel_camera_pitch_inverted | Set to 1 to have inverted mouse pitch | false | cl, a
+citadel_camera_pitch_inverted | Set to 1 to have inverted mouse pitch | false | cl, a, per_user
 citadel_camera_pitch_max | The maximum pitch angle allowed on the camera. | 89 | cl
 citadel_camera_pitch_min | The minimum pitch angle allowed on the camera. | -89 | cl
+citadel_camera_ragdoll_camera_distance | How far forward/back to offset the camera, in camera rotation space, from the camera pivot. -Backwards/+Forwards | -300 | cl
+citadel_camera_rig_debug | 0: Off. 1: Show all target camera rig poses | 0 | cl
 citadel_camera_see_distance_max | Max Distance the camera can 'see' an entity | 20000 | sv, cl, rep
 citadel_camera_sensitivity | Mouse sensitivity for the camera | 1 | cl, a
 citadel_camera_sensitivity_modifier_debug | 0: Off 1: Log Sensitivity modifiers from various sources. | 0 | cl
-citadel_camera_snapshot | Draw a debug display of the camera, then unset. | false | cl
-citadel_camera_soft_collision | Experimental: Soften the camera to wall collision distance by using the gaussian weight of fibbonnaci cone of line traces. 2: Use soft collision system to inform hole punch. | 2 | cl, rep
-citadel_camera_soft_collision_angle | Experimental: Soft camera collision cone arc angle in degrees. Larger cone angle results in earlier softening. | 75 | cl
-citadel_camera_soft_collision_avoidance_bias | Experimental: Soft camera collision avoidance bias. &gt; 1 pull camera in more aggressively in response to gaussian weighted samples. &lt; 1 Not recommended | 5.75 | cl
+citadel_camera_soft_collision |  Soften the camera to wall collision distance by using the gaussian weight of fibbonnaci cone of line traces. 2: Use soft collision system to inform hole punch. | 0 | cl, rep
+citadel_camera_soft_collision_angle | Soft camera collision cone arc angle in degrees. Larger cone angle results in earlier softening. | 75 | cl
+citadel_camera_soft_collision_avoidance_bias | Soft camera collision avoidance bias. &gt; 1 pull camera in more aggressively in response to gaussian weighted samples. &lt; 1 Not recommended | 5.75 | cl
 citadel_camera_soft_collision_debug | Show debug drawing of all soft collision caches each time they're executed. | 0 | cl
-citadel_camera_soft_collision_gausian_bias | Experimental: Soft camera collision sample bias. &lt; 1 distance samples at the edge of the cone angle contribute more to the weight. &gt; 1 rely more on the central camera direction's distance sample. | 2 | cl
-citadel_camera_soft_collision_max_sensor_range | Experimental: the range of the traces can be constrained to this value if the distance between target camera position and parrot cam position is very large | 110 | cl
+citadel_camera_soft_collision_gausian_bias | Soft camera collision sample bias. &lt; 1 distance samples at the edge of the cone angle contribute more to the weight. &gt; 1 rely more on the central camera direction's distance sample. | 2 | cl
+citadel_camera_soft_collision_max_sensor_range | The range of the traces can be constrained to this value if the distance between target camera position and parrot cam position is very large | 110 | cl
 citadel_camera_soft_collision_multi_thread | Experimental: Use Multithreaded implementation. 0: Use regular style. &gt; 0 number of jobs to chunk the 128 traces into. Power of 2 only, please. 8 is great. | 8 | cl
-citadel_camera_soft_collision_xy_scale | Experimental: Shrink the length of the traces in the XY axis so that going into doorways is less affected by the soft collision system. | 0.75 | cl
-citadel_camera_spectator_auto_target_view | Spectator camera automatically try to match target view after no input for sometime | true | cl
-citadel_camera_spectator_dist | How far back the spectator camera should be | 200 | cl
+citadel_camera_soft_collision_xy_scale | Shrink the length of the traces in the XY axis so that going into doorways is less affected by the soft collision system. | 0.75 | cl
+citadel_camera_spectator_auto_target_view | Spectator camera automatically try to match target view after no input for sometime | true | cl, a, release
+citadel_camera_spectator_dist | How far back the spectator camera should be | 250 | cl
 citadel_camera_spectator_fov | The field of view angle of the camera when a spectator. | 90 | cl
-citadel_camera_spectator_pitch | How much to adjust view pitch when spectating a target | 15 | cl
 citadel_camera_use_vmdl_far_pose | Selectively skip "Far" poses | true | cl
 citadel_camera_use_vmdl_flatten_horizontal | For each camera pose set, use the average of X positions. This is a motion sickness reducing action. | true | cl
 citadel_camera_use_vmdl_flatten_vertical | Zero the relative Z axis of the camera to reduce motion sickness. | true | cl
@@ -734,7 +740,7 @@ citadel_camera_use_vmdl_gunaim_pose | Selectively skip "Gun Aim" poses | true | 
 citadel_camera_use_vmdl_near_pose | Selectively skip "Near" poses | true | cl
 citadel_camera_wobble_always |  | false | cl
 citadel_camera_wobble_angle_scale |  | 1 | cl
-citadel_camera_wobble_disable |  | false | cl
+citadel_camera_wobble_disable |  | true | cl
 citadel_camera_wobble_pitch_exponent |  | 2 | cl
 citadel_camera_wobble_position_scale |  | 1 | cl
 citadel_camera_wobble_yaw_exponent |  | 2 | cl
@@ -744,25 +750,52 @@ citadel_capsule_movement_ground_box_percentage |  | 0.2 | sv, cl, rep
 citadel_capture_point_enable_fast_capture |  | false | sv, cl, rep, cheat
 citadel_capture_points_enabled |  | false | sv
 citadel_capturepoint_show_event_timer |  | false | sv, cl, rep
+citadel_catapult_draw_preview_paths | Debug draw every catapult's predicted launch path for x seconds (default 5) | cmd | cl
 citadel_catapult_on_damage_channel_time |  | 1.5 | sv, cl, rep
 citadel_catapult_on_damage_disable_time |  | 3 | sv, cl, rep
+citadel_catapult_respawn_pickup_trails | Re-lays the pickup trail on every catapult that has one, clearing the old pickups first | cmd | sv, cheat, release
 citadel_chat_fade_time |  | 10 | cl
 citadel_chat_fade_time_extension |  | 7 | cl
-citadel_cinematic_intro_duration_npc | How long is the cinematic intro applied to npcs (shrine/patron) | 7.5 | sv, cheat
-citadel_cinematic_intro_duration_player | How long is the cinematic intro applied to the player | 9.5 | sv, cheat
-citadel_cinematic_intro_enabled | -1 = force disabled, 0 = default, 1 = force enabled | 0 | sv, cheat
-citadel_clamp_mouse_when_using_ping_wheel |  | true | cl
+citadel_chat_typing_indicator_fade_time |  | 5 | cl
+citadel_check_walk_on_skyclip |  | true | sv, cl, rep, cheat
+citadel_cinematic_intro_duration_npc | How long is the cinematic intro applied to npcs (shrine/patron) | 0.01 | sv, cheat
+citadel_cinematic_intro_duration_player | How long is the cinematic intro applied to the player | 0.01 | sv, cheat
+citadel_cinematic_intro_enabled | -1 = force disabled, 0 = default, 1 = force enabled | -1 | sv, cheat
 citadel_clear_all_post_process_effects | Clear all post process effects that are active, and spew their state | cmd | cl
 citadel_clear_killstreak | citadel_clear_killstreak \[player_slot\] | cmd | sv
 citadel_client_mm_ignore_engine_version | Ignore the engine version number for matchmaking. Useful for testing locally in release. | false | cl
 citadel_client_solo_mm_keep_alive_check_s | Number of seconds between checking to make sure that the client is still in MM | 45 | cl
 citadel_client_status_cycle_delay |  | 4 | cl
-citadel_commend_fake_received |  | cmd | cl
-citadel_commend_player | &lt;target account id&gt; \[match id\] | cmd | cl
-citadel_commend_toast_enemy_seconds | Number of seconds to show enemy commend toasts | 4 | cl
-citadel_commend_toast_seconds | Number of seconds to show commend toasts | 30 | cl
+citadel_combat_log_compress |  | true | cl, a, release
+citadel_combat_log_enabled_in_lobbies | Turn on to enable combat log in matches with GC Lobbies | false | sv
+citadel_combat_log_max_lines |  | 300 | cl, release
+citadel_combat_log_show_abilities |  | false | cl, a, release
+citadel_combat_log_show_damage |  | true | cl, a, release
+citadel_combat_log_show_deaths |  | false | cl, a, release
+citadel_combat_log_show_healing |  | false | cl, a, release
+citadel_combat_log_show_health_deltas |  | false | cl, a, release
+citadel_combat_log_show_hidden_modifiers |  | false | cl, a, release
+citadel_combat_log_show_items |  | false | cl, a, release
+citadel_combat_log_show_modifiers |  | false | cl, a, release
+citadel_combat_log_time_window_seconds |  | 300 | cl, release
+citadel_combat_log_update_interval |  | 1 | cl, cheat
+citadel_combatlog_fight_idle_time | The amount of time needed to determine a fight is over (no one involved in a fight did anything to anyone else involved in the fight). | 5 | sv, cl, rep
+citadel_combatlog_file | A file you want to write combatlog events to as they happen. |  | cl
+citadel_combatlog_scan | Scans for fights | cmd | cl
+citadel_combatlog_size | Calculates the total allocations for a combatlog | cmd | cl
+citadel_combatlog_size_server |  | cmd | sv
+citadel_combatlog_update | Send combat log to a client | cmd | sv
+citadel_combatlog_write_test | Writes combatlog to disk if you have citadel_combatlog_file set | cmd | cl
+citadel_comeback_redirect_fraction | Fraction of the comeback souls earned by a player above the enemy team's average net worth that is redirected to the tick gold pool for the two lowest net worth teammates | 0.7 | sv
+citadel_commend_fake_received |  | cmd | cl, release
+citadel_commend_notification_anonymous_allies | Show ally commends as an anonymous thumbs up instead of the commender's hero and name | false | cl
+citadel_commend_notification_anonymous_enemies | Show enemy commends as an anonymous thumbs up instead of the commender's hero and name | false | cl
+citadel_commend_player | &lt;target account id&gt; \[match id\] \[hero_id\] | cmd | cl, release
+citadel_commend_player_clear | Reset the commend notification UI, discarding any commends it has accumulated | cmd | cl, release
+citadel_commend_toast_enemy_seconds | Number of seconds to show enemy commend toasts | 3 | cl
+citadel_commend_toast_seconds | Number of seconds to show commend toasts | 5 | cl
+citadel_commend_use_toasts | Whether to use commend toasts (older) or the custom commend notification (newer) | false | cl, release
 citadel_complete_new_player | \[flag\] Marks the new player state as complete | cmd | cl, release
-citadel_cone_view_alpha |  | 80 | cl
 citadel_context_profile_page |  | true | cl
 citadel_control_point_capture_rate_scale |  | 1 | sv, cl, rep
 citadel_control_point_decay_delay |  | 60 | sv, cl, rep
@@ -773,47 +806,62 @@ citadel_convert_deps | Command to tweak level boons.  Pass in scale factor | cmd
 citadel_convert_particle_cfg | Convert team_relative_particle_cfg to CitadelTeamRelativeParticleSettings_t | cmd | cl
 citadel_convert_tight_camera_settings | Bake citadel_tightcamera scale onto camera settings | cmd | cl
 citadel_cooldown_scaling_vdata_tweak | Command to tweak all ability cooldowns, including ability upgrades.  Pass in scale factor (with 1.0 being no change), and a min delta. | cmd | cl
+citadel_cooldown_scaling_vdata_tweak_ult | Command to tweak all ultimate ability cooldowns, including ability upgrades.  Pass in scale factor (with 1.0 being no change), and a min delta. | cmd | cl
 citadel_coop_sandbox |  | false | sv, cl, rep, release
 citadel_core_regen |  | 50 | sv
 citadel_core_regen_pause_on_damage |  | 15 | sv
 citadel_corner_boost_strength | 0.0: turn off corner boosts. 1.0: raw corner boost. | 0.6 | sv, cl, rep
-citadel_crate_client_notification_time |  | 30 | sv, cheat
+citadel_corrupted_item_bonus_variance_better | Max percent a corrupted item's stat bonuses can roll above their authored values each match. | 15 | sv, cl, rep, cheat
+citadel_corrupted_item_bonus_variance_worse | Max percent a corrupted item's stat bonuses can roll below their authored values each match. | 15 | sv, cl, rep, cheat
+citadel_corrupted_item_shop_enabled |  | false | sv, cl, rep, cheat
+citadel_corrupted_item_shop_num_items |  | 1 | sv, cl, rep, cheat
+citadel_corrupted_item_shop_restock_interval | Seconds between each additional corrupted item allowance after the shop opens. 0 disables restocking. | 900 | sv, cl, rep, cheat
+citadel_corrupted_item_shop_spawn_time_base |  | 1800 | sv, cl, rep, cheat
+citadel_corrupted_item_shop_spawn_time_variance | Each corrupted shop opening and restock lands a random number of seconds within +/- this of its scheduled time. | 120 | sv, cl, rep, cheat
+citadel_corrupted_items_force_variance | Apply the per-match corrupted item bonus and penalty variance in the sandbox and hideout too, where it is normally disabled. | false | sv, cl, rep, cheat
+citadel_corrupted_penalty_seed | Seed used to roll the corrupted item penalties at match start.  0 rolls a random seed. | 0 | sv, cl, rep, cheat
+citadel_corrupted_penalty_variance | Percent each corrupted penalty magnitude can roll above or below its authored value each match. Results round away from zero to whole numbers. | 15 | sv, cl, rep, cheat
+citadel_crate_client_notification_time |  | 30 | sv, cl, rep
 citadel_crate_delivery_base_payoff |  | 0 | sv, cheat
 citadel_crate_delivery_overtime_bonus |  | 50 | sv, cheat
 citadel_crate_disable_early_spawn |  |  | 
+citadel_crate_drop_duration_override |  | -1 | sv, cl, rep, cheat
 citadel_crate_early_spawn_delay |  |  | 
 citadel_crate_early_to_trooper_spawn_delay |  |  | 
 citadel_crate_respawn_interval |  | 300 | sv, cl, rep, cheat
-citadel_crate_reward_base |  | 1300 | sv
-citadel_crate_reward_time_multiplier |  | 230 | sv
-citadel_crate_spawn_enabled |  | true | sv
+citadel_crate_reward_base |  | 250 | sv, cl, rep, cheat
+citadel_crate_reward_time_multiplier |  | 70 | sv, cl, rep, cheat
+citadel_crate_spawn_enabled |  | true | sv, cl, rep, cheat, release
 citadel_crate_spawn_initial_delay |  | 600 | sv, cl, rep, cheat
 citadel_create_unit | \[hero_name \| none\] \[team\] - Creates an unit.  Pass 'my_hero' as hero_name to use your current hero | cmd | sv
 citadel_crosshair_clip_angle |  | 90 | cl
 citadel_crosshair_clip_bullet_gap |  | 0.5 | cl
 citadel_crosshair_clip_offset_angle |  | 180 | cl
-citadel_crosshair_color_b |  | 255 | cl, a
-citadel_crosshair_color_g |  | 255 | cl, a
-citadel_crosshair_color_r |  | 255 | cl, a
-citadel_crosshair_disable_hero_specific_crosshairs |  | false | cl, a
-citadel_crosshair_dot_opacity |  | 0.7 | cl, a
-citadel_crosshair_dot_outline_border |  | 2 | cl, a
-citadel_crosshair_dot_outline_gap |  | 0 | cl, a
-citadel_crosshair_dot_outline_opacity |  | 0.7 | cl, a
-citadel_crosshair_dot_size |  | 4 | cl, a
+citadel_crosshair_color_b |  | 255 | cl, per_user
+citadel_crosshair_color_g |  | 255 | cl, per_user
+citadel_crosshair_color_r |  | 255 | cl, per_user
+citadel_crosshair_disable_hero_specific_crosshairs |  | false | cl, per_user
+citadel_crosshair_dot_opacity |  | 0.7 | cl, per_user
+citadel_crosshair_dot_outline_border |  | 2 | cl, per_user
+citadel_crosshair_dot_outline_gap |  | 0 | cl, per_user
+citadel_crosshair_dot_outline_opacity |  | 0.7 | cl, per_user
+citadel_crosshair_dot_size |  | 4 | cl, per_user
+citadel_crosshair_enable_clip_status |  | false | cl, release
 citadel_crosshair_hit_marker_duration |  | 0.1 | cl, a
 citadel_crosshair_out_of_range_dist |  | 50 | sv, cl, rep
-citadel_crosshair_outline_color_b |  | 0 | cl, a
-citadel_crosshair_outline_color_g |  | 0 | cl, a
-citadel_crosshair_outline_color_r |  | 0 | cl, a
-citadel_crosshair_pip_gap |  | 4 | cl, a
-citadel_crosshair_pip_gap_static |  | false | cl, a
-citadel_crosshair_pip_height |  | 16 | cl, a
-citadel_crosshair_pip_opacity |  | 0.5 | cl, a
-citadel_crosshair_pip_outline_border |  | 1 | cl, a
-citadel_crosshair_pip_outline_gap |  | 0 | cl, a
-citadel_crosshair_pip_outline_opacity |  | 0.7 | cl, a
-citadel_crosshair_pip_width |  | 2 | cl, a
+citadel_crosshair_outline_color_b |  | 0 | cl, per_user
+citadel_crosshair_outline_color_g |  | 0 | cl, per_user
+citadel_crosshair_outline_color_r |  | 0 | cl, per_user
+citadel_crosshair_pip_gap |  | 4 | cl, per_user
+citadel_crosshair_pip_gap_collapse |  | false | cl, per_user
+citadel_crosshair_pip_gap_static |  | false | cl, per_user
+citadel_crosshair_pip_height |  | 16 | cl, per_user
+citadel_crosshair_pip_opacity |  | 0.5 | cl, per_user
+citadel_crosshair_pip_outline_border |  | 1 | cl, per_user
+citadel_crosshair_pip_outline_gap |  | 0 | cl, per_user
+citadel_crosshair_pip_outline_opacity |  | 0.7 | cl, per_user
+citadel_crosshair_pip_width |  | 2 | cl, per_user
+citadel_custom_ui_colors | Enable colorblind-friendly colors and the player's custom UI colors. | false | cl, a, per_user
 citadel_damage_indicator_enemy_display_time |  | 2 | cl
 citadel_damage_indicator_height |  | 120 | cl
 citadel_damage_indicator_radius |  | 300 | cl
@@ -825,38 +873,48 @@ citadel_damage_report_show_adjusted_percent_min | Hide buffed/resisted damage if
 citadel_damage_report_show_always | If enabled, always show damage report, not just on alt. | false | cl, a
 citadel_damage_summary_max_entries |  | 8 | cl
 citadel_damage_summary_show_time |  | 12 | cl
-citadel_damage_text_batching_window_ability | When ability damage events are within this amount of time of each other, they will be added together into a single entry. | 1.05 | cl
-citadel_damage_text_batching_window_bullet | When bullet damage events are within this amount of time of each other, they will be added together into a single entry. | 1.5 | cl
 citadel_damage_text_batching_window_cumulative | When cumulative damage events are within this amount of time of each other, they will be added together into a single entry. | 1.5 | cl
-citadel_damage_text_batching_window_pure | When pure damage events are within this amount of time of each other, they will be added together into a single entry. | 1.05 | cl
+citadel_damage_text_batching_window_individual | When individual damage events are within this amount of time of each other, they will be added together into a single entry. | 0 | cl
+citadel_damage_text_batching_window_individual_heal | When individual healing events are within this amount of time of each other, they will be added together into a single entry. | 0.1 | cl
+citadel_damage_text_cumulative_final_delay | In cumulative mode 2, how long a victim must go without taking damage before the total is shown. | 0.75 | cl
+citadel_damage_text_cumulative_final_lifetime | In cumulative mode 2, how long the total lives once shown. | 3 | cl
+citadel_damage_text_cumulative_mode | 0 = off, 1 = show a running total as damage is dealt, 2 = show the total once damage stops | 0 | cl, a, user
+citadel_damage_text_cumulative_offset |  | 10 25 0 | cl
 citadel_damage_text_distance_far | Far distances at which we use far offsets for damage numbers | 4000 | cl
 citadel_damage_text_distance_near | Near distance at which we use the near offsets for damage numbers | 100 | cl
+citadel_damage_text_dynamic_emphasis | Dynamically emphasize damage number over a certain percent of the targets max health. See citadel_damage_text_dynamic_emphasis_percent | true | cl
+citadel_damage_text_dynamic_emphasis_percent | Percent of the victims max health the damage needs to be, for it to be dynamically emphasized. | 0.25 | cl
+citadel_damage_text_follow_healthbar_pos | Damage text follows the victim's healthbar position (only works on V2 healthbars) | true | cl
+citadel_damage_text_follow_victim_pos | Damage text follows victim's position | true | cl
+citadel_damage_text_healing_offset_x |  | 0 | cl
+citadel_damage_text_healing_offset_y |  | -30 | cl
 citadel_damage_text_height_offset_far | How much to offset damage numbers above when far from the camera | 200 | cl
 citadel_damage_text_height_offset_near | How much to offset damage numbers above when near from the camera | 130 | cl
-citadel_damage_text_lifetime | How long do numbers live. | 1.5 | cl
+citadel_damage_text_ignore_left_offset_on_heroes | Ignore the left offset on hero damage numbers (it mostly points the wrong way) | true | cl
 citadel_damage_text_lifetime_new | How long do accumulated numbers live. | 1.5 | cl
-citadel_damage_text_new_ability_offset_x |  | -20 | cl
-citadel_damage_text_new_ability_offset_y |  | -25 | cl
-citadel_damage_text_new_bullet_offset_x |  | 35 | cl
-citadel_damage_text_new_bullet_offset_y |  | -25 | cl
+citadel_damage_text_new_ability_offset_x |  | 20 | cl
+citadel_damage_text_new_ability_offset_y |  | -10 | cl
+citadel_damage_text_new_bullet_offset_x |  | 30 | cl
+citadel_damage_text_new_bullet_offset_y |  | 10 | cl
 citadel_damage_text_new_melee_offset_x |  | 20 | cl
-citadel_damage_text_new_melee_offset_y |  | -60 | cl
-citadel_damage_text_new_pure_offset_x |  | -20 | cl
-citadel_damage_text_new_pure_offset_y |  | -60 | cl
-citadel_damage_text_new_x_offset | How much to offset damage numbers left | 15 | cl
-citadel_damage_text_show_effectiveness | Show the damage effectiveness on every damage number | false | cl
+citadel_damage_text_new_melee_offset_y |  | 30 | cl
+citadel_damage_text_new_pure_offset_x |  | 25 | cl
+citadel_damage_text_new_pure_offset_y |  | 0 | cl
+citadel_damage_text_show_effectiveness | Show the damage effectiveness on every damage number | false | cl, cheat
+citadel_damage_text_show_unit_health | Show remaining unit health as the large (cumulative) number rather than the damage being done | false | cl
 citadel_damage_text_spacing | Spacing between floating damage numbers. | 20 | cl
 citadel_damage_text_x_offset_far | How much to offset damage numbers left and right when far from the camera | 0 | cl
 citadel_damage_text_x_offset_near | How much to offset damage numbers left and right when near the camera | 0 | cl
-citadel_dead_zone_radius |  | 0.05 | cl
-citadel_dead_zone_radius_instant_wheel |  | 0.1 | cl
 citadel_death_linger_time | How logn does the player icon linger on the minimap after they die | 3 | sv
+citadel_death_ragdoll_duration | How long a dead hero's ragdoll exists for before it despawns. Can outlive the death camera ( citadel_death_return_to_spawn_delay ) so that other players still see the body. | 5 | cl
 citadel_death_replay_enabled |  | false | sv, cl, rep, release
 citadel_death_replay_post_death_time |  | 2 | sv, cl, rep
 citadel_death_replay_pre_death_time |  | 12 | sv, cl, rep
 citadel_death_replay_pre_death_time_quick |  | 8 | sv, cl, rep
+citadel_death_return_to_spawn_delay | How long after dying we are moved back to our spawn point, which is also how long the death camera watches our ragdoll and our killer for. | 4 | sv, cl, rep
 citadel_debug_ability_beams |  | false | sv, cl, rep
 citadel_debug_barrier_damage_order |  | false | sv, cl, rep
+citadel_debug_current_nav_area_cache |  | false | sv
 citadel_debug_draw_bullet_time_warps | Draw debug overlays for active bullet time warp volumes | false | sv
 citadel_debug_draw_hero_position_on_screen |  | false | cl
 citadel_debug_draw_move_down_ziplines |  | false | cl
@@ -865,16 +923,17 @@ citadel_debug_draw_move_down_ziplines_speed |  | 50 | cl
 citadel_debug_draw_move_down_ziplines_starting_node_offset |  | 0 | cl
 citadel_debug_draw_projectile_touch_volumes | Draw debug overlays for projectile touch volumes | false | sv, cl, rep
 citadel_debug_ent_los | Debug : Draw Spheres on Ent Being Los Tested | false | sv, cl, rep, cheat
+citadel_debug_equip_econ_item | Equip an econ item &lt;item_id&gt; &lt;hero_id&gt; &lt;slot_id&gt; | cmd | cl
 citadel_debug_find_ability_units_draw_all | When true, all FindUnits calls will be drawn | false | sv, cl, rep, cheat
 citadel_debug_find_ability_units_duration | Duration to display debug draw for FindAbilityUnits functions | 0 | sv, cl, rep, cheat
 citadel_debug_find_ability_units_filter | Filter ability name to debug FindAbilityUnits functions |  | sv, cl, rep, cheat
-citadel_debug_force_property_value_context | Force ability property value context. -1: No override, 0: MainLock, 1:StreetBrawl | -1 | sv, cl, rep
+citadel_debug_force_property_value_context | Force ability property value context. -1: No override, 0: MainLock, 1:StreetBrawl | -1 | sv, cl, rep, cheat
 citadel_debug_glyph_paths |  | false | cl
 citadel_debug_minimap_height |  | false | sv
 citadel_debug_neutral_spawn_times | Outputs timings of neutral camp spawns. | false | sv
 citadel_debug_pathing | Draw NPC pathing errors | false | sv
+citadel_debug_phys_force |  | false | sv
 citadel_debug_player_speed_in_meters | Citadel/Player Speed/Speed in meters | true | sv, cl, rep
-citadel_debug_trooper_look_target |  | false | sv, cheat
 citadel_debug_zipline_camera_height_add | Add to zipline camera height offset | 0 | sv, cl, rep, cheat
 citadel_debug_zipline_camera_side_add | Add to zipline camera side offset | 0 | sv, cl, rep, cheat
 citadel_decrease_replay_speed | Decrease the Replay speed while watching a replay | cmd | cl, release
@@ -889,12 +948,13 @@ citadel_deny_denier_percentage |  | 1 | sv
 citadel_deny_orb_scale |  | 1 | sv, cl, rep
 citadel_deny_text_height_offset | How much higher should deny text show up. | 35 | cl
 citadel_deny_text_max_distance | How far away before we stop showing in world deny events. | 4000 | cl, a
-citadel_deployment_max_height_offset_down |  | 1000 | sv, cl, rep
+citadel_deployment_max_height_offset_down |  | 1500 | sv, cl, rep
 citadel_deployment_max_height_offset_up |  | 125 | sv, cl, rep
 citadel_destroy_all_bosses | Kills all the guardians | cmd | sv
 citadel_destroy_all_npcs | Kills all bosses and troopers in the map | cmd | sv
 citadel_destroyable_building_damage_scale |  | 1 | sv
-citadel_dev_always_lethal_damage |  | false | sv, cl, rep
+citadel_detail_sticky_tooltips |  | false | cl
+citadel_dev_always_lethal_damage |  | false | sv, rep
 citadel_dev_book_force_unlocked |  | false | cl
 citadel_dev_boss_backdoor_protection_disabled | Set to Disable Backdoor Protection for Bosses | false | sv, cl, rep, cheat
 citadel_dev_discord_link |  | false | cl
@@ -905,60 +965,59 @@ citadel_dev_test_end_game_gold |  | 20000 | sv
 citadel_dev_test_endgame | Set the Map to test End game content | cmd | cl, cheat, release
 citadel_dev_test_endgame_server_cmd | Set the Map to test End game content | cmd | sv, cheat, release
 citadel_digger_debugburrow |  | false | sv
-citadel_disable_check_on_ground | Don't run CheckOnGround ever. Do we even need it? | false | sv, cheat
 citadel_disable_duplicate_heroes | Disable usage of Duplicate Heroes | cmd | sv, cheat, release
-citadel_disable_fast_cooldowns | Disable fast cooldowns | cmd | sv, cheat
-citadel_disable_fast_stamina | Disable fast stamina | cmd | sv, cheat
-citadel_disable_no_hero_death | Make heroes able to die | cmd | sv, cheat
 citadel_disable_purchasing_in_combat | Disable purchasing if you deal or take damage from an enemy player. | false | sv, cl, rep
 citadel_disable_quick_response | Turns quick response to ping messages off. | true | cl
-citadel_disable_unlimited_ammo | Disable unlimited ammo | cmd | sv, cheat
 citadel_display_new_player_recommendations | Do we want to show the decorations for new player friendly heroes? | true | cl, release
-citadel_distance_mouse_move_for_minimap_drawing |  | 15 | cl, release
 citadel_doorway_debug_draw |  | 0 | sv, cl, rep, cheat
 citadel_doorway_glow_close_distance |  | 200 | sv, cl, rep, cheat
 citadel_doorway_glow_other_distance |  | 1000 | sv, cl, rep, cheat
 citadel_doorway_infinite_duration |  | false | sv, cl, rep, cheat
 citadel_doorway_portal_forward_offset |  | -3 | sv, cl, rep, cheat
-citadel_dps_multiplier | Increase weapon damage for testing | 1 | sv, cl, rep, cheat
+citadel_dps_multiplier | Increase weapon damage for testing | 1 | sv, rep, cheat
 citadel_draw_bot_enemy | Draw line to target enemy | false | sv
 citadel_draw_bot_follow_target | Draw bot follow target | false | sv
 citadel_draw_bot_full_path | Draw bot pathing | false | sv
 citadel_draw_bot_safety | Draw bot pathing goal / chosen enemy | false | sv
-citadel_draw_cover_points | visualizes all the trooper cover points | cmd | sv
 citadel_draw_debug_guide_only | Debug drawing for bot only applies to guide bots | false | sv
 citadel_draw_distant_trooper_nodes |  | false | sv
-citadel_draw_lanes |  | false | sv
-citadel_draw_lanes_filter | If sets filters to drawing to a specific lane | 0 | sv
 citadel_draw_trooper_lanes |  | false | sv
 citadel_draw_trooper_path | Draws a path between two coordinates | cmd | sv
 citadel_druid_debug_bush_network |  | false | sv, cl, rep
 citadel_duck_spam_slow_penalty_duration | How long the slow penalty is for spamming duck is | 0.5 | sv, cl, rep
 citadel_dump_build_tags | dump all build tag tokens | cmd | cl
 citadel_dump_bullets | dump all bullet info to the console | cmd | sv
+citadel_dump_corrupted_overrides | Dumps every corrupted item's penalty exclusions, fixed bonuses and integer-rounded bonuses | cmd | sv, release
+citadel_dump_corrupted_penalties | Dumps the corrupted item penalty rolled for every corruptible item this match | cmd | sv
 citadel_dump_deleted_entity_counts | Displays counts of which kinds of entities have been deleted since map started | cmd | cl
 citadel_dump_game_state | Dumps current state of the game and all players | cmd | sv
 citadel_dump_items_with_component | Dump to Console All items with components and their components | cmd | cl
 citadel_dump_keybindings |  | false | cl
 citadel_dump_player_stats | Dump stat component values for local player | cmd | cl
 citadel_dump_rank_data | Request rank confidence score from GC. | cmd | cl
-citadel_enable_double_ping | Turns off the ability to have aggressive and passive pings. | true | cl
+citadel_enable_chat_rate_limiting |  | true | sv
 citadel_enable_duplicate_heroes | Enable usage of Duplicate Heroes | cmd | sv, cheat, release
-citadel_enable_fast_cooldowns | Enables fast cooldowns | cmd | sv, cheat
-citadel_enable_fast_stamina | Enables fast stamina | cmd | sv, cheat
 citadel_enable_nearby_capture_point | Enables the first capture point found within 20m | cmd | sv, cheat, release
-citadel_enable_new_ping_particle | Convar to test new ping particle | false | cl
-citadel_enable_no_hero_death | Make heroes unable to die | cmd | sv, cheat
 citadel_enable_parties | Enable client side party UI | true | cl
-citadel_enable_ping_rate_limiting |  | false | sv
+citadel_enable_ping_rate_limiting |  | true | sv
+citadel_enable_slows_affect_air_drag | Whether slows affect air drag | true | sv, cl, rep, cheat, release
 citadel_enable_survey | Kill switch in case we want to make sure the survey isn't shown, or temporarily disable it | true | cl
-citadel_enable_unlimited_ammo | Enables unlimited ammo | cmd | sv, cheat
 citadel_enable_vdata_sound_preload |  | true | cl
 citadel_end_of_match_additional_delay_s | How long in addition to the tv_delay do we wait at the end of the match before going to the score screen in seconds | 10 | sv, rep
 citadel_enemy_consume_stamina_notification_range_close | If an enemy is this close, then we send a stamina consume usermessage to enemies. | 10 | sv, cl, rep
 citadel_enemy_consume_stamina_notification_range_far | If an enemy is this far, then we never send a stamina consume usermessage to enemies. | 100 | sv, cl, rep
-citadel_english_hero_names |  | false | cl, a
-citadel_english_mod_names |  | false | cl, a
+citadel_enemy_damage_delta_color_b | Blue channel of the color used for the part of an enemy health bar just lost to damage. | 91 | cl, a, per_user
+citadel_enemy_damage_delta_color_g | Green channel of the color used for the part of an enemy health bar just lost to damage. | 229 | cl, a, per_user
+citadel_enemy_damage_delta_color_r | Red channel of the color used for the part of an enemy health bar just lost to damage. | 255 | cl, a, per_user
+citadel_enemy_ui_color_b | Blue channel of the color used for enemy health bars and other enemy indicators in the UI. | 50 | cl, a, per_user
+citadel_enemy_ui_color_g | Green channel of the color used for enemy health bars and other enemy indicators in the UI. | 50 | cl, a, per_user
+citadel_enemy_ui_color_r | Red channel of the color used for enemy health bars and other enemy indicators in the UI. | 215 | cl, a, per_user
+citadel_enemy_visible_upon_reveal_duration | How long an enemy appears through walls (outline or ui icon) after taking damage. Must also have fog of war visibility. | 0.7 | cl
+citadel_enemy_zipline_color_b | Blue channel of the color used for enemy ziplines and enemy objectives on the minimap. | 38 | cl, a, per_user
+citadel_enemy_zipline_color_g | Green channel of the color used for enemy ziplines and enemy objectives on the minimap. | 55 | cl, a, per_user
+citadel_enemy_zipline_color_r | Red channel of the color used for enemy ziplines and enemy objectives on the minimap. | 140 | cl, a, per_user
+citadel_english_hero_names |  | false | cl, a, per_user
+citadel_english_mod_names |  | false | cl, a, per_user
 citadel_entity_ping_duration |  | 6 | sv, cheat
 citadel_event_collection_delay_s | Number of seconds to buffer events before an initial send | 1 | cl
 citadel_event_collection_retry_s | Number of seconds to wait for a retry of events | 1 | cl
@@ -983,8 +1042,11 @@ citadel_event_timer_min_view_angle |  | 12 | cl
 citadel_event_timer_scale_on_direct_look |  | 1.33 | cl
 citadel_exonerate_account | &lt;Account ID&gt; Clear recent cheat reports on this account. | cmd | cl, release
 citadel_fake_bots_as_pinging_player |  | false | sv, cheat
+citadel_fake_brawl_losses |  | -1 | cl
+citadel_fake_brawl_wins |  | -1 | cl
 citadel_fake_comms_ban_timestamp |  | 0 | cl
 citadel_fake_death_gold |  | false | cl
+citadel_fake_losses |  | -1 | cl
 citadel_fake_low_pri_games_remaining |  | -1 | cl
 citadel_fake_no_match_metadata |  | false | cl
 citadel_fake_number_of_games_played |  | -1 | cl, release
@@ -992,11 +1054,13 @@ citadel_fake_party_roster_usage |  | false | cl
 citadel_fake_rank_for_match | Set what rank you want to fake for the match. -1 is disabled | -1 | sv, cl, rep
 citadel_fake_report_ban_timestamp |  | 0 | cl
 citadel_fake_subrank_for_match | Set what subrank you want to fake for the match. -1 is disabled | -1 | sv, cl, rep
+citadel_fake_wins |  | -1 | cl
 citadel_familiar_debug |  | -1 | sv, cl, rep, cheat
 citadel_familiar_infiniteattach |  | false | sv, cl, rep, cheat
 citadel_familiar_sprites_debug |  | false | sv
 citadel_familiar_sprites_debug_spam |  | false | sv
 citadel_familiar_sprites_stuck_detection_duration |  | 0.2 | sv
+citadel_fear_debug | Visualize where a feared victim decides to run. | false | sv, cl, rep
 citadel_fencer_lunge_debug_draw |  | false | cl
 citadel_fencer_max_charge_unlag_players |  | 0.12 | sv
 citadel_fetch_cheat_reports | Request accounts recently reported for cheating | cmd | cl, release
@@ -1006,31 +1070,35 @@ citadel_fibonnaci_sphere_trace_fraction |  | 0.8 | sv, cl, rep
 citadel_fibonnaci_sphere_trace_los_max | How big to cap the size of the sphere when checking for really large explosion/effects | 160 | sv, cl, rep
 citadel_finale_duration |  | 6 | sv
 citadel_first_person | Enables first-person viewpoint | false | cl
+citadel_first_tower_kill_disables_match_not_scored | Abandons must be before first blood for a match to not be scored. | true | sv
 citadel_fissure_debug |  | false | sv, cl, rep
 citadel_fissure_forward_trace_distance |  | 75 | sv, cl, rep
 citadel_fissure_hit_debug |  | 0 | sv, cl, rep
 citadel_fissure_max_offset_down |  | -2000 | sv, cl, rep
 citadel_fissure_max_offset_up |  | 150 | sv, cl, rep
+citadel_flame_graph_request | Request a flame graph dump | cmd | sv, cheat, release
 citadel_fly_accelerate |  | 2 | sv, cl, rep, cheat
 citadel_force_assigned_lane | forces the local player to be assigned to the specified lane # | 0 | sv
+citadel_force_kill | Kill every unit of one type: troopers, neutrals, breakables, healing_snacks, guardians, walkers, base_guardians, shrines | cmd | sv, cheat, release
+citadel_force_koth_spawn | Force Spawning Koth Capture point with Warning | cmd | sv, cheat, release
 citadel_force_on_upgrade_for_all_abilities | Force all abilities to call OnUpgrade() | cmd | sv
 citadel_force_playofthegame | Force begin play of the game | cmd | sv
 citadel_force_resolution | Force a resolution change even if it's not supported on your monitor. \[h\] \[w\] \[refresh rate\] | cmd | cl
-citadel_force_spawn_idol | Force idol spawn | cmd | sv
+citadel_force_spawn_idol | Force idol spawn | cmd | sv, cheat, release
 citadel_force_strict_abandon_rules | Enforce strict matchmaking style abandon rules even in practice/bot matches (useful for testing) | false | sv, cl, rep
 citadel_force_subnav_options |  | false | cl
 citadel_force_unpause_cooldown | Force unpause cooldown if you're the pauser as if you weren't the pauser. | false | sv
-citadel_forced_hero_model | Forces all heroes to use this model |  | sv, cheat
-citadel_forge_sentry_gold_reward |  | 80 | sv
-citadel_forge_sentry_gold_reward_bonus_per_minute |  | 2 | sv
+citadel_forge_sentry_gold_reward |  | 40 | sv, cl, rep
+citadel_forge_sentry_gold_reward_bonus_per_minute |  | 4 | sv, cl, rep
 citadel_fow_player_range | Player Fow Vision Range | 2500 | sv, rep
 citadel_gamemode_streetbrawl_enabled |  | false | sv, cl, rep, release
 citadel_generator_minimap_icon_radius |  | 24 | cl
 citadel_get_rp | Retrieves the rich presence of the user (leave blank for local or specify user with SteamID.Render() format). | cmd | cl
 citadel_gg_call_time |  | 10 | sv, cl, rep
-citadel_give_gold | &lt;gold&gt; Give gold value to all players | cmd | sv, cheat
+citadel_give_gold | &lt;gold&gt; \[unsecure=0\|1\] Give gold value to all players | cmd | sv, cheat
+citadel_give_permanent_buffs | Gives you N random breakable permanent buffs at once, the same way a Sinner's Sacrifice jackpot does. Usage: citadel_give_permanent_buffs &lt;count&gt; | cmd | sv, cheat, release
 citadel_give_player_gold | &lt;player name&gt; &lt;gold&gt; Gives the specified player gold | cmd | sv, cheat
-citadel_gold_bonus_scale_for_familiar_infest |  | 1.2 | sv
+citadel_gold_bonus_scale_for_familiar_infest |  | 1.2 | sv, cl, rep
 citadel_gold_flash_max_duration |  | 0.8 | cl
 citadel_gold_flash_max_threshold |  | 500 | cl
 citadel_gold_flash_med_threshold |  | 100 | cl
@@ -1040,7 +1108,6 @@ citadel_gold_text_height_offset | How much higher should gold text show up. | 35
 citadel_golden_idol_balance_threshold |  | 0.9 | sv, cl, rep
 citadel_golden_idol_balance_threshold_first_spawn |  | 0.85 | sv, cl, rep
 citadel_grant_dev_account | &lt;Account ID&gt; \[0/1\] Grants or removes dev access to an account | cmd | cl
-citadel_gravity_scaling_experiment | Increase gravity for players while they are moving at pedestrian speeds (lateral speeds below 300, up to 500) | false | sv, cl, rep, cheat
 citadel_guide_bot_say | &lt;line&gt; makes the guide bot say the specified line | cmd | sv
 citadel_guided_bot_ap_boost |  | 10 | sv
 citadel_guided_bot_match_countdown_time |  | 10 | sv
@@ -1052,32 +1119,42 @@ citadel_guided_bot_t1_boss_ignore_damage_threshold |  | 0 | sv, rep, release
 citadel_gun_boon_growth_vdata_tweak | Command to tweak boon gun damage growth. <br>** Usage<br>- arg1 - Scale Value 1.0 being no change. | cmd | cl
 citadel_gun_iron_sights_threshold | When iron sights amount is greater than this value, we are considered in iron sights mode. | 0.9 | sv, cl, rep
 citadel_gun_max_spread_penalty | Max spread penalty you can incur from taking damage | 5 | sv, cl, rep, cheat
-citadel_healthbars_enabled |  | true | cl, release
+citadel_heal_target | Restore the unit under your crosshair to full health | cmd | sv, cheat, release
+citadel_hero_builds_confirm_discard_edits | Prompt for confirmation before discarding unsaved hero build edits. | true | cl, a, release
 citadel_hero_builds_universe |  |  | cl, a, release
 citadel_hero_card_fake_party_member_count |  | -1 | cl
 citadel_hero_challenge_status_fake_data | Shows fake data for hero challenge status | false | cl
-citadel_hero_demo_enable_fast_stamina | Do we enable fast stamina cooldowns | false | sv, cl, a, rep, release
-citadel_hero_demo_enable_unlimited_ammo | Do we enable unlimited ammo | false | sv, cl, a, rep, release
 citadel_hero_demo_hero_spawn | Which hero do we spawn when we spawn and enemy or ally hero | hero_inferno | sv, cl, a, rep, release
-citadel_hero_demo_infinite_resources | Do we start our hero demo with infinite resources | true | sv, cl, a, rep, release
-citadel_hero_demo_no_cooldowns | Do we start withough cooldowns when launching the hero demo map | false | sv, cl, a, rep, release
-citadel_hero_demo_no_death | Do we start withough death when launching the hero demo map | false | sv, cl, a, rep, release
 citadel_hero_demo_no_troopers | Do we start withough troopers when launching the hero demo map | false | sv, cl, a, rep, release
-citadel_hero_demo_persist_convars | Do we persist convars between sessions in hero demo | false | sv, cl, a, rep, release
 citadel_hero_demo_spawn_items | Items to give a hero post spawn |  | sv, cl, rep, cheat, release
-citadel_hero_demo_unlock_flex_slots | Do we start flex slots unlocked | false | sv, cl, a, rep, release
+citadel_hero_demo_unlock_flex_slots |  |  | 
+citadel_hero_distance_guides | Turn on guides (only when testing menu visible) | false | cl, a, release
+citadel_hero_falloff_guides | Turn on gun damage falloff guides (only when testing menu visible) | false | cl, a, release
 citadel_hero_lock_all | Relocks all heroes for this account | cmd | cl
 citadel_hero_release_vote_august_2025_debug_votes_cast_total |  | -1 | sv
+citadel_hero_release_vote_clear_all_submitted |  | cmd | cl
+citadel_hero_release_vote_clear_submitted |  | cmd | cl
 citadel_hero_release_vote_debug_remaining_votes |  | -1 | cl
-citadel_hero_roster | A comma separated list of hero IDs that hold the currently selected roster heroes |  | cl, a, release
-citadel_hero_roster_banned | A comma separated list of hero IDs that hold the currently banned roster heroes |  | cl, a, release
-citadel_hero_roster_high_priority | A comma separated list of hero IDs that hold the currently high priority roster heroes |  | cl, a, release
-citadel_hero_roster_preferred | A comma separated list of hero IDs that hold the currently preferred roster heroes |  | cl, a, release
-citadel_hero_roster_random | Is the hero roster set to random | false | cl, a, release
+citadel_hero_release_vote_fake_received | \[count\] \[delay seconds\] \[delay random extra seconds\] | cmd | cl
+citadel_hero_release_vote_force_enabled | Always show the hero release vote, even if it'd be disabled in this type of game mode | false | sv
+citadel_hero_release_vote_keep_visible | Keep the hero release vote terminal and ui visible even after the time it would normally disappear | false | sv, cl, rep
+citadel_hero_roster | A comma separated list of hero IDs that hold the currently selected roster heroes |  | cl, a, per_user, release
+citadel_hero_roster_banned | A comma separated list of hero IDs that hold the currently banned roster heroes |  | cl, a, per_user, release
+citadel_hero_roster_high_priority | A comma separated list of hero IDs that hold the currently high priority roster heroes |  | cl, a, per_user, release
+citadel_hero_roster_preferred | A comma separated list of hero IDs that hold the currently preferred roster heroes |  | cl, a, per_user, release
+citadel_hero_roster_random | Is the hero roster set to random | false | cl, a, per_user, release
+citadel_hero_settings_cloud_disable |  | false | cl
+citadel_hero_specific_settings_enabled | Use hero-specific settings and keybinds | false | cl, a, per_user
+citadel_hero_testing_dummy_bullet_resist | Bonus bullet resist % given to Target Dummies in Hero Testing | 0 | sv, cl, rep, cheat
+citadel_hero_testing_dummy_debuff_resist | Bonus debuff resist % given to Target Dummies in Hero Testing | 0 | sv, cl, rep, cheat
+citadel_hero_testing_dummy_health_regen | Bonus health regen per second given to Target Dummies in Hero Testing | 0 | sv, cl, rep, cheat
+citadel_hero_testing_dummy_spirit_resist | Bonus spirit resist % given to Target Dummies in Hero Testing | 0 | sv, cl, rep, cheat
 citadel_hero_testing_dummy_target | Dummy Target heroID if non-specified | 55 | sv, release
 citadel_hero_testing_enabled |  | false | sv, cl, rep, release
+citadel_hero_testing_expanded | Remember state of Testing Tools Collapsed/Expanded | true | cl, a
 citadel_hero_testing_give_abilities | Grant Abilities on Character Spawn | true | sv, rep, release
 citadel_hero_testing_infinite_money | Enable infinite money in Hero Testing | false | sv, cl, rep, release
+citadel_hero_testing_legendary_items | Show Street Brawl legendary items in the shop in Hero Testing | false | sv, cl, rep, cheat, release
 citadel_hero_testing_money | How much money to buffer item purchases in Hero Testing | 4000 | sv, rep, release
 citadel_hero_unlock | &lt;Hero ID&gt; Unlocks the specified hero | cmd | cl
 citadel_hero_unlock_all | Unlocks all heroes for this account | cmd | cl
@@ -1091,13 +1168,18 @@ citadel_hide_tutorial_after_normal_games |  | 5 | cl
 citadel_hideout_accept_request | Accept an incoming request in the hideout | cmd | cl, release
 citadel_hideout_ball_combat | WIP Allow ball to transfer melee attacks. | 0 | sv
 citadel_hideout_ball_debug | Show custom collision, ball kick impulses etc. | 0 | sv, cheat
-citadel_hideout_ball_show_juggle_count | WIP Show juggle count on ball. | 0 | sv
-citadel_hideout_ball_show_juggle_fx | WIP Show fx when hitting apex/landing on floor. | 0 | sv
+citadel_hideout_ball_show_juggle_count | WIP Show juggle count on ball. | 1 | sv
+citadel_hideout_ball_show_juggle_fx | WIP Show fx when hitting apex/landing on floor. | 1 | sv
 citadel_hideout_button_interact_distance |  | 120 | sv, cl, rep
+citadel_hideout_camera_level_enter | The  dolly step we enter when rolling the mouse wheel. | 5 | sv, cl, rep
+citadel_hideout_camera_level_max | Number of individual dolly steps the mouse wheel zoom has while in the hideout. | 16 | sv, cl, rep
 citadel_hideout_cancel_matchmaking | Remove yourself or your party from the matchmaking queue | cmd | cl, release
-citadel_hideout_enable_testing_tools |  | false | cl
+citadel_hideout_enable_testing_tools |  | true | cl
 citadel_hideout_exclusive_mode |  | true | cl
 citadel_hideout_hero_id |  | 63 | cl, a, release
+citadel_hideout_in_world_ranked_doodle |  | -1 | cl
+citadel_hideout_in_world_ranked_fake_eligible_heroes |  | -1 | cl
+citadel_hideout_in_world_ranked_fake_last_match |  | false | cl
 citadel_hideout_intro_dismiss_escape_only |  | false | cl
 citadel_hideout_intro_version_seen |  | 0 | cl, a, release
 citadel_hideout_map_enabled | Cheat to make that map pretend its the hideout | false | sv, cl, rep
@@ -1115,59 +1197,92 @@ citadel_hint_activate | Forces a hint to be ready to show in the HUD | cmd | cl
 citadel_hint_system_disable | Set to disable hints | false | cl, release
 citadel_hitbox_body_to_headshot_debug |  | false | sv, cl, rep
 citadel_hitbox_body_to_headshot_threshold | Distance threshold that we allow bullet to penetrate body to headshot. | 15 | sv, cl, rep
+citadel_hud_active_stats_always_show_details |  | false | cl, a
+citadel_hud_active_stats_burst_time |  | 2 | cl
+citadel_hud_active_stats_expire_time |  | 5 | cl
+citadel_hud_active_stats_spike_threshold |  | 4800 | cl
+citadel_hud_active_stats_statechange_time |  | 2 | cl
 citadel_hud_announcement_display_time_all_queued |  | 7 | cl
 citadel_hud_announcement_display_time_max |  | 3 | cl
+citadel_hud_announcement_display_time_override |  | -1 | cl
 citadel_hud_announcement_force_single_levelup |  | false | cl
 citadel_hud_build_category_max_height |  | 600 | cl
-citadel_hud_build_category_min_height |  | 185 | cl
-citadel_hud_build_category_min_width |  | 125 | cl
-citadel_hud_chat_wheel |  | true | cl
-citadel_hud_damage_counter_duration |  | 4 | cl
+citadel_hud_build_category_max_width |  | 5000 | cl
+citadel_hud_build_category_min_height |  | 125 | cl
+citadel_hud_build_category_min_width |  | 100 | cl
+citadel_hud_build_compact_category_extra_height |  | 0 | cl
+citadel_hud_build_compact_category_extra_width |  | 0 | cl
+citadel_hud_damage_counter_duration |  | 2 | cl
 citadel_hud_exclusive_visible_id | When set, only show the panel with the corresponding id |  | cl, cheat
-citadel_hud_heal_counter_duration |  | 4 | cl
-citadel_hud_healthbars_use_new |  | false | cl, cheat, release
-citadel_hud_healthbars_use_v2 |  | false | cl, cheat, release
+citadel_hud_experiments_enabled | Test hud experiments | false | cl, a
+citadel_hud_heal_counter_duration |  | 2 | cl
+citadel_hud_hide_own_health | Hides your own health bar on the HUD | false | cl, release
 citadel_hud_objective_health_debug_show_midboss |  | false | cl
 citadel_hud_objective_health_debug_show_t3 | 0=default 1=friendly 2=enemy 3=both | 0 | cl
 citadel_hud_objective_health_enabled | Enable/Disable HUD-level objective health bars.  0=Off. 1=Shrines, Patron, Midboss. 2=T1s and T2s. 3=Barracks | 2 | cl
-citadel_hud_objective_health_idle_timeout | After how many seconds of an objective is damage to hide its health on the HUD | 7 | cl
+citadel_hud_objective_health_idle_timeout | After how many seconds of an objective is damage to hide its health on the HUD | 4 | cl
 citadel_hud_objective_health_lane_max_range |  | 1000 | cl
 citadel_hud_objective_health_t1_max_range |  | 1900 | cl
 citadel_hud_objective_health_t2_max_range |  | 2500 | cl
+citadel_hud_player_stats_delta_increment_time |  | 1 | cl
+citadel_hud_player_stats_delta_time |  | 4 | cl
 citadel_hud_top_bar_enable_dynamic_player_position |  | true | cl
+citadel_hud_unit_indicators_v2_enable |  | true | cl
 citadel_hud_visible | Turns on/off rendering the HUD | true | cl, release
-citadel_idle_time | How long a player needs to be idle before he counts as disconnected. | 300 | sv
+citadel_idle_time | How long a player needs to be idle before he counts as disconnected. | 180 | sv
 citadel_idle_time_grace_period | How long a player needs to be idle we start putting that time towards their stored idle time. | 8 | sv
-citadel_in_world_item_panel_dpi | In-world texture resolution scale | 2 | cl
+citadel_idol_cashin_buff_count |  | 4 | sv, cheat
+citadel_idol_decay_duration |  | 45 | sv, cl, rep, cheat
+citadel_idol_duration_until_decay |  | 45 | sv, cl, rep, cheat
+citadel_idol_orbs_to_spawn |  | 10 | sv, cheat
+citadel_idol_think_bias_interval |  | 10 | sv, cheat
+citadel_in_world_item_panel_dpi | In-world texture resolution scale | 0.75 | cl
 citadel_inactive_time_grace_period | How long a player needs to be inactive (i.e. not taking any meaningful actions) before we start putting that time towards their stored inactive time. | 30 | sv
 citadel_increase_replay_speed | Increase the Replay speed while watching a replay | cmd | cl, release
 citadel_increment_killstreak | citadel_increment_killstreak \[player_slot\] \[first_blood\] | cmd | sv
 citadel_initial_wall_jump_stamina_cost | How much stamina is required, and costs, to perform your first wall jump. | 0 | sv, cl, rep
+citadel_instant_ping_cancel_time | Holding the instant ping key longer than this cancels the ping. | 0.5 | cl
 citadel_invalidate_player_stats_cache | Invalidate player stats cache so it's pulled from the GC | cmd | cl
-citadel_invert_ping_type | Inverts the ping types so single ping would be aggressive and double ping would be passive | false | cl, a
 citadel_item_draft_enabled | Use item drafting?  1=only street brawl 2=always | 1 | sv, cl, rep, release
 citadel_item_draft_force_all_rares |  | false | sv
 citadel_item_draft_force_draw | Comma-separated list of localized item names to force draft.  Ignores tier requirements.  ex, spirit lifesteal, extra charge |  | sv
 citadel_item_early_gold_duration |  | 30 | sv, cheat
-citadel_item_glow_local_dist |  | 800 | cl, cheat
+citadel_item_glow_local_dist |  | 2000 | cl, cheat
 citadel_item_idol_label_offset |  | 50 | cl, cheat
 citadel_item_neutral_gold_label_offset |  | 6 | cl, cheat
 citadel_item_pickup_fall_tolerance |  | 16 | sv, cheat
 citadel_item_pickup_fallrate |  | 5 | sv, cheat
+citadel_item_purchases_force_corrupted | While true, all items purchased will be corrupted if they have a corrupted variant | false | sv, cheat
 citadel_item_purchases_force_enhanced | While true, all items purchased/drafted will be enhanced | false | sv, cheat
 citadel_item_rejuvenator_label_offset |  | 160 | cl, cheat
 citadel_item_sell_price_ratio |  | 0.5 | sv, cl, rep
+citadel_item_tooltip_show_deltas |  | false | cl
 citadel_item_used_text_height_offset | How much higher item used text show up. | 25 | cl
 citadel_jump_overhead_clearance | Distance above player step height that needs to be clear to allow for jumping | 73 | sv, cl, rep
 citadel_keybind_default_hold_duration |  | 1 | cl
+citadel_keybind_map_keyboard_layout | Keyboard layout the settings keybind map draws, by ID (us, uk, german...). Empty or unknown auto-detects it from the keyboard layout and languages. |  | cl, a
 citadel_keybindings_cloud_disable |  | false | cl
 citadel_kick_disconnected_players | Clear out all players who aren't connected, removing them from any teams | cmd | sv
+citadel_kill_streak_min |  | 3 | cl
+citadel_koth_dev_test_spawn | Start the Early Warning of Koth and Teleport the active player there | cmd | sv, cheat, release
+citadel_koth_early_warning_time |  | 60 | sv, cl, rep, cheat
+citadel_koth_enabled |  | true | sv, cl, rep, cheat, release
+citadel_koth_respawn_interval |  | 420 | sv, cl, rep, cheat
+citadel_koth_reward_base |  | 1260 | sv, cl, rep, cheat
+citadel_koth_reward_buff_count |  | 0 | sv, cl, rep, cheat
+citadel_koth_reward_time_multiplier |  | 222 | sv, cl, rep, cheat
+citadel_koth_spawn_initial_delay |  | 720 | sv, cl, rep, cheat
+citadel_koth_spawn_location_deck_count |  | 4 | sv, cl, rep, cheat
+citadel_koth_spawn_window |  | 60 | sv, cl, rep, cheat
+citadel_koth_warning_time |  | 20 | sv, cl, rep, cheat
 citadel_landing_to_predicted | Landing to prediction | cmd | cl
 citadel_lane_matchups_mmr_variance | specifies how much of a gap between MMR's we allow to randomize lane assignment | 0 | sv, release
-citadel_lane_swap_available_duration | How long lane swap is available, including pre-match time. Set to 0 to disable. | 40 | sv, cl, rep, cheat
+citadel_lane_swap_available_duration | How long lane swap is available in-game. Set to 0 to disable, -1 for infinity. | 0 | sv, cl, rep, cheat
+citadel_lane_swap_available_duration_prematch | How long lane swap is available in pre-game wait. Set to 0 to disable, -1 for infinity. | -1 | sv, cl, rep, cheat
 citadel_language_and_english_hero_names | For data gathering. |  | cl
 citadel_language_and_english_mod_names | For data gathering. |  | cl
 citadel_lash_ground_strike_debug |  | 0 | sv
+citadel_last_reporter_updates_check_games |  | 0 | cl, a, release
 citadel_last_used_hero_builds |  |  | cl, a, release
 citadel_leaderboard_cache_duration | Number of seconds before re-requesting data for the leaderboard | 43200 | cl
 citadel_leaderboard_empty_cache_duration | Number of seconds before re-requesting data for the leaderboard | 20 | cl
@@ -1180,8 +1295,8 @@ citadel_lock_flex_slots | &lt;team number&gt; - Lock the flex slots for a team (
 citadel_lock_mmr | &lt;Account ID&gt; \[MMR\] Locks a user to the current MMR (optionally can set the MMR as well) | cmd | cl
 citadel_log_idle_time |  | false | sv
 citadel_log_in_combat_state | Enable to log extended MODIFIER_STATE_IN_COMBAT | true | sv
-citadel_loot_table_spew_flattened_table |  | false | sv, cl, rep, cheat
 citadel_loot_table_spew_modifications |  | false | sv, cl, rep, cheat
+citadel_mantle_auto_step_check_inset | How far in front of a ledge's lip auto-mantle looks for a lower step. If the drop there is within step height the ledge can be walked up to (stairs), so auto-mantle skips it. | 4 | sv, cl, rep
 citadel_mantle_cancelling_allowed | Pulling away from the mantle interrupts it, putting you into falling state early. | false | sv, cl, rep, cheat
 citadel_mantle_debug |  | false | sv, cl, rep
 citadel_mantle_horizontal_movement_distance | How far forward the mantle will move the player onto the ledge | 16 | sv, cl, rep
@@ -1198,19 +1313,18 @@ citadel_match_data_path_sample_interval_s |  | 1 | sv
 citadel_match_details | &lt;MatchID&gt; \[Metadata Salt\] Opens the match details to the specified match | cmd | cl, release
 citadel_match_details_failure_delay_s |  | 3 | cl
 citadel_match_details_flip_teams |  | false | cl
-citadel_match_details_lane_stats_time |  | 540 | cl
+citadel_match_details_lane_stats_time |  | 360 | cl
 citadel_match_end | Ends the current match | cmd | sv
-citadel_match_history_failure_delay_s |  | 3 | cl
+citadel_match_history_cache_duration_s |  | 300 | cl
 citadel_match_intro_duration_full | How long pre-match is until we start the match in the full version | 23 | sv, cheat
 citadel_match_intro_duration_simple | How long pre-match is until we start the match in the simple version. | 5 | sv, cheat
 citadel_match_intro_force_enabled |  | false | sv, cl, rep
 citadel_match_intro_style | 0 = none, 1 = pregame simple, 2 = pregame full, 3 = in map | 1 | sv, cl, rep
+citadel_match_pre_trooper_spawn_brawl_time |  | 40 | sv, cl, rep
 citadel_match_status | Prints information about the current match status | cmd | sv
 citadel_max_disconnected_time | How long a player needs to be disconnected before they count as a leaver and get punished. | 300 | sv
 citadel_max_disconnected_time_pregame | How long a player needs to be disconnected during pregame before they count as a leaver and get punished. | 110 | sv
-citadel_max_path_detour | Max detour for pathing calculations. | 500 | sv
 citadel_max_reconnect_time_secs | Max time to attempt a reconnect after a crash. | 7200 | cl
-citadel_max_videomode_matches | Max number of video resolutions to show in UI. | 20 | cl
 citadel_medic_minion_sight_range |  | 2400 | sv, cl, rep
 citadel_melee_damage_scale |  | 1 | sv
 citadel_melee_draw_traces |  | false | sv
@@ -1218,38 +1332,33 @@ citadel_melee_heavymelee_push_force |  | 30 | sv
 citadel_melee_heavymelee_push_force_vs_tiny |  | 35 | sv
 citadel_melee_heavymelee_toss_force_vs_tiny_min |  | 250 | sv
 citadel_melee_hit_delay_max_time |  | 0.1 | sv
-citadel_melee_shake_amplitude |  | 0.55 | sv
-citadel_melee_shake_duration |  | 0.1 | sv
+citadel_melee_shake_amplitude |  | 0 | sv
+citadel_melee_shake_duration |  | 0 | sv
 citadel_melee_shake_frequency |  | 0.2 | sv
-citadel_metal_expire_time |  | 30 | sv
-citadel_midboss_initial_spawn_time_override | If positive, override initial spawn time (in seconds) for midboss | -1 | sv
-citadel_midboss_spawn_interval_override | If positive, override initial spawn interval (in seconds) for midboss | -1 | sv
+citadel_midboss_initial_spawn_time_override | If positive, override initial spawn time (in seconds) for midboss | -1 | sv, rep, cheat, release
+citadel_midboss_spawn_interval_override | If positive, override initial spawn interval (in seconds) for midboss | -1 | sv, rep, cheat, release
 citadel_min_accel_speed | How fast we accelerate depends on our move speed - this lower bound ensures it doesn't go below ground friction | 400 | sv, cl, rep, cheat
 citadel_min_match_minutes_for_replay | The minimum number of minutes a match needs to be in order to be considered valid for replay uploading | 5 | sv
 citadel_minimap_arrow_show_distance_down |  | 100 | sv
 citadel_minimap_arrow_show_distance_up |  | 200 | sv
-citadel_minimap_draw_fow |  | false | cl, cheat
+citadel_minimap_koth_trooper_size |  | 4.5 | cl, release
 citadel_minimap_local_player_width |  | 12 | cl, release
 citadel_minimap_max_icon_shrink |  | 0.8 | cl, release
-citadel_minimap_npc_reveal_duration |  | 0.25 | sv
+citadel_minimap_npc_reveal_duration |  | 0.75 | sv
 citadel_minimap_objective_damaged_reveal_duration |  | 1 | sv
 citadel_minimap_overlap_scan_distance |  | 12.5 | cl, release
+citadel_minimap_ping_panel_lifetime | How long a ping panel lasts for. &lt; 0 for infinite | 4.5 | cl
 citadel_minimap_player_width |  | 7 | cl, release
 citadel_minimap_show_hitboxes |  | false | cl
 citadel_minimap_spectator_fow_team_view | Which team to view the minimap as when freeflying | 1 | cl, release
 citadel_minimap_teleporter_active_dist |  | 400 | cl
 citadel_minimap_teleporter_height_dist |  | 160 | cl
 citadel_minimap_teleporter_nearby_dist |  | 1600 | cl
-citadel_minimap_unit_click_radius |  | 200 | cl, release
-citadel_minimap_use_canvas_for_neutrals |  | true | cl
-citadel_minimap_use_canvas_for_shop |  | true | cl
-citadel_minimap_use_effects |  | false | cl
-citadel_minimap_zip_line_thickness |  | 2 | cl, release
+citadel_minimap_trooper_size |  | 3 | cl, release
 citadel_minimum_fire_rate | Minimum value possible for fire rate | -50 | sv, cl, rep, cheat
 citadel_minimum_players_to_show_postgame |  | 6 | cl
-citadel_minion_distance_to_owner |  | 200 | sv
-citadel_minion_gold_reward |  | 25 | sv
-citadel_minion_gold_reward_bonus_per_minute |  | 1 | sv
+citadel_minion_gold_reward |  | 25 | sv, cl, rep
+citadel_minion_gold_reward_bonus_per_minute |  | 1 | sv, cl, rep
 citadel_mm_high_pri | \[account id\] Marks an account for high priority match making for the next match | cmd | cl
 citadel_mm_low_pri | \[account id\] Marks an account for high priority match making for the next match | cmd | cl
 citadel_mm_server_command | Allows sending up a command string for the match maker to run on the server (dev only) |  | cl
@@ -1259,27 +1368,54 @@ citadel_modifier_history_show_time |  | 6 | cl
 citadel_modifier_hud_message_display_clear |  | false | cl
 citadel_modifier_hud_message_display_min_panel_count |  | 4 | cl
 citadel_modifier_hud_message_display_time |  | 2.5 | cl
-citadel_move_goal_tolerance | Some extra tolerance for considering an NPC moved to a goal; can be reduced as we fix other issues | 8 | sv, cheat
+citadel_mouse_cursor_scale | Mouse cursor size scale factor. | 1 | cl, a, per_user
+citadel_movement_client_only_mispredict_move |  | -1 | cl
 citadel_movement_debugdraw |  | false | sv, cl, rep
-citadel_movement_skyclip_push_distance |  | 196.85 | sv, cl, rep
-citadel_movement_skyclip_push_min_force |  | 400 | sv, cl, rep
+citadel_movement_override_separation_radius |  | true | sv, cl, rep
+citadel_movement_plane_overlap_mult |  | 0 | sv, cl, rep
+citadel_movement_resolve_origin |  | true | sv, cl, rep
 citadel_movement_slip_accel |  | 200 | sv, cl, rep
 citadel_movement_solver_iterations |  | 16 | sv, cl, rep
-citadel_movespeed_bonus_max | Maximum Value for Movespeed bonuses (Diminishing Returns) in Hu | 433.071 | sv, cl, rep
+citadel_movement_temp_blocker_new |  | true | sv, cl, rep
+citadel_movespeed_bonus_max | Maximum Value for Movespeed bonuses (Diminishing Returns) in Hu | 472.441 | sv, cl, rep
+citadel_movespeed_graph_duration | How many samples in the graph | 5 | cl, cheat
 citadel_mvp_calculate_now | Run the MVP calculation right now | cmd | sv
 citadel_mvp_enabled | -1 = force disabled, 0 = default, 1 = force enabled | 0 | sv
 citadel_mvp_score_kda_ratio | Use a KDA ratio for the mvp score instead of the real algorithm. | false | sv
 citadel_nano_debugcatform |  | false | sv, cl, rep
 citadel_nano_set_shouldercat_bodygroup |  | true | sv, cl, rep
 citadel_napalm_projectile_show_debug |  | false | sv, cl, rep
-citadel_necro_skele_use_new_motor |  | true | sv, release
-citadel_neutral_camp_spawn_per_tick_limit | Spawn this many neutral camps per tick (this is a limit, so if it's 1, we'll only spawn one per tick (perf)). Set this value to something large to effectively remove the limit. 0 or negative will prevent spawning. | 2 | sv
+citadel_neutral_ability_dev_test | Force use this ability. -1 off, 0 for Melee, 1-2-3 for Abilities | -1 | sv
+citadel_neutral_aggro_time |  | 5 | sv
+citadel_neutral_ai_pathfinder_max_path_detour | How far a path may detour from the direct route. Negative means no limit. | 1500 | sv, cheat
+citadel_neutral_camp_spawn_per_tick_limit | Spawn this many neutral camps per tick (this is a limit, so if it's 1, we'll only spawn one per tick (perf)). Set this value to something large to effectively remove the limit. 0 or negative will prevent spawning. | 1 | sv
 citadel_neutral_gold_ratio | What percent of gold is transfered instantly on neutral kills | 1 | sv
-citadel_neutral_initial_spawn_time_override | If positive, override initial spawn time (in seconds) for all neutral camps | -1 | sv
-citadel_neutral_spawn_enabled | set to false to prevent any neutrals from spawning | true | sv
-citadel_neutral_spawn_interval_override | If positive, override initial spawn interval (in seconds) for all neutral camps | -1 | sv
-citadel_neutral_spawn_range | Prevent spawning of neutrals if a player is in this range | 100 | sv
-citadel_neutral_weakpoints_enabled |  | false | sv
+citadel_neutral_health_growth_pct_per_min |  | 2.1 | sv
+citadel_neutral_initial_spawn_time_override | If positive, override initial spawn time (in seconds) for all neutral camps | -1 | sv, rep, cheat, release
+citadel_neutral_player_range_aabb_padding |  | 100 | sv, rep
+citadel_neutral_player_range_debug |  | false | sv, rep
+citadel_neutral_player_range_normal_meters |  | 30 | sv, rep
+citadel_neutral_player_range_strong_meters |  | 50 | sv, rep
+citadel_neutral_player_range_weak_meters |  | 20 | sv, rep
+citadel_neutral_scorer_time_window | How long after damaging a neutral are players in the window to be considered scorers. | 5 | sv
+citadel_neutral_sleep_time |  | 5 | sv
+citadel_neutral_spawn_enabled | set to false to prevent any neutrals from spawning | true | sv, rep, cheat, release
+citadel_neutral_spawn_interval_override | If positive, override initial spawn interval (in seconds) for all neutral camps | -1 | sv, rep, cheat, release
+citadel_neutral_tether_distance_window |  | 120 | sv
+citadel_neutral_vault_minigame_force_speed |  | -1 | sv
+citadel_neutral_vault_minigame_random | Add a random time phase to the neutral vault minigame | true | sv
+citadel_new_abandon_rules_early_end_countdown | \[New Abandon Rules\] Auto-match end countdown. | 10 | sv, cl, rep
+citadel_new_abandon_rules_early_t1 | \[New Abandon Rules\] Abandon is considered 'early' if this is before the first T1 kill, no matter the match time. | false | sv
+citadel_new_abandon_rules_early_time | \[New Abandon Rules\] Time for the 'early' trigger to take effect. Match will not be scored, etc. | 300 | sv
+citadel_new_mini_radial_delay_time |  | 0.125 | cl
+citadel_new_ping_fow_window | How long after an enemy drops off shared team vision they can still be pinged, in seconds. | 2 | cl
+citadel_new_ping_free_cursor_world_trace | Allow free cursor pings to trace through the HUD into the world (entities and ziplines). | false | cl
+citadel_new_ping_hitbox_self_test | When tracing in free cursor mode, turn on a more expensive trace vs the local player model (nearer objects will undergo more scrutiny) | false | cl
+citadel_new_ping_minimap_left_click | Left clicking anywhere on the minimap opens the ping radial, same as the ping keybind. Never overrides a minimap targeting ability like Mirage's teleport. | true | cl
+citadel_new_ping_system_fixed_slot_icons | Draw the icon each slot pins in scripts/ping_targets.vdata on the radials whose layout is fixed, so the art stops moving when an override fires. A minimap sourced radial pins the generic_entity row's four, since one compass serves everything on the map; a radial from hud chrome pins its own row's, so a friendly and an enemy portrait stay distinct. 0 restores the per ping icons. | true | cl
+citadel_new_ping_trace_pixel_radius | Distance invariant capsule radius, in pixels at 1080 vertical res. This makes targets less finnicky to hit at a distance. Near range, we'll have already hit via hitbox. | 60 | cl
+citadel_new_ping_world_volume_radius | If we don't get a direct hit, iterate through entities that are inside a capsule constructed from the view or mouse ray. | 60 | cl
+citadel_new_ping_zipline_range | 2D range for the world-space zipline ping ray. | 4200 | cl
 citadel_new_player_flow_visible | Are we still showing the new player instructions | true | cl, a, release
 citadel_new_player_progress | Tracks the local settings for the new player progress so they can be synchronized with the GC for client authoratative progress | 0 | cl, a, release
 citadel_new_years_fireworks_epoch_override |  | 1767243600 | sv, cl, rep
@@ -1287,27 +1423,21 @@ citadel_new_years_fireworks_force_start |  | 0 | sv, cl, rep
 citadel_new_years_fireworks_test | Sets fireworks start time to be N seconds in the future. | cmd | sv, release
 citadel_news_entries_list_request_count |  | 10 | cl
 citadel_news_entries_seen |  |  | cl, a, release
-citadel_news_entry_override_latest |  | 0 | cl
+citadel_news_entry_override_latest |  | 694273194214819790 | cl
 citadel_no_orbs_on_hero_kill |  | true | sv, cl, rep, cheat
 citadel_no_orbs_on_objective_kill |  | true | sv, cl, rep, cheat
-citadel_npc_ag2_enable | Enable AG2 in NPCs | true | sv, rep, release
-citadel_npc_allow_climb | Allow NPCs to climb. | false | sv, rep, cheat
-citadel_npc_allow_jump_down | Allow NPCs to follow any drop-down navigation links. | true | sv, rep, cheat
-citadel_npc_debug_enemies | Draws a line to the enemy | false | sv
 citadel_npc_debug_look_target |  | false | sv
-citadel_npc_disable_cockroaches | Disable Cockroaches | false | sv, rep
-citadel_npc_disable_floor_point_caching |  | true | sv
-citadel_npc_dps_multiplier | Increase weapon damage for testing | 1 | sv, cl, rep, cheat
-citadel_npc_force_animate_every_tick |  | true | sv
+citadel_npc_disable_cockroaches | Disable Cockroaches | true | sv, rep
+citadel_npc_dps_multiplier | Increase weapon damage for testing | 1 | sv, rep, cheat
+citadel_npc_enable_hitbox_interpolation |  | true | sv
 citadel_npc_jump_gravity_mult |  | 2 | sv
-citadel_npc_max_direct_follow_distance | For far before a following NPC uses an approximate path to get to their follow target, instead of a direct calculation. | 1000 | sv
-citadel_npc_push_speed | How quickly NPCs push their friends away | 50 | sv
-citadel_npc_shoot_check_sphere_size | How large a radius sphere we use for checking if an NPC can shoot a target | 6 | sv
-citadel_npc_spawn_enabled | set to false to prevent any NPC from spawning | true | sv
-citadel_npc_trooper_celebration_percent | percent amount of troopers in the area to celebrate | 0.7 | sv
-citadel_npc_trooper_celebration_radius | radius to collect enemy troopers near a destroyed objective to do celebration pose | 2000 | sv
+citadel_npc_motor_disable_ground_trace | Don't move npcs to exact ground positions when running. What does this break besides looks? | false | sv
+citadel_npc_spawn_enabled | set to false to prevent any NPC from spawning | true | sv, rep, cheat, release
+citadel_npc_ticks_per_anim_update |  | 2 | sv, cl, rep
+citadel_npc_visibility_cache_duration | How long CAI_CitadelNPC::FVisible() results stay cached | 0.25 | sv
 citadel_num_matches_in_profile_history |  | 16 | cl
 citadel_num_team_pauses_allowed | Number of times a team is allowed to pause the game. 0 Means unbounded | 3 | sv
+citadel_observer_max_dolly_level | Number of increments along the zoom dolly | 16 | cl, a
 citadel_observer_roaming_speed |  | 600 | cl, a
 citadel_one_on_one_match |  | false | sv, cl, rep, release
 citadel_one_on_one_match_starting_gold |  | 0 | sv, cl, rep, cheat, release
@@ -1328,49 +1458,64 @@ citadel_orb_lagcomp_buffer_contested | Extra time for an orb to linger to allow 
 citadel_orb_lagcomp_buffer_uncontested | Extra time for an orb to linger to allow lag compensated players to contest | 0.25 | sv
 citadel_orb_required_bullets_to_claim_override | When &gt; 0, defines the number of bullets that need to hit an orb to claim it, otherwise uses the hero defined values. | 0 | sv, cl, rep
 citadel_orb_velocity_decay_in_lagcomp | Decay velocity to 0 by this amount during lag comp window | 0.85 | sv
-citadel_outer_radius_scaler |  | 0.2545 | cl
+citadel_orbit_camera_in | Move in the hideout zone camera | cmd | cl, release
+citadel_orbit_camera_out | Move in the hideout zone camera | cmd | cl, release
 citadel_party_invite_in_game | When set, only users in game can be invited | true | cl, release
 citadel_passive_items_area_display_time |  | 1 | cl
 citadel_passthrough_fakewall_combat_lockout_time |  | 4 | sv, cl, rep
 citadel_passthrough_fakewall_draw_debug |  | false | sv
 citadel_pause | Send a game pause request. | cmd | cl, release
 citadel_pause_allow_immediate_if_single_player | When there is only a single player on the server, set whether or not we allow for instant pausing/unpausing | false | sv
+citadel_pause_allow_in_combat | Allow pausing while in combat | true | sv
+citadel_pause_allow_in_pregame | Allow pausing in the pregame state | false | sv
 citadel_pause_cooldown_time | Number of seconds before a player is allowed to pause again | 900 | sv
 citadel_pause_count | Number of times a player is allowed to pause the game. 0 Means unbounded | 1 | sv
 citadel_pause_countdown | Countdown timer to pause after a user has pressed pause | 0 | sv, cheat
 citadel_pause_force_unpause_time | Number of seconds after which the game will automatically unpause | 10800 | sv
 citadel_pause_game_pause_silently | When set, we don't show the pause dialog when paused | false | cl
-citadel_pause_matchtime_before_allow | How much match time before pausing is allowed by clients | 0 | sv
+citadel_pause_matchtime_before_allow | How much match time before pausing is allowed by clients | 120 | sv
 citadel_pause_minimum_time | Disables unpausing for this many seconds after a pause occurs | 2 | sv, cheat
 citadel_pause_resume_time | Number of seconds resuming is restricted to the same team, after that either team can pause | 30 | sv
 citadel_pause_resume_time_disconnected | Number of seconds resuming is restricted to the same team if someone disconnected, after that either team can pause | 30 | sv
-citadel_pending_incoming_heal_min_change_for_update |  | 3 | cl
 citadel_pending_replay_force_failure |  | 0 | cl
 citadel_pending_replay_num_retries |  | 30 | cl
 citadel_pending_replay_retry_seconds |  | 300 | cl
-citadel_per_unit_hotkeys_checked |  | false | cl, a
-citadel_per_weapon_per_surface_impact_effects |  | true | sv, cl, rep
+citadel_per_unit_hotkeys_checked | Old name of citadel_hero_specific_settings_enabled | false | cl, per_user, release
+citadel_per_weapon_per_surface_impact_effects |  | false | sv, cl, rep
 citadel_perf_interval_report_s | The interval that we record performance stats to the log at measured in seconds | 60 | sv
 citadel_perf_long_frame_time_threshold_ms | The time in milliseconds where if a frame is beyond this, count it as a long frame | 17.5 | sv
 citadel_perf_short_idle_time_threshold_ms | The amount of time in milliseconds where if we have less than this in idle time, count it as a low idle frame | 3 | sv
+citadel_photomode_enabled | Hides Healthbars, Local Hero, HUD | false | cl, release
+citadel_pickup_spawner_enabled | Set to false to stop citadel_pickup_spawner pickups (healing snacks) from spawning and respawning | true | sv, rep, cheat, release
+citadel_pickup_spawner_initial_spawn_time_override | If positive, override the initial spawn time (in seconds) for all citadel_pickup_spawner pickups | -1 | sv, rep, cheat, release
+citadel_pickup_spawner_spawn_interval_override | If positive, override the respawn interval (in seconds) for all citadel_pickup_spawner pickups | -1 | sv, rep, cheat, release
+citadel_ping_above_us_z | If the pinged hero is above us by this many units, use the "above_us" voice variant | 500 | sv, cheat
 citadel_ping_allow_responses_to_yourself | Allow you to respond to yourself. | false | cl
+citadel_ping_almost_respawned_seconds | Pinging a dead hero whose respawn is at most this many seconds away says they are almost back rather than dead. | 10 | sv, cheat
+citadel_ping_below_us_z | If the pinged hero is below us by this many units, use the "below_us" voice variant | 500 | sv, cheat
+citadel_ping_can_heal_range | Pinging a low teammate offers a heal only if they are within this many units and in line of sight. Matches citadel_fow_player_range. | 2500 | sv, cheat
+citadel_ping_consecutive_window | Seconds between taps on one subject for them to chain into a double (triple...) ping. | 0.35 | cl
+citadel_ping_debug_spew | Log ping subject, radial and send decisions, and draw ping debug overlays. | false | cl
+citadel_ping_enemy_count_radius | How close another visible enemy has to be to the pinged position to count toward the group callout. | 1500 | cl, cheat
 citadel_ping_indicator_display_time |  | 5.5 | cl
 citadel_ping_indicator_duration | The amount of time the in-world ping indicator stays. | 6 | cl
 citadel_ping_indicator_duration_for_bosses | The amount of time the in-world ping indicator stays when a boss pings itself. | 2 | cl
-citadel_ping_wheel_activation_radius | LEGACY. See: citadel_show_chat_wheel_angle_threshold. Increase this to change how much you have to move your mouse to make the mousewheel visible. | 0.37 | cl
-citadel_play_page_fake_brawl_wins |  | 0 | cl
+citadel_ping_radial_anchor_mode | Comms wheel quick reveal anchor mode 0: only compare to the heading we had when pressing down ping. 1: Use both the heading we had, AND the world space point we had at the start, updated based on our movement, and the target's relative movement, through space. Essentially a double deadzone center to help with pinging while moving fast through space. Distance from line as opposed to distance from point.  | 1 | cl
+citadel_ping_radial_debug_gesture | Draw comms wheel quick reveal deadzone. 1: the pseudo deadzone capsule in the world plus a screen readout. 2: adds a per-frame console log. | 0 | cl
+citadel_ping_radial_early_open_deflection_deg | Degrees of camera deflection away from the thing we pressed on that force the radial open ahead of its delay. Degrees rather than pixels so the mouse sensitivity slider already normalises it. &lt;= 0, ignore gesture angle don't open  | 10 | cl
+citadel_ping_spam_hides_marker | Restores the old behaviour where repeat pings hid the marker as well as the sound. The marker is positional information the team needs; the noise is the spam. | false | sv, cheat
+citadel_ping_teammate_alone_radius | A pinged teammate with no other living ally (the pinger included) within this many units is told to be careful. | 1500 | sv, cheat
 citadel_play_page_fake_data |  | false | cl
-citadel_play_page_fake_normal_losses |  | 0 | cl
-citadel_play_page_fake_normal_wins |  | 0 | cl
 citadel_play_page_finished_tutorial |  | false | cl
 citadel_play_stats_laning_end_time |  | 540 | sv
 citadel_player_aim_at_hero_query_angle |  | 6 | cl
 citadel_player_aim_at_hero_query_distance |  | 2000 | cl
 citadel_player_aim_at_hero_query_half_width |  | 50 | cl
 citadel_player_aim_at_hero_query_interval |  | 0.2 | cl
-citadel_player_anim_debug | Draws debug animation state when enabled. | false | cl
 citadel_player_attack_enemy_npc_fow_reveal_duration | How long a player is visible to enemy FOW after attacking an enemy trooper or boss | 2 | sv, cheat
 citadel_player_attack_enemy_player_fow_reveal_duration | How long a player is visible to enemy FOW after attacking an enemy player | 1 | sv, cheat
+citadel_player_cam_toggle | Player Cam buttons toggle the teammate view instead of showing it while held | false | cl, a, per_user
+citadel_player_client_reprediction_disabled |  | false | cl, cheat, release
 citadel_player_crit_multiplier | How much to scale damage when landing crits against Players | 1.25 | sv, cl, rep
 citadel_player_damage_from_trooper_scale |  | 0.5 | sv
 citadel_player_dash_breakable_debug |  | false | sv, cl, rep
@@ -1386,26 +1531,26 @@ citadel_player_debug_animgraph_movement | Visually show the movement data for th
 citadel_player_fov_default | Default player FOV | 75 | sv, cl, rep
 citadel_player_glow_disabled |  | false | cl, cheat, release
 citadel_player_glow_from_teammate_vision_max_range |  | 2000 | cl
-citadel_player_glow_when_in_combat |  | false | cl, cheat
-citadel_player_glow_when_in_combat_linger |  | 1 | cl, cheat
-citadel_player_gold_comeback_assister_ratio |  | 1.5 | sv
-citadel_player_gold_comeback_killer_fraction |  | 0.3 | sv
-citadel_player_gold_comeback_multiplier |  | 2.1 | sv
-citadel_player_gold_comeback_npc_max_mutliplier_delta |  | 1.2 | sv
-citadel_player_gold_comeback_npc_max_mutliplier_value |  | 1.22 | sv
-citadel_player_gold_difficulty_multiplier |  | 2.3 | sv
+citadel_player_gold_comeback_assister_ratio |  | 1.5 | sv, cl, rep
+citadel_player_gold_comeback_killer_fraction |  | 0.3 | sv, cl, rep
+citadel_player_gold_comeback_multiplier |  | 2.268 | sv, cl, rep
+citadel_player_gold_comeback_npc_max_mutliplier_delta |  | 1.2 | sv, cl, rep
+citadel_player_gold_comeback_npc_max_mutliplier_value |  | 1.26 | sv, cl, rep
+citadel_player_gold_difficulty_multiplier |  | 2.484 | sv, cl, rep
 citadel_player_gold_killer_to_assist_ratio |  | 2.2 | sv
 citadel_player_gold_per_level_postmax | Gold per 'level' after maxing out rewards | 2000 | sv, cl, rep
-citadel_player_gold_reward_first_kill_bonus |  | 150 | sv
-citadel_player_gold_reward_max |  | 2200 | sv
-citadel_player_gold_reward_min |  | 250 | sv
-citadel_player_gold_reward_time |  | 2400 | sv
+citadel_player_gold_reward_first_kill_bonus |  | 125 | sv, cl, rep
+citadel_player_gold_reward_max |  | 2200 | sv, cl, rep
+citadel_player_gold_reward_min |  | 200 | sv, cl, rep
+citadel_player_gold_reward_time |  | 2400 | sv, cl, rep
 citadel_player_ground_dash_max_percent | Max ground dash scale | 2 | sv, cl, rep, cheat
 citadel_player_ground_dash_min_percent | Min ground dash scale | 0.5 | sv, cl, rep, cheat
 citadel_player_level_hiding_extra_duration |  | 0.45 | cl
+citadel_player_model_force_highest_lod | Forces the local player pawn to render using the highest LOD level. | true | cl, release
 citadel_player_move_speed_min | Min walk speed | 80 | sv, cl, rep, cheat
 citadel_player_move_speed_scale | Scales how fast players can move | 1 | sv, cl, rep, cheat
-citadel_player_neutral_gold_drop_min |  | 150 | sv
+citadel_player_neutral_gold_drop_min |  | 50 | sv
+citadel_player_neutral_gold_drop_min_increase_per_minute |  | 5 | sv
 citadel_player_neutral_gold_duration |  | 180 | sv
 citadel_player_neutral_gold_fallrate |  | 300 | sv
 citadel_player_outline_allies |  | false | cl
@@ -1414,20 +1559,19 @@ citadel_player_outline_fade_at_min |  | 0 | cl
 citadel_player_outline_fade_range_max |  | 1400 | cl
 citadel_player_outline_fade_range_min |  | 400 | cl
 citadel_player_override_spawn_time |  | -1 | sv
-citadel_player_pawn_ag1_wall_attach_enable |  | false | sv, cl, rep
-citadel_player_pawn_ag2_enable | Enable AG2 for heroes who define an AG2 graph | true | sv, rep, release
 citadel_player_ping_duration |  | 6 | sv, cheat
 citadel_player_regen_zone_bonus_base | When standing in a regen zone, how much extra do we regen per second? | 60 | sv, cl, rep, cheat
 citadel_player_regen_zone_bonus_pct | When standing in a regen zone, how much extra do we regen per second based on max health percentage? | 6 | sv, cl, rep, cheat
 citadel_player_regen_zone_stamina_regen | When standing in a regen zone, how much extra do we stamina percentage | 150 | sv, cl, rep, cheat
+citadel_player_reveal_notif |  | false | sv, cheat
 citadel_player_slide_breakable_debug |  | false | sv, cl, rep
 citadel_player_slide_breakable_lookahead |  | 75.8 | sv, cl, rep
 citadel_player_slide_breakable_radius |  | 35 | sv, cl, rep
 citadel_player_slide_min_percent |  | 0.8 | sv, cl, rep
 citadel_player_spawn_distance_from_other |  | 32 | sv
 citadel_player_spawn_time_in_base_penalty |  | 10 | sv
-citadel_player_spawn_time_max_ramp_1 |  | 30 | sv
-citadel_player_spawn_time_max_ramp_1_time |  | 1140 | sv
+citadel_player_spawn_time_max_ramp_1 |  | 38 | sv
+citadel_player_spawn_time_max_ramp_1_time |  | 1200 | sv
 citadel_player_spawn_time_max_ramp_2 |  | 70 | sv
 citadel_player_spawn_time_max_ramp_2_time |  | 1800 | sv
 citadel_player_spawn_time_max_ramp_3 |  | 85 | sv
@@ -1435,8 +1579,8 @@ citadel_player_spawn_time_max_ramp_3_time |  | 2400 | sv
 citadel_player_spawn_time_max_respawn_time |  | 90 | sv
 citadel_player_spawn_time_min_ramp_1 |  | 8 | sv
 citadel_player_spawn_time_min_ramp_1_time |  | 300 | sv
-citadel_player_spawn_time_min_ramp_2 |  | 30 | sv
-citadel_player_spawn_time_min_ramp_2_time |  | 1140 | sv
+citadel_player_spawn_time_min_ramp_2 |  | 38 | sv
+citadel_player_spawn_time_min_ramp_2_time |  | 1200 | sv
 citadel_player_spawn_time_min_ramp_3 |  | 70 | sv
 citadel_player_spawn_time_min_ramp_3_time |  | 1800 | sv
 citadel_player_spawn_time_rich_nw_penalty_max_ramp_behind_nw_pct |  | 20 | sv
@@ -1451,6 +1595,7 @@ citadel_player_starting_death_penalty_gold | Initial deaht penalty gold for play
 citadel_player_starting_gold | Initial gold for players. | 600 | sv, cl, rep
 citadel_player_starting_hero | Which hero to auto-select the first time in the game. |  | sv, cl, rep
 citadel_player_starting_team | Which team to auto-select the first time in the game. | 2 | sv, cl, rep
+citadel_player_tiny_character_max_height | Max height of a character with IS_TINY_CHARACTER or IsShrunkCharacter enabled | 40 | sv, cl, rep, cheat
 citadel_playofthegame_allow_showing_last_timeframe |  | false | sv
 citadel_playofthegame_debug_always_show_last_timeframe |  | false | sv
 citadel_playofthegame_debug_never_expire_events |  | false | sv
@@ -1477,31 +1622,61 @@ citadel_playtest_fake_coopbot_player_count |  | -1 | cl
 citadel_playtest_fake_schedule |  | false | cl
 citadel_playtest_fake_unranked_player_count |  | -1 | cl
 citadel_playtest_kick_disconnected_players | Reassign any network disconnected players to the unnassigned team | cmd | cl
+citadel_popular_items_app_universe |  | publicrel | cl
+citadel_popular_items_days_in_past |  | 7 | cl
+citadel_popular_items_earlygame_endtime |  | 480 | sv, cl, rep
+citadel_popular_items_hero_list |  |  | cl
+citadel_popular_items_midgame_endtime |  | 1200 | sv, cl, rep
+citadel_popular_items_min_games |  | 5000 | cl
+citadel_popular_items_min_pick_pct_early_game |  | 10 | sv, cl, rep
+citadel_popular_items_min_pick_pct_late_game |  | 10 | sv, cl, rep
+citadel_popular_items_min_pick_pct_mid_game |  | 10 | sv, cl, rep
+citadel_popular_items_min_pick_pct_vdata |  | 5 | sv, cl, rep
+citadel_popular_items_min_winrate_pct |  | 0 | sv, cl, rep
 citadel_port_muzzles | Port old muzzle defs to the new | cmd | cl
-citadel_portrait_unit_ag2_enable | Enable AG2 use in portrait units | true | cl
 citadel_portrait_world_renderer_off |  | false | cl
+citadel_post_game_fake_local_account_id |  | 0 | cl
+citadel_post_game_fake_local_hero | Name of the hero that should be faked as the local player |  | cl
 citadel_post_game_force_hero_id |  | cmd | cl
+citadel_post_game_hero_release_vote_results_screen_enabled |  | true | cl
 citadel_post_game_local_player_screen_enabled |  | false | cl
+citadel_post_game_mvp_screen_enabled |  | true | cl
 citadel_post_game_progress | -1 = force disabled, 0 = default, 1 = force enabled | 0 | cl
+citadel_post_game_progress_use_test_data |  | false | cl
+citadel_post_game_ranked_screen_enabled |  | true | cl
+citadel_post_game_reset_commend_state | Temporarily resets the commend state for testing (will get set to false after a commend is triggered) | false | cl
 citadel_postgame_duration | How long postgame lasts until play of the game | 10 | sv, cheat
-citadel_powerup_initial_spawn_time_override | If positive, override initial spawn time (in seconds) for all powerup camps | -1 | sv
-citadel_powerup_spawn_enabled |  | true | sv
-citadel_powerup_spawn_interval_override | If positive, override initial spawn interval (in seconds) for all powerup camps | -1 | sv
+citadel_powerup_initial_spawn_time_override | If positive, override initial spawn time (in seconds) for all powerup camps | -1 | sv, rep, cheat, release
+citadel_powerup_spawn_enabled |  | true | sv, rep, cheat, release
+citadel_powerup_spawn_interval_override | If positive, override initial spawn interval (in seconds) for all powerup camps | -1 | sv, rep, cheat, release
 citadel_powerup_spawner_show_event_timer |  | false | cl, rep
-citadel_pregame_fake_game_state |  | -1 | cl
+citadel_pregame_fake_game_state |  | EGameState_Invalid | cl
 citadel_pregame_fake_match_intro_duration |  | 23 | cl
 citadel_pregame_fake_match_intro_state |  | -1 | cl
 citadel_pregame_fake_team_reveal_heroes_1 | Comma separated hero names or hero ids for the team reveal screen. |  | cl
 citadel_pregame_fake_team_reveal_heroes_2 | Comma separated hero names or hero ids for the team reveal screen. |  | cl
+citadel_pregame_hero_draft_force_enabled | Turn on pre-game hero draft for testing | false | sv, cl, rep
+citadel_pregame_hero_draft_notification_time |  | 8 | cl
+citadel_pregame_hero_draft_num_changes | Number of per-player hero changes allowed during pregame hero draft | 1 | sv, cl, rep
+citadel_pregame_hero_draft_ranked | Turn on pre-game hero draft in ranked mode | true | sv, cl, rep
+citadel_pregame_hero_draft_test | Test pregame draft | cmd | cl, cheat
+citadel_pregame_hero_draft_unranked | Turn on pre-game hero draft in unranked mode | false | sv, cl, rep
 citadel_pregame_hero_reveal_duration |  | 7 | cl
 citadel_pregame_hero_reveal_full_sequence |  | false | cl
-citadel_pregame_wait_duration | How long pre-match is until we start the match | 5 | sv, cheat
+citadel_pregame_ranked_summary_force_enabled |  | false | cl
+citadel_pregame_ranked_summary_test_state |  | -1 | cl
+citadel_pregame_ranked_summary_time |  | 10 | sv, cl, rep
+citadel_pregame_use_intro_spawn | Whether to use the special intro team spawn locations during pregame | false | sv
+citadel_pregame_wait_duration | How long pre-match is until we start the match | 30 | sv, cheat
+citadel_preview_video_settings_changes | Briefly hide the menu when modifying rendering or camera settings. | true | cl, a, per_user
+citadel_preview_video_settings_duration | Duration for which the menu will be hidden after modifying rendering or camera settings. | 2 | cl, a, per_user
 citadel_previous_umuted_audio_level |  | 1 | cl, a
 citadel_priority_token_fake_count | Override the priority token count. -1 uses the real value. | -1 | cl
 citadel_priority_token_fake_progress | Override the priority token progress. -1 uses the real value. | -1 | cl
 citadel_private_lobby_allow_no_players | Allow for a private lobby to not have players to help test with spectating | true | cl
 citadel_private_lobby_bot_difficulty |  | 0 | cl, a, release
 citadel_private_lobby_cheats_enabled |  | false | cl, a, release
+citadel_private_lobby_corrupted_item_shop_spawn_minutes |  | 30 | cl, a, release
 citadel_private_lobby_duplicate_heroes_enabled |  | false | cl, a, release
 citadel_private_lobby_is_publicly_visible |  | false | cl, a, release
 citadel_private_lobby_randomize_lanes |  | false | cl, a, release
@@ -1523,19 +1698,35 @@ citadel_quick_response_display_time |  | 6 | cl
 citadel_quickbuy_auto_buy_default | Default for whether auto-buy is enabled in normal games. | false | cl, a, user
 citadel_quickbuy_enable | If enabled, show quickbuy in the HUD | true | cl, a
 citadel_quit_delay |  | 0.5 | cl
-citadel_radial_ability_suggestion_weight | How much extra weight to give a segment when it's the next recommended ability. | 0 | cl
-citadel_radial_distortion | 0: Off 1: Distorts the visible distribution of arcs based on the mouse pointer. | 0 | cl
-citadel_radial_distortion_growth_factor | When the cursor enters a radial arc fully, how much should it grow by (in terms of weight) | 1.25 | cl
-citadel_radial_testing | 0: Normal. 1: Inhibit showing the hud abilities' upgrade panel when the scoreboard is open. | 0 | cl
+citadel_radial_keep_open | Keep Radials Open (skip "close" commands) | false | cl
+citadel_radial_skip_rotation | 0: Rotate Layout 1: Don't Rotate Layout | 0 | cl
+citadel_radial_test_postgame |  | false | cl
+citadel_radial_test_pregame |  | false | cl
+citadel_radial_toggle_prop_open | Toggle propping radial menus open. While on, an opened radial stays up and will not fire until toggled off again. | cmd | cl
+citadel_ragdoll_phys_death_multiplier |  | 1 | sv
+citadel_ranked_allow_overrides |  | true | cl
+citadel_ranked_hero_roster | A comma separated list of hero IDs that hold the currently selected brawl roster heroes |  | cl, a, release
+citadel_ranked_hero_roster_banned | A comma separated list of hero IDs that hold the currently banned brawl roster heroes |  | cl, a, release
+citadel_ranked_hero_roster_high_priority | A comma separated list of hero IDs that hold the currently high priority brawl roster heroes |  | cl, a, release
+citadel_ranked_hero_roster_preferred | A comma separated list of hero IDs that hold the currently preferred brawl roster heroes |  | cl, a, release
+citadel_ranked_hero_roster_random | Is the brawl hero roster set to random | false | cl, a, release
+citadel_ranked_progress_fake_calibration_games |  | -1 | cl
+citadel_ranked_progress_fake_demotion_protection_games |  | -1 | cl
+citadel_ranked_progress_fake_match_count |  | -1 | cl
+citadel_ranked_progress_fake_max_rank |  | -1 | cl
+citadel_ranked_progress_fake_missing |  | false | cl
+citadel_ranked_progress_fake_rank |  | -1 | cl
+citadel_ranked_progress_fake_win_mask |  | -1 | cl
+citadel_ranked_progress_fake_win_streak |  | -1 | cl
+citadel_ranked_season_match_history_fake_rank_changes | Turn to show fake versions of the rank history | false | cl
+citadel_ranked_season_match_history_unfiltered | Turn on to show all matches in the ranked season view, not just matches from that ranked season. | false | cl
 citadel_rapid_stamina_regen |  | false | sv, cl, rep, cheat
 citadel_recent_boss_damage_for_assist_time |  | 20 | sv
-citadel_recent_comms_recording_window |  | 10 | sv, rep, release
-citadel_recent_comms_session_attempt_throttled_count |  | 75 | sv, rep, release
-citadel_recent_comms_throttling_limit |  | 10 | sv, rep, release
+citadel_recent_comms_recording_window |  | 5 | sv, rep, release
+citadel_recent_comms_session_attempt_throttled_count |  | 9999999 | sv, rep, release
+citadel_recent_comms_throttling_limit |  | 50 | sv, rep, release
 citadel_recent_comms_throttling_penalty |  | 10 | sv, rep, release
-citadel_reconnect_idle_buffer_time | How much extra time the player has after reconnecting before he gets marked as AFK. | 45 | sv
-citadel_record_hero_animgraph | Record the animgraph for a specified hero | cmd | sv, cheat
-citadel_region_override | Override the region of the client | -1 | cl, release
+citadel_reduce_camera_shake | Turns off screen shake. | true | cl, a, per_user
 citadel_reload_rank_data | Request rank confidence score from GC. | cmd | cl
 citadel_render_minimap | Render the minimap | cmd | cl, release
 citadel_replay_manager_download_chunk_size |  | 1048576 | cl, a
@@ -1545,39 +1736,69 @@ citadel_replay_prev_marker_threshold |  | 2 | cl
 citadel_replay_toggle_pause | Toggle a replay being paused | cmd | cl, release
 citadel_report_card_dismissal_timeout | How long do we wait for them to dismiss the popup dialog in lane training? | 40 | sv
 citadel_report_card_tasks_complete |  | false | sv
-citadel_require_in_playtest_clear | Clears that we need to be in the next playtest | cmd | cl
-citadel_require_in_playtest_set | Indicates that we need to be in the next playtest | cmd | cl
+citadel_reporter_updates_poll_interval_games |  | 5 | cl, release
 citadel_require_server_bullet_impacts_on_important_hits |  | false | sv, cl, rep
-citadel_reset_camera_speed | Aggressiveness of Camera Reset Curve. Smaller = quicker. Larger = more gradual. | 0.5 | cl
+citadel_reroll_corrupted_items | \[seed\] Rerolls the random penalty and stat variance of every corrupted item.  Omit the seed or pass 0 for a random one. | cmd | sv, cheat
+citadel_reset_camera_speed | How quickly the camera resets to the horizon. Higher is faster | 4000 | cl
+citadel_reset_gold | Reset gold for all players | cmd | sv, cheat
 citadel_reset_new_player | Resets the new player experience back to the initial state | cmd | cl, release
 citadel_reset_survey_responses | Clears out all survey questions from this account and resets the state | cmd | cl
+citadel_respawn_all_breakables | Force Spawns every breakable on the map | cmd | sv, cheat, release
+citadel_respawn_boss_barracks |  | cmd | sv, cheat, release
+citadel_respawn_boss_shrines |  | cmd | sv, cheat, release
+citadel_respawn_boss_t1 |  | cmd | sv, cheat, release
+citadel_respawn_boss_t2 |  | cmd | sv, cheat, release
+citadel_respawn_nearby_breakables | Force Spawns any nearby breakables | cmd | sv, cheat, release
 citadel_respond_to_ping_time | The amount of time you have to respond to a ping from another player | 5 | cl
 citadel_restore_components_only_during_sellback |  | true | sv, cl, rep
+citadel_reveal_notif_minimap |  | true | cl, cheat
+citadel_reveal_notif_particle |  | false | cl, cheat
+citadel_rootme | Root the local player | cmd | sv
 citadel_roster_select_force_enable_priority_token |  | false | cl
+citadel_roster_select_force_select_any |  | false | cl
 citadel_roster_select_hover_delay |  | 0.2 | cl
+citadel_roster_select_screenshot_mode | Adds the gRosterScreenshotMode class to the roster select screen | false | cl
 citadel_rp_show_dev_messages |  | false | cl
 citadel_rr_killstreak_for_death_line | If &gt;0, kill streak RR will play for the victim's team from the player with killstreak instead of victim's death line. | 2 | sv
 citadel_sat_volume_desat_amount |  | 0.6 | sv, cl, rep
 citadel_sat_volume_desat_color |  | 100 100 114 255 | sv, cl, rep
 citadel_sat_volume_outline_color |  | 200 200 200 255 | sv, cl, rep
 citadel_sat_volume_sat_color |  | 255 255 255 255 | sv, cl, rep
-citadel_secondary_language_builds |  | -1 | cl, a
+citadel_scenepanel_use_intermediate_texture |  | false | cl
+citadel_secondary_language_builds |  | -1 | cl, a, per_user
 citadel_secure_gold_fixed |  | 1.6 | sv
 citadel_secure_gold_fixed_growth |  | 0.08 | sv
 citadel_secure_gold_percent |  | 0.005 | sv
 citadel_secure_gold_rate |  | 1 | sv
+citadel_secure_souls_only_at_soul_dealer | When set, unsecured souls only convert inside a citadel_trigger_secure_souls volume. When clear, they secure over time anywhere and the trigger does nothing. | false | sv
 citadel_send_gc_match_info_s | Determines the rate that we should submit match info up to the GC, 0 disables this functionality | 30 | sv, cl, rep, release
 citadel_send_text_chat_to_player_pings |  | true | cl
+citadel_server_all_players_disconnected_grace_period_dev_s | Dev version of citadel_server_all_players_disconnected_grace_period_s (this is separate so it won't get stomped by .cfg files) | 600 | sv, release
 citadel_server_all_players_disconnected_grace_period_s | How long a server should run after all players have disconnected before notifying that all players have left | 120 | sv, release
 citadel_server_long_frame_threshold_ms | How long a frame must stall before we make a log message. | 40 | sv
 citadel_server_max_spectator_slots | The maximum number of spectator slots we allow. This is so that the GC can restrict this remotely if we need to. -1 disables this limit | 3 | sv, release
 citadel_server_mm_ignore_engine_version | Ignore engine build version. Useful for testing release locally | false | sv
 citadel_set_mmr | &lt;Account ID&gt; &lt;MMR&gt; Sets the MMR of the specified account | cmd | cl
 citadel_set_server_convar | \[convar\] \[value\] Set a server convar on the server that the player is currently connected to | cmd | cl
-citadel_settings_dismissed_new_settings | New Settings which have already been dismissed by the user |  | cl, a
+citadel_settings_active_settings_section_read_only | Last viewed settings section | -1 | cl, a
+citadel_settings_active_settings_subsection_read_only | Last viewed settings subsection | -1 | cl, a
+citadel_settings_always_show_all_settings | Keep the settings shared by all heroes visible while browsing a specific hero's settings | true | cl, a, per_user
+citadel_settings_default_view | Which hero the settings menu shows while hero-specific settings are enabled: 0 the hero being played, 1 the base settings | 0 | cl, a, per_user
+citadel_settings_dismissed_new_settings | New Settings which have already been dismissed by the user |  | cl, a, per_user
+citadel_settings_hero_selector_search | When the Settings hero selector is expanded, typing in the search bar filters heroes instead of settings. | true | cl, release
+citadel_settings_hide_hero_specific_disabled_notice | Suppress popups when disabling hero-specific settings | false | cl, a, per_user
+citadel_settings_hide_hero_specific_enabled_notice | Suppress popups when enabling hero-specific settings | false | cl, a, per_user
+citadel_settings_hide_keybind_delete_confirm | Suppress the confirmation popup when deleting a binding from the keybind map's Bind Key popup | false | cl, a, per_user
+citadel_settings_hide_row_reset_confirm | Suppress confirmation popups when resetting individual settings | false | cl, a, per_user
+citadel_settings_hide_show_all_settings_off_notice | Suppress the notice shown when 'Always show all settings' is turned off | false | cl, a, per_user
+citadel_settings_last_scrollbar_position_read_only | Last Settings menu scrollbar offset | 0 | cl, a
 citadel_settings_new_setting_newness_duration | Maximum age a new setting will be shown without dismissing | 2592000 | cl
+citadel_settings_remember_selected_hero | Reopen the settings menu on the hero last selected in it, instead of its default view | true | cl, a, per_user
 citadel_settings_reset_dismissed_settings |  | cmd | cl
-citadel_settings_seen_new_settings | New Settings which have already been seen by the user |  | cl, a
+citadel_settings_scroll_panel_height_read_only | Last Settings menu total scroll panel height | 0 | cl, a
+citadel_settings_seen_new_settings | New Settings which have already been seen by the user |  | cl, a, per_user
+citadel_settings_selected_base_settings | Whether the settings menu's base settings were deliberately selected | false | cl, a, per_user
+citadel_settings_selected_hero_read_only | Hero ID of the last selected hero in settings menu | 0 | cl, a, per_user
 citadel_settings_show_popup |  | cmd | cl
 citadel_shield_generator_shield_scale |  | 7 | sv
 citadel_shoot_forward_offset | How far forward from the plane of hero and camera forward to move the shoot position | 35 | sv, cl, rep
@@ -1585,67 +1806,88 @@ citadel_shoot_lean_extra_offset | When leaning, how far over to offset the obstr
 citadel_shoot_lean_test_distance | How far in front of the shoot position to check if the eyes can see for turning on the shoot lean | 300 | sv, cl, rep
 citadel_shooting_test_target_attachment |  | ability_attach | sv
 citadel_shooting_test_tracker_window |  | 5 | sv
+citadel_shop_always_show_names |  | true | cl, a
 citadel_shop_default_tab |  | -1 | cl, a, release
-citadel_shop_items_appear_enhanced | Makes all of the items in the shop appear enhanced if they can be enhanced | false | cl, cheat
+citadel_shop_filters_and_mode |  | false | cl, a
+citadel_shop_hide_empty_tiers | Hide empty tiers when searching/filtering | true | cl, a, release
+citadel_shop_items_appear_corrupted | Makes all of the items in the shop appear corrupted if they can be corrupted | false | cl, cheat
+citadel_shop_items_appear_enhanced | Makes all of the items in the shop appear enhanced if they can be enhanced | false | cl, release
+citadel_shop_open_focus_search | Give the shop search box keyboard focus when the shop opens | false | cl, a
 citadel_shop_reset_time |  | 10 | cl
+citadel_shop_scroll_snap_threshold | How many pixels of scroll delta triggers a snap.  Source2 mouse wheel is hardcoded to 3.0 per integral mouse wheel click. | 5 | cl, a, release
+citadel_shop_scroll_snap_to_tiers | Snap mouse wheel scrolling in the shop's filtered tab to price tiers. The tier keybinds step a tier either way. | true | cl, a, release
+citadel_shop_search_use_name_only | Only match items based on the name of the item when searching | false | cl, a
 citadel_show_account_ids | When set, account IDs will be shown on player tooltips | false | cl, release
-citadel_show_active_slot_popup |  | false | cl, a, release
+citadel_show_active_slot_popup |  | false | cl, a, per_user, release
 citadel_show_all_purchase_toasts | If enabled, show purchase toasts for all item transactions, not just ones in your quickbuy queue | false | cl, a
-citadel_show_average_rating_on_postgame | Show the rating average rating of a team in the post game. | false | cl, a, release
 citadel_show_bullet_lag_compensation | if &gt; 0.0, show lag compensated hitboxes (value is seconds) whenever a bullet is lag compensated and hits something. | 0 | sv, cl, rep, cheat
-citadel_show_chat_wheel_angle_threshold | (degrees) Increase this to change how much you have to move your camera angle to make the Chat Wheel instantly visible while holding Ping.  | 16 | cl
-citadel_show_chat_wheel_debug | Increase this to change how much you have to move your camera angle to make the mousewheel visible (degrees) | false | cl
-citadel_show_chat_wheel_time | How long it takes after pressing the +ping command for the chat wheel to appear. | 0.23 | cl
+citadel_show_chat_wheel_time | How long it takes after pressing the +ping command for the chat wheel to appear. | 0.23 | cl, a
+citadel_show_combatlog |  | cmd | cl
 citadel_show_disabled_heroes | Shows disabled heroes in hero selection | false | cl, a
 citadel_show_falloff_in_world |  | false | cl
 citadel_show_global_leaderboard | Show Global Leaderboards | false | cl, release
 citadel_show_hero_debut_popup | \[hero id\] \[allow swap\] | cmd | cl
+citadel_show_hero_release_vote_page |  | cmd | cl
 citadel_show_hero_select_popup |  | cmd | cl
+citadel_show_hero_vo_test_page | Open the Voice Lines page | cmd | cl, release
+citadel_show_hidden_public_builds |  | false | cl, a
 citadel_show_localization_errors |  | false | cl
 citadel_show_minimap_reveal_indicators |  | false | cl
 citadel_show_modifier_history | Turns on/off debug display of modifiers | false | cl
-citadel_show_movement_speed_in_units | Show the movement speed in units instead of m/s | false | cl
-citadel_show_movespeed_on_hud | Turns on/off Movespeed indicator on the HUD | false | cl
-citadel_show_new_mod_tooltips |  | true | cl
+citadel_show_movespeed_on_hud | Turns on/off Movespeed indicator on the HUD | false | cl, cheat
+citadel_show_movespeed_units | 0 : nothing, 1 : meters, 2 : HammerUnits | 1 | cl, cheat
 citadel_show_new_topbar | Show new topbar | false | cl
-citadel_show_new_ziplines | Turns on/off the new ziplines on the new minimap | false | cl
 citadel_show_npe_modal | Show the NPE modal when navigating to the roster select. | true | cl, a, release
 citadel_show_old_neutral_camp_icons | Show the old neutral camp icons on the minimap | true | cl
 citadel_show_page_reload_button | Show beta db controls in the upper left corner | true | cl, a
 citadel_show_personal_best_duration |  | 5 | cl
 citadel_show_playerintents |  | false | cl
 citadel_show_playerintents_bothteams |  | true | cl
-citadel_show_rating_notification_on_change | Show the rating notification on the post game if your rating changed that game. | false | cl, a, release
+citadel_show_ranked_history_page |  | cmd | cl
+citadel_show_ranked_season_page |  | cmd | cl
 citadel_show_reportcard |  | true | cl
 citadel_show_reportcard_finished |  | false | cl
 citadel_show_reportcard_initial |  | false | cl
+citadel_show_reporter_updates_popup | Shows the popup for a report you filed that we took action on, if there is one | cmd | cl, release
+citadel_show_reporter_updates_popup_fake | \[report type\] - Shows the reporter updates popup filled in with a fake update | cmd | cl
 citadel_show_roster_select_popup |  | cmd | cl
 citadel_show_seasonal_kill_toast |  | cmd | cl
 citadel_show_stats_tooltips_on_scoreboard |  | true | cl
 citadel_show_survey | A way to force the survey UI on even outside of matchmaking | false | cl
-citadel_show_telemetry_settings | Show HUD Telemetry Settings. | false | cl, release
+citadel_show_telemetry_settings | Show HUD Telemetry Settings. | false | cl, a, per_user, release
 citadel_shuffle_draft_order | Shuffles the order in which players are drafting heroes | cmd | sv
+citadel_silenceme | Silence the local player | cmd | sv
 citadel_skip_client_ping_caluclation_in_dev_universe | Skips ping calculation (only enabled if you're in dev universe) | true | cl
+citadel_sleepme | Sleep the local player | cmd | sv
 citadel_slide_debug |  | 0 | sv, cl, rep
 citadel_slide_delay |  | 0.15 | sv, cl, rep
 citadel_slide_one_button_falling_max_lookahead_distance |  | 150 | sv, cl, rep
+citadel_slow_air_drag_penalty_scale | Fraction of an active movement slow that is also applied as additional air drag | 0.35 | sv, cl, rep, cheat
 citadel_snowball_level_override | Change the snowball level | -1 | sv, cheat, release
 citadel_solo_bot_match |  | false | sv, cl, rep, release
+citadel_soul_rune_lane_experiment | Forces all players down the mid lane. | false | sv, cl, rep
 citadel_spawn_all_heroes_in_a_line | Spawn all of the heroes as bots in a line in front of you | cmd | sv, cheat
+citadel_spawn_all_neutrals | Spawns every neutral camp on the map | cmd | sv, cheat, release
+citadel_spawn_all_pickup_spawners | Spawns the pickup of every citadel_pickup_spawner (healing snacks) now | cmd | sv, cheat, release
 citadel_spawn_combine_only | Only spawn creeps on one team | false | sv
 citadel_spawn_escort | Spawns the escort with an optional delay | cmd | sv, cheat, release
+citadel_spawn_midboss_breakables | Force spawns the breakables above the mid boss that normally first appear at 10 minutes | cmd | sv, cheat, release
 citadel_spawn_nearby_neutrals | Spawns any neutral camps within 800 units (~20m) | cmd | sv, cheat, release
+citadel_spawn_pickup | Spawns a pickup using a pickup subclass | cmd | sv
+citadel_spawn_pickup_item | Spawns an item pickup for a specific item. You can specify the item, or else you'll get a random one | cmd | sv
 citadel_spawn_practice_bots |  | false | sv, release
 citadel_spawn_practice_bots_count |  | 1 | sv, release
 citadel_spawn_rebels_only | Only spawn creeps on one team | false | sv
-citadel_spawn_trooper | Creates a new trooper NPC and spawn them in front of the player | cmd | sv
+citadel_spawn_trooper | Creates a new trooper NPC and spawn them in front of the player | cmd | sv, cheat, release
 citadel_spawn_trooper_grid | Creates a NxN trooper grid in front of the player. Supports same trooper types as citadel_spawn_trooper | cmd | sv
+citadel_spawn_trooper_wave | Spawns one trooper wave in every lane, even while trooper spawning is off | cmd | sv, cheat, release
 citadel_spawn_trooper_zipline | Spawn a trooper on a zipline | cmd | sv
 citadel_spawn_urn | Spawn an urn for testing | cmd | sv, cheat
 citadel_spec_lock_to_accountid | As an observer, lock the spectator target to the given accountid. | 0 | cl
 citadel_spectate_account_id | \[lobby id\] Attempts to spectate the specified player | cmd | cl
 citadel_spectate_directed_mode_enabled |  | false | sv, cl, rep
 citadel_spectate_lobby_id | \[lobby id\] Attempts to spectate the specified lobby ID | cmd | cl
+citadel_spectate_topbar_player | While spectating, switch to the Nth hero on the top bar, numbered 1-12 from left to right | cmd | cl, release
 citadel_spectator_mode | Toggles the spectator mode: 0=Directed - 1=Free Cam - 2=Hero Chase - 3=PlayerView | 0 | cl
 citadel_spectator_voice_mode | Spectator voice transmit mode: 0 spectators and players, 1 spectators only | true | cl, user
 citadel_spectator_voice_mode_toggle | Toggle the value of citadel_spectator_voice_mode | cmd | cl, release
@@ -1658,20 +1900,35 @@ citadel_spoof_connection_status |  | -1 | cl
 citadel_spoof_invalid_client_version | When set to true, this will cause the client to act like it has an invalid client version, useful for UI testing | false | cl
 citadel_spoof_match_in_progress |  | false | cl
 citadel_spoof_matchmaking_status |  | -1 | cl
-citadel_spoof_num_matches_on_profile |  | -1 | cl
 citadel_spoof_persona_name | Allows overriding persona names with this value for testing UI |  | cl
 citadel_spoof_profile_account |  | 0 | cl
 citadel_spray_max_range | Maximum range (in inches) in which a spray is valid | 512 | sv, cl, rep
-citadel_start_calibration_bot_match | Starts a calibration match | cmd | cl
+citadel_stamina_ping_interval |  | 1 | sv, cheat
+citadel_stamina_ping_threshold |  | 1 | sv, cheat
+citadel_start_local_bot_match | &lt;hex setup&gt; Hosts a client provided bot match on this listen server | cmd | sv, release
+citadel_start_new_player_placement_bot_match | Starts a new_player_placement match | cmd | cl
 citadel_start_players_on_zipline |  | true | sv, cl, rep, cheat
+citadel_stat_cache_diagnostics | Stat-dep registration diagnostics. 0=silent, 1=warn when a ScaleFunction registration consumes no EModifierValues (likely missing markup) or when cross-entity ability values suppress caching, 2=also log benign early outs. | 0 | sv, cl, rep, cheat
+citadel_stat_cache_dump_deps | Dump the full stat dependency graph for an entity. Usage: citadel_stat_cache_dump_deps \[entindex/name\] | cmd | sv, cheat
+citadel_stat_cache_force_all_ignore_params | Force all non-opted-in stats to CacheEnabled_IgnoreParams (persist, skip hash check). Mutually exclusive with the other stat_cache_force_all_* convars. Resets stats on change. | false | sv, cl, rep, cheat
+citadel_stat_cache_force_all_invalidate_on_tick | Force all non-opted-in stats to CacheEnabled_InvalidateOnTick. Mutually exclusive with the other stat_cache_force_all_* convars. Resets stats on change. | false | sv, cl, rep, cheat
+citadel_stat_cache_force_all_invalidate_on_tick_ignore_params | Force all non-opted-in stats to CacheEnabled_InvalidateOnTick_IgnoreParams. Mutually exclusive with the other stat_cache_force_all_* convars. Resets stats on change. | false | sv, cl, rep, cheat
+citadel_stat_cache_force_all_persist | Force all non-opted-in stats to CacheEnabled (persist across ticks). Mutually exclusive with the other stat_cache_force_all_* convars. Resets stats on change. | false | sv, cl, rep, cheat
+citadel_stat_cache_log_deps_on_init | If set, CModifierProperty::DumpStatDepGraph is printed after each ability's runtime dependency registration completes. Each entity prints once per owned ability. | false | sv, cl, rep, cheat
+citadel_stat_cache_report | Print per-EStatsType cache statistics sorted by query volume. Use stat_cache_reset_stats to clear. | cmd | sv, cheat
+citadel_stat_generation_gating | Gate per-tick stat polls (effective cooldown rescale, resource regen) on the stat cache generation counters. Disable to restore per-tick recomputation. | true | sv, cl, rep, cheat
+citadel_stat_generation_watch_max_age | Generation watches report 'changed' once their stamp is older than this many seconds of game time, bounding the staleness of any missed invalidation edge. This is here temporarily and for safety, and not intended to be standard behavior. 0=no limit. | 1 | sv, cl, rep, cheat
 citadel_stat_override_official_match | When set to true, the account stat cache system will act like it is in an official match when updated. Used for testing without being in official matches | false | cl
+citadel_stat_preview_item_caching |  | false | sv, cl, rep
+citadel_stat_preview_tier_bonuses |  | true | sv, cl, rep
 citadel_steamlearn_disable |  | false | sv
 citadel_steamlearn_mechanical_behavior_allowed_game_modes_bitfield | This is a bitfield of elements in ECitadelGameMode that we want to record behavior for. eg: (1 &lt;&lt; k_ECitadelGameMode_Normal) \| (1 &lt;&lt; k_ECitadelGameMode_1v1Test) | 2 | sv
 citadel_steamlearn_mechanical_behavior_allowed_match_modes_bitfield | This is a bitfield of elements in ECitadelMatchMode that we want to record behavior for. eg: (1 &lt;&lt; k_ECitadelMatchMode_Unranked) \| (1 &lt;&lt; k_ECitadelMatchMode_Ranked) | 282 | sv
 citadel_steamlearn_new_player_threshold |  | 0.3 | sv
 citadel_steamlearn_new_player_thresholds | Thresholds for mapping a player's played matches with a minimum allowed 'new player' score. If a new player with n games has a new player score less than to the value in this curve, log as a smurf.Map from games played (x) to min allowed new player score (y) | 0=50, 10=60, 20=80, 30=100 | sv
 citadel_steamtimeline_show_dev_messages |  | false | cl
-citadel_streaming_mode_enabled | Enable to alter various game UI elements | false | cl, a, release
+citadel_streaming_mode_enabled | Enable to alter various game UI elements | false | cl, a, per_user, release
+citadel_street_brawl_ability_range_multiplier |  | 0.9 | sv, cl, rep, cheat
 citadel_street_brawl_advance_state | Advance the state of a street brawl game | cmd | sv
 citadel_street_brawl_match_length_limits_enabled |  | false | sv, cl, rep
 citadel_street_brawl_match_length_override |  | 0 | sv, cl, rep
@@ -1683,16 +1940,36 @@ citadel_street_brawl_test_drafts | Simulates and spews the results of all draft 
 citadel_stuck_camera_trace_extra_length |  | 100 | sv, cl, rep, cheat
 citadel_stuck_normal_find_trace_fallback_elevation |  | 24 | sv, cl, rep, cheat
 citadel_stunme | Stun the local player | cmd | sv
-citadel_sub_nav_outer_radius_scaler |  | 0.412 | cl
-citadel_subnav_select_time |  | 0 | cl
+citadel_subtick_aim_data | Server wants sub-tick aim data | false | sv, cl, rep
+citadel_subtitles_all_caps | Show the HUD subtitles in all caps. | false | cl, a, per_user
+citadel_subtitles_ally_abilities | Show subtitles for ability and item voice lines from your hero and allies. | true | cl, a, per_user
+citadel_subtitles_ally_conversations | Show subtitles for conversations between your hero and allies. | true | cl, a, per_user
+citadel_subtitles_ally_kills | Show subtitles for kill, reaction, and match voice lines from your hero and allies. | true | cl, a, per_user
+citadel_subtitles_ally_pings | Show subtitles for ping and chat wheel voice lines from your hero and allies. | true | cl, a, per_user
+citadel_subtitles_background_color_b | Blue channel of the HUD subtitle background color. | 0 | cl, a, per_user
+citadel_subtitles_background_color_g | Green channel of the HUD subtitle background color. | 0 | cl, a, per_user
+citadel_subtitles_background_color_r | Red channel of the HUD subtitle background color. | 0 | cl, a, per_user
+citadel_subtitles_background_opacity | Opacity, in percent, of the HUD subtitle background. | 93 | cl, a, per_user
+citadel_subtitles_background_style | Style of the HUD subtitle background: 0 solid, 1 outline. | 0 | cl, a, per_user
+citadel_subtitles_bold_font | Show the HUD subtitles in a semi-bold font rather than normal weight. | true | cl, a, per_user
+citadel_subtitles_custom_style | Show the HUD subtitles in the player's custom size, colors, and font rather than the default style. | false | cl, a, per_user
+citadel_subtitles_enemy_abilities | Show subtitles for ability and item voice lines from enemies. | true | cl, a, per_user
+citadel_subtitles_enemy_kills | Show subtitles for kill, reaction, and match voice lines from enemies. | true | cl, a, per_user
+citadel_subtitles_font | Font of the HUD subtitles: 0 default, 1 block, 2 stylized. | 0 | cl, a, per_user
+citadel_subtitles_font_size | Font size of the HUD subtitles. | 16 | cl, a, per_user
+citadel_subtitles_newscaster | Show subtitles for the Newscaster. | true | cl, a, per_user
+citadel_subtitles_outline_thickness | Thickness, in pixels, of the outline around the HUD subtitles when their background style is outline. | 2 | cl, a, per_user
+citadel_subtitles_patrons | Show subtitles for the Patrons. | true | cl, a, per_user
+citadel_subtitles_shopkeeper | Show subtitles for the Shopkeeper and the Broker. | true | cl, a, per_user
+citadel_subtitles_soul_urn | Show subtitles for the Soul Urn. | true | cl, a, per_user
+citadel_subtitles_speaker_names | How the HUD subtitles show who is speaking: 0 icon and name, 1 icon only, 2 name only. Speakers without an icon always get their name. | 0 | cl, a, per_user
+citadel_subtitles_text_color_b | Blue channel of the HUD subtitle text color. | 198 | cl, a, per_user
+citadel_subtitles_text_color_g | Green channel of the HUD subtitle text color. | 198 | cl, a, per_user
+citadel_subtitles_text_color_r | Red channel of the HUD subtitle text color. | 198 | cl, a, per_user
 citadel_suggest_claim_reqs | Print a crude recommended required bullets to claim an orb for every hero | cmd | sv
-citadel_super_neutral_gold_reward |  | 3000 | sv
-citadel_super_neutral_gold_reward_bonus_per_minute |  | 50 | sv
-citadel_super_neutral_inner_attack_range |  | 250 | sv
-citadel_super_neutral_middle_attack_range |  | 400 | sv
-citadel_super_neutral_old_behavior |  | true | sv
-citadel_super_neutral_outer_attack_range |  | 750 | sv
-citadel_super_trooper_gold_mult | Mult Gold Bounty from Super Troopers by this amount | 0.85 | sv, rep
+citadel_super_neutral_gold_reward |  | 3000 | sv, cl, rep
+citadel_super_neutral_gold_reward_bonus_per_minute |  | 50 | sv, cl, rep
+citadel_super_trooper_gold_mult | Mult Gold Bounty from Super Troopers by this amount | 0.85 | sv, cl, rep
 citadel_t1_boss_aggro_radius |  | 600 | sv
 citadel_t1_boss_aggro_time |  | 3 | sv
 citadel_t1_boss_attackable_height_diff |  | 20 | sv
@@ -1700,33 +1977,33 @@ citadel_t1_boss_hero_initial_weapon_reduction_pct |  | 65 | sv
 citadel_t1_boss_ignore_damage |  | false | sv
 citadel_t1_boss_max_attack_range |  | 1300 | sv
 citadel_t1_boss_melee_damage |  | 200 | sv
+citadel_targeting_range_cone_particle | Whether to draw a particle for targeting cone ranges. | false | cl
 citadel_team_size |  | 6 | sv, cl, rep
 citadel_tech_damage_vdata_tagging | Command to Tag abilities with 'm_bIsAbilityDamageProperty = true'  | cmd | cl
 citadel_tech_power_scaling_vdata_tweak | Command to tweak all ability tech power scaling, including ability upgrades.  Pass in scale factor, with 1.0 being no change. | cmd | cl
 citadel_teleporter_enabled_time |  | 1 | sv, cl, rep, cheat
+citadel_test_abandon | Test new abandon feature | cmd | sv
 citadel_test_banned_heroes_message | Draws the banned heroes message | cmd | cl
 citadel_test_cinematic_intro | Restart the cinematic intro sequence | cmd | sv
 citadel_test_flex_unlocked_message | Draws a test message: citadel_test_flex_unlocked_message \[1-4\] | cmd | cl
 citadel_test_game_over_message | Draws the game over message: citadel_test_game_over_message &lt;WINNING_TEAM&gt; | cmd | cl
 citadel_test_hud_game_announcement | Shows a test game announcement: \[title\] \[description\] \[classname\] | cmd | cl
 citadel_test_level_up_msg | Draws a test level up message | cmd | cl
-citadel_test_pause_msg | Draws a test pause message: citadel_test_team_msg &lt;Message ID&gt; &lt;Value&gt; | cmd | cl
 citadel_test_player_ping | Test pinging a player | cmd | cl
 citadel_test_popup_news_post | \[URL\] | cmd | cl
 citadel_test_portal_trace | Trace a sphere through portals and draw the results | cmd | sv
-citadel_test_ranked_summary | Test Ranked Summary | false | cl
 citadel_test_streetbrawl_scoring_message | Draws the street brawl scoring message: citadel_test_streetbrawl_scoring_message &lt;ScoringTeam&gt; | cmd | cl
 citadel_test_survey_popup | Tests bringing up the survey popup | cmd | cl, cheat
-citadel_test_team_msg | Draws a test team message: citadel_test_team_msg &lt;EVENT_TYPE&gt; &lt;ISPOSITIVE&gt; &lt;LANECOLOR&gt; &lt;TEAM_NUMBER&gt; &lt;PLAYER_SLOT&gt; | cmd | sv
 citadel_tether_pull_speed |  | 200 | sv, cl, rep, cheat
 citadel_tether_pull_speed_scale_per_meter |  | 120 | sv, cl, rep, cheat
 citadel_text_chat_enabled |  | true | sv, cl, rep
 citadel_throwsand_projectile_show_debug |  | false | sv, cl, rep
+citadel_tick_gold_comeback_redirect_payout | Fraction of the redirected comeback souls pool paid out to the two lowest net worth players each period | 1 | sv
 citadel_tick_gold_payout_for_lowest |  | 0.025 | sv
 citadel_tick_gold_payout_for_second_lowest |  | 0.015 | sv
-citadel_tick_gold_period_duration_s | Duration of a period of accumulated tick gold. Larger values will result in longer between a team getting gold and a player getting the benefit. | 3 | sv
+citadel_tick_gold_period_duration_s | Duration of a period of accumulated tick gold. Larger values will result in longer between a team getting gold and a player getting the benefit. | 2 | sv
 citadel_tick_gold_periods | Number of periods of accumulated tick gold. Combine with citadel_tick_gold_period_duration_s to configure resolution and total duration. | 10 | sv
-citadel_tick_gold_pulse_per_period | Frequency of distributing available tick gold | 3 | sv
+citadel_tick_gold_pulse_per_period | Frequency of distributing available tick gold | 2 | sv
 citadel_tick_gold_start_time |  | 480 | sv
 citadel_tier1_minimap_icon_radius |  | 12 | cl
 citadel_tier3_phase1_kill_respawn_reduction |  | 20 | sv
@@ -1736,47 +2013,43 @@ citadel_time_after_damage_to_show_hints | Time after the local player has taken 
 citadel_time_for_recent_heal_event |  | 5 | sv, cl, rep
 citadel_time_for_recent_kill_event |  | 10 | sv, cl, rep
 citadel_time_scale | Set to something &gt;= 0 to test setting every unit's timescale to that value | -1 | sv, cl, rep
+citadel_toggle_combatlog |  | cmd | cl
 citadel_toggle_mute | Toggles muting/unmuting the audio. | cmd | cl, release
 citadel_toggle_server_pause | Toggle a server side pause. | cmd | sv
 citadel_track_player_vs_player_accuracy |  | true | sv, cl, rep, cheat
 citadel_tracked_stats_dump | \[all\|player\|team\|match\] Dump currently tracked stats. | cmd | sv
+citadel_trailingteam_bias_threshold_max | Max Difference between teams to get full trailing bonuses for Koth/Urn | 0.15 | sv, cl, rep
+citadel_trailingteam_bias_threshold_min | Min Difference between teams to start getting trailing bonuses for Koth/Urn | 0 | sv, cl, rep
 citadel_trigger_rope_size |  | 192 | sv, rep
-citadel_trooper_aggro_radius |  | 0 | sv
+citadel_trigger_secure_souls_indicator_threshold |  | 100 | sv, cl, rep
 citadel_trooper_boss_melee_knockback |  | 400 | sv
 citadel_trooper_boss_ping_interval |  | 10 | sv
 citadel_trooper_boss_shield_disable_duration |  | 20 | sv, cl, rep
-citadel_trooper_celebration_delay |  | 1.2 | sv
 citadel_trooper_crit_multiplier | How much to scale damage when landing crits against Troopers | 1.5 | sv, cl, rep
-citadel_trooper_do_neardeath_behavior |  | false | sv
 citadel_trooper_force_idle |  | false | sv
 citadel_trooper_friendly_glow_disabled | Disable glow on friendly troopers except for through walls during laning | true | cl, release
-citadel_trooper_glow_disabled |  | false | cl, release
-citadel_trooper_gold_reward |  | 116 | sv
-citadel_trooper_gold_reward_bonus_per_minute |  | 1.16 | sv
+citadel_trooper_glow_disabled |  | true | cl, release
+citadel_trooper_gold_reward |  | 100 | sv, cl, rep
+citadel_trooper_gold_reward_bonus_per_minute |  | 2 | sv, cl, rep
 citadel_trooper_health_model_scale |  | 1.2 | sv
 citadel_trooper_health_mult |  | 1.5 | sv
 citadel_trooper_health_mult_gametime |  | 35 | sv
+citadel_trooper_hop_down_jumps |  | false | sv
 citadel_trooper_instant_gold_as_dropped_orbs | 0=instant gold 1=orbs in experimental only 2=orbs always | 2 | sv, release
-citadel_trooper_instant_gold_ratio_laning |  | 0.6 | sv
-citadel_trooper_instant_gold_ratio_postlaning |  | 0.6 | sv
+citadel_trooper_instant_gold_ratio_laning |  | 0.5 | sv
+citadel_trooper_instant_gold_ratio_postlaning |  | 0.5 | sv
 citadel_trooper_lane_node_max_spacing | Set to -1 to disable | 150 | sv
 citadel_trooper_laning_gold_rules_end_time |  | 8 | sv
 citadel_trooper_max_per_lane | How many troopers can be active in a single lane (including canisters). Set to 0 to disable. | 0 | sv
 citadel_trooper_medic_drops_health_pack |  | true | sv, release
 citadel_trooper_medics_use_heal_ability |  | false | sv, release
 citadel_trooper_minion_sight_range |  | 2000 | sv, cl, rep
-citadel_trooper_neutral_aggro_time |  | 5 | sv
-citadel_trooper_neutral_health_growth_pct_per_min |  | 2.1 | sv
-citadel_trooper_neutral_scorer_time_window | How long after damaging a neutral are players in the window to be considered scorers. | 5 | sv
-citadel_trooper_neutral_sight_range |  | 1500 | sv
-citadel_trooper_new_movement |  | false | sv
 citadel_trooper_offscreen_indicator_range |  | 35 | cl
-citadel_trooper_outline_enabled |  | false | cl, release
-citadel_trooper_reinforcement_gold_scale |  | 0.5 | sv
+citadel_trooper_outline_enabled |  | true | cl, release
 citadel_trooper_run_test_path |  | 0 | sv
 citadel_trooper_shooting_enabled |  | true | sv, rep, cheat
 citadel_trooper_siege_instant_gold_ratio |  | 0.5 | sv
-citadel_trooper_spawn_enabled | set to false to prevent any troopers from spawning | true | sv
+citadel_trooper_spawn_enabled | set to false to prevent any troopers from spawning | true | sv, rep, cheat, release
 citadel_trooper_spawn_initial | Initial trooper wave spawn time | 16 | sv
 citadel_trooper_spawn_interval |  |  | 
 citadel_trooper_spawn_interval_early | # of seconds between trooper spawn waves. | 30 | sv
@@ -1786,11 +2059,11 @@ citadel_trooper_spawn_interval_very_late | # of seconds between trooper spawn wa
 citadel_trooper_spawn_interval_very_late_time | # of minutes before we start using the late trooper spawn interval. | 35 | sv
 citadel_trooper_spawn_wave_spread | # of seconds between troopers on a zipline in a single wave. | 0.4 | sv
 citadel_trooper_squad_size | How many troopers spawn together in a squad | 4 | sv
-citadel_trooper_stuck_detection_duration |  | 0.2 | sv
 citadel_trooper_suicide_instant_gold_ratio | What percent of gold is transfered instantly if a trooper suicides. | 0 | sv
 citadel_trooper_suicide_orb_gold_ratio | What percent of gold is transfered into an orb if a trooper suicides. | 0 | sv
-citadel_trooper_use_ziplines |  | true | sv
-citadel_trooper_waypoint_threshold |  | 48 | sv
+citadel_trooper_test_spawner_type | normal \| medic \| melee | normal | sv
+citadel_trooper_use_direct_path_movement |  | true | sv
+citadel_trooper_use_per_tick_think_override |  | true | sv
 citadel_trooper_zipline_leap_speed |  | 200 | sv
 citadel_tutorial_ability1_state |  | 0 | sv, cl, rep, release
 citadel_tutorial_ability2_state |  | 0 | sv, cl, rep, release
@@ -1842,54 +2115,60 @@ citadel_ui_damage_impact_show_for_everything |  | false | cl
 citadel_ui_damage_impact_status_minimum_duration |  | 0.2 | cl
 citadel_ui_fake_active_matches | Set to &gt; 0 to add dummy matches to the active match list, useful for testing UI around these | 0 | cl
 citadel_ui_fake_invite_parties | Set to &gt; 0 to add dummy parties that have invites | 0 | cl
+citadel_ui_hero_badge_debug_xp | Force XP value for all badges (client only) | -1 | cl
+citadel_ui_show_hero_progression | Show hero progression UI (i.e. hero levels) | false | cl, a
 citadel_ui_spoof_active_match_bot_account | When set to non-zero, it will use this account as the account for bots to test UI on the active match | 0 | cl
 citadel_ui_test_ranked_highlight_time |  | 0 | cl
 citadel_ui_watch_active_game_refresh_s | The number of seconds to wait between refreshes of the active matches while on the watch page | 5 | cl, release
+citadel_unit_query_benchmark | Runs UnitQueries and physics queries and prints time spent: citadel_unit_query_benchmark \[queries\] \[repetitions\] | cmd | sv, cheat
+citadel_unit_query_debug_draw_error_shape_duration | Duration to display debug draw for UnitQuery errors | 15 | sv, cl, rep, cheat
+citadel_unit_query_draw_all |  | false | sv, cl, rep, cheat
+citadel_unit_query_draw_all_shapes | Limit citadel_unit_query_draw_all to these shapes, space or comma separated: sphere aabb obb capsule cone truncatedcone. Empty draws all |  | sv, cl, rep, cheat
+citadel_unit_query_draw_mismatches |  | true | sv, cl, rep, cheat
+citadel_unit_query_draw_registry |  | false | sv, cheat
+citadel_unit_query_log_registry | Log registry adds/removes for entities whose classname contains this substring, * for all |  | sv, cl, rep, cheat
+citadel_unit_query_registry_report | Print a per-bucket classname list of the unit query registry | cmd | sv, cheat
+citadel_unit_query_stats |  | false | sv, cl, rep, cheat
+citadel_unit_query_test_randomized | Fire randomized unit queries through the cached and physics paths and compare results | cmd | sv, cheat
+citadel_unit_query_validate |  | false | sv, cl, rep, cheat
 citadel_unit_status_allies_see_thru_walls |  | true | cl
-citadel_unit_status_allies_see_thru_walls_max_distance | How far to make allied players' unit status show through walls. Use values &lt;= 0 for no limit. | 0 | cl, cheat
-citadel_unit_status_delta_decay_delay |  | 0.166667 | cl
-citadel_unit_status_delta_decay_rate |  | 3 | cl
-citadel_unit_status_dpi |  | 10 | cl
+citadel_unit_status_breakpoint_line_large_amt |  | 1000 | cl
+citadel_unit_status_breakpoint_line_small_amt |  | 250 | cl
+citadel_unit_status_delta_decay_delay |  | 0 | cl
+citadel_unit_status_delta_decay_rate |  | 10 | cl
 citadel_unit_status_draw_local |  | false | cl
-citadel_unit_status_enabled |  | true | cl, cheat, release
+citadel_unit_status_enabled | Show health bars and nameplates above units | true | cl, cheat, release
 citadel_unit_status_fadeout_dist | How far out of the players effective gun range do we show the health bar | 200 | cl
-citadel_unit_status_health_per_minor_pip |  | 100 | cl
-citadel_unit_status_health_per_pip |  | 100 | cl
-citadel_unit_status_health_pips_per_row |  | 10 | cl
 citadel_unit_status_healthbar_highlight_speed |  | 2 | cl
-citadel_unit_status_height |  | 100 | cl
-citadel_unit_status_hide_names |  | false | cl, cheat, release
+citadel_unit_status_height |  | 210 | cl
+citadel_unit_status_hero_name_mode | Name shown above hero health bars. 0: player name, 1: hero name, 2: none | 0 | cl, a, per_user, release
+citadel_unit_status_hide_names |  | true | cl, cheat, release
 citadel_unit_status_max_distance_distance |  | 800 | cl
 citadel_unit_status_max_distance_scale |  | 1 | cl
 citadel_unit_status_max_health_per_bar |  | 1000 | cl
 citadel_unit_status_max_health_segment_increment |  | 1000 | cl
-citadel_unit_status_max_health_segments |  | 6 | cl
-citadel_unit_status_max_total_bars |  | 6 | cl
+citadel_unit_status_max_total_bars |  | -1 | cl
 citadel_unit_status_min_distance_scale |  | 0.2 | cl
-citadel_unit_status_minor_pip_per_major_pip |  | 5 | cl
-citadel_unit_status_old_dpi |  | 4 | cl
-citadel_unit_status_old_draw_local |  | false | cl
-citadel_unit_status_old_fadeout_dist | How far out of the players effective gun range do we show the health bar | 200 | cl
-citadel_unit_status_old_health_pips_per_row |  | 10 | cl
-citadel_unit_status_old_height |  | 80 | cl
-citadel_unit_status_old_hide_names |  | false | cl, cheat, release
-citadel_unit_status_old_opaque_dist_sq |  | 50000 | cl
-citadel_unit_status_old_show_stats |  | false | cl
-citadel_unit_status_old_transparent_dist_sq |  | 0 | cl
-citadel_unit_status_old_update_rate | How many times per second the unit status can update (0 = every frame). | 30 | cl
-citadel_unit_status_old_width |  | 100 | cl
+citadel_unit_status_name_fade_end_dist | Distance in meters from the camera at which names above health bars are fully faded out | 35 | cl
+citadel_unit_status_name_fade_start_dist | Distance in meters from the camera at which names above health bars start fading out | 25 | cl
+citadel_unit_status_offset_player_min_z | Min z offset for character's whose offset attachment go very low | 75 | cl
+citadel_unit_status_offset_player_z_offset_adjustment | Z Offset for all charcters, indpendent of the vmdl offset. | 16 | cl
+citadel_unit_status_offset_smooth_large_delta | &gt; this is a large delta | 10 | cl
+citadel_unit_status_offset_smooth_max_rate | Smoothing for large deltas | 30 | cl
+citadel_unit_status_offset_smooth_min_rate | Smoothing for small deltas | 2 | cl
+citadel_unit_status_offset_smooth_small_delta | Around this is a small delta | 2 | cl
 citadel_unit_status_opaque_dist_sq |  | 50000 | cl
 citadel_unit_status_recent_damage_time |  | 0.25 | cl
+citadel_unit_status_release_delay_time | Delay releasing unit status overlays back to the pool until after they've been hidden this long (seconds). &lt;= 0 disables. | 5 | cl
+citadel_unit_status_show_ally_health_value | Show health numbers on allied heroes' health bars when they take damage. | false | cl, a, per_user
+citadel_unit_status_show_critical_state |  | true | cl, a, user
+citadel_unit_status_show_health_value |  | true | cl, a, user
 citadel_unit_status_show_stats |  | false | cl
-citadel_unit_status_single_bar_mode | Allow only a single health bar, no stacking. | false | cl, cheat
-citadel_unit_status_stamina_consume_linger |  | 3 | cl
+citadel_unit_status_stamina_consume_linger |  | 5 | cl
 citadel_unit_status_transparent_dist_sq |  | 0 | cl
-citadel_unit_status_use_new |  | false | cl, release
-citadel_unit_status_use_v2 |  | false | cl, cheat
-citadel_unit_status_use_v2_for_nonplayers |  | false | cl, cheat
-citadel_unit_status_v2_height |  | 210 | cl
-citadel_unit_status_v2_width |  | 200 | cl
+citadel_unit_status_viewer_damage_match_window | How long a viewing player damage message and an observed healthbar drop wait for each other before being discarded | 0.25 | cl
 citadel_unit_status_width |  | 200 | cl
+citadel_unit_status_window_scale |  | 2 | cl
 citadel_unit_target_button_hint_mode |  | 0 | cl
 citadel_unlock_flex_slots | &lt;team number&gt; - Unlock the flex slots for a team (or both teams if you omit the team number) | cmd | sv, cheat
 citadel_unpause_countdown | Countdown duration to the unpause after a user unpauses | 3 | sv, cheat
@@ -1901,19 +2180,26 @@ citadel_upload_metadata_enabled | Controls if match metadata uploading is enable
 citadel_upload_replay_enabled | Controls if replay uploading is enabled. Mainly used as a kill switch if something goes wrong | true | sv, release
 citadel_upload_servertest_replays | When set, this will upload replays for server test matches, otherwise they will be discarded | false | sv
 citadel_use_character_proxy |  | false | sv, cl, rep
-citadel_use_contextual_ping_wheel_option |  | true | cl, a
+citadel_use_connected_nearest_nav_for_flying_npcs |  | false | sv
+citadel_use_contextual_ping_wheel_option |  | true | cl, a, per_user
 citadel_use_csgo_style_recoil_follow_crosshair |  | false | cl, rep
 citadel_use_fake_lobby_signout_details | If enabled, fake the details to enable match signout to flow | false | sv
 citadel_use_hold_sprint | Use hold sprint ability? | false | sv, cl, rep
+citadel_use_new_abandon_rules_force_enabled |  | false | sv
+citadel_use_new_abandon_rules_ranked |  | true | sv
+citadel_use_new_abandon_rules_unranked |  | true | sv
 citadel_use_new_minimap | Turns on/off the new minimap | true | cl
-citadel_use_pvs_for_players |  | false | sv
-citadel_use_shop_component_groupings | Use new component Grouping | false | cl, a
+citadel_use_pvs_for_players |  | true | sv
 citadel_use_spectator_team_colors | Forces HUD and game to draw team colors as if you are a spectator | false | cl
+citadel_use_stateful_ready_on_client | Use a stateful 'IsReadyOnClient' flag, used by stat caching. | true | sv, cl, rep
 citadel_use_ui_keybindings | Use UI key bindings otherwise use engine keybindings. | true | cl, a, release
+citadel_use_unit_query_system | Route the UTIL_FindUnits* family through the cached unit query system instead of the physics broadphase | true | sv, cl, rep
 citadel_use_vertical_healthbars |  | false | cl
 citadel_use_wip_models | When true, uses the WIP models defined in the hero vdata | false | sv, cl, rep
 citadel_vanguard_enabled |  | false | sv
 citadel_vanguard_instant_capture |  | false | sv
+citadel_vdata_open_in_system_editor | Open vdata nodes in the system editor instead of VData Editor (so it uses the Windows file assocation for .vdata/.vdata_inc) | false | cl, a
+citadel_vdata_update_popular_items | Command to update popular items in hero vdata. | cmd | cl
 citadel_video_preset | Rendering performance level. | 3 | cl, a
 citadel_viewed_book_prototype | Track if they have opened up the book prototype or not yet | false | cl, a, release
 citadel_viewpunch_damping | Bigger number makes the response more damped, smaller is less damped | 9 | sv, cl, rep, cheat
@@ -1923,6 +2209,7 @@ citadel_viscous_telepunch_trace_debug |  | false | sv, cl, rep
 citadel_visibility_queue_rate |  | 2 | cl
 citadel_visualize_tethers |  | false | sv, cl, rep, cheat
 citadel_voice_all_talk | If 1, all players can hear all other players. | false | sv
+citadel_voicelines_show_unused | Show the Unused tab (voice lines without subtitles) on the Voice Lines page | false | cl, release
 citadel_waiting_for_map_load_min_duration | Force a certain duration in the waiting for map to load state | 0 | sv, cheat
 citadel_wall_detection_debug |  1: Show all wall normal planes detected | 0 | sv, cl, rep, cheat
 citadel_wall_detection_skin | Maximum distance to a wall in order to wall jump. | 8 | sv, cl, rep, cheat
@@ -1937,26 +2224,24 @@ citadel_weapon_damage_multiplier_team_filter | Filter which team gets a multipli
 citadel_weapon_damage_reduction_for_melee | What percent do we want weapon damage reduced for melee damage? | 0.5 | sv, cl, rep
 citadel_weapon_normalize_recoil_with_firerate | Keep recoil constant even with fire rate changes. | true | sv, cl, rep, cheat
 citadel_weapon_spread_debug |  | false | cl
-citadel_weapon_zoom_style | 0: Original Linear Interpolation. 1: Smooth Approach | 1 | sv, cl, rep, cheat
+citadel_wheel_bind_hold_time | How long a single mouse wheel tick counts as holding down the key for binds that requires a held key | 0.3 | cl, release
 citadel_world_bullet_impacts_for_npcs | Turns on bullet impacts and decals on world from troopers and neutrals shooting | false | sv, cl, rep
 citadel_zip_debug | Prints debug info about the closest zip line node | cmd | sv
 citadel_zipline_allow_direction_choice | 0: Chose direction based solely on camera angle. 1: Chose direction at the moment of attachment, using the player's movement direction. | true | sv, cl, rep
 citadel_zipline_animgraph_cuvature_max |  | 50 | sv, cl, rep
-citadel_zipline_arrow_boost_brightness | Changes the zipline arrow boost brightness | 1 | cl
-citadel_zipline_arrow_scale | Changes the zipline arrow scale | 1 | cl
-citadel_zipline_arrow_scoll_speed | Changes the zipline arrow scroll speed | 1 | cl
 citadel_zipline_attachment_debug |  | false | sv, cl, rep
-citadel_zipline_back_lane_speed_mult |  | 2 | sv, cl, rep
-citadel_zipline_baselane_speed_mult |  | 0.7 | sv, cl, rep
 citadel_zipline_capture | Captures the closest zipline node | cmd | sv
 citadel_zipline_capture_all | sets all ziplines nodes to the specified team | cmd | sv
-citadel_zipline_capture_trigger_thickness |  | 400 | sv
+citadel_zipline_capture_trigger_max_thickness |  | 1200 | sv
+citadel_zipline_capture_trigger_min_thickness |  | 300 | sv
 citadel_zipline_capture_trigger_width |  | 1200 | sv
 citadel_zipline_curve_sampling_size |  | 24 | sv, cl, rep
 citadel_zipline_debug_draw |  | false | cl
+citadel_zipline_debug_draw_capture |  | false | sv
 citadel_zipline_debug_draw_node_entity | if non-zero, only draw zipline curves extending from this node. | 0 | cl
 citadel_zipline_debug_draw_segments |  | 20 | cl
 citadel_zipline_movement_debug |  | false | sv, cl, rep
+citadel_zipline_node_distance_max |  | 300 | sv
 citadel_zipline_nonbaselane_speed_mult |  | 1.1 | sv, cl, rep
 citadel_zipline_pendulum_damping |  | 0.3 | sv, cl, rep
 citadel_zipline_pendulum_debug |  | false | sv, cl, rep
@@ -1968,13 +2253,14 @@ citadel_zipline_percent_override_blue | Changes the percent distance of the blue
 citadel_zipline_percent_override_green | Changes the percent distance of the green lane | -1 | cl
 citadel_zipline_percent_override_purple | Changes the percent distance of the purple lane | -1 | cl
 citadel_zipline_percent_override_yellow | Changes the percent distance of the yellow lane | -1 | cl
+citadel_zipline_ping_along_rope_angle | Determine whether a player is aiming at the zipline toward base or away. | 60 | sv, cl, rep
+citadel_zipline_ping_targeting_angle | Max angle deflection from the cached zipline node that will result in a ping. | 6 | sv, cl, rep
 citadel_zipline_rebuildpaths | Rebuilds all zipline splines | cmd | sv
 citadel_zipline_render_mode | 0=Model, 1=Particle, 2=Model+Particle | 0 | cl
 citadel_zipline_show_enemy_boosting | 0 = no, 1 = yes, 2 = preview effect | 1 | sv, cl, rep, cheat
 citadel_zipline_show_lane_colors_for_spectators |  | false | cl
 citadel_zipline_targeting_dot |  | 0.95 | sv, cl, rep
 citadel_zipline_velocity_debug |  | false | sv, cl, rep
-citadel_zipline_width | Changes the zipline width | 0.7 | cl
 citadel_zoomed_in_minimap | Test zoomed in minimap | false | cl
 citdael_targeting_aoe_desat_color | The color of the desat area while targeting an AoE. | 150 207 184 255 | cl
 citdael_targeting_aoe_outline_color | The color of the outline area while targeting an AoE. | 150 207 184 255 | cl
@@ -1988,7 +2274,6 @@ cl_aggregate_particles |  | true |
 cl_anglespeedkey |  | 0.67 | cl
 cl_anim_eval_stats | Displays stats about how many EvaluatePose calls are unused | cmd | cl
 cl_animgraph_dump_update_list | Displays stats about which animations are updating | cmd | cl
-cl_animgraph_history_force_temporal_consistency |  | true | cl
 cl_async_client_shatter | spawn client glass shards asynchronously during demos or when remotely connected. | true | cl
 cl_async_restore_server_authoritative_state |  | false | cl
 cl_async_usercmd_send |  | false | 
@@ -1997,12 +2282,12 @@ cl_audio_debug_bullet_material | Visualize bullet material info. | false | cl, c
 cl_audio_debug_pawn_surface_data | Visualize pawn surface data. | false | cl, cheat
 cl_audio_display_soundstack_debug_base_3d | Displays citadel_base_3d sound stack debug. | false | cl, cheat
 cl_audio_display_soundstack_debug_dialog | Displays citadel_dialog sound stack debug. | false | cl, cheat
-cl_audio_draw_enclosure_debug | Draws debug associated with amount interior vs exterior | false | cl, rep
+cl_audio_draw_dimension_probe_debug | Toggle on debug spheres for enclosure/probe reverb | false | cl, cheat
 cl_audio_log_citadel_audio_filter | Logs sound event information for CCitadelAudioFilter. | false | cl
 cl_audio_log_participant_start_messages | Prints when a participant sound message was sent. | false | cl, cheat
 cl_auto_cursor_scale | Automatic cursor size scaling. | true | a
 cl_axis | Draw an axis<br>	Arguments:  x y z pitch yaw roll &lt;lifetime = 10.0&gt; &lt;r g b a&gt;<br> | cmd | cl, cheat
-cl_batch_entity_list_ops_during_latch | Batch entity list adds / removes while latching interpolated variables to avoid mutex contention. | false | cl
+cl_batch_entity_list_ops_during_latch | Batch entity list adds / removes while latching interpolated variables to avoid mutex contention. | true | cl
 cl_bone_cache_optimization |  | true | cl
 cl_box | Draw a bbox<br>	Arguments:  minx miny miny maxx maxy maxz &lt;lifetime = 10.0&gt; &lt;r g b a&gt;<br> | cmd | cl, cheat
 cl_boxmove | run in a square, # represents how many usercommands to run before turning. | 0 | cl
@@ -2012,27 +2297,36 @@ cl_buffer_incoming_net_messages |  | true | release
 cl_bullet_travel_debug_path | Debug: visualization time for lazily calculated bullet paths (0 = disable) | 0 | cl, cheat
 cl_bullet_travel_debug_trace | Debug: visualization time for active bullet traces (0 = disable) | 0 | cl, cheat
 cl_cache_sendtable | Cache sendtables | true | 
-cl_cameraoverride_fade_in_amount |  | 0 | cl
-cl_cameraoverride_shadow_depth_bias |  | 0.006 | cl
-cl_cameraoverride_shadow_end |  | 0.8 | cl
 cl_change_callback_limit | change callback msec warning limit | 0.2 | cl, release
 cl_chat_active |  | 0 | cl
 cl_checkdeclareclasses | Check game code serializers | cmd | cheat
-cl_citadel_ability_alt_cast_hold_time |  | 0.15 | cl, a, user
-cl_citadel_ability_alt_cast_instant_cast_double_tap_timeout |  | 0.2 | cl, a, user
-cl_citadel_ability_alt_cast_mode |  | 2 | cl, a, user
+cl_citadel_ability_active_report | Print per-ability active window transition counts and dwell times. Use citadel_ability_active_reset_stats to clear. | cmd | cl, cheat
+cl_citadel_ability_active_reset_stats | Clear the counters printed by citadel_ability_active_report. | cmd | cl, cheat
+cl_citadel_ability_activeness_report | Print ability MODIFIER_VALUE contributions recorded while the ability was untrained or inactive. Use citadel_ability_activeness_reset_stats to clear. | cmd | cl
+cl_citadel_ability_activeness_reset_stats | Clear the counters printed by citadel_ability_activeness_report. | cmd | cl
+cl_citadel_ability_alt_cast_hold_time |  | 0.15 | cl, a, user, per_user
+cl_citadel_ability_alt_cast_instant_cast_double_tap_timeout |  | 0.2 | cl, a, user, per_user
 cl_citadel_ability_test_fail_all |  | false | cl, cheat
+cl_citadel_auto_fire | Shoot continuously, and press Fire to stop or resume shooting | false | cl, a, per_user
+cl_citadel_auto_mantle_backward | Mantle automatically when moving backward into a ledge while on the ground | false | cl, a, user, per_user
+cl_citadel_auto_mantle_forward | Mantle automatically when moving forward into a ledge while on the ground | false | cl, a, user, per_user
+cl_citadel_auto_mantle_in_air | Mantle automatically when moving forward or backward into a ledge while airborne | false | cl, a, user, per_user
+cl_citadel_auto_move | Double-tap Move Forward to keep moving forward until Move Forward or Move Back is pressed | false | cl, a, per_user
+cl_citadel_auto_move_double_tap_time | Max time between Move Forward presses to toggle auto-move | 0.3 | cl, a, per_user
 cl_citadel_bebop_beam_draw_points |  | false | cl, cheat
-cl_citadel_camera_ops_debug |  |  | cl
+cl_citadel_camera_ops_debug | Valid Values: \[ dist \| fov \| pos \| vert \| offset \].  Note, use "cl_citadel_camera_ops_debug" or "sv_cl_citadel_camera_ops_debug" depending on debugging client or server. |  | cl
 cl_citadel_camera_sequences_debug |  | false | cl
-cl_citadel_cancel_with_ability_key_enabled |  | false | cl, a, user
+cl_citadel_cancel_with_ability_key_enabled |  | false | cl, user, per_user
+cl_citadel_current_hero_ability_alt_cast_mode_read_only |  | 2 | cl, user
 cl_citadel_debug_player_look_target | Draw player look target data.  White is server, cyan is client. | false | cl, rep
 cl_citadel_deployment_preview_debug_draw | Enable debug draw for deployment preview.  Draws a sphere at the location for 0.1 seconds | false | cl
-cl_citadel_deployment_targeting_debug_draw | Enable debug draw for deployment targeting.  Debug draw is a one show that persists for n seconds | 0 | cl
+cl_citadel_deployment_targeting_debug_draw | Enable debug draw for deployment targeting.  Debug draw is enabled until it's disabled | 0 | cl
 cl_citadel_deployment_targeting_debug_log | Enable debug log for deployment targeting | false | cl
 cl_citadel_dump_bullets | dump all bullet info to the console | cmd | cl
+cl_citadel_dump_corrupted_overrides | Dumps every corrupted item's penalty exclusions, fixed bonuses and integer-rounded bonuses | cmd | cl, release
+cl_citadel_dump_corrupted_penalties | Dumps the corrupted item penalty rolled for every corruptible item this match | cmd | cl
 cl_citadel_force_on_upgrade_for_all_abilities | Force all abilities to call OnUpgrade() | cmd | cl
-cl_citadel_forceangles | Force third person camera angles | cmd | cl
+cl_citadel_forceangles | Force third person camera angles | cmd | cl, cheat
 cl_citadel_hornet_blast_debug_physics |  | false | cl
 cl_citadel_items_quickcast_mode |  | 0 | cl, a, user
 cl_citadel_player_voting_poster_current_hero_id | Hero ID to spray | 0 | sv, cl, a, user
@@ -2040,10 +2334,16 @@ cl_citadel_quickcast_ability1 |  | 0 | cl, a, user
 cl_citadel_quickcast_ability2 |  | 0 | cl, a, user
 cl_citadel_quickcast_ability3 |  | 0 | cl, a, user
 cl_citadel_quickcast_ability4 |  | 0 | cl, a, user
-cl_citadel_record_hero_animgraph | Record the animgraph for a specified hero | cmd | cl, cheat
+cl_citadel_stat_cache_dump_deps | Dump the full stat dependency graph for an entity. Usage: citadel_stat_cache_dump_deps \[entindex/name\] | cmd | cl, cheat
+cl_citadel_stat_cache_report | Print per-EStatsType cache statistics sorted by query volume. Use stat_cache_reset_stats to clear. | cmd | cl, cheat
+cl_citadel_stat_value_cache_enabled | Enable/disable stat value result caching | true | cl, cheat
+cl_citadel_stat_value_cache_validate_interval | Validate cached stat values against freshly computed results every N hits. 0=off. | 500 | cl
+cl_citadel_unit_query_draw_registry |  | false | cl, cheat
+cl_citadel_unit_query_registry_report | Print a per-bucket classname list of the unit query registry | cmd | cl, cheat
 cl_citadel_wrecker_ultimate_debug_physics |  | false | cl
 cl_citadel_zipline_rebuildpaths | Rebuilds all zipline splines | cmd | cl
-cl_citadel_zoom_is_toggle |  | false | cl, a, user
+cl_citadel_zoom_is_toggle |  | false | cl, a, user, per_user
+cl_cleardraw | Clears all lines drawn by drawline and drawcross | cmd | cl, cheat
 cl_clock_buffer_ticks | Clock sync will try to maintain an additional margin of N ticks.  This is intended to smooth over packet loss, and is a replacement for cl_interp_ratio / cl_interp.  This value is simply added to cl_clock_recvmargin_desired | 1 | 
 cl_clock_buffer_ticks_spectator | Additional margin (in ticks) to apply when spectating. | 2 | 
 cl_clock_correction | Enable/disable clock correction on the client. | true | cheat
@@ -2073,10 +2373,8 @@ cl_decal_clear_all_entities | Clears decals from all entities | cmd | cl
 cl_decal_clear_world | Clears world decals | cmd | cl
 cl_decal_debug | Toggles client decal debug visualization | cmd | cl
 cl_decal_shoot | Shoots a client-side decal | cmd | cl
-cl_demo_steadycam_blendframes | blend over this many frames | 5 | cl
-cl_demo_steadycam_deflection | if camera orientation changes this much update orientation | 5 | cl
-cl_demo_steadycam_enable | Stabilize camera orientation/position during demo playback.  1 == remove roll, 2 == steadycam | 0 | cl
-cl_demo_steadycam_radius | if camera moves this much from last anchor update anchor | 16 | cl
+cl_decryptdata_key | Key to decrypt encrypted GOTV messages |  | release
+cl_decryptdata_key_pub | Key to decrypt public encrypted GOTV messages |  | release
 cl_demo_view_offset_left | View offset during demo playback (+/- 1.25 is a good default for human average left/right eye offset) | 0 | cl
 cl_demoviewoverride | Override view during demo playback | 0 | cl
 cl_destroy_ragdolls | Destroys all client-side ragdolls | cmd | cl
@@ -2094,13 +2392,11 @@ cl_dump_projected_texture_count | Print out number of active projected textures 
 cl_dump_response_symbols | print all response symbols to the console | cmd | cl
 cl_dumpentity | Dumps info about an entity | cmd | cl, cheat
 cl_dumpsplithacks | Dump split screen workarounds. | cmd | cl
-cl_enable_eye_occlusion |  | true | cl
 cl_ent_absbox | Displays the total bounding box for the given entity(s) in green.  Some entites will also display entity specific overlays.<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | cl, cheat
 cl_ent_actornames | Displays the entity name for all entities that have ShouldDisplayInActorNames true in code | cmd | cl, cheat
 cl_ent_animgraph2_open_graph | Opens the graph and starts live debugging the AG2 graph for a given entity<br>	Arguments: entityName<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | cl, cheat
 cl_ent_animgraph2_record | Starts live debugging & recording the AG2 graph for a given entity<br>	Arguments: entityName<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | cl, cheat
 cl_ent_animgraph_debug | Displays debug draws about the given entity(ies) animgraph<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | cl, cheat
-cl_ent_animgraph_record | Toggles recording of animgraph replay of the given entity(s)<br>	Arguments: entityName automaticallyOpenInAnimgraphEditor<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | cl, cheat
 cl_ent_attachment_filter_substrings | If an attachment's name has any of the given substrings in it, it will be displayed. Substrings can be delimited by the ',' or '\|' character. |  | cl, cheat
 cl_ent_attachments | Displays the attachment points on an entity.<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | cl, cheat
 cl_ent_bbox | Displays the movement bounding box for the given entity(ies) in orange.  Some entites will also display entity specific overlays.<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | cl, cheat
@@ -2112,6 +2408,7 @@ cl_ent_grab | grabs the object in front of the player. Options: -loose -multiple
 cl_ent_hierarchy | Prints the entity hierarchy tree rooted at the specified ent(s) | cmd | cl, cheat
 cl_ent_hitbox | Displays the hitboxes for the given entity(ies).<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | cl, cheat
 cl_ent_joint_axis_size |  | 4 | cl
+cl_ent_joint_filter_name | If a joint's entire name matches (case insensitive), it will be displayed. |  | cl, cheat
 cl_ent_joint_filter_substrings | If a joint's name has any of the given substrings in it, it will be displayed. Substrings can be delimited by the ',' or '\|' character. |  | cl, cheat
 cl_ent_joint_lines | Draw a line between a rendered joint and its parent. | true | cl, cheat
 cl_ent_joint_names | Draw the name of a rendered joint. | true | cl, cheat
@@ -2160,29 +2457,14 @@ cl_ents | List client entities, sorted by spawn group | cmd | cl
 cl_error_report_time | Minimum time in seconds that must elapse before printing prediction error summary. 0 to disable. | 0 | cl, release
 cl_extrapolate | Enable/disable extrapolation if interpolation history runs out. | true | cl, cheat
 cl_extrapolate_amount | Set how many seconds the client will extrapolate entities for. | 0.25 | cl, cheat
-cl_eye_occlusion_debug |  | false | cl, cheat
-cl_eye_sin_wave |  | false | cl
-cl_eye_target_override |  | 0 0 0 | cl
-cl_eye_yaw_multiplier |  | 1 | cl
-cl_fasttempentcollision |  | 5 | cl
+cl_fasttempentcollision |  | 999999 | cl
 cl_flushentitypacket | For debugging. Force the engine to flush an entity packet. | 0 | cheat
 cl_force_next_signon_to_reset |  | false | 
+cl_frame_perf_sample_buffer_max | If &gt;0, enable random sampling of frames, and limit random sample buffer size to N.  Set to 0 to disable frame perf sampling entirely. | 100 | rep, release
 cl_frametime_summary_report_detailed | When a perf report is dumped at the end of the session, should it be detailed? | true | cl, release
 cl_fullupdate | Force uncompressed update | cmd | cheat
 cl_generate_postdataupdatepreserved | Do we invoke PostDataUpdatePreserved callbacks for entities that had no changes but are still in the PVS? | true | 
-cl_globallight_debug |  | false | cl
-cl_globallight_depth_bias |  | -999 | cl
-cl_globallight_expansion |  | 200 | cl
-cl_globallight_freeze |  | false | cl
-cl_globallight_orig_calc_frustum |  | true | cl
-cl_globallight_shadow_mode |  | 2 | cl
-cl_globallight_slope_scale_depth_bias |  | -999 | cl
-cl_globallight_use_alt_focus_region |  | false | cl
-cl_globallight_use_optimized_calc_frustum |  | true | cl
-cl_globallight_use_shaadow_near_offset |  | true | cl
-cl_globallight_world_bottom_height |  | 0 | cl
-cl_globallight_world_top_height |  | 4096 | cl
-cl_glow_brightness | Brightness of player halos | 1 | cl, cheat
+cl_glow_brightness | Brightness of player halos | 0 | cl, cheat
 cl_glow_item_far_b |  | 1 | cl, release
 cl_glow_item_far_g |  | 0.4 | cl, release
 cl_glow_item_far_r |  | 0.3 | cl, release
@@ -2192,9 +2474,9 @@ cl_hitbox_debug |  | false | cl
 cl_hold_game_events_force_delay_ticks | Debugging convar to force late dispatch of game events. | 0 | cl, cheat
 cl_hold_game_events_until_server_tick | Holds game events until client has received the tick the event was fired on. | true | cl, cheat
 cl_hud_telemetry_frametime_poor | Frame time greater than this is considered 'poor'. | 100 | cl, a, release
-cl_hud_telemetry_frametime_show | Show frame time (FPS) in the HUD.  0=never, 1=only if poor, 2=always | 1 | cl, a, release
+cl_hud_telemetry_frametime_show | Show frame time (FPS) in the HUD.  0=never, 1=only if poor, 2=always | 0 | cl, a, release
 cl_hud_telemetry_net_detailed | Show breakdown network misdelivery (loss, late delivery, and peak jitter).  0=never, 1=only in poor network conditions, 2=always | 0 | cl, a, release
-cl_hud_telemetry_net_misdelivery_poor | Packet delivery anomaly rate (0..100) higher than this is considered 'poor'. | 5 | cl, a, release
+cl_hud_telemetry_net_misdelivery_poor | Packet delivery anomaly rate (0..100) higher than this is considered 'poor'. | 2 | cl, a, release
 cl_hud_telemetry_net_misdelivery_show | Show percentage of user commands & server snapshots that are missed due to network conditions.  0=never, 1=only in poor conditions, 2=always | 1 | cl, a, release
 cl_hud_telemetry_net_quality_graph_show | Show packet jitter and netframe loss/reordering in the HUD.  0=never, 1=only in poor conditions, 2=always | 0 | cl, a, release
 cl_hud_telemetry_ping_poor | Ping higher than this (ms) is considered 'poor'. | 100 | cl, a, release
@@ -2204,23 +2486,23 @@ cl_ignorepackets | Force client to ignore packets (for debugging). | false | che
 cl_imgui_debug_entity | Shows the entity browser, focused on the entity you specify.<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | cl, cheat
 cl_imgui_set_selection | Sets ImGui selection | cmd | cl, cheat
 cl_imgui_set_status_text | Sets ImGui header status text | cmd | cl, cheat
-cl_impacteffects |  | true | cl
+cl_impacteffects |  | false | cl
 cl_in_forcebuttonstate | Forces a button to be a particular state - WHEN PROCESSING USERCOMMANDS | cmd | cl
-cl_input_enable_raw_keyboard | Enable raw keyboard input | false | release
+cl_input_enable_raw_keyboard | Enable raw keyboard input | true | release
 cl_interp | Read the effective client simulation interpolation amount in terms of time. | cmd | cl, release
 cl_interp_ag2_for_non_ag2_entities |  | true | cl
 cl_interp_all | Disable interpolation list optimizations. | false | cl
 cl_interp_animationvars | Interpolate LATCH_ANIMATION_BIT vars if interpolation interval is greater than simulation interval | true | cl
 cl_interp_hermite | Set to zero do disable hermite interpolation. | true | cl, cheat
 cl_interp_npcs | Interpolate NPC positions starting this many seconds in past (or the value as per cl_interp_ratio, if greater) | 0 | cl
-cl_interp_parallel | Run interpolation in parallel for entities with no children. | false | cl
+cl_interp_parallel | Run interpolation in parallel for entities with no children. | true | cl
 cl_interp_ratio | Sets the client simulation interpolation amount, in terms of server updates (final amount is cl_interp_ratio / cl_updaterate). | 0 | cl, user
 cl_interp_simulationvars | Interpolate LATCH_SIMULATION_BIT vars if interpolation interval is greater than animation interval | true | cl
 cl_interp_threadmodeticks | Additional interpolation ticks to use when interpolating with threaded engine mode set. | 0 | cl
 cl_interpolate | Interpolate entities on the client. | true | cl, user
 cl_interpolate_report | Enable to show interpolation profile timing<br> | false | cl, a
 cl_jitter_bad_threshold_up | When upstream packet jitter in a frame exceeds this threshold (ms), the frame is considered to have 'irregular delivery'.  This is a derived value and should not be modified manually | 20 | user
-cl_joystick_enabled | Enable joystick input | false | a
+cl_joystick_enabled | Enable joystick input | true | a
 cl_lagcompensation | Perform server side lag compensation of weapon firing events. | true | cl, user
 cl_language | Language | english | 
 cl_latch_report | Enable to output stats about latching | false | cl, a
@@ -2230,8 +2512,10 @@ cl_lock_camera |  | false | cl, cheat
 cl_log_tick | Log when a tick is received<br> | false | 
 cl_log_tick_skips | Log when the tick delta &gt;= this | 0 | 
 cl_massreport |  | false | cl
-cl_max_particle_pvs_aabb_edge_length |  | 100 | release
+cl_max_particle_pvs_aabb_edge_length |  | 10 | release
 cl_meep_mop_volume_trigger_max_count | Number of triggers before meemop reaches full volume | 10 | cl, cheat
+cl_modifier_cache_report | Print per-EModifierValue cache statistics sorted by query volume. Use modifier_cache_reset_stats to clear. | cmd | cl
+cl_modifier_cache_reset_stats | Reset modifier value cache statistics. | cmd | cl
 cl_modifier_debug |  | false | cl
 cl_modifier_dump | Display all modifiers for the unit: &lt;entityindex/name&gt; | cmd | cl, cheat
 cl_modifier_dump_list | Dumps all modifiers that exist in the game | cmd | cl, cheat
@@ -2239,30 +2523,31 @@ cl_modifier_dump_visible | Print out non-hidden modifiers. | cmd | cl, cheat
 cl_modifier_parallel_gather_status_effect_updates |  | false | cl, rep
 cl_modifier_spew_states | Call to have the client spew their unit states affecting them, | cmd | cl, cheat
 cl_modifier_stringtable_dump | Displays the contents of the modifier string table | cmd | cl, cheat
+cl_modifier_value_cache_enabled | Enable/disable modifier value result caching | false | cl
+cl_modifier_value_cache_validate_interval | Validate cached modifier values against freshly computed results every N hits. 0=off. | 500 | cl, rep
 cl_net_printsummary | Print a summary report of Source2 engine networking statistics.  (Ticks, netchan messages, etc.) | cmd | norecord, release
 cl_net_showeventlisteners | Show listening addition/removals | false | cl
 cl_net_showevents | Dump game events to console (1=client only, 2=all). | 0 | cl
-cl_network_quality2 |  | -1 | cl, a
 cl_panel_freeze_time_after_press | time to freeze mouse/pointer motion after a mouse button press | 0.5 | cl
 cl_parallel_readpacketentities | Set to 1 to use threading snapshot reading (if game supports and server is sending bitcounts). | true | 
 cl_parallel_readpacketentities_threshold | Use parallel processing of snapshot reading if above this many entries. | 2 | 
 cl_particle_batch_mode |  | 1 | 
 cl_particle_create_duplicate_work_for_profiling | Create and destroy N particle systems for every one created normally | 0 | 
-cl_particle_fallback_base | Base for falling back to cheaper effects under load. | 0 | 
-cl_particle_fallback_multiplier | Multiplier for falling back to cheaper effects under load. | 0 | 
+cl_particle_fallback_base | Base for falling back to cheaper effects under load. | 1 | 
+cl_particle_fallback_multiplier | Multiplier for falling back to cheaper effects under load. | 10 | 
 cl_particle_log_creates | Print debug message every time a particle collection is created | false | 
-cl_particle_max_count |  | 0 | 
+cl_particle_max_count |  | 700 | 
 cl_particle_newinit | turn on optimized particle init | true | 
 cl_particle_retire_cost |  | 0 | cheat
-cl_particle_sim_fallback_base_multiplier | How aggressive the switch to fallbacks will be depending on how far over the cl_particle_sim_fallback_threshold_ms the sim time is.  Higher numbers are more aggressive. | 5 | 
-cl_particle_sim_fallback_threshold_ms | Amount of simulation time that can elapse before new systems start falling back to cheaper versions | 6 | 
+cl_particle_sim_fallback_base_multiplier | How aggressive the switch to fallbacks will be depending on how far over the cl_particle_sim_fallback_threshold_ms the sim time is.  Higher numbers are more aggressive. | 100 | 
+cl_particle_sim_fallback_threshold_ms | Amount of simulation time that can elapse before new systems start falling back to cheaper versions | 0 | 
 cl_particle_simulate | Enables/Disables Particle Simulation | true | cheat
 cl_particles_dump_effects |  | cmd | cl
 cl_particles_dumplist | Dump all new particles, optional name substring. | cmd | cl
 cl_particles_dumpsimlist | Dump all simulating particles, optional name substring. | cmd | cl
 cl_pclass | Dump entity by prediction classname. |  | cl, cheat
 cl_pdump | Dump info about this entity to screen. | -1 | cl, cheat
-cl_phys_animated_hierarchy |  | true | cl
+cl_phys_animated_hierarchy |  | false | cl
 cl_phys_assume_fixed_tick_interval | If true, we assume the client uses a fixed tickrate like the server (which may not always be true). If false, we recalculate the number of physics substeps in each client tick based on the actual elapsed time in the tick. | true | cl
 cl_phys_block_dist |  | 1 | cl
 cl_phys_block_fraction |  | 0.1 | cl
@@ -2273,7 +2558,7 @@ cl_phys_dump_main_world | Dump physics main world to file | cmd | cl
 cl_phys_dump_memory | Dump memory usage | cmd | cl
 cl_phys_enabled | Enable all physics simulation | true | cl, cheat
 cl_phys_list | List all physics component contents of every entity in the game;<br>    -stream \[1\|0\]         initiate\|terminate streaming to physics debugger<br>    -allents              include non-physical entities<br>    -classes              print class names<br>    -sdk                  Rubikon-wide memory short status<br>    -sdk -struct          Rubikon-wide memory use per struct<br>    -sdk -rebuildsvms     Rubikon-wide SVM force rebuild and status<br>    -world                current state of the world<br>    -world -touch         list body pairs (bodies in contact)<br>    -world -save &lt;name&gt;   save world to a file<br>    -world -mem           memory dump (separately per game dll)<br>    -world -snapshots     Start/Stop dumping snapshots of the world into the current directory<br>    -world -agg           current aggregate data registry (loaded resources)<br> | cmd | cl
-cl_phys_networked_start_sleep |  | false | cl
+cl_phys_networked_start_sleep |  | true | cl
 cl_phys_sleep | Put all physics in all the worlds to sleep | cmd | cl
 cl_phys_sleep_enable | Enable sleeping for dynamic physics bodies. | true | cl, cheat
 cl_phys_sound_disable_impact_sounds_under_hard_threshold | if true, impact sounds wont play if no soft impact sound is present and the impact is below the hard velocity threshold. | false | cl, cheat
@@ -2299,15 +2584,15 @@ cl_pred_print_every_cmd | Print something every time we predict a command | fals
 cl_pred_track | &lt;entindex&gt; &lt;fieldname&gt;:  Track changes to entity index entindex, for field fieldname. | cmd | cl
 cl_pred_track_off | clear field track changes. | cmd | cl
 cl_predict | Perform client side prediction. | true | cl, user, cheat
-cl_prediction_savedata_postentitypacketreceived | Experimental optimization.  If you are reading this in 2026, please delete this convar. | false | cl, release
-cl_predictioncopy_describe | Describe datamap_t for entindex | cmd | cl
+cl_prediction_savedata_postentitypacketreceived | Experimental optimization.  If you are reading this in 2026, please delete this convar. | true | cl, release
+cl_predictioncopy_describe | Describe PredictionMap_t for entindex | cmd | cl
 cl_predictioncopy_print | Print simple description of prediction copy fields for entindex | cmd | cl
 cl_predictioncopy_runs |  | true | cl
 cl_printfps | Print information from cl_showfps. | cmd | cl
 cl_prop_debug | Toggle prop debug mode. If on, props will show colorcoded bounding boxes. Red means ignore all damage. White means respond physically to damage but never break. Green maps health in the range of 100 down to 1. | cmd | cl, cheat
 cl_querycache_stats | Display status of the query cache (client only) | cmd | cl, cheat
 cl_ragdoll_default_scale |  | 1 | cl
-cl_ragdoll_limit | Maximum number of ragdolls to show (-1 disables limit) | 20 | cl, a
+cl_ragdoll_limit | Maximum number of ragdolls to show (-1 disables limit) | 1 | cl, a
 cl_ragdoll_lru_debug |  | false | cl, rep, cheat
 cl_ragdoll_reload |  | false | cl
 cl_removedecals | Remove the decals from the entity under the crosshair. | cmd | cl, cheat
@@ -2315,16 +2600,13 @@ cl_report_entities | Lists all entities | cmd | cl, cheat
 cl_report_predcopy_overrides | Report prediction copy overrides | cmd | cl
 cl_report_simthinklist | Lists all simulating/thinking entities | cmd | cl
 cl_report_soundpatch | reports client-side sound patch count | cmd | cl
-cl_resend | Delay in seconds before the client will resend the 'connect' attempt | 0.5 | release
+cl_resend | Delay in seconds before the client will resend the 'connect' attempt | 15 | release
 cl_resetfps | Reset information from cl_showfps. | cmd | cl
-cl_retire_low_priority_lights | Low priority dlights are replaced by high priority ones | false | cl
+cl_retire_low_priority_lights | Low priority dlights are replaced by high priority ones | true | cl
 cl_rr_dump_rules | Print all response rules | cmd | cl, cheat
-cl_rr_reloadresponsesystems | Reload all response system scripts. | cmd | cl, cheat
 cl_sat_volume_debug | Toggles client sat volume debug visualization | cmd | cl
-cl_save_animgraph_recording | Saves all active animgraph recordings to disk<br>	Arguments: automaticallyOpenInAnimgraphEditor | cmd | cl, cheat
 cl_scale_function_dump | Print out all scale functions. | cmd | cl, cheat
 cl_sceneentity_debug | Display all thinking scene entities and its data. | false | cl
-cl_screenmessage_notifytime | How long to display screen message text | 8 | cl
 cl_script_add_debug_filter | Add a filter to the game debug overlay | cmd | cl, cheat
 cl_script_add_watch | Add a watch to the game debug overlay | cmd | cl, cheat
 cl_script_add_watch_pattern | Add a watch to the game debug overlay | cmd | cl, cheat
@@ -2354,7 +2636,7 @@ cl_sendtable_cache_filename | Send tables cache file | sendtables.bin |
 cl_sequence_debug |  | -1 | cl
 cl_sequence_debug2 |  | -1 | cl
 cl_sequence_model_substring |  |  | cl
-cl_show_splashes |  | true | cl
+cl_show_splashes |  | false | cl
 cl_showdemooverlay | How often to flash demo recording/playback overlay (0 - disable overlay, -1 - show always) | 0 | 
 cl_showents | Dump entity list to console. | cmd | cl, cheat
 cl_showerror | Show prediction errors, 2 for above plus detailed field deltas, 3 to filter out serverside known prediction errors, -entindex for specific entity. | 0 | cl, release
@@ -2366,8 +2648,7 @@ cl_showpos | Draw current position at top of screen | 0 | cl, cheat, release
 cl_showtextmsg | Enable/disable text messages printing on the screen. | true | cl
 cl_showtick | Show current tick/time values.  Bitmask:  1='render time'  2='GameTime'   4=time of predicted entities  8=offset of predicted entities    (-1 means 'everything') | 0 | cl, release
 cl_showusercmd | Show user command encoding | false | cl
-cl_simulate_dormant_entities |  | true | cl
-cl_skel_constraints_enable |  | true | rep, cheat
+cl_simulate_dormant_entities |  | false | cl
 cl_skeleton_instance_smear_boneflags | Smear boneflags across the model.  Costs computation, but tests to make sure your bone flags are consistent. | false | cl, cheat
 cl_skip_hierarchy_update_for_unchanged_entities | Skip updating hierarchy information in PostDataUpdate for entities that have not changed | true | sv, cl, rep
 cl_skip_update_animations | Enable to skip game animations | false | cl
@@ -2379,7 +2660,7 @@ cl_smooth_root_origin_coeff |  | 100 | cl, cheat
 cl_smooth_root_timehorizon |  | 0.125 | cl, cheat
 cl_smooth_root_velocity_coeff |  | 20 | cl, cheat
 cl_smooth_targetspeed |  | 150 | cl, release
-cl_smoothtime | Smooth client's view after prediction error over this many seconds | 0.2 | cl
+cl_smoothtime | Smooth client's view after prediction error over this many seconds | 0.01 | cl
 cl_snd_cast_clear |  | true | 
 cl_snd_cast_retrigger |  | true | 
 cl_snd_new_visualize | Displays soundevent name played at it's 3d position | false | cl, cheat
@@ -2390,6 +2671,8 @@ cl_spawngroup_spewresources | Spew all manifest add/updates. | false |
 cl_spewserializers | Spew serializers | cmd | cheat
 cl_spewworldgroups | Spew world groups (client) | cmd | 
 cl_ss_origin | print origin in script format | cmd | cl
+cl_stat_cache_reset_stats | Reset stat value cache statistics. | cmd | cl, cheat
+cl_svc_usercmds_delta_validate | Validate consistency of delta-encoded user commands.  Requires server to have sv_cq_validate_encoded_svc_usercmds enabled. | false | cl
 cl_test_list_entities | test-list entities | cmd | cl, cheat
 cl_tickpacket_desired_queuelength | This value, multiplied by the tick interval, is added to cl_tickpacket_recvmargin_desired to obtain the effective desired recv margin. | 0 | user
 cl_tickpacket_recvmargin_adjust_limit | Recvmargin-based usercommand pacing will not speed up or slow down command pacing by more than N% compared to realtime | 5 | 
@@ -2405,13 +2688,12 @@ cl_timeout | After this many seconds without receiving a packet from the server,
 cl_tracer_whiz_distance |  | 72 | cl
 cl_tracer_whiz_infront_distance |  | 32 | cl
 cl_trueview_show_status | 0=Never; 1=Only if there is a problem; 2=always | 2 | cl, release
-cl_updaterate | Number of packets per second of updates you are requesting from the server | 20 | cl, a, user
+cl_updaterate | Number of packets per second of updates you are requesting from the server | 128 | cl, a, user
 cl_updatevisibility | Updates visibility bits. | cmd | cl
 cl_usercmd_dbg | show usercmd payload sizing info for packets with more than this many usercmds | 0 | 
 cl_usercmd_max_per_movemsg | max number of CUserCmds to send in one client move message | 4 | release
 cl_usercmd_showsize |  | false | 
 cl_usesocketsforloopback | When connecting to local listen server (for example, using the 'map' command), default to loopback=false, which connects to '127.0.0.1' instead of 'loopback'.  This uses the network stack so that fake lag/loss can be simulated. | true | 
-cl_viewtarget_clamp |  | true | cl
 cl_voice_transmit_lobby |  | false | cl, a, release
 cl_voiceenabled |  | true | cl
 cl_vsnd_morph_override_ease_enabled | Controls whether the compiled in vsnd morph data ease in/out values are used or values set from the convars (cl_vsnd_morph_override_ease_in, cl_vsnd_morph_override_ease_out) are used | true | cl
@@ -2421,6 +2703,7 @@ cl_yawspeed |  | 210 | cl
 clear | Clear console output. | cmd | norecord, release
 clear_debug_flags_on_death |  | true | sv
 clearall | Clear console output from all views. | cmd | norecord, release
+cleardraw | Clears all lines drawn by drawline and drawcross | cmd | sv, cheat
 cli_ent_attachments | Displays the interpolated attachment points on an entity.<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | cl, cheat
 cli_ent_hitbox | Displays the skeleton for the given entity(ies).<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | cl, cheat
 cli_ent_pivot | Displays the interpolated pivot for the given entity(ies).<br>	(y=up=green, z=forward=blue, x=left=red). <br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | cl, cheat
@@ -2429,13 +2712,14 @@ cli_ent_vcollide_wireframe | Displays the interpolated vcollide wireframe pm am 
 client_metrics_upload_batch_seconds |  | 300 | cl
 client_metrics_upload_immediate |  | cmd | cl
 clientport | If non-zero, client binds port to specific address.  Usually you should leave this blank to use a different random system-assigned port for each connection. | 0 | release
-closecaption | Enable close captioning. | false | cl, a, user
+closecaption | Enable close captioning. | false | cl, a, user, per_user
 cloth_debug_draw |  | 0 | cl
 cloth_filter_transform_stateless | Enable the new, stateless version of FilterTransform | false | 
 cloth_ground_plane_thickness | Raise ground by this much for all cloth that traces the ground; should be 0 ideally | 3 | 
+cloth_interp_rot |  | false | cl
 cloth_iv_dump |  | 4 | cl
 cloth_iv_store_back |  | false | cl, rep
-cloth_sim_on_tick |  | true | cl
+cloth_sim_on_tick |  | false | cl
 cloth_update |  | true | cl
 cmd | Forward command to server. | cmd | 
 cojob_lock_hold_warning_threshold_ms | How long in milliseconds before we warn about lock hold duration | 10000 | sv, cl, rep
@@ -2457,7 +2741,7 @@ console_test | Output text to test console | cmd |
 consoletool | Open a VConsole subtool. | cmd | norecord, release
 convars_echo_toggle_changes | Echo to the console changes caused by toggling. | true | 
 convert_steamid | Convert SteamID into multiple formats | cmd | cl
-cpu_level | CPU Level - Default: High | 2 | cl
+cpu_level | CPU Level - Default: High | 1 | cl
 cpuinfo | Print CPU configuration information | cmd | 
 cq_buffer_bloat_msecs_max | Server will not allow the client to buffer up more than N ms of commands. | 120 | rep, release
 cq_debug | Verbose command queue logging. | 0 | sv, rep
@@ -2477,46 +2761,47 @@ crash_error_job | Cause the engine to crash by Plat_FatalError on job thread (De
 crash_error_thread | Cause the engine to crash by Plat_FatalError on non-main thread (Debug!!) | cmd | cheat
 crash_job | Cause the engine to crash in a job thread (Debug!!) | cmd | cheat
 crash_thread | Cause the engine to crash in a brand new non-main thread (Debug!!) | cmd | cheat
-create_flare | Create a flare on the local player's team | cmd | sv
+create_explosion_damage | Explosion where you're looking, or at x y z, with a real explosion's physics force (unlike create_radius_damage). | cmd | sv, cheat
 create_orb | Create an orb on the local player's team | cmd | sv
 create_radius_damage | Causes radius damage where you're looking, at the passed in radius. | cmd | sv, cheat
+create_test_portal | creates a portal | cmd | sv
 creditsdone |  | cmd | sv
 crosshair_spread_scale |  | 3.6 | cl
+cs2_bomb_damage_showdebugwindow | CSGO/Bomb Damage | false | cl, a, rep, cheat
 csm_bias_override_0 |  | 1 | cheat
 csm_bias_override_1 |  | 1 | cheat
 csm_bias_override_2 |  | 1 | cheat
 csm_bias_override_3 |  | 1 | cheat
-csm_cascade0_override_dist |  | -1 | cheat
-csm_cascade1_override_dist |  | -1 | cheat
-csm_cascade2_override_dist |  | -1 | cheat
-csm_cascade3_override_dist |  | -1 | cheat
-csm_cascade_viewdir_shadow_bias_scale |  | 2 | cheat
-csm_max_dist_between_caster_and_receiver | default pushback | 15000 | cheat
-csm_max_num_cascades_override | Number of cascades in sunlight shadow | -1 | 
+csm_cascade0_override_dist |  | 1 | cheat
+csm_cascade1_override_dist |  | 1 | cheat
+csm_cascade2_override_dist |  | 1 | cheat
+csm_cascade3_override_dist |  | 1 | cheat
+csm_cascade_viewdir_shadow_bias_scale |  | 0.1 | cheat
+csm_max_dist_between_caster_and_receiver | default pushback | 0 | cheat
+csm_max_num_cascades_override | Number of cascades in sunlight shadow | 0 | 
 csm_max_shadow_dist_override |  | -1 | 
-csm_max_visible_dist |  | 7500 | cheat
-csm_res_override_0 |  | 0 | cheat
-csm_res_override_1 |  | 0 | cheat
-csm_res_override_2 |  | 0 | cheat
-csm_res_override_3 |  | 0 | cheat
+csm_max_visible_dist |  | 10 | cheat
+csm_res_override_0 |  | 1 | cheat
+csm_res_override_1 |  | 1 | cheat
+csm_res_override_2 |  | 1 | cheat
+csm_res_override_3 |  | 1 | cheat
 csm_shadow_worldview_align_x_to_u |  | false | cheat
 csm_shadow_worldview_shear_align_z_to_v |  | false | cheat
-csm_split_log_scalar |  | 0.85 | cheat
-csm_sst_max_visible_dist |  | 2000 | cheat
-csm_sst_pushback_distance | default pushback | 1500 | cheat
-csm_sst_shadow_focus_region_maxz |  | 2000 | cheat
+csm_sst_max_visible_dist |  | 10 | cheat
+csm_sst_pushback_distance | default pushback | 100 | cheat
+csm_sst_shadow_focus_region_caster_headroom |  | 8 | cl, cheat
+csm_sst_shadow_focus_region_maxz |  | -1000 | cheat
 csm_sst_shadow_focus_region_minz |  | -2000 | cheat
+csm_sst_vertical_depth_shear_enable |  | false | cheat
 csm_viewdir_shadow_bias |  | 0 | cheat
-csm_viewmodel_farz |  | 30 | cheat
-csm_viewmodel_max_shadow_dist |  | 21 | cheat
-csm_viewmodel_max_visible_dist |  | 1000 | cheat
-csm_viewmodel_nearz |  | 0.5 | cheat
+csm_viewmodel_max_shadow_dist |  | 1 | cheat
+csm_viewmodel_max_visible_dist |  | 100 | cheat
+csm_viewmodel_nearz |  | 0.1 | cheat
 csm_viewmodel_shadows |  | false | 
 ctadel_camera_clear_ops | Clear any camera operations that are active | cmd | cl
 cv_collect_assert_stack_for_gc | When enabled and collecting asserts for the GC, this will generate stacks for the asserts | false | sv, cl, rep
 cvarlist | Show the list of convars/concommands. | cmd | release
 cyclevar | Cycle through specified convar values. | cmd | norecord, release
-d3d_max_feature_level | Report the maximum D3D feature level available. | &lt;Not set&gt; | 
 damage_indicator_safe_area |  | 6 | cl
 dbghist_addline | Add a line to the debug history. Format: &lt;category id&gt; &lt;line&gt; | cmd | sv
 dbghist_dump | Dump the debug history to the console. Format: &lt;category id&gt;<br>    Categories:<br>     0: Entity I/O<br>     1: AI Decisions<br>     2: Scene Print<br>     3: Alyx Blind<br>     4: Log of damage done to player<br>	 5: Player Teleport<br>	 6: Blind Zombie Sounds<br>	 7: Player Continuous<br> | cmd | sv
@@ -2527,7 +2812,6 @@ deadlock_hero_debuts_seen |  |  | cl, a, release
 deadlock_mm_preference | What style of player do we want to try and match with in matchmaking | 1 | cl, a, release
 deadlock_steam_input_debug | Show Steam Input Error Messages and Spew in console | false | cl
 deadlock_steam_input_on_disc_manifest | Use local cfg\\steam_input_manifest.vdf as opposed to cloud manifest | false | cl
-debug_ai_heat_sensing |  | false | sv
 debug_async_data_panel_override_state | Force ALL async data panels to be in a specific state. -1:disabled, 0:failure, 1:loading, 2:success | -1 | cl
 debug_destructible_parts | Draw debug information for destructible parts. | false | sv, cl, rep
 debug_destructible_parts_enabled | Toggle enabling/disabling the destructible parts system for debug. | true | sv, cl, rep, cheat
@@ -2535,22 +2819,24 @@ debug_destructible_parts_radius_damage |  | false | sv, cl, rep
 debug_destructible_parts_ttl | How long the debug draws stick around for, unless they're per-tick. | 1 | sv, cl, rep
 debug_draw_enable |  | true | rep
 debug_error_model |  | false | sv, cl, rep, cheat
+debug_font_name | Debug font name | Courier New | 
 debug_font_size | Font size for the debug font | 14 | 
 debug_hltv | Print out hltv events | 0 | cl, rep, clientcmd_can_execute
 debug_overlay_fullposition |  | false | sv
 debug_physimpact |  | false | sv
 debug_radial_damage |  | false | sv, cl, rep, cheat
 debug_shared_random |  | false | sv, cl, rep
-debug_squad_surround |  | 0 | sv
 debug_takedamage_summaries |  | false | sv, cheat
 debug_visibility_monitor |  | 0 | sv, cheat
+debugoverlay_circle_verts |  | 24 | cheat
 debugoverlay_cycle_domain | Toggles visibility of the debug overlay system. | cmd | sv, cheat
 debugoverlay_cycle_state | Toggles visibility of the debug overlay system. | cmd | sv, cheat
 debugoverlay_dashboard | Makes the debug overlay dashboard visible. | cmd | sv, cheat
+debugoverlay_enable_dotted_dashed | Toggle the use of dotted/dashed debugoverlay lines to indicate source | true | cheat
 debugoverlay_force_respect_ttl | Force respect TTL even when clearing scopes | false | cheat
 debugoverlay_hide_imgui | Hides the overlay. | cmd | sv, cheat
 debugoverlay_show_text_outline | Toggle display of box around text | false | cheat
-debugoverlay_text_scale | Scale of the text used for 3d display | 1 | a, cheat
+debugoverlay_text_scale | Scale of the text used for 3d display, but see also debug_font_{size,name} | 1 | a, cheat
 debugoverlay_toggle | Toggles visibility of the debug overlay system. | cmd | sv, cheat
 decalfrequency |  | 10 | sv, nf
 default_fov |  | 70 | cl, cheat
@@ -2592,6 +2878,7 @@ disable_dynamic_prop_loading | If non-zero when a map loads, dynamic props won't
 disable_priority_boost | Disable focus based priority boost | cmd | 
 disable_source_soundscape_trace | Bypasses lookup of soundscapes for indvidual audio sources when enabled. | true | sv
 disconnect | Disconnect from server | cmd | release
+display_convars_onscreen_in_big_text | Display the convars on the screen in big text. Use semicolons to separate multiple convars |  | sv, cl, rep, cheat
 display_game_events |  | false | sv, cheat
 dlight_debug | Creates a dlight in front of the player | cmd | cl, cheat
 dota_enable_spatial_audio | Flag to enable spatial audio in Dota 2. | false | release
@@ -2610,7 +2897,7 @@ dsp_off |  | false | cheat
 dsp_vol_2ch |  | 1 | demo
 dsp_vol_4ch |  | 0.5 | demo
 dsp_vol_5ch |  | 0.5 | demo
-dsp_volume |  | 0.8 | a, demo
+dsp_volume |  | 0 | a, demo
 dump_audio_input |  | false | 
 dump_entity_report | List all client-side entities in the scene | cmd | cl, cheat
 dump_full_caches | &lt;type&gt; Dumps the contents of the currently subscribed caches of a particular type | cmd | cl, cheat
@@ -2633,21 +2920,21 @@ dumpstringtable | Usage:  dumpstringtable &lt;tablename \|all&gt; &lt;sv \| cl&g
 echo | Echo text to console. | cmd | server_can_execute
 echoln | Echo the command arguments on the console | cmd | release
 econ_show_items_with_tag | Lists the item definitions that have a specified tag. | cmd | cl
-enable_boneflex |  | true | cl, a
+enable_boneflex |  | false | cl, a
 enable_priority_boost | Disable focus based priority boost | cmd | 
 endmovie | Stop recording movie frames. | cmd | norecord
-engine_accurate_input_processing_delta_time | When true, elapsed time given to the input processing will be the time elapsed since the last input processing. This is only relevant when input is processed multiple times per frame ( i.e. multiple ticks per frame) | false | 
-engine_allow_multiple_simulates_per_frame | When the client is catching up in low frame rate situations, should we run client simulate more than once a frame? | false | 
+engine_accurate_input_processing_delta_time | When true, elapsed time given to the input processing will be the time elapsed since the last input processing. This is only relevant when input is processed multiple times per frame ( i.e. multiple ticks per frame) | true | 
+engine_allow_multiple_simulates_per_frame | When the client is catching up in low frame rate situations, should we run client simulate more than once a frame? | true | 
 engine_allow_multiple_ticks_per_frame | When the client is catching up in low frame rate situations, should we run tick more than once a frame? | true | 
 engine_client_tick_pad_enable |  | false | 
 engine_cpu_info_extended | CPU the engine is running on. |  | 
 engine_frametime_amnesty_debug | Enable logging about events that disable frame time warnings | false | 
 engine_frametime_print_report | Print a performance report from the current data in the vprof 'lite' profiler | cmd | 
 engine_frametime_warnings_enable | Enable framerate-related warnings, such as sv_long_frame_ms.  Disabling warnings is useful when running in situations such a debug where a slow frame rate is expected | true | 
-engine_low_latency_sleep_after_client_tick | When r_low_latency is enabled, this moves the low latency sleep on tick frames to happen after client simulation. | false | release
+engine_low_latency_sleep_after_client_tick | When r_low_latency is enabled, this moves the low latency sleep on tick frames to happen after client simulation. | true | release
 engine_max_resource_system_update_time |  | 5 | 
-engine_max_ticks_to_simulate | Max number of ticks to simulate per frame, after which simulation will start to slow down compared to real time. | -1 | 
-engine_no_focus_sleep |  | 20 | a
+engine_max_ticks_to_simulate | Max number of ticks to simulate per frame, after which simulation will start to slow down compared to real time. | 33 | 
+engine_no_focus_sleep |  | 0 | a
 engine_no_focus_sleep_vconsole_suppress | When VConsole is in the foreground, don't trigger engine_no_focus_sleep behavior | true | 
 engine_ostype | OS type the engine is running on. |  | 
 engine_phys_debug_limit_ticks |  | true | 
@@ -2655,8 +2942,6 @@ engine_platform_name_extended | Platform the engine is running on. |  |
 engine_relaunch_app_before_exiting | Use this to tell Steam to relaunch the app right after existing | false | release
 engine_render_only |  | false | 
 engine_rendersystem_init | Rendersystem option requested (changing this does not change the rendersystem). |  | 
-engine_rendersystem_meets_min_dx_110 | Rendersystem meets min DX110 feature level (changing this does not change the shader model). | Unknown | 
-engine_rendersystem_meets_min_dx_110_simple | Rendersystem meets min DX110 feature level (changing this does not change the shader model). | Unknown | 
 engine_rendersystem_shader_model | Rendersystem shader model in use (changing this does not change the shader model). | 0 | 
 engine_rendersystem_used | Rendersystem option in use (changing this does not change the rendersystem). |  | 
 engine_show_frame_dispatch | show frame dispatch names. | false | 
@@ -2672,8 +2957,6 @@ ent_actornames_fontsize | ent_actornames font size | 24 | sv, cl, rep, cheat
 ent_animgraph2_open_graph | Opens the graph and starts live debugging the AG2 graph for a given entity<br>	Arguments: entityName<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | sv, cheat
 ent_animgraph2_record | Starts live debugging & recording the AG2 graph for a given entity<br>	Arguments: entityName<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | sv, cheat
 ent_animgraph_debug | Displays debug draws about the given entity(ies) animgraph<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | sv, cheat
-ent_animgraph_record | Toggles recording of animgraph replay of the given entity(s)<br>	Arguments: entityName automaticallyOpenInAnimgraphEditor<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | sv, cheat
-ent_animgraph_setvar | Sets a variable on the animgraph of the given entity(s)<br>	Arguments:   &lt;varname&gt;=&lt;value&gt;	&lt;{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at}&gt; | cmd | sv, cheat
 ent_attachment_filter_substrings | If an attachment's name has any of the given substrings in it, it will be displayed. Substrings can be delimited by the ',' or '\|' character. |  | sv, cheat
 ent_attachments | Displays the attachment points on an entity.<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | sv, cheat
 ent_autoaim | Displays the entity's autoaim radius.<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | sv, cheat
@@ -2690,14 +2973,17 @@ ent_debug_draw_thinkers |  | false | sv, cl, rep
 ent_debug_origin_changes | turn on, off, or toggle origin changes on server for entity by index | cmd | sv
 ent_find | Find and list all entities with classnames or targetnames that contain the specified substrings.<br>Format: find_ent &lt;substring&gt;<br> | cmd | sv, cheat
 ent_find_index | Display data for entity matching specified index.<br>Format: find_ent_index &lt;index&gt;<br> | cmd | sv, cheat
-ent_fire | Usage:<br>   ent_fire &lt;target&gt; \[action\] \[value\] \[delay\]<br> | cmd | sv, cheat
-ent_fire_output | Usage:<br>   ent_fire_output &lt;target&gt; \[output name\] \[value\] \[delay\]<br> | cmd | sv, cheat
+ent_fire | Usage:<br>   ent_fire &lt;target&gt; \[action\] \[value0\] \[value1\] ... \[valueN\]<br> | cmd | sv, cheat
+ent_fire_delay | Usage:<br>   ent_fire_delay &lt;target&gt; \[action\] \[value0\] \[value1\] ... \[valueN\] \[delay\]<br> | cmd | sv, cheat
+ent_fire_output | Usage:<br>   ent_fire_output &lt;target&gt; \[output name\] \[value0\] \[value1\] ... \[valueN\]<br> | cmd | sv, cheat
+ent_fire_output_delay | Usage:<br>   ent_fire_output_delay &lt;target&gt; \[output name\] \[value0\] \[value1\] ... \[valueN\] \[delay\]<br> | cmd | sv, cheat
 ent_gib | Gibs the given entity(s)<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | sv, cheat
 ent_grab | grabs the object in front of the player. Options: -loose -multiple -toggle | cmd | sv, cheat
 ent_hierarchy | Prints the entity hierarchy tree rooted at the specified ent(s) | cmd | sv, cheat
 ent_hitbox | Displays the hitboxes for the given entity(ies).<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | sv, cheat
 ent_info | Usage:<br>   ent_info &lt;class name&gt;<br> | cmd | sv, cheat
 ent_joint_axis_size |  | 4 | sv
+ent_joint_filter_name | If a joint's entire name matches (case insensitive), it will be displayed. |  | sv, cheat
 ent_joint_filter_substrings | If a joint's name has any of the given substrings in it, it will be displayed. Substrings can be delimited by the ',' or '\|' character. |  | sv, cheat
 ent_joint_lines | Draw a line between a rendered joint and its parent. | true | sv, cheat
 ent_joint_names | Draw the name of a rendered joint. | true | sv, cheat
@@ -2732,7 +3018,6 @@ ent_showonlyattachment |  |  | sv, cheat
 ent_skeleton | Displays the skeleton for the given entity(ies).<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | sv, cheat
 ent_skeleton_duration | Duration of ent_skeleton display | 0 | sv, cl, rep, cheat
 ent_skeleton_only_ik_joints |  | false | sv
-ent_skeleton_snapshot |  | false | sv
 ent_spew_derived_classes | Prints out all entity classes which inherit from a specified base class | cmd | sv
 ent_steadystate_batchsize | Max number of entities to transmit to player | 20 | sv
 ent_steadystate_delay | Time in seconds without network state changes until an entity is considered for trickle updates | 5 | sv
@@ -2757,13 +3042,22 @@ ent_viewentity | Selects the picked entity as the view entity | cmd | sv
 ent_viewoffset | Displays the eye position for the given entity(ies) in red.<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | sv, cheat
 ent_viewpunch | Used to debug ViewPunch | cmd | sv
 ent_visibility_traces | Displays visibility traces for the given entity<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | sv, cheat
+entity_debug_snapshot_enabled |  | true | sv, cl, rep, cheat
 entity_log_load_unserialize | Output unserialization of entities on map load. 0 - off, 1 - client/server, 2 - server, 3 - client | 0 | sv, cl, rep, cheat
 entity_lump_list | List all known entity lumps | cmd | 
 entity_lump_spew | Dump the contents of an entity lump | cmd | 
 entityreport | Reports all extant entities. Optional 2nd arg is a substring of a classname that the list will be filtered by. | cmd | sv
 entitysummary | Summarizes (by class) all extant entities. Optional 2nd arg is a substring of a classname that the list will be filtered by. | cmd | sv
 ents | List server entities, sorted by spawn group | cmd | sv
+env_shake_debug | Draw debug info for active env_shakes: query radius, affected physics bodies/particles, and the forces/velocity deltas applied to them. | false | sv, rep
 escape | Escape key pressed. | cmd | release, clientcmd_can_execute
+event_grant_points | Reset all state on your account relating to the given event id | cmd | cl
+event_override_clear | &lt;event id&gt; - Clear any clientside overrides for an event | cmd | cl
+event_override_owned | &lt;event id&gt; \[owned\] - Set a clientside override of whether an event is owned. -1 for not owned, 1 for owned, 0 for no override. | cmd | cl
+event_override_points | &lt;event id&gt; \[points\] - Set a clientside override of the point value for an event | cmd | cl
+event_override_premium_points | &lt;event id&gt; \[premium points\] - Set a clientside override of the premium points for an event. -1 to remove the override. | cmd | cl
+event_reload_schema |  | cmd | sv, cl
+event_reset_state | Reset all state on your account relating to the given event id | cmd | cl
 exec | Execute a cfg file | cmd | norecord, release
 exec_async | Execute a cfg file over time | cmd | cheat, norecord
 execifexists | Execute a cfg file if file exists | cmd | norecord, release
@@ -2790,15 +3084,9 @@ firstperson | Switch to firstperson camera. | cmd | cl, release, per_tick
 fish_debug | Show debug info for fish | false | cl, cheat
 fish_dormant | Turns off interactive fish behavior. Fish become immobile and unresponsive. | false | sv, rep, cheat
 fog_color |  | -1 -1 -1 | cl, cheat
-fog_colorskybox |  | -1 -1 -1 | cl, cheat
-fog_enable | Enable fog | true | cl, cheat
-fog_enableskybox |  | true | cl, cheat
+fog_enable | Enable fog | false | cl, cheat
 fog_end |  | -1 | cl, cheat
-fog_endskybox |  | -1 | cl, cheat
 fog_hdrcolorscale |  | -1 | cl, cheat
-fog_hdrcolorscaleskybox |  | -1 | cl, cheat
-fog_maxdensity |  | -1 | cl, cheat
-fog_maxdensityskybox |  | -1 | cl, cheat
 fog_override | Overrides the map's fog settings (-1 populates fog_ vars with map's values) | 0 | cl, cheat
 fog_override_color | Sets the fog color override | cmd | cheat
 fog_override_enable | Use fog_override convars instead of world fog data | false | cheat
@@ -2807,7 +3095,6 @@ fog_override_exponent |  | 2 | cheat
 fog_override_max_density |  | 0.4 | cheat
 fog_override_start |  | 1000 | cheat
 fog_start |  | -1 | cl, cheat
-fog_startskybox |  | -1 | cl, cheat
 fog_volume_debug | If enabled, prints diagnostic information about the current fog volume | false | sv
 font_show_glyph_miss |  | false | 
 footstep_debug |  | false | sv, cl, rep
@@ -2815,13 +3102,11 @@ footstep_force_volume |  | -1 | sv, cl, rep
 force_assert | Fire an assertion failure | cmd | 
 force_fatal_error | Fire a fatal error | cmd | 
 force_floating_point_exceptions | Enable floating point exceptions to find bugs | cmd | 
-force_hibernate | Force toggle hibernation state | cmd | 
 fov_desired | Sets the base field-of-view. | 75 | cl, a, user
 fp_trace | Toggle field path tracing to file<br> | cmd | 
-fps_max | Frame rate limiter.  0=no limit.  Does not apply to dedicated server. | 400 | a, release
+fps_max | Frame rate limiter.  0=no limit.  Does not apply to dedicated server. | 0 | a, release
 fps_max_tools | Additional frame rate limit while in tools mode and a window other than the game window has focus. Note that fps_max still applies, this only allows the maximum frame rate for tools mode to be lower. 0=no tools specific limit. | 120 | a
 fps_max_ui | Frame rate limiter while the game UI is displayed.  0=no limit.  Does not apply to dedicated server. | 120 | a
-free_pass_peek_debug |  | false | sv
 freecamera_accel | Tweak this parameter to adjust Free Camera movement acceleration. | 5 | cl
 freecamera_fog_end | Fog end for Free Camera. | 2500 | cl
 freecamera_fog_start | Fog start for Free Camera. | 1800 | cl
@@ -2838,29 +3123,38 @@ fs_report_long_reads | 0:Off, 1:All (for tracking accumulated duplicate read tim
 fs_report_sync_opens | 0:Off, 1:Always, 2:Not during load | 0 | release
 fs_spew_readfieldlist | index &lt;threshold bytes&gt;: spew changes to ent index, optionally only spewing if update is &gt; than threshold bytes | cmd | cheat
 fs_warning_mode | 0:Off, 1:Warn main thread, 2:Warn other threads | 0 | 
-func_break_max_pieces |  | 15 | sv, a, rep
+func_break_max_pieces |  | 1 | sv, a, rep
 func_break_reduction_factor |  | 0.5 | sv
 func_breakdmg_bullet |  | 0.5 | sv
 func_breakdmg_club |  | 1.5 | sv
 func_breakdmg_explosive |  | 1.25 | sv
 func_mover_async_movable_navmesh_updates |  | true | sv
+func_mover_count |  | cmd | sv, cheat
 func_mover_debug |  | false | sv
 func_mover_debug_all |  | false | sv
 func_mover_debug_follower |  | false | sv
+func_mover_debug_parallel |  | false | sv
+func_mover_debug_showtext |  | false | sv
 func_mover_debug_verbose |  | false | sv
+func_mover_disable_movement |  | false | sv
+func_mover_enable_debug_all |  | cmd | sv, cheat
+func_mover_force_transition_start_direction |  | false | sv
 func_mover_get_speed_override |  | 0 | sv
 func_mover_imgui_log_count |  | 30 | sv
+func_mover_run_parallel |  | true | sv
+func_mover_step_movement |  | cmd | sv, cheat
 func_rotator_debug |  | false | sv
-fx_drawmetalspark | Draw metal spark effects. | true | cl
+func_rotator_run_parallel |  | true | sv
+fx_drawmetalspark | Draw metal spark effects. | false | cl
 g_debug_angularsensor |  | false | sv, cheat
 g_debug_constraint_sounds | Enable debug printing about constraint sounds. | false | sv, cheat
 g_debug_doors |  | false | sv
 g_debug_ragdoll_visualize |  | false | cl, cheat
 g_debug_transitions | Set to 1 and restart the map to be warned if the map has no trigger_transition volumes. Set to 2 to see a dump of all entities & associated results during a transition. | 0 | sv, cheat
 g_ragdoll_fadespeed |  | 600 | cl
-g_ragdoll_important_maxcount |  | 2 | sv, cl, rep
+g_ragdoll_important_maxcount |  | 1 | sv, cl, rep
 g_ragdoll_lvfadespeed |  | 100 | cl
-g_ragdoll_maxcount |  | 5 | sv, cl, rep
+g_ragdoll_maxcount |  | 1 | sv, cl, rep
 game_particle_manager_dump_requeue | Dump contents of particle manager requeue | cmd | cl
 game_particle_manager_list_active | Dump counts of active particles | cmd | cl
 game_particle_manager_requeue_messages |  | true | cl
@@ -2884,7 +3178,6 @@ gameui_allowescapetoshow | Escape key allowed to show game UI | cmd | release
 gameui_hide | Hides the game UI | cmd | release
 gameui_preventescape | Escape key doesn't hide game UI | cmd | release
 gameui_preventescapetoshow | Escape key doesn't show game UI | cmd | release
-gc_secret_key | Secret key for authenticating with the GC<br> |  | sv, prot
 generate_minidump_comment | Generate a minidump comment and spew the results to the console | cmd | 
 generate_null_container | Generated a nulled out container. | cmd | 
 generate_trash_synth | Args: \[Asset directory Path\] | cmd | 
@@ -2899,8 +3192,8 @@ gl_clear |  | true | cl
 global_set | global_set &lt;globalname&gt; &lt;state&gt;: Sets the state of the given env_global (0 = OFF, 1 = ON, 2 = DEAD). | cmd | sv, cheat
 glow_use_tolerance |  | 0.85 | cl, rep, cheat
 god | Toggle by default, or 0 to disable and 1 to enable. Player becomes invulnerable. | cmd | sv, cheat
-gpu_level | GPU Level - Default: High | 3 | cl
-gpu_mem_level | Memory Level - Default: High | 2 | cl
+gpu_level | GPU Level - Default: High | 1 | cl
+gpu_mem_level | Memory Level - Default: High | 1 | cl
 graphcontroller_dumpparams | Print all anim graph parameters for the specified entity.<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | sv
 grep | grep line for pattern, print out matching lines only | cmd | release
 groundlist | Display ground entity list &lt;index&gt; | cmd | sv, cheat
@@ -2910,7 +3203,7 @@ hairsim_force_fixed_timestep |  | true | cheat
 hairsim_reset |  | false | cheat
 healme | Heals the player.<br>	Arguments: &lt;health to gain&gt; | cmd | sv, cheat
 help | Find help about a convar/concommand. | cmd | release
-hero_data_inspect | Citadel/Hero Stats | false | sv, cl, a, rep, cheat
+hero_data_inspect | Citadel/Hero Stats | false | cl, a, rep, cheat
 hide_party_code | When set, this will hide the party code in the client | false | cl, a
 hideconsole | Hide the console. | cmd | norecord, release
 hideout_search_key | Allows specifying a search key for hideout server allocation (dev only) |  | cl
@@ -2933,7 +3226,7 @@ hud_damagemeter |  | false | cl, cheat
 hud_damagemeter_ooctimer | How many seconds after the last damage event before we consider the player out of combat. | 3 | cl
 hud_damagemeter_report | Display end-of-combat DPS result (from first damage even to last before OOC timer hit). | true | cl
 hud_fastswitch |  | 0 | cl, a
-hud_free_cursor | If -1 use the hud default, otherwise 0 is disabled, 1 is enabled | -1 | cl, release
+hud_free_cursor | 0 is disabled, 1 is enabled | 0 | cl, release
 hud_free_cursor_toggle | Toggles free cursor convar. | cmd | cl, release
 hud_minimap_spectator_fow_team_view_amber | While a spectator, view team amber's minimap view  | cmd | cl, release
 hud_minimap_spectator_fow_team_view_both_teams | While a spectator, view both teams' minimap view  | cmd | cl, release
@@ -2941,10 +3234,10 @@ hud_minimap_spectator_fow_team_view_sapphire | While a spectator, view team sapp
 hud_minimap_spectator_fow_team_view_target_team | While a spectator and viewing a player, view team their minimap view  | cmd | cl, release
 hud_mouselook_always |  | false | cl
 hud_reloadscheme | Reloads hud layout and animation scripts. | cmd | cl
-hullivr_edge_merge_tan | Should we try to straighten two faces connected to this edge? (tangent) | 0.02 | sv, rep
-hullivr_faceisland_merge_disp | Should we straighten face island if the displacement is this much? (inches) | 0 | sv, rep
-hullivr_faceisland_merge_tan | Should we try to straighten an island of faces deviating from their average normal (tangent)? | 0.04 | sv, rep
-hullivr_version |  | 3 | sv, rep
+hullivr_edge_merge_tan | Should we try to straighten two faces connected to this edge? (tangent) | 0.02 | sv, cl, rep
+hullivr_faceisland_merge_disp | Should we straighten face island if the displacement is this much? (inches) | 0 | sv, cl, rep
+hullivr_faceisland_merge_tan | Should we try to straighten an island of faces deviating from their average normal (tangent)? | 0.04 | sv, cl, rep
+hullivr_version |  | 3 | sv, cl, rep
 hurtme | Hurts the player.<br>	Arguments: &lt;health to lose&gt; | cmd | sv, cheat
 hurtthem | Hurts the enemy in front of you.<br>	Arguments: &lt;health to lose&gt; | cmd | sv, cheat
 ic | interp entity count<br> | cmd | cl
@@ -2966,12 +3259,12 @@ ik_debug_perlin_solver |  | false | sv, cl, rep
 ik_debug_planetilt |  | 0 | rep
 ik_debug_planetilt_axis_length |  | 20 | rep
 ik_debug_targets |  | false | rep
-ik_enable | Enable IK. | true | rep, cheat
-ik_fabrik_align_chain |  | true | rep
+ik_enable | Enable IK. | false | rep, cheat
+ik_fabrik_align_chain |  | false | rep
 ik_fabrik_backwards_enabled |  | true | rep
 ik_fabrik_forwards_enabled |  | true | rep
 ik_fabrik_override_num_iterations |  | -1 | rep
-ik_final_fixup_enable |  | true | rep
+ik_final_fixup_enable |  | false | rep
 ik_hinge_debug_bone_index |  | -1 | sv, cl, rep, cheat
 ik_planetilt_enable |  | true | rep
 ime_hkl_info | Spew IME HKL info. | cmd | norecord
@@ -3011,7 +3304,6 @@ instant_replay | Enable instant replay recording. | true |
 instant_replay_goto_tick | Goto a direct timestamp of the replay | cmd | 
 instant_replay_goto_tick_relative | Goto a direct timestamp of the replay | cmd | 
 instant_replay_history_limit | Maximum amount of minutes to save history (0 is unlimited). | 120 | 
-instant_replay_history_limit_low | Maximum amount of minutes to save history on low memory (32 bit) systems (0 is unlimited). | 10 | 
 instant_replay_live | If in replay, jumps back to live | cmd | 
 instant_replay_pause | Pauses instant replay. | cmd | 
 instant_replay_resume | Resumes instant replay. | cmd | 
@@ -3020,6 +3312,8 @@ instant_replay_skip_live | Number of seconds to skip back to instant replay from
 instant_replay_timescale | Sets instant replay speed. | cmd | 
 instant_replay_togglepause | Toggles instant replay. | cmd | 
 interesting_events_draw_debug | When enabled, draws a sphere representing active events | false | sv, cheat
+internal_bot_test_private | \[difficulty = 1-4\] Starts a private internal bot test | cmd | cl
+internal_bot_test_queue_mm | Queues for internal bot test using matchmaking | cmd | cl
 ip | Overrides IP for multihomed hosts |  | release
 item_debug |  | false | sv, cl, rep
 iv_debug | Spew interpolated var info for entity. | cmd | cl
@@ -3113,27 +3407,27 @@ labelled_debug_helper_scale |  | 1 | sv, cl, rep, cheat
 labelled_debug_helper_show_position |  | false | sv, cl, rep, cheat
 labelled_debug_helper_show_text |  | true | sv, cl, rep, cheat
 labelled_debug_helper_skeleton_show_bone_names |  | true | sv, cl, rep, cheat
-last_viewed_announce_id | Tracks the last announcement ID viewed so we can know when new announcements are available | -1 | cl, a
 lb_allow_shadow_rotation | SceneSystem/LightBinner/Shadow Rotation | true | cheat
-lb_allow_time_sliced_shadow_map_rendering | Allow time-sliced shadow buffer rendering when enabled via gameinfo.gi | true | 
-lb_barnlight_shadow_use_precomputed_vis |  | true | 
-lb_barnlight_shadowmap_scale | Scale for computed barnlight shadowmap size | 1 | release
+lb_barnlight_shadow_use_precomputed_vis |  | false | 
+lb_barnlight_shadowmap_scale | Scale for computed barnlight shadowmap size | 0.001 | release
 lb_bin_slices |  | 8192 | 
 lb_convert_to_barn_lights_falloff_match_point |  | 0.15 | 
-lb_csm_cascade_size_override | Override width/height of individual cascades in the CSM | -1 | 
-lb_csm_cross_fade_override | Override CSM cross fade amount | -1 | 
-lb_csm_distance_fade_override | Override CSM distance fade | -1 | 
-lb_csm_draw_alpha_tested |  | true | 
-lb_csm_draw_translucent |  | true | 
+lb_csm_cascade_size_override | Override width/height of individual cascades in the CSM | 0 | 
+lb_csm_cross_fade_override | Override CSM cross fade amount | 0 | 
+lb_csm_distance_fade_override | Override CSM distance fade | 0 | 
+lb_csm_draw_alpha_tested |  | false | 
+lb_csm_draw_translucent |  | false | 
 lb_csm_fov_override |  | -1 | cheat
 lb_csm_override_bulb_radius | Override bulb radius for CSM | -1 | 
-lb_csm_override_staticgeo_cascades | Override Cascades that will render static objects with lb_csm_override_staticgeo_cascades_value | false | 
+lb_csm_override_staticgeo_cascades | Override Cascades that will render static objects with lb_csm_override_staticgeo_cascades_value | true | 
 lb_csm_override_staticgeo_cascades_animated_verts | If lb_csm_override_staticgeo_cascades, ensure only objects without animated verts, i.e. SCENEOBJECTFLAG_CAN_RENDER_INTO_SST flag will be excluded (as opposed to all static objects). | true | 
-lb_csm_override_staticgeo_cascades_value | If lb_csm_override_staticgeo_cascades, override value used to determine which cascades render static objects | -1 | 
-lb_csm_receiver_plane_depth_bias | Shader depth bias applied to shadow receiver (Note this conflicts with renderstate depth bias, both now default to 0) | 1.526e-05 | 
-lb_csm_receiver_plane_depth_bias_transmissive_backface | Depth bias applied to shadow receiver for transmissive backface geo (based on renderstate depthbias being 0) | 0.00015 | 
-lb_cubemap_normalization_max |  | 32 | 
-lb_cubemap_normalization_roughness_begin |  | 0.1 | 
+lb_csm_override_staticgeo_cascades_value | If lb_csm_override_staticgeo_cascades, override value used to determine which cascades render static objects | 1 | 
+lb_csm_receiver_plane_depth_bias | Shader depth bias applied to shadow receiver (Note this conflicts with renderstate depth bias, both now default to 0) | 2e-05 | 
+lb_csm_receiver_plane_depth_bias_transmissive_backface | Depth bias applied to shadow receiver for transmissive backface geo (based on renderstate depthbias being 0) | 0.0002 | 
+lb_cubemap_normalization_max |  | 1 | 
+lb_cubemap_normalization_roughness_begin |  | 0.01 | 
+lb_cull_offscreen_bounce_light_shadows | Skip shadowmaps for offscreen dynamic bounce lights that indirect diffuse isn't going to sample | true | cheat
+lb_cull_onscreen_bounce_light_shadows | Skip shadowmaps for *onscreen* dynamic bounce lights which will probably not be visible | false | cheat
 lb_debug_light_bounds | SceneSystem/LightBinner/Debug Light Bounds | false | cheat
 lb_debug_shadow_atlas | SceneSystem/LightBinner/Debug Shadow Atlas | false | cheat
 lb_debug_shadowtile_atlas | SceneSystem/LightBinner/Debug ShadowTile Atlas | false | cheat
@@ -3146,41 +3440,45 @@ lb_debug_visualize_shadowed_light_details |  | false | cheat
 lb_debug_visualize_shadowed_lights | SceneSystem/LightBinner/Debug Visualize Shadowed Lights | 0 | cheat
 lb_dynamic_shadow_penumbra | Adjust shadow penumbra based on light size | true | 
 lb_dynamic_shadow_resolution | Dynamically adjust shadow resolution | true | 
-lb_dynamic_shadow_resolution_base | Base resolution for dynamic shadowmap sizing.  Shadowmap size of a screen sized light | 1024 | 
-lb_dynamic_shadow_resolution_base_cmp_shadowmapsize | take min of lb_dynamic_shadow_resolution and barnlight shadowmapsize as base shadowmapsize | false | cheat
+lb_dynamic_shadow_resolution_base | Base resolution for dynamic shadowmap sizing.  Shadowmap size of a screen sized light | 64 | 
+lb_dynamic_shadow_resolution_base_cmp_shadowmapsize | take min of lb_dynamic_shadow_resolution and barnlight shadowmapsize as base shadowmapsize | true | 
 lb_dynamic_shadow_resolution_delay | Update delay for shadow size | 0.85 | 
 lb_dynamic_shadow_resolution_hysteresis | Update hysteresis for shadow size | 0.33 | 
-lb_dynamic_shadow_resolution_quantization | Quantization of dynamically computed shadow size | 64 | 
+lb_dynamic_shadow_resolution_quantization | Quantization of dynamically computed shadow size | 32 | 
 lb_enable_baked_shadows | SceneSystem/LightBinner/Enable Baked Shadows | true | cheat
-lb_enable_binning | SceneSystem/LightBinner/Enable Binning | true | 
+lb_enable_binning | SceneSystem/LightBinner/Enable Binning | false | 
 lb_enable_dynamic_lights | Allows rendering dynamic lights | true | cheat
 lb_enable_envmaps | SceneSystem/LightBinner/Enable EnvMaps | true | cheat
 lb_enable_fog_mixed_shadows | SceneSystem/LightBinner/Enable Fog Mixed Shadows | true | cheat
 lb_enable_lights | SceneSystem/LightBinner/Enable Lights | true | cheat
-lb_enable_newsum | SceneSystem/LightBinner/Enable New Sum | true | cheat
-lb_enable_shadow_casting | Allow stationary/dynamic lights to cast shadows. | true | 
+lb_enable_shadow_casting | Allow stationary/dynamic lights to cast shadows. | false | 
 lb_enable_stationary_lights | Allows rendering stationary/mixed lights | true | cheat
 lb_enable_sunlight | SceneSystem/LightBinner/Enable Sunlight | true | cheat
-lb_low_quality_shader_fade_region_rescale | For envmaps in low quality shader mode, how much of the fade region to scale the envmap box by. | 0 | cheat
+lb_low_quality_shader_fade_region_rescale | For envmaps in low quality shader mode, how much of the fade region to scale the envmap box by. | 0 | 
 lb_max_visible_barn_lights_override | Override maximum visible barn lights | -1 | cheat
 lb_max_visible_envmaps_override | Override maximum visible envmaps | -1 | cheat
 lb_mixed_shadows | SceneSystem/LightBinner/Enable Mixed Shadows | true | cheat
 lb_override_barn_light_fade_sizes |  | 0.05 0.025 | cheat
 lb_override_barn_light_fade_sizes_enable |  | false | cheat
 lb_override_barn_light_shadow_fade_sizes |  | 0.1 0.05 | cheat
-lb_precomputed_shadowmap_depth_bias |  | 0.0001 | 
-lb_precomputed_shadowmap_enable |  | true | 
+lb_precomputed_shadowmap_depth_bias |  | 1 | 
+lb_precomputed_shadowmap_depth_bias_perspective | Depth bias for perspective precomputed shadowmaps, as a fraction of the distance to the light | 0.01 | 
+lb_precomputed_shadowmap_enable |  | false | 
 lb_shadow_map_cull_empty_mixed | Don't render shadows for mixed shadowmaps with no dynamics objects in view | false | cheat
 lb_shadow_map_culling |  | true | cheat
-lb_shadow_texture_height_override | Override height of shadow atlas texture | -1 | 
-lb_shadow_texture_width_override | Override width of shadow atlas texture | -1 | 
+lb_shadow_texture_height_override | Override height of shadow atlas texture | 1 | 
+lb_shadow_texture_width_override | Override width of shadow atlas texture | 1 | 
 lb_ssss_importance_sample |  | false | 
-lb_ssss_samples | Subsurface sample count | 11 | 
-lb_sun_csm_size_cull_threshold_texels | Size, in texels, where we will cull an object in the shadowmap | 10 | 
+lb_ssss_samples | Subsurface sample count | 0 | 
+lb_sun_csm_size_cull_threshold_texels | Size, in texels, where we will cull an object in the shadowmap | 30 | 
 lb_tile_pixels |  | 8 | 
+lb_time_sliced_shadow_map_reallocation_age | Age of cached allocation to be considered for re-allocation | 0.7 | 
+lb_time_sliced_shadow_map_reallocation_pct | Likelyhood we'll re-allocate a timesliced shadowmap (to try to improve packing) | 0.2 | 
+lb_time_sliced_shadow_map_rendering_enable | Allow time-sliced shadow buffer rendering when enabled via gameinfo.gi | true | 
 lb_timesliced_shadows_dynamic_size |  | true | 
 lb_use_ellipsoid_bounds |  | true | cheat
 lb_use_illumination_silhouette | SceneSystem/LightBinner/Use Illumination Bounds | true | cheat
+lb_use_illumination_volume | Disables use of illumination volume (may cause precomputed lighting errors) | true | cheat
 leaderboards_cache_duration |  | 600 | cl
 legacy_models_supported | Whether to support legacy (pre-modeldoc) models | true | 
 lifesteal_ability_non_hero_multiplier |  | 0.4 | sv, rep
@@ -3188,8 +3486,6 @@ lifesteal_bullet_non_hero_multiplier |  | 0.6 | sv, rep
 lightbinner_precompute |  | cmd | 
 lightbinner_test_computespheresilhouette |  | cmd | 
 lightbinner_test_computesumsilhouette |  | cmd | 
-lightquery_debug_direct_lighting |  | true | sv, cl, rep, cheat
-lightquery_debug_indirect_lighting |  | true | sv, cl, rep, cheat
 listRecentNPCSpeech | Displays a list of the last 5 lines of speech from NPCs. | cmd | sv, norecord
 listdemo | List demo file contents. | cmd | release
 listid | Lists banned users. | cmd | 
@@ -3203,6 +3499,7 @@ log_dumpchannels | Dumps information about all logging channels. | cmd | norecor
 log_flags | Set the flags on a logging channel. | cmd | norecord, release
 log_level | Set the spew level of a logging channel. | cmd | norecord, release
 log_verbosity | Set the verbosity of a logging channel. | cmd | norecord, release
+logic_entity_analyzer_debug |  | false | sv, rep, cheat
 logic_npc_counter_debug |  | false | sv, rep, cheat
 loop_dump | Print the listeners of the current loop mode | cmd | 
 lrucache_flush | Flushes the specified cache | cmd | 
@@ -3225,16 +3522,14 @@ markup_group_spew | Spew all current markup groups and their members | cmd | sv,
 markup_volume_ref_cone_angle |  | 135 | sv
 mat_assert_on_error_shader_use |  | false | 
 mat_assert_on_shader_use | Assert on shader used based on substring of shader name | cmd | 
-mat_async_shader_load |  | false | release
 mat_cache_and_skip_commandbuffers |  | true | 
 mat_cache_renderablepasses |  | true | 
 mat_clearshadercache | Clears the shader cache used for dynamic shader compile. | cmd | 
-mat_colcorrection_disableentities | Disable map color-correction entities | false | cl
+mat_colcorrection_disableentities | Disable map color-correction entities | true | cl
 mat_colcorrection_editor |  | false | cl
 mat_colcorrection_forceentitiesclientside | Forces color correction entities to be updated on the client | false | cl, cheat
-mat_colorcorrection |  | true | 
+mat_colorcorrection |  | false | 
 mat_debug | Sets a mat_fullbright debug visualization mode | cmd | cl
-mat_depthbias_shadowmap |  | 0.0005 | cl
 mat_disable_dynamic_shader_compile | Reloads all shaders from vcs files until the next time mat_reloadshaders is called | cmd | 
 mat_execute_skipbuffers |  | true | 
 mat_forcereloadshaders | Force reloads all shaders (skips MD5 check). Takes optional substrings of shader names to recompile as arguments. | cmd | 
@@ -3242,7 +3537,7 @@ mat_fullbright | Debug rendering modes | 0 | cheat
 mat_hide_error_shader |  | false | 
 mat_lpv_luxels |  | false | cheat
 mat_luxels |  | false | cheat
-mat_max_lighting_complexity |  | 8 | cheat
+mat_max_lighting_complexity |  | 1 | cheat
 mat_overdraw | Visualize overdraw | 0 | cheat
 mat_overdraw_color |  | 0.075 0.15 0.3 | cheat
 mat_print_dead_materials | Print loaded materials that have no valid layers due to not supporting any of the modes in gameinfo.gi. | cmd | 
@@ -3253,6 +3548,8 @@ mat_print_materials | Print loaded materials. Takes an optional substring as an 
 mat_print_materials_last_frame | Print materials used last frame | cmd | 
 mat_print_materials_unused | Print materials that have never been used | cmd | 
 mat_print_modes | Print supported rendering modes. | cmd | 
+mat_print_non_virtual_textures | Print textures that are neither procedural nor virtual, i.e. the ones the mip streaming system manages, in alphabetical order. Takes an optional substring as an argument. | cmd | 
+mat_print_procedural_textures | Print procedural textures ( render targets, UAVs, atlases and other textures created by code ) in ascending in memory size order. Takes an optional substring as an argument. | cmd | 
 mat_print_shader_info | Print detailed info about a single shader. Takes a shader name (hero.vfx) as an argument. | cmd | 
 mat_print_shader_quality | Print current shader quality setting | cmd | 
 mat_print_shaders | Print loaded shaders. Takes a substring as an argument. | cmd | 
@@ -3263,16 +3560,16 @@ mat_reinitmaterials | Reinitializes all loaded materials, reloading their shader
 mat_reloadshaders | Reloads all shaders. Takes optional substrings of shader names to recompile as arguments. | cmd | 
 mat_reset_material_costs | Reset material cost heuristic | cmd | 
 mat_set_shader_quality | Force shader quality setting (valid values are 0 or 1) | cmd | 
+mat_shader_asserts | Enables DebugDraw_AssertMsg() in Vulkan shaders (S_DEBUG_ASSERTS_ENABLED). | false | 
 mat_shader_cache |  | true | 
 mat_shading_complexity | Visualize shading complexity | false | cheat
 mat_shading_complexity_color |  | 1 0.5 0.25 | cheat
-mat_shading_complexity_max_instruction_count |  | 1024 | cheat
-mat_shading_complexity_max_register_count |  | 128 | cheat
+mat_shading_complexity_max_instruction_count |  | 1 | cheat
+mat_shading_complexity_max_register_count |  | 1 | cheat
 mat_shadowmap_luxels |  | false | cheat
 mat_show_distance_field | 0=Off, 1=Visualize trace from camera, 2=Visualize occlusion, 3=Visualize far field trace from camera | 0 | cheat
 mat_skip_static_const_eval |  | true | 
-mat_slopescaledepthbias_shadowmap |  | 4 | cl
-mat_tonemap_bloom_scale |  | -1 | cheat
+mat_tonemap_bloom_scale |  | 0 | cheat
 mat_tonemap_bloom_start_value |  | -1 | cheat
 mat_tonemap_debug |  | 0 | 
 mat_tonemap_force_accelerate_exposure_down |  | -1 | cheat
@@ -3302,27 +3599,28 @@ mem_test_quiet | Don't print stats when memtesting | false |
 memory | Print memory stats. | cmd | 
 memory_check_limit | Assert if peak memory use is over the limit. | cmd | 
 mesh_calculate_curvature_smooth_invert |  | false | sv, cl, rep, cheat
-mesh_calculate_curvature_smooth_pass_count |  | 3 | sv, cl, rep, cheat
+mesh_calculate_curvature_smooth_pass_count |  | 0 | sv, cl, rep, cheat
 mesh_calculate_curvature_smooth_weight |  | 1 | sv, cl, rep, cheat
+mesh_trace_data_memory_report | Logs information about memory consumption by TraceDataForDraw_t/ToolsTraceData | cmd | 
 mic_listen_while_nonfocused | Enables the ability for the mic to remain open if the window loses focus such as when a caster tabs out to adjust settings | false | cl
-minimap_add_glow_modifier |  | false | sv
-minimap_update_rate_hz |  | 30 | sv, release
+minimap_trooper_update_rate_hz |  | 5 | sv
+minimap_update_rate_hz |  | 30 | sv
 minimap_zoom_in | Ping button pressed | cmd | cl, release
 minimap_zoom_out | Ping button released | cmd | cl, release
-mm_idle_enabled | Kill switch for the idle detection system | true | cl
-mm_idle_show_warning_at_s | How many seconds to wait before showing the idle warning dialog | 300 | cl
+mm_idle_enabled | Kill switch for the idle detection system | false | cl
+mm_idle_show_warning_at_s | How many seconds to wait before showing the idle warning dialog | 999 | cl
 mm_idle_warning_duration_s | How long should the warning be up before it boots the user from the MM queue | 60 | cl
-mm_prefer_solo_only | Prefer being matched with other solo players when not in a party | false | cl, a, release
-mobile_fps_increase_during_charging | MOBILE_FPS_CONTROL: If true we increase framerate limit while charging | false | a
-mobile_fps_increase_during_hfr_animations | MOBILE_FPS_CONTROL: If true we increase framerate limit during HFR-tagged animations and transitions. | true | 
-mobile_fps_increase_during_touch | MOBILE_FPS_CONTROL: If true we increase framerate limit during touch | true | a
-mobile_fps_limit | MOBILE_FPS_CONTROL: Mobile FPS limit - 15, 30, 60 | 30 | a
+mm_prefer_solo_only | Prefer being matched with other solo players when not in a party | true | cl, a, release
+mmpri | &lt;Clear\|Hero&gt; \[target account ID\] Indicates that you want to be prioritized in matchmaking with optionally a specific hero. Clear will clear your status | cmd | cl
 mod_status | &lt;Account ID&gt; | cmd | cl, release
 model_default_preview_sequence_name |  |  | sv, cl, a, rep
 model_dump_convert_info | Print model load-time conversion info | cmd | sv, cl
 modifier_aura_debug | Set to 1 to draw the radii of all active auras | false | sv, cl, rep, cheat
 modifier_broadcast_event | Debug broadcasts an event will all empty fields | cmd | sv
-modifier_capture_data_descs |  | false | sv, cl, rep
+modifier_cache_force_all_invalidate_on_tick | Force all modifier values to CacheEnabled_InvalidateOnTick for diagnostics. See modifier_cache_report. | false | sv, cl, rep
+modifier_cache_force_all_persist | Force all modifier values to CacheEnabled (persist) for diagnostics. See modifier_cache_report. | false | sv, cl, rep
+modifier_cache_report | Print per-EModifierValue cache statistics sorted by query volume. Use modifier_cache_reset_stats to clear. | cmd | sv
+modifier_cache_reset_stats | Reset modifier value cache statistics. | cmd | sv
 modifier_create | Creates a test modifier on unit: modifier_create &lt;entityindex&gt; &lt;modifiername&gt; &lt;duration&gt; | cmd | sv, cheat
 modifier_debug |  | false | sv
 modifier_dump | Display all modifiers for the unit: &lt;entityindex/name&gt; | cmd | sv, cheat
@@ -3333,14 +3631,6 @@ modifier_spew_states | Call to have the client spew their unit states affecting 
 modifier_stringtable_dump | Displays the contents of the modifier string table | cmd | sv, cheat
 modifier_test_scripted_event | Tests firing a scripted event | cmd | sv, cheat
 modifier_test_scripted_event_end | Tests firing ending a scripted event | cmd | sv, cheat
-mortar_sentry_angle_offset_above |  | 0 | sv, rep
-mortar_sentry_angle_offset_below |  | -1 | sv, rep
-mortar_sentry_destroy |  | false | sv, rep
-mortar_sentry_forced_pitch |  | 0 | sv, rep
-mortar_sentry_no_target_distance |  | 1500 | sv, rep
-mortar_sentry_noise_factor_x |  | 84 | sv, rep
-mortar_sentry_noise_factor_y |  | 84 | sv, rep
-mortar_sentry_use_npc_projectile_calc |  | false | sv, rep
 motdfile | The MOTD file to load. | motd.txt | sv, release
 mouse_disableinput | Set to disable mouse input | false | 
 mouse_inverty |  | false | cl, a, user
@@ -3355,7 +3645,6 @@ mp_forcerespawn |  | true | sv, nf
 mp_friendlyfire | Allows team members to injure other members of their team | false | sv, cl, nf, rep, release
 mp_restartgame | If non-zero, game will restart in the specified number of seconds | 0 | sv, release
 mp_teamplay |  | false | sv, nf
-mp_tournament |  | false | sv, nf, rep
 multigpu_skip_semaphores |  | false | 
 multigpu_skip_transfers |  | false | 
 multvar | Multiply specified convar value. | cmd | norecord, release
@@ -3370,13 +3659,6 @@ music_resume_fade_time_seconds | When resuming, fades music in over this duratio
 music_resume_window_seconds | Seeks into music if resumed during this period of time. | 15 | cl
 muzzle_flash_debug |  | false | cl
 name |  | unnamed | a, per_user
-nano_rollermine_brake_factor |  | 0.8 | sv, rep
-nano_rollermine_stuck_threshold |  | 5 | sv, rep
-nano_rollermine_stuck_time |  | 0.25 | sv, rep
-nano_rollermine_target_max_range |  | 1600 | sv, rep
-nano_rollermine_turn_speed |  | 180 | sv, rep
-nano_rollermine_vision |  | 1000 | sv, rep
-nano_rollermine_waypoint_threshold |  | 128 | sv, rep
 nano_use_los_ultimate |  | true | sv, cl, rep
 nav_add_to_selected_set | Add current area to the selected set. | cmd | sv, cheat
 nav_add_to_selected_set_by_id | Add specified area id to the selected set. | cmd | sv, cheat
@@ -3406,8 +3688,9 @@ nav_curve_set |  | -1 | sv, cheat
 nav_curve_step |  | 0.02 | sv, cheat
 nav_debug_blocked |  | false | sv, cheat
 nav_delete | Deletes the currently highlighted Area. | cmd | sv, cheat
-nav_drag_selection_volume_zmax_offset | The offset of the nav drag volume top from center | 32 | sv, rep
-nav_drag_selection_volume_zmin_offset | The offset of the nav drag volume bottom from center | 32 | sv, rep
+nav_drag_selection_volume_zmax_offset | The offset of the nav drag volume top from center | 32 | sv
+nav_drag_selection_volume_zmin_offset | The offset of the nav drag volume bottom from center | 32 | sv
+nav_draw_area_color_by_game_attribute |  | false | sv, cheat
 nav_draw_area_connections |  | false | sv, cheat
 nav_draw_area_filled |  | true | sv, cheat
 nav_draw_area_gravity |  | false | sv, cheat
@@ -3428,12 +3711,12 @@ nav_draw_boundary_areas |  | false | sv, cheat
 nav_draw_connected_area_radius |  | 1000 | sv, cheat
 nav_draw_dormant_movable_meshes | Draw dormant movable meshes. | false | sv, cheat
 nav_draw_externally_created |  | false | sv, cheat
-nav_draw_flow_map |  | false | sv, cheat
-nav_draw_indirect_connections |  | false | sv, cheat
+nav_draw_flow_map |  | false | sv
+nav_draw_indirect_connections |  | false | sv
 nav_draw_jump_links |  | false | sv, cheat
-nav_draw_limit | The maximum number of areas to draw in edit mode | 300 | sv, cheat
-nav_draw_link_alignment |  | false | sv, cheat
-nav_draw_links |  | false | sv, cheat
+nav_draw_limit | The maximum number of areas to draw in edit mode | 300 | sv
+nav_draw_link_alignment |  | false | sv
+nav_draw_links |  | false | sv
 nav_draw_markup |  | true | sv, cheat
 nav_draw_mesh |  | true | sv, cheat
 nav_draw_mesh_grid | Draw the mesh's spatial grid structure around the edit cursor position. | false | sv, cheat
@@ -3447,6 +3730,8 @@ nav_draw_space_radius |  | 0 | sv
 nav_draw_space_swim |  | false | sv
 nav_draw_space_transitions |  | true | sv
 nav_edit | Set to one to interactively edit the Navigation Mesh. Set to zero to leave edit mode. | 0 | sv, cheat
+nav_edit_draw_navlink_ranges | Add base metrics horizontal/vertical target range text to the navlink debug label when the movement defines one. | true | sv, cheat
+nav_edit_draw_navlinks |  | true | sv, cheat
 nav_edit_use_camera |  | true | sv, cheat
 nav_edit_validate | Validate navmesh structures. | false | sv, cheat
 nav_end_deselecting | Stop continuously removing from the selected set. | cmd | sv, cheat
@@ -3488,7 +3773,7 @@ nav_gen_opt_to_quads_planar_deviation_limit |  | 4 | sv, cheat
 nav_gen_opt_to_quads_se_limit_end |  | 0.1 | sv, cheat
 nav_gen_opt_to_quads_se_limit_start |  | 1e-05 | sv, cheat
 nav_gen_opt_to_quads_weld_limit_end |  | 0.01 | sv, cheat
-nav_gen_opt_to_quads_weld_limit_start |  | 1e-07 | sv, cheat
+nav_gen_opt_to_quads_weld_limit_start |  | 0 | sv, cheat
 nav_gen_oriented_angle_tol | Max abrupt orientation difference an NPC can tolerate when moving through the mesh (degrees). | 15 | sv, cheat
 nav_gen_oriented_max_region_range | Max orientation range allowed within a region before it gets further split. | 15 | sv, cheat
 nav_gen_remove_vertical_polys |  | true | sv, cheat
@@ -3506,18 +3791,14 @@ nav_lower_drag_volume_min | Lower the bottom of the drag select volume. | cmd | 
 nav_mark | Marks the Area or Ladder under the cursor for manipulation by subsequent editing commands. | cmd | sv, cheat
 nav_mark_attribute | Set nav attribute for all areas in the selected set. | cmd | sv, cheat
 nav_max_vis_delta_list_length |  | 64 | cheat
-nav_msr_test_add_agent |  | false | sv
-nav_msr_test_add_goal |  | false | sv
-nav_msr_test_freeze |  | false | sv
-nav_msr_test_select_agent |  | false | sv
-nav_msr_test_select_goal |  | false | sv
 nav_navlink_debug_connections |  | true | sv
 nav_navlink_enable_splits | Split wide nav links into narrower ones to increase lanes and alleviate 'crossing' effect. | true | sv
+nav_navlink_range_hysteresis | Distance a nav link end target must move past its base metrics range boundary before the split disconnects or reconnects. | 4 | sv
 nav_navlink_save_movable_connections | TEMP: Save nav link connections to movable meshes? | true | sv
 nav_navlink_split_max_width | The maximum desired width of a nav link split. | 144 | sv
 nav_navlink_split_scale_with_length | Nav link splits' widths are proportional to the nav link's length. | true | sv
 nav_obstacle_validate |  | false | sv, cheat
-nav_obstruction_async_update |  | false | sv
+nav_obstruction_async_update |  | true | sv
 nav_obstruction_draw |  | 0 | sv, cheat
 nav_obstruction_draw_change |  | false | sv, cheat
 nav_obstruction_draw_dist |  | -1 | sv, cheat
@@ -3547,37 +3828,48 @@ nav_pathfind_draw_costs |  | false | sv, cheat
 nav_pathfind_draw_fail |  | 0 | sv, cheat
 nav_pathfind_draw_total_costs |  | false | sv, cheat
 nav_pathfind_inadmissable_heuristic_factor |  | 1 | sv, cheat
-nav_pathfind_multithread |  | false | sv, cheat
+nav_pathfind_multithread |  | true | sv, cheat
 nav_raise_drag_volume_max | Raise the top of the drag select volume. | cmd | sv, cheat
 nav_raise_drag_volume_min | Raise the bottom of the drag select volume. | cmd | sv, cheat
 nav_recall_selected_set | Re-selects the stored selected set. | cmd | sv, cheat
 nav_recorder_enabled |  | true | sv, cheat
 nav_remove_from_selected_set | Remove current area from the selected set. | cmd | sv, cheat
-nav_select_allow_blocked | When selecting an area under nav_edit, allow area marked as blocked. | true | sv, cheat
-nav_select_area_id | Select nav area with matching ID. | -1 | sv, cheat
-nav_select_block_id | Select nav space block with matching ID. | -1 | sv, cheat
-nav_select_hull | Restrict area selection to areas that can support a hull of the given category | 0 | sv, cheat
+nav_search_on_path_debug_duration |  | 5 | sv
+nav_search_on_path_debug_enabled |  | false | sv
+nav_select_allow_blocked | When selecting an area under nav_edit, allow area marked as blocked. | true | sv
+nav_select_area_id | Select nav area with matching ID. | -1 | sv
+nav_select_block_id | Select nav space block with matching ID. | -1 | sv
+nav_select_hull | Restrict area selection to areas that can support a hull of the given category | 0 | sv
 nav_select_radius | Adds all areas in a radius to the selection set | cmd | sv, cheat
 nav_select_with_attribute | Selects areas with the given attribute. | cmd | sv, cheat
 nav_set_movable_mesh_dormant_flag | Set the movable mesh dormant flag (0=active, 1=dormant) | cmd | sv, cheat
-nav_show_area_connections | Show connections to selected area when true | true | sv, cheat
-nav_show_area_verts | Show area vertex positions | true | sv, cheat
-nav_show_area_water_info |  | true | sv, cheat
-nav_show_elem_info |  | true | sv, cheat
-nav_show_elem_info_font |  | Consolas | sv, cheat
-nav_show_elem_info_font_size |  | -1 | sv, cheat
-nav_show_elem_info_font_voffset |  | -11 | sv, cheat
+nav_show_area_connections | Show connections to selected area when true | true | sv
+nav_show_area_verts | Show area vertex positions | true | sv
+nav_show_area_water_info |  | true | sv
+nav_show_elem_info |  | true | sv
+nav_show_elem_info_font |  | Consolas | sv
+nav_show_elem_info_font_size |  | -1 | sv
+nav_show_elem_info_font_voffset |  | -11 | sv
 nav_show_potentially_visible | Show areas that are potentially visible from the current nav area | 0 | cheat
+nav_smooth_arrival_enable |  | false | sv, cheat
+nav_smooth_arrival_spline |  | true | sv, cheat
+nav_smooth_arrival_spring |  | false | sv, cheat
 nav_smooth_constrain_spline |  | true | sv, cheat
 nav_smooth_constrain_spline_relax |  | 0.006 | sv, cheat
 nav_smooth_constrain_spring |  | 2 | sv, cheat
 nav_smooth_constrain_spring_relax |  | 0.01 | sv, cheat
+nav_smooth_draw_arrival_calc |  | false | sv, cheat
 nav_smooth_draw_boundary |  | 0 | sv, cheat
 nav_smooth_draw_calc |  | 0 | sv, cheat
 nav_smooth_draw_constraint_spline |  | false | sv, cheat
 nav_smooth_draw_constraint_spring |  | 0 | sv, cheat
 nav_smooth_draw_speed |  | 0 | sv, cheat
-nav_smooth_enable |  | true | sv, cheat
+nav_smooth_enable |  | 1 | sv, cheat
+nav_smooth_handle_scale |  | 3 | sv, cheat
+nav_smooth_navlink_entry_enable |  | true | sv, cheat
+nav_smooth_navlink_entry_spline |  | true | sv, cheat
+nav_smooth_navlink_entry_spring |  | false | sv, cheat
+nav_smooth_push_from_walls |  | 12 | sv
 nav_smooth_relax |  | true | sv, cheat
 nav_smooth_relax_use_timesteps |  | false | sv, cheat
 nav_smooth_spring_const_override |  | -1 | sv, cheat
@@ -3620,7 +3912,6 @@ nav_test_boundary_zone_rays_margin |  | -1 | sv, cheat
 nav_test_boundary_zone_rays_random |  | false | sv, cheat
 nav_test_boundary_zone_sphere |  | 0 | sv, cheat
 nav_test_curve_opt |  | 0 | sv, cheat
-nav_test_detour |  | false | sv, cheat
 nav_test_find_nearest | Calculate the nearest point on the navmesh to the trace point.  Uses selection from nav_select_hull. | false | sv, cheat
 nav_test_find_nearest_clear | Calculate the nearest point on the navmesh to the trace point.  Uses selection from nav_select_hull. | false | sv, cheat
 nav_test_find_random_connected | Demonstrates finding random points that are connected in the nav mesh to the start point. | false | sv, cheat
@@ -3635,27 +3926,30 @@ nav_test_genrt_tile_removal_place |  | false | sv, cheat
 nav_test_getareaoverlapping_gravity |  | false | sv, cheat
 nav_test_getnearestnav_gravity |  | false | sv, cheat
 nav_test_level_hull | Find entities that intrude into the nav mesh.  List those entities in console output, and display bounding boxes around them for a while. | cmd | sv, cheat
-nav_test_level_hull_move |  | cmd | sv, cheat
 nav_test_multi_connection |  | false | sv, cheat
 nav_test_npc_area |  | 0 | sv, cheat
 nav_test_npc_collision |  | 0 | sv, cheat
 nav_test_npc_collision_range |  | 250 | sv, cheat
 nav_test_npc_collision_show_geometry |  | false | sv, cheat
-nav_test_path | Calculate and draw a path from player/camera position to the test position. | false | sv, cheat
-nav_test_path_expansion_search | Extend nav_test_path by doing an expansion search on that path.  Convar value defines dist. | 0 | sv, cheat
-nav_test_path_lock_goal | Lock the pathfinding goal to the current intersection point. | false | sv, cheat
-nav_test_path_lock_start | Lock the pathfinding start to the current intersection point. | false | sv, cheat
-nav_test_path_move |  | false | sv, cheat
-nav_test_path_opt | Enable path optimization for nav_edit_path paths. | true | sv, cheat
-nav_test_path_opt_transitions |  | false | sv, cheat
-nav_test_path_return | Calculate a return path from cursor position to the path calculated by nav_test_path. | false | sv, cheat
-nav_test_path_space | Should nav_test_path test 3d navigation?  1 = space to space, 2 = multi-modal space/ground | 0 | sv, cheat
-nav_test_path_space_fly | Test flight paths | true | sv, cheat
-nav_test_path_space_swim | Test swim paths | true | sv, cheat
+nav_test_path | Calculate and draw a path from player/camera position to the test position. | false | sv
+nav_test_path_lock_goal | Lock the pathfinding goal to the current intersection point. | false | sv
+nav_test_path_lock_start | Lock the pathfinding start to the current intersection point. | false | sv
+nav_test_path_npc | Calculate and draw a path for the selected NPC to the test position. | false | sv
+nav_test_path_npc_success_radius_when_blocked | Calculate and draw a path for the selected NPC to the test position. | -1 | sv
+nav_test_path_opt | Enable path optimization for nav_edit_path paths. | true | sv
+nav_test_path_opt_transitions |  | false | sv
+nav_test_path_return | Calculate a return path from cursor position to the path calculated by nav_test_path. | false | sv
+nav_test_path_space | Should nav_test_path test 3d navigation?  1 = space to space, 2 = multi-modal space/ground | 0 | sv
+nav_test_path_space_fly | Test flight paths | true | sv
+nav_test_path_space_swim | Test swim paths | true | sv
 nav_test_pos_name |  |  | sv
 nav_test_pos_place |  | -1 | sv
 nav_test_ray_space |  | 0 | sv, cheat
 nav_test_rays |  | false | sv, cheat
+nav_test_rays_use_npc_move |  | false | sv, cheat
+nav_test_search_on_path | Test the 'on path' search mode for tactical searches. Requires a selected NPC with a current path. | false | sv, cheat
+nav_test_search_on_path_boundary_edges_only | Activate the 'boundary edges only' constraint when testing the 'on path' search mode for tactical searches. | false | sv, cheat
+nav_test_search_on_path_setgoal | Test the 'on path' search mode for tactical searches using SetGoal w/ possible path clipping (flips between 2 searches). Requires a selected NPC. | false | sv, cheat
 nav_test_smooth |  | false | sv, cheat
 nav_test_smooth_extern_push |  | 0 | sv, cheat
 nav_test_smooth_in_speed |  | 120 | sv, cheat
@@ -3684,14 +3978,16 @@ navlocal_debug_isect |  | 0 | sv
 navlocal_debug_island_calc |  | 0 | sv
 navlocal_debug_island_calc_solid_exit |  | 0 | sv
 navlocal_debug_mantles |  | 0 | sv
+navlocal_debug_navlink_isect | Draw the obstacle island path intersection used to build an obstacle navlink | false | sv
+navlocal_debug_navlink_isect_duration |  | 5 | sv
 navlocal_debug_obstructions |  | 0 | sv
 navlocal_debug_path_still_valid |  | 0 | sv
 navlocal_lead_in_dist |  | 64 | sv
 navlocal_lead_out_dist |  | 18 | sv
 navlocal_parallel_trace_path_for_obstacle |  | true | sv
 navlocal_path_tight_buffer |  | 2 | sv
-navlocal_start_solid_calc_path |  | true | sv
 navspace_create_water_smooth_connections |  | true | sv, cheat
+navspace_create_water_surface_connections |  | true | sv, cheat
 navspace_create_water_transition_connections |  | true | sv, cheat
 navspace_debug_pathfind |  | -1 | sv, cheat
 navspace_debug_stringpull |  | 1 | sv, cheat
@@ -3716,18 +4012,30 @@ net_fakeloss | Shortcut to set both FakePacketLoss_Recv and FakePacketLoss_Send 
 net_fakestatus | Print current simulated network condifions | cmd | release
 net_filelogging | Log packets to files | false | 
 net_fs_showindirections |  | false | 
-net_limit_sv_recv_max_message_size_kb | Server will reject message larger than N kb | 32 | release
-net_limit_sv_recv_segments_per_packet | Server will reject packets with more than N segments | 50 | release
-net_limit_sv_recvbuffer_kb | Server will not buffer more than N kb from connected clients | 128 | release
-net_limit_sv_recvbuffer_msg | Server will not buffer more than N messages from connected clients | 100 | release
+net_gather_child_fields_only | GatherSendProxyResults only walks struct and array fields, skipping scalar fields. | false | release
+net_limit_sv_listen_max_message_size_kb | Server: max SteamNetworkingSockets message size in kb accepted from a connection that does not yet have a netchan | 3 | release
+net_limit_sv_listen_recvbuffer_kb | Server: SteamNetworkingSockets will not buffer more than N kb from a connection that does not yet have a netchan | 16 | release
+net_limit_sv_listen_recvbuffer_msg | Server: SteamNetworkingSockets will not buffer more than N messages from a connection that does not yet have a netchan | 4 | release
+net_limit_sv_message_process_time_ms_drop_burst | Drop a client if processing their messages consumes more than N ms of CPU time in a burst (token bucket capacity) | 200 | release
+net_limit_sv_message_process_time_ms_drop_rate | Drop a client if processing their messages consumes more than N ms of CPU time per second, sustained (token bucket fill rate) | 20 | release
+net_limit_sv_message_process_time_ms_warn_burst | Warn if processing messages from a client consumes more than N ms of CPU time in a burst (token bucket capacity) | 50 | release
+net_limit_sv_message_process_time_ms_warn_rate | Warn if processing messages from a client consumes more than N ms of CPU time per second, sustained (token bucket fill rate) | 5 | release
+net_limit_sv_recv_chan_buffer_messages | Max number of source engine messages that can be queued in a netchan receive buffer for an ordinary connection from a client. | 1000 | release
+net_limit_sv_recv_chan_msgs_per_frame | Max number of source engine messages an ordinary client connection may put in a single network frame.  Exceeding this disconnects the client. | 500 | release
+net_limit_sv_recv_max_frame_size_kb | Server will reject uncompressed Source engine frame larger than N kb.  Also sets limit on SteamNetworkingSockets message size | 64 | release
+net_limit_sv_recv_segments_per_packet | Server: SteamNetworkingSockets will reject packets with more than N message segments | 50 | release
+net_limit_sv_recvbuffer_kb | Server: SteamNetworkingSockets will not buffer more than N kb from connected clients | 128 | release
+net_limit_sv_recvbuffer_msg | Server: SteamNetworkingSockets will not buffer more than N messages from connected clients | 100 | release
 net_listallmessages | List all registered net messages | cmd | cheat
 net_log_processing | Log network processing | false | 
 net_max_message_process_count | Maximum number of messages to process from a client in a single frame (0 == no limit). | 0 | 
 net_max_message_queue_size | Maximum number of messages to allow waiting in queue after processing; exceeding this disconnects the client. 0 == no limit | 0 | 
 net_max_polymorphic_spew | Max polymorphic variants to spew when spewing a flattened serializer. | 5 | 
+net_message_size_enforce | Check declared engine message size limit, and either warn or reject.  Note that this is ignored in -tools mode.  0=ignore, 1=warn/log, 2=warn/assert, 3=reject | 1 | release
 net_messageinfo | Display info about a message (by classname or id) | cmd | cheat
 net_option | Get or set SteamNetworkingSockets options such as fake packet lag and loss | cmd | release
 net_p2p_listen_dedicated | Should dedicated server listen for new-style P2P? | false | 
+net_permutation_info | show permutation information for serializer | cmd | cheat
 net_print_sdr_ping_times | Print current ping times to SDR points of presence, and selected route | cmd | release
 net_public_adr | For servers behind NAT/DHCP meant to be exposed to the public internet, this is the public facing ip address string: ("x.x.x.x" ) |  | release
 net_qosinterval_spew | Spew QoS interval data as we gather it | false | 
@@ -3750,7 +4058,6 @@ net_spewcounts | Spew serializer counts, client only by default, specify server 
 net_spewserializer | Spew serializer info<br> | cmd | 
 net_stats_json | Output server networking statistics in json format | cmd | 
 net_status | Shows current network status | cmd | release
-net_use_delta_property_fastpath |  | 1 | 
 net_use_packet_compression | Compress network traffic | true | 
 net_validatemessages | Activates/deactivates net message validation | cmd | cheat
 net_why_field_excluded | &lt;classname&gt; &lt;fieldname&gt;:  spew why field was excluded from networking for classname. | cmd | 
@@ -3760,6 +4067,7 @@ noclip_fixup |  | true | sv, cheat
 notarget | Toggle. Player becomes hidden to NPCs. | cmd | sv, cheat
 npc_ability_range_debug | Draws range indicators for abilities for the given NPC(s).  Uses the NPCs enemy for range drawing.<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | sv, cheat
 npc_bodylocations | Displays labelled body locations of NPCs.<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | sv, cheat
+npc_buddha | Tag an NPC so they don't die or become incapacitated<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | sv, cheat
 npc_cancel_handshake |  | cmd | sv
 npc_combat | Displays text debugging information about the squad and enemy of the selected NPC  (See Overlay Text)<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | sv, cheat
 npc_conditions | Displays all the current AI conditions that an NPC has in the overlay text.<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | sv, cheat
@@ -3783,6 +4091,8 @@ npc_go_no_arrow | Don't draw the go arrow of selected NPCs | false | sv, a
 npc_go_random | Sends all selected NPC(s) to a random node.<br>	Arguments:   	-none- | cmd | sv, cheat
 npc_go_testmode | Set mode of nav to test with for npc_go. Left empty, it'll just SetGoal(). Other options: 'random', 'radial', 'radialalt', 'directional', 'wander', and 'vector'. |  | sv, cheat
 npc_go_update_path | Selected NPC(s) will go to the location that the player is looking (shown with a purple box), WITHOUT CHANGING SCHEDULE!<br>	Arguments: \[dest_fly\] | cmd | sv, cheat
+npc_god | Tag an NPC so they don't take damage<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | sv, cheat
+npc_handshakes_text | Outputs text debugging information to the console about the Animation handshaking in the NPC's AI<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | sv, cheat
 npc_heal | Heals the target back to full health | cmd | sv
 npc_hist_draw |  | false | sv
 npc_hist_dump | Dump the NPC history to the console.<br> | cmd | sv
@@ -3794,7 +4104,9 @@ npc_hist_filter_type |  | -1 | sv
 npc_history_record_snapshot |  | true | sv
 npc_kill | Kills the given NPC(s)<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | sv, cheat
 npc_kill_unselected | Properly kills all NPCs from the universe that aren't currently selected | cmd | sv, cheat
-npc_record_snapshot_data |  | true | sv
+npc_pathquery_text | Outputs text debugging information to the console about the NPC's path query processing<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | sv, cheat
+npc_record_skeleton_snapshot |  | false | sv
+npc_record_snapshot_data |  | false | sv
 npc_relationships | Displays the relationships between this NPC and all others.<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | sv, cheat
 npc_reportstate | Outputs the current state of the NPC | cmd | sv, cheat
 npc_reset | Reloads schedules for all NPC's from their script files<br>	Arguments:	-none- | cmd | sv, cheat
@@ -3802,9 +4114,9 @@ npc_route | Displays the current route of the given NPC as a line on the screen.
 npc_scripted_commands | Displays the state of scripted commands on the NPC<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | sv, cheat
 npc_select | Select or deselects the given NPC(s) for later manipulation.  Selected NPC's are shown surrounded by a red translucent box<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | sv, cheat
 npc_sethealth | Sets the target's health, even above max. Optionally matches based on npc name to set multiple npc's health.<br>	Args: \[npc\] &lt;amount&gt; | cmd | sv
-npc_speakall | Force the npc to try and speak all their responses | cmd | sv
 npc_squads | Obsolete.  Replaced by npc_combat | cmd | sv, cheat
-npc_start_handshake |  | cmd | sv
+npc_start_handshake_full_body |  | cmd | sv
+npc_start_handshake_upper_body |  | cmd | sv
 npc_steering | Displays the steering obstructions of the NPC (used to perform local avoidance)<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | sv, cheat
 npc_steering_all | Displays the steering obstructions of all NPCs (used to perform local avoidance)<br> | cmd | sv, cheat
 npc_steering_scalar |  | 1 | sv
@@ -3838,6 +4150,7 @@ npcsolve_separation_r2 |  | false | sv
 npctester_path_lookahead_time |  | 3 | sv
 open_asset | Opens an asset in it's primary editor of choice. Specify the full path to the asset from the mod directory. | cmd | 
 open_current_map_in_hammer | opens the current map in hammer. | cmd | 
+open_current_map_pulse_in_tool | Opens the specified pulse used in this map in the editor.<br>	Arguments: &lt;pulse_file&gt; | cmd | 
 option_duck_method | Input toggle control | false | cl, a, user, per_user
 opus_decode_test_signal |  | false | 
 opus_encode_test_signal |  | false | 
@@ -3847,24 +4160,23 @@ orb_timing_debug | Spew a bunch of timing info about when orbs are hit and claim
 p2p_listpeers | List currently known peers. | cmd | 
 p2p_ping | Ping a peer. | cmd | cl
 panorama_2d_translate_no_comp_layer |  | true | 
-panorama_alignment_fixes | Fix alignment issues | true | 
 panorama_allow_texture_composition_layer_fast_path |  | true | 
-panorama_allow_transitions |  | true | 
+panorama_allow_transitions |  | false | 
+panorama_apply_styles_for_invisible_parents | Specifies whether to short circuit applying styles when a parent is invisible. | false | 
 panorama_assert_loading_panel_type | Force style invalidation of the entire panel subtree when adding / removing classes. | false | 
 panorama_async_compute_mipgen | use asynchronous compute for mipmap generation. | true | cl
 panorama_box_shadow_no_comp_layer |  | true | 
 panorama_cache_command_list_repaint_threshold |  | 0.25 | 
 panorama_cache_command_list_size_threshold |  | 384 | 
 panorama_classes_force_invalidate | Force style invalidation of the entire panel subtree when adding / removing classes. | false | 
-panorama_clear_frames_on_device_restore |  | 2 | 
-panorama_command_reordering |  | true | 
+panorama_clear_frames_on_device_restore |  | 0 | 
 panorama_comp_layer_lru_lifetime |  | 1 | 
 panorama_composition_atlas |  | true | 
 panorama_console_max_autocomplete |  | 100 | cl
 panorama_console_max_history |  | 100 | cl
 panorama_console_max_lines |  | 2000 | cl
 panorama_console_position_and_size |  |  | cl, a
-panorama_content_size_fixes | Fix content size issues | true | 
+panorama_console_reset_size_and_position | Resets the panorama console to its default size and position | cmd | cl
 panorama_daisy_wheel | Daisy wheel input mode: RS \| ABXY | ABXY | cl
 panorama_dash_gap_ratio |  | 0.5 | 
 panorama_dash_len |  | 20 | 
@@ -3873,10 +4185,11 @@ panorama_debug_overlay_opacity |  | 0.25 | a
 panorama_debug_overlay_opacity_max |  | 0.25 | a
 panorama_debug_overlay_opacity_min |  | 0.01 | a
 panorama_debug_ready_for_display |  | false | 
+panorama_debug_treat_all_addons_as_untrusted |  | false | 
 panorama_debugger_theme |  | Light | cl, a
-panorama_disable_blur |  | false | 
-panorama_disable_box_shadow |  | false | 
-panorama_disable_descendant_filtering | Disable descendant selector filtering | false | 
+panorama_disable_blur |  | true | 
+panorama_disable_box_shadow |  | true | 
+panorama_disable_descendant_filtering | Disable descendant selector filtering | true | 
 panorama_disable_draw_fancy_quad |  | false | 
 panorama_disable_draw_text |  | false | 
 panorama_disable_draw_text_shadow |  | false | 
@@ -3891,12 +4204,14 @@ panorama_dragscroll_maxflickvelocity | Maximum velocity for a drag scroll flick 
 panorama_dragscroll_minflickvelocity | Minimum velocity that the mouse must be moving as mouse up time to qualify as a drag scroll flick | 60 | cl
 panorama_dragscroll_mintime | Minimum time that the mouse button must be down before a move is treated as a drag scroll | 0.02 | 
 panorama_dragscroll_velocitymultiplier | Multiplier for flick velocity off of actual measured velocity | 0.5 | 
+panorama_draw_fast_path_img_shadow |  | true | 
 panorama_draw_text_fast_path |  | true | 
 panorama_draw_text_fast_path_text_shadow |  | true | 
 panorama_dump_symbols | &lt;ESymbolType&gt; Dump all of the symbols in the Panorama symbol table | cmd | 
 panorama_enable_secondary_layout_pass |  | true | 
 panorama_focus_world_panels | when set request key focus when a world panel is enabled | false | cl, a
 panorama_force_active_controller_type |  | -1 | 
+panorama_force_atlas_clear |  | false | 
 panorama_force_desired_layout_traverse | Force desired layout traverse, even if the cached values are up to date. | false | 
 panorama_generate_layout_xsd | Generate the Layout XML Schema Definition for the current run-time (types are dependent on which game DLL is running). | cmd | 
 panorama_highlight_bad_opacity_masks |  | false | 
@@ -3909,14 +4224,11 @@ panorama_joystick_axis_repeat_interval_start |  | 0.22 |
 panorama_joystick_button_repeat_curve_time |  | 1.2 | 
 panorama_joystick_button_repeat_interval_end |  | 0.1 | 
 panorama_joystick_button_repeat_interval_start |  | 0.48 | 
-panorama_joystick_enabled | Enable panorama joystick input | false | a
+panorama_joystick_enabled | Enable panorama joystick input | true | a
 panorama_js_minidumps | Enable sending minidumps on JS Exceptions. | true | 
 panorama_label_draw_rects | When labels paint, draw the rectangles for the character ranges. 0 = none, 1 = all, 2 = text only, 3 = inline objects only | 0 | cl
 panorama_label_wrap_before_shrink | Should labels try to wrap text before using text-overflow: shrink | true | cl
 panorama_large_dispatch_event_queue |  | 0 | 
-panorama_max_fps |  | 120 | 
-panorama_max_oof_overlay_up_fps |  | 4 | 
-panorama_max_overlay_fps |  | 60 | 
 panorama_max_text_shadow_strength |  | 10 | 
 panorama_might_scroll_no_comp_layer |  | true | 
 panorama_min_comp_layer_cache_cost |  | 4096 | 
@@ -3924,6 +4236,7 @@ panorama_movie_async_load_size_bytes |  | 20971520 | cl
 panorama_movie_force_not_ready_behavior |  | -1 | cl
 panorama_panel_occlusion |  | true | 
 panorama_print_cache_status | Print internal panorama refcounts for every file | cmd | 
+panorama_print_render_tree | Print the RenderOperation_t tree for the given root window; set to * to print all |  | 
 panorama_print_svg_stats |  | cmd | 
 panorama_reload_animations |  | 2 | 
 panorama_render_target_cache_max_size |  | 31457280 | 
@@ -3940,23 +4253,25 @@ panorama_streaming_load_local_images |  | false | cl
 panorama_style_flag_force_invalidate | Force style invalidation of the entire panel subtree when adding / removing style flags. | false | 
 panorama_suspend_animation |  | false | 
 panorama_suspend_paint |  | false | 
-panorama_temp_comp_layer_min_dimension |  | 512 | 
+panorama_synced_font_size_spew | Log SyncedFontSizeLabel group constraints and shared font size changes | false | cl
+panorama_temp_comp_layer_min_dimension |  | 128 | 
 panorama_toggledebugger_mode | Toggledebugger key operation : 0 = open/inspect, 1 = open/close | 0 | a
 panorama_track_render_commands |  | false | 
-panorama_transform_parents_no_layer_for_perspective |  | false | 
-panorama_transforms_no_comp_layer |  | false | 
-panorama_transition_time_factor | A float representing a scale factor for transitions. 1.0 is normal, 2.0 would be twice as fast as normal, 0.5 half as fast | 1 | 
+panorama_transition_time_factor | A float representing a scale factor for transitions. 1.0 is normal, 2.0 would be twice as fast as normal, 0.5 half as fast | 2 | 
+panorama_unlink_from_render_tree |  | true | 
 panorama_use_backbuffer_directly |  | true | 
+panorama_use_composite_cmd_for_cached_layers |  | true | 
 panorama_use_new_occlusion_invalidation |  | true | 
 panorama_worldpanel_update_cull_distance |  | 1000 | cl
 panorama_worldpanel_update_cull_size_threshold |  | 5 | cl
 panorama_worldpanel_update_culling |  | false | cl
 parallel_perform_invalidate_physics |  | false | sv, cl, rep
 parallel_update_surrounding_bounds_in_spatial_partition_update |  | false | sv, cl, rep
+particle_cluster_bounds_debug |  | 0 | sv, cl, rep
 particle_cluster_debug |  | 0 | sv, cl, rep
 particle_cluster_manager_search_dist |  | 256 | sv, cl, rep
-particle_cluster_nodraw |  | false | sv, cl, rep
-particle_cluster_use_collision_hulls |  | true | sv, cl, rep
+particle_cluster_nodraw |  | true | sv, cl, rep
+particle_cluster_use_collision_hulls |  | false | sv, cl, rep
 particle_debug_creation_filter |  |  | cl, rep
 particle_layer_id_whitelist |  |  | 
 particle_powsimd_random_range_exp |  | true | 
@@ -3970,7 +4285,7 @@ particle_stop_specified | Stops all particle systems that match specified name |
 particle_stop_unspecified | Stops all particle systems that don't match specified name | cmd | cl, cheat
 particle_test_attach_attachment | Attachment index for attachment mode | 0 | sv, cheat
 particle_test_attach_mode | Possible Values: 'start_at_attachment', 'follow_attachment', 'start_at_origin', 'follow_origin' | follow_attachment | sv, cheat
-particle_test_create | Creates the named particle system where the player is looking.<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | sv, cheat
+particle_test_create | Creates the named particle system where the player is looking.  Can be used on an entity if pointed at the entity.  Optionally takes a particle config name.<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | sv, cheat
 particle_test_destroy | Destroys all particle systems matching the specified name.<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | sv, cheat
 particle_test_file | Name of the particle system to dynamically spawn |  | sv, cheat
 particle_test_start | Dispatches the test particle system with the parameters specified in particle_test_file,<br> particle_test_attach_mode and particle_test_attach_param on the entity the player is looking at.<br>	Arguments:   	{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at} | cmd | sv, cheat
@@ -3987,33 +4302,29 @@ party_start_match | Starts matchmaking for a party | cmd | cl
 password | Current server access password |  | a, norecord, server_cannot_query
 path | Show the filesystem path. | cmd | 
 path_closest_point_debug |  | false | sv, cl, rep
+path_mover_enable_high_resolution_debug_rendering |  | false | sv
+path_mover_entity_spawner_debug |  | false | sv
+path_node_evaluation_debug |  | 0 | sv, cl, rep
 pause | Toggle the server pause state. | cmd | release
 pawn_mimic_all |  | false | sv, cl, rep
-pestilence_drone_brake_factor |  | 1 | sv, rep
-pestilence_drone_healthbar_pos |  | 80 | cl, cheat
-pestilence_drone_max_torque |  | 5 | sv, rep
-pestilence_drone_scale |  | 0.75 | sv, rep
-pestilence_drone_stuck_threshold |  | 4 | sv, rep
-pestilence_drone_stuck_time |  | 0.2 | sv, rep
-pestilence_drone_torque_accel |  | 2 | sv, rep
-pestilence_drone_vision |  | 1024 | sv, rep
-pestilence_drone_waypoint_threshold |  | 128 | sv, rep
+periodic_resource_cache_duration_s |  | 600 | cl
 phonemedelay | Phoneme delay to account for sound system latency. | 0 | cl
 phonemefilter | Time duration of box filter to pass over phonemes. | 0.08 | cl
 phonemesnap | Lod at level at which visemes stops always considering two phonemes, regardless of duration. | 2 | cl
+phys_agg_world_compounds |  | false | sv, cl, rep
 phys_batch_ray_test |  | 0 | cl
-phys_continuous_kinematic_update |  | 1 | sv, cl, rep
+phys_continuous_kinematic_update |  | 0 | sv, cl, rep
 phys_create_test_character_proxy | Create test character proxy | cmd | sv
-phys_cull_internal_mesh_contacts |  | false | rep
+phys_cull_internal_mesh_contacts |  | true | rep
 phys_debug_draw | Set up debug-draw of physics internal state | cmd | 
 phys_dump_intersection_controller | Dump intersection controller status | cmd | sv
 phys_dump_main_world | Dump physics main world to file | cmd | sv
 phys_dump_memory | Dump memory usage | cmd | sv
-phys_dynamic_scaling |  | true | sv, cl, rep, cheat
-phys_expensive_shape_threshold |  | 6 | cl, cheat
+phys_dynamic_scaling |  | false | sv, cl, rep, cheat
+phys_expensive_shape_threshold |  | 100 | cl, cheat
 phys_force_controller_debug |  | false | sv
 phys_highlight_expensive_objects | Highlight expensive physics objects | false | cheat
-phys_highlight_expensive_objects_strength | Highlight expensive physics objects strength | 0.02 | cheat
+phys_highlight_expensive_objects_strength | Highlight expensive physics objects strength | 0 | cheat
 phys_impactforcescale |  | 1 | sv
 phys_joint_teleport | Teleport joint anchors if connected to world | true | sv, cheat
 phys_length_damping_ratio | Spring damping ratio for length constraint | 2 | sv, cheat
@@ -4033,18 +4344,16 @@ phys_show_stats |  | false | sv, cl, rep
 phys_sleep | Put all physics in all the worlds to sleep | cmd | sv
 phys_step_threaded |  | true | 
 phys_stressbodyweights |  | 5 | sv
-phys_threaded_cloth_bone_update |  | false | sv, cl, rep
-phys_threaded_kinematic_bone_update |  | false | sv, cl, rep
-phys_threaded_transform_update |  | false | sv, cl, rep
+phys_threaded_cloth_bone_update |  | true | sv, cl, rep
+phys_threaded_kinematic_bone_update |  | true | sv, cl, rep
+phys_threaded_transform_update |  | true | sv, cl, rep
 phys_timescale | Scale time for physics | 1 | sv
 phys_upimpactforcescale |  | 0.375 | sv
 phys_use_block_solver | Use block solving for constraint entities | true | sv, cheat
 phys_vehicleimpactforcescale |  | 1.5 | sv
 phys_visualize_awake_dynamic_only |  | false | sv, cl, rep
 phys_visualize_awake_unattached_only |  | false | sv, cl, rep
-phys_visualize_traces |  | false | sv, cl, rep, cheat
 phys_wakeup | Wake all physics objects in the Main physics up | cmd | sv
-phys_wind_force_scale | Scale on the force wind applies to physics bodies | 1 | sv, cl, rep
 physics_add_test | add test object | cmd | sv
 physics_debug_entity | Dumps debug info for an entity | cmd | sv
 physics_highlight_active | Turns on the absbox for all active physics objects.<br>  0 : un-highlight.<br> | cmd | sv
@@ -4054,49 +4363,45 @@ pickup_check_period |  | 0.25 | sv
 ping_indicator_safe_area_x |  | 480 | cl
 ping_indicator_safe_area_y |  | 200 | cl
 ping_quick_response | Responds to the last ping message received | cmd | cl, release
-ping_target_reset_time |  | 1.2 | cl
-ping_trace_radius |  | 5 | cl
-ping_trace_radius_expanded |  | 60 | cl
-ping_trace_radius_minimap |  | 60 | cl
 ping_wheel_phrase_0 |  | 1 | cl, a, per_user
 ping_wheel_phrase_1 |  | 2 | cl, a, per_user
 ping_wheel_phrase_2 |  | 4 | cl, a, per_user
 ping_wheel_phrase_3 |  | 34 | cl, a, per_user
-ping_wheel_phrase_4 |  | 18 | cl, a, per_user
+ping_wheel_phrase_4 |  | 12 | cl, a, per_user
 ping_wheel_phrase_5 |  | 5 | cl, a, per_user
-ping_wheel_phrase_6 |  | 42 | cl, a, per_user
+ping_wheel_phrase_6 |  | 18 | cl, a, per_user
 ping_wheel_phrase_7 |  | 6 | cl, a, per_user
-pingkeypress | Ping keybind pressed | cmd | cl, release
+pingkeypress | Quick ping keybind pressed. Arg is the slot, 1-12. | cmd | cl, release
 pixelvis_debug | Dump debug info | cmd | cheat
 play | Play a sound. | cmd | server_can_execute
 playcast | Play a broadcast | cmd | release
 playdemo | Play a recorded demo file (.dem ). | cmd | release
 player0_using_joystick |  | false | a
-player_ammobalancing_debug |  | false | sv, cheat
 player_debug_off_nav |  | false | sv, cheat
 player_debug_print_damage | When true, print amount and type of all damage received by player to console. | false | sv, cheat
 player_ping_indicator_boss_offset |  | 110 | cl
 player_ping_indicator_default_offset |  | 50 | cl
-player_ping_indicator_enabled |  | true | cl
+player_ping_indicator_enabled |  | true | cl, a, per_user
 player_ping_indicator_local_player |  | false | cl
 player_ping_indicator_player_offset |  | 60 | cl
 player_ping_indicator_scale_max_distance |  | 4000 | cl
 player_ping_indicator_scale_max_scale |  | 1 | cl
 player_ping_indicator_scale_min_distance |  | 1300 | cl
 player_ping_indicator_scale_min_scale |  | 0.5 | cl
+player_test_prediction_smoothing | Teleport the player on the server, use with cl_smooth_root_infiniteteleporttolerance | cmd | sv, cheat
 playsound | playsound &lt;soundname&gt; | cmd | 
 playsoundscape | Forces a soundscape to play | cmd | cl, cheat
 playvol | Play a sound at a specified volume. | cmd | 
 png_screenshot | Take a .png screenshot: png_screenshot \[filename\] | cmd | 
 pop_var_values | Restore previously pushed convars and config values | cmd | 
 population_distribution_debug |  | 0 | sv, rep
-pred_cloth_pos_max |  | 2 | cl
-pred_cloth_pos_multiplier |  | 0.5 | cl
-pred_cloth_pos_strength |  | 0.25 | cl
-pred_cloth_rot_high |  | 0.1 | cl
-pred_cloth_rot_low |  | 0.01 | cl
-pred_cloth_rot_multiplier |  | 0.3 | cl
-presettle_cloth_iterations |  | 30 | cl
+pred_cloth_pos_max |  | 0 | cl
+pred_cloth_pos_multiplier |  | 0 | cl
+pred_cloth_pos_strength |  | 0 | cl
+pred_cloth_rot_high |  | 0 | cl
+pred_cloth_rot_low |  | 0 | cl
+pred_cloth_rot_multiplier |  | 0 | cl
+presettle_cloth_iterations |  | 0 | cl
 print_changed_convars | Prints all convars that have changed from their default value | cmd | release
 print_model_bind_pose | Prints the bind pose of the specified model. Optionally limits to a particular bone and its parent chain, otherwise prints the entire skeleton. | cmd | 
 private_lobby_create | Creates a private lobby party | cmd | cl, release
@@ -4119,9 +4424,10 @@ prop_nav_obstacle_block_mass_a |  | -1 | sv
 prop_nav_obstacle_block_mass_b |  | -1 | sv
 prop_nav_obstacle_block_mass_c |  | -1 | sv
 prop_physics_create | Creates a physics prop with a specific .vmdl aimed away from where the player is looking.<br>	Arguments: {.vmdl name} | cmd | sv, cheat
-props_break_apply_radial_forces |  | true | sv, cl, rep
-props_break_max_pieces_perframe | Maximum prop breakable piece count per frame (-1 = model default) | 16 | sv, cl, rep
+props_break_apply_radial_forces |  | false | sv, cl, rep
+props_break_max_pieces_perframe | Maximum prop breakable piece count per frame (-1 = model default) | 0 | sv, cl, rep
 props_break_radial_force_ratio |  | 0.33 | sv, cl, rep
+pulse_cursor_infinite_loop_detection_threshold |  | 20000 | sv, cl, rep
 pulse_debug_entity | Opens a graph referencing the selected entity. If it is referenced by more than 1 graph, list all the active pulse graph instances referring to that entity so you can pick which one you want. | cmd | sv, cheat
 pulse_debug_print | Usage: pulse_debug_print &lt;vpulse_resource&gt; | cmd | 
 pulse_list_game_blackboards | List all the active pulse graph instances | cmd | sv, cheat
@@ -4144,28 +4450,36 @@ r_JeepViewDampenFreq |  | 7 | sv, cl, nf, rep, cheat
 r_JeepViewZHeight |  | 10 | sv, cl, nf, rep, cheat
 r_RainAllowInSplitScreen | Allows rain in splitscreen | false | cl
 r_RainParticleDensity | Density of Particle Rain 0-1 | 1 | cl
-r_add_views_in_pre_output |  | false | 
+r_add_views_in_pre_output |  | true | cl
 r_allow_onesweep_gpusort |  | true | 
 r_always_render_all_windows | Always force all engine & tools to render | false | 
-r_aoproxy_cull_dist | Distance to cull the AO proxy as a factor of size | 12 | 
-r_aoproxy_min_dist |  | 3 | 
-r_aoproxy_min_dist_box |  | 1 | 
-r_arealights |  | true | cl
-r_aspectratio |  | 0 | 
-r_async_compute_fog |  | false | cl
+r_animatable_mesh_shaders |  | false | cheat
+r_animatable_mesh_shaders_visualize_bounds |  | false | cheat
+r_aoproxy_cull_dist | Distance to cull the AO proxy as a factor of size | 0.01 | 
+r_aoproxy_default_ambient_strength |  | 1 | 
+r_aoproxy_default_light_cone_angles |  | 0.3 0.3 0.3 1 | 
+r_aoproxy_default_light_cone_strengths |  | 3 8 1 4 | 
+r_aoproxy_default_light_position_0 |  | 0.816497 0 0.57735 | 
+r_aoproxy_default_light_position_1 |  | -0.408248 0.707107 0.57735 | 
+r_aoproxy_default_light_position_2 |  | -0.408248 -0.707107 0.57735 | 
+r_aoproxy_default_light_position_3 |  | 0 0 1 | 
+r_aoproxy_min_dist |  | 9999 | 
+r_aoproxy_min_dist_box |  | 9999 | 
+r_arealights |  | false | cl
+r_aspectratio |  | 2.15 | 
 r_async_shader_compile_notify_frequency |  | 10 | 
 r_bloom_tent_filter_radius | bloom mip up-sample filtering radius (using 3x3 tent filter, radius in mip level texels), 0.0 radius =&gt; box (2x2) filter with (fixed) 1.0 radius | 0 | cl, cheat
 r_camerapos | Prints out the current camera position + orientation to the console | cmd | 
 r_character_decal_monitor_draw_frustum |  | false | 
 r_character_decal_monitor_emissive |  | false | 
-r_character_decal_monitor_render_res |  | 512 | 
+r_character_decal_monitor_render_res |  | 8 | 
 r_character_decal_renderdoc_capture |  | false | 
-r_character_decal_resolution | Resolution of character decal texture. | 1024 | 
-r_citadel_antialiasing |  | 1 | cl
+r_character_decal_resolution | Resolution of character decal texture. | 0 | 
+r_citadel_antialiasing |  | 0 | cl
 r_citadel_clip_sphere_cone_angle |  | 40 | cl, cheat
 r_citadel_clip_sphere_dist |  | 0.45 | cl, cheat
 r_citadel_clip_sphere_distance_max |  | 75 | cl, cheat
-r_citadel_clip_sphere_min_opacity |  | 0.4 | cl, cheat
+r_citadel_clip_sphere_min_opacity |  | 0 | cl, cheat
 r_citadel_clip_sphere_skin |  | 0.4 | cl, cheat
 r_citadel_cloak_blur_amount | cloak | 0.01 | cl, cheat
 r_citadel_cloak_blur_factor_max_roughness | cloak | 1 | cl, cheat
@@ -4175,16 +4489,12 @@ r_citadel_cloak_color_tint | cloak | 230 230 230 255 | cl, cheat
 r_citadel_cloak_fresnel_effect | cloak | 0 | cl, cheat
 r_citadel_cloak_intensity | cloak | 1 | cl, cheat
 r_citadel_cloak_refract_amount | cloak | 0 | cl, cheat
-r_citadel_cosmic_veil_fade_dist | cosmic veil | 32 | cl, cheat
-r_citadel_depth_prepass_cull_threshold |  | 60 | cl
-r_citadel_depth_prepass_dynamic_objects |  | true | cl
 r_citadel_depthoffield_aperture_diameter | Depth of field aperture diameter in inches | 0 | cl
 r_citadel_depthoffield_debug | Enable depth of field debug drawing | false | cl
 r_citadel_depthoffield_enable | Enable/Disable Depth of Field | false | cl
 r_citadel_depthoffield_focus_distance | Depth of field focus distance in inches | 200 | cl
 r_citadel_depthoffield_mode | Depth of field mode, 0: Normal 1: Near field only 2: Far field only | 0 | cl
 r_citadel_depthoffield_sensor_size | Depth of field sensor size in inches | 1 | cl
-r_citadel_disable_npr_lighting |  | false | cl
 r_citadel_distancefield_ao_quality | Distance Field AO quality | 0 | cl
 r_citadel_distancefield_blur | Enable/Disable distance field blur | true | cl
 r_citadel_distancefield_blur_depth_threshold | Distance field blur depth threshold | 1 | cl
@@ -4199,115 +4509,110 @@ r_citadel_distancefield_min_screen_space_size | Minimum screen space size before
 r_citadel_distancefield_occlusion_length | Distance field occlusion length | 48 | cl
 r_citadel_distancefield_ray_origin_bias_max | Distance field ray origin bias max | 3 | cl
 r_citadel_distancefield_ray_origin_bias_min | Distance field ray origin bias min | 0.25 | cl
-r_citadel_distancefield_shadows |  | true | cl
+r_citadel_distancefield_shadows |  | false | cl
 r_citadel_dlss_settings_mode |  | 0 | cl
-r_citadel_enable_pano_world_blur | Enable world-blur style | true | cl
-r_citadel_fog_quality | Fog Quality | 1 | cl
+r_citadel_drop_shadow_direction | Drop Shadow Offset | 0.1 0.1 | cl, cheat
+r_citadel_drop_shadow_flare | Percentage the shadow grows in each dimension per 100 game units below the character's feet. | 25 | cl, cheat
+r_citadel_drop_shadow_max_dist |  | 2048 | cl, cheat
+r_citadel_drop_shadow_update_frequency |  | 1 | cl, release
+r_citadel_fog_quality | Fog Quality | 0 | cl
 r_citadel_fsr2_sharpness |  | 0.5 | cl
 r_citadel_fsr3_min_reactiveness | minimum reactiveness for the FSR3 shader | 0.1 | cl
 r_citadel_fsr_enable_mip_bias | Apply negative mip bias when rendering with FSR. | true | cl
 r_citadel_fsr_rcas_sharpness | RCAS sharpness when using FSR + RCAS upsample. | 0.25 | cl
 r_citadel_glow_health_bar_debug |  | false | cl, cheat
-r_citadel_glow_health_bars |  | true | cl
-r_citadel_gpu_culling | Citadel/Graphics/GPU Culling | true | cl
-r_citadel_gpu_culling_shadows | Citadel/Graphics/GPU Cull Shadow Views | false | cl
-r_citadel_gpu_culling_two_pass | Citadel/Graphics/GPU Culling (Two Pass) | true | cl
-r_citadel_gpu_debug_draw |  | false | cl
-r_citadel_gpu_preview_baked_shadows |  | true | cl
+r_citadel_glow_health_bars |  | false | cl
+r_citadel_gpu_culling | Citadel/Graphics/GPU Culling | true | cl, cheat
+r_citadel_gpu_culling_shadows | Citadel/Graphics/GPU Cull Shadow Views | false | cl, cheat
+r_citadel_gpu_culling_two_pass | Citadel/Graphics/GPU Culling (Two Pass) | true | cl, cheat
+r_citadel_gpu_preview_baked_shadows |  | false | cl
 r_citadel_gpu_preview_denoise |  | true | cl
 r_citadel_gpu_preview_denoise_depth_phi |  | 20 | cl
 r_citadel_gpu_preview_denoise_normal_phi |  | 96 | cl
 r_citadel_gpu_preview_denoise_passes |  | 3 | cl
 r_citadel_gpu_preview_denoise_shadow_passes |  | 1 | cl
 r_citadel_gpu_preview_denoise_signal_phi |  | 1 | cl
-r_citadel_mboit_bias |  | 5e-06 | cl, cheat
-r_citadel_mboit_enabled | enable moments oit | false | cl
-r_citadel_mboit_overestimation |  | 0.25 | cl, cheat
 r_citadel_mboit_quality |  MBOIT quality, 0: 4 Moments  | 0 | cl
-r_citadel_npr_force_solid_outline |  | false | cl
 r_citadel_npr_outlines | Enable/Disable NPR Outlines | true | cl, cheat
 r_citadel_npr_outlines_max_dist | Maximum distance at which NPR outlines are rendered | 1000 | cl, cheat
-r_citadel_portrait_allow_particle_only |  | true | cl
-r_citadel_portrait_highlight_particle_only |  | false | cl
 r_citadel_render_game | Should you render the main game world | true | cl, cheat
-r_citadel_screenspace_particles_full_res | Render screen space particles at full resolution | true | cl
 r_citadel_see_thru_walls_opacity | Opacity scale for see-thru UI | 0.3 | cl, cheat
-r_citadel_selection_outline2_alpha | Selection Outline Alpha | 0.8 | cl
-r_citadel_selection_outline2_fade_pow | Selection Outline Fade Pow | 1.5 | cl
-r_citadel_selection_outline2_offset | Selection Outline Offset: -1 for interior, 0 for centered, 1 for exterior. | 0.3 | cl
-r_citadel_selection_outline2_width | Selection Outline Width | 4 | cl
+r_citadel_selection_outline2_alpha | Selection Outline Alpha | 0.8 | cl, cheat
+r_citadel_selection_outline2_fade_pow | Selection Outline Fade Pow | 1.5 | cl, cheat
+r_citadel_selection_outline2_offset | Selection Outline Offset: -1 for interior, 0 for centered, 1 for exterior. | 0.3 | cl, cheat
+r_citadel_selection_outline2_width | Selection Outline Width | 4 | cl, cheat
 r_citadel_shadow_caching |  | true | cl
 r_citadel_shadow_caching_stats | Print information about shadow caching | cmd | cl
-r_citadel_shadow_quality | Shadow Quality | 1 | cl
-r_citadel_shadowdb |  | 2048 | cl
-r_citadel_ssao_quality |  | 3 | cl
-r_citadel_ssao_thin_occluder_compensation |  | 0.5 | cl
-r_citadel_sun_shadow_slope_scale_depth_bias |  | 3.54 | cl
+r_citadel_shadow_quality | Shadow Quality | 0 | cl
+r_citadel_shadowdb |  | 64 | cl
+r_citadel_ssao_quality |  | 0 | cl
+r_citadel_sun_shadow_slope_scale_depth_bias |  | 1 | cl
 r_citadel_upscaling |  | 4 | cl
-r_citadel_use_exposure_control_in_panorama_scenes |  | false | cl
 r_cleardecals | Clears all decals | cmd | cl
+r_colorblindsim_fullscreen_cycletime | Cycle between deficiencies, holding at each for this many seconds | 0 | cl, release
+r_colorblindsim_fullscreen_weight_deuteranopia | Deuteranopia simulation weight. Affects ~6% of males & 0.39% of females. | 0 | cl, release
+r_colorblindsim_fullscreen_weight_protanopia | Protanopia simulation weight. Affects ~2% of males & 0.04% of females. | 0 | cl, release
+r_colorblindsim_fullscreen_weight_tritanopia | Tritanopia simulation weight. Affects ~0.002% of males & 0.001% of females. | 0 | cl, release
+r_colorblindsim_mode | 0 = off, 1 = fullscreen, 2 = mouse quadrants | 1 | cl, release
+r_colorblindsim_rendermethod | 0 = disabled, 1 = render pipeline, 2 = render service, 3 = game ui service | 3 | cl, release
 r_cubemap_debug_colors |  | 0 | cheat
-r_cubemap_normalization |  | true | cl
-r_dashboard_render_quality |  | true | cl
-r_debug_draw_safe_area_insets | Render safe area insets as wireframe. | false | 
+r_dashboard_render_quality |  | false | cl
 r_debug_precipitation | Show precipitation volumes | false | cl, cheat
-r_decals |  | 2048 | sv, cl, rep
+r_decals |  | 0 | sv, cl, rep
 r_decals_additional_offset |  | 0 | sv, cl, rep
-r_decals_default_fade_duration |  | 3 | sv, cl, rep
-r_decals_default_start_fade |  | 30 | sv, cl, rep
-r_decals_max_on_deformables |  | 512 | sv, cl, rep
-r_decals_overlap_threshold |  | 0 | sv, cl, rep
-r_depth_of_field |  | true | cl
-r_directional_lightmaps |  | true | 
+r_decals_default_fade_duration |  | 0.001 | sv, cl, rep
+r_decals_default_start_fade |  | 0.001 | sv, cl, rep
+r_decals_max_triangle_anchored |  | 512 | sv, cl, rep
+r_decals_overlap_threshold |  | 5 | sv, cl, rep
+r_decals_triangle_max_stretch | Max stretch (and 1/x compression) ratio a triangle-anchored decal may show relative to its shape at placement. 1 = rigid follow, &lt;= 0 = unlimited. | 1.25 | sv, cl, rep
+r_depth_of_field |  | false | cl
+r_directional_lightmaps |  | false | 
 r_directlighting | Set to use direct lighting | true | cheat
-r_distancefield_enable | Graphics/Enable Distance Field rendering | true | cl
+r_distancefield_enable | Graphics/Enable Distance Field rendering | false | cl
 r_dlss_preset |  | 5 | 
-r_dof1_d0 |  | 0.2 | cl
-r_dof1_d1 |  | 0.3 | cl
 r_dof_override |  | false | cheat
 r_dof_override_far_blurry |  | 2000 | cheat
 r_dof_override_far_crisp |  | 180 | cheat
 r_dof_override_near_blurry |  | -100 | cheat
 r_dof_override_near_crisp |  | 0 | cheat
-r_dof_override_ranges |  | 0 0 0 0 | cl
+r_dof_override_ranges |  | 0 0 0 0 | cl, cheat
 r_dof_override_tilt_to_ground |  | 0.5 | cheat
 r_dopixelvisibility |  | true | cheat
-r_draw3dskybox |  | true | cl
+r_draw3dskybox |  | false | cl
 r_draw_first_tri_only |  | false | cheat
 r_draw_instances |  | true | cheat
-r_draw_overlays |  | true | cl
-r_draw_particle_children_with_parents | Draw particle children with parents (-1=use gameinfo, 0=no, 1=yes) | -1 | cheat
+r_draw_particle_children_with_parents | Draw particle children with parents (-1=use gameinfo, 0=no, 1=yes) | 0 | cheat
 r_drawblankworld | Render blank instead of the game world | false | cheat
-r_drawdecals | Set to render decals | true | cheat
+r_drawdecals | Set to render decals | false | cheat
 r_drawdevvisualizers | Render dev visualizers | false | cl, cheat
 r_drawpanorama | Enable the rendering of panorama UI | true | cheat
 r_drawparticles | SceneSystem/Particles/Draw Particles | true | cheat
 r_drawpixelvisibility | Show the occlusion proxies | false | 
-r_drawropes |  | true | cl, cheat
+r_drawropes |  | false | cl, cheat
 r_drawskybox | Render the 2d skybox. | true | cheat
-r_drawtracers |  | true | cl, cheat
-r_drawtracers_firstperson | Toggle visibility of first person weapon tracers | true | cl, a, release
+r_drawtracers |  | false | cl, cheat
+r_drawtracers_firstperson | Toggle visibility of first person weapon tracers | false | cl, a, release
 r_drawviewmodel | Render view model | true | cl, cheat
 r_drawworld | Render the world. | true | cheat
 r_dx11_debug_clean | Aggressively unbind bound resources to cleanup DX11 debug warnings. | false | release
 r_dx11_report_live_objects | Prints out live D3D11 objects (requires -dx11debug) | cmd | 
 r_dx11_software_cmd_lists | Enable Software Command lists for DX11 (Avoid using deferred contexts) | true | 
-r_effects_bloom |  | true | cl
-r_enable_cubemap_fog | Citadel/Graphics/Fog/Enable Cubemap Fog | true | cl
-r_enable_gradient_fog | Citadel/Graphics/Fog/Enable Gradient Fog | true | cl
+r_effects_bloom |  | false | cl
+r_enable_cubemap_fog | Citadel/Graphics/Fog/Enable Cubemap Fog | true | cl, cheat
+r_enable_gradient_fog | Citadel/Graphics/Fog/Enable Gradient Fog | true | cl, cheat
 r_enable_rigid_animation |  | false | cl
-r_enable_volume_fog | Citadel/Graphics/Fog/Enable Volume Fog | true | cl
+r_enable_volume_fog | Citadel/Graphics/Fog/Enable Volume Fog | true | cl, cheat
 r_entpos | Moves the camera position + orientation to the named entity | cmd | 
 r_environment_map_roughness_range | Fade region for sampling environment maps on lightmapped nonmetals. Smoother values than the first param sample envmaps. Rougher values than the second sample only lightmap SH. r_environment_map_roughness_range 1 1 to always sample envmaps for comparison. | 0.2 0.3 | cl, cheat
 r_experimental_lag_limiter |  | false | 
 r_extra_render_frames |  | 0 | cheat
 r_fallback_texture_lod_scale | Scale factor for requested texture size (texture streaming) - used for geo that doesn't have a precomputed UV density measure | 2 | cheat
-r_farz | Override the far clipping plane. -1 means to use the value in env_fog_controller. | -1 | cl, cheat
+r_farz | Override the far clipping plane. -1 means to use the value in env_fog_controller. | 7000 | cl, cheat
 r_flashlightambient |  | 0 | cl, cheat
 r_flashlightbacktraceoffset |  | 0.4 | cl, cheat
-r_flashlightbrightness |  | 1 | cl, rep, cheat
+r_flashlightbrightness |  | 0 | cl, rep, cheat
 r_flashlightconstant |  | 0 | cl, rep, cheat
-r_flashlightfar |  | 1500 | cl, rep, cheat
+r_flashlightfar |  | 0 | cl, rep, cheat
 r_flashlightfov |  | 53 | cl, rep, cheat
 r_flashlightladderdist |  | 40 | cl, cheat
 r_flashlightlinear |  | 100 | cl, rep, cheat
@@ -4319,35 +4624,34 @@ r_flashlightoffsetforward |  | 0 | cl, rep, cheat
 r_flashlightoffsetright |  | 5 | cl, rep, cheat
 r_flashlightoffsetup |  | -5 | cl, rep, cheat
 r_flashlightquadratic |  | 0 | cl, rep, cheat
-r_flashlightshadowatten |  | 0.35 | cl, cheat
+r_flashlightshadowatten |  | 0 | cl, cheat
 r_flashlighttracedistcutoff |  | 128 | cl, cheat
 r_flashlighttracedistwatercutoff |  | 80 | cl, cheat
 r_flashlightvisualizetrace |  | false | cl, cheat
-r_flush_on_pooled_ib_resize |  | true | release
 r_force_engine_render_frame | Force a single render of the engine viewport. | cmd | 
 r_force_no_present | Force the render device to not present frames. | false | cheat
 r_force_render_frame_count | The number of frames to render when a | 5 | 
 r_force_thick_hair |  | false | cheat
-r_force_zprepass | 0: Force z prepass off. 1: Force on. -1: Don't force | -1 | cheat
-r_frame_sync_enable |  | true | 
+r_frame_sync_enable |  | false | 
 r_freeze_sceneobjects |  | false | cl
 r_freezeparticles | Pause particle simulation | false | cheat
 r_fullscreen_gamma | Screen Gamma (only in fullscreen modes) | 2.2 | a
 r_fullscreen_quad_single_triangle |  | true | 
+r_gpu_debug_draw_freeze |  | false | cl
 r_gpu_mem_stats | Display GPU memory usage. | cmd | 
 r_grass_allow_flattening |  | false | 
 r_grass_alpha_test |  | 0 | 
 r_grass_density_mode | 0 = Density corresponds to blade existance, 1 = Density corresponds to blade height, 2 = Both 0 and 1 | 0 | 
-r_grass_end_fade |  | 3000 | 
+r_grass_end_fade |  | 0 | 
 r_grass_max_brightness_change |  | 75 | 
-r_grass_quality | 0 = Off, 1 = Low, 2 = Med, 3 = high, 4 = ultra | 2 | 
-r_grass_start_fade |  | 2000 | 
+r_grass_quality | 0 = Off, 1 = Low, 2 = Med, 3 = high, 4 = ultra | 0 | 
+r_grass_start_fade |  | 0 | 
 r_grass_vertex_lighting |  | 0 | 
-r_hair_ao |  | true | 
+r_hair_ao |  | false | 
 r_hair_debug_guides | 1: Highlight guide hairs, 2: draw only guide hairs | 0 | cheat
-r_hair_indirect_transmittance |  | true | 
+r_hair_indirect_transmittance |  | false | 
 r_hair_meshshader |  | 0 | 
-r_hair_shadowtile |  | true | 
+r_hair_shadowtile |  | false | 
 r_hair_voxels |  | -1 | cheat
 r_hair_wind_global_scale |  | 0.3 | 
 r_hair_wind_min_noise_speed |  | 20 | 
@@ -4356,15 +4660,15 @@ r_hair_wind_noise |  | 0.2 |
 r_hair_wind_noise_occlusion |  | 1 | 
 r_hair_wind_noise_size |  | 10 | 
 r_hair_wind_occlusion |  | 2 | 
-r_haircull_percent |  | -1 | cheat
+r_haircull_percent |  | 100 | cheat
 r_hairsort |  | true | cheat
-r_impacts_alt_orientation |  | true | cl
+r_impacts_alt_orientation |  | false | cl
 r_impacts_decal_grazing_incidence_cutoff |  | 0.55 | cl
 r_impacts_decal_grazing_incidence_variance |  | 0.1 | cl
 r_indirectlighting | Set to use indirect lighting | true | cheat
-r_late_particle_job_sync |  | false | cl
+r_late_particle_job_sync |  | true | cl
 r_legacy_vsync | Use legacy vsync mode -- for testing for a couple user machines. | false | 
-r_light_flickering_enabled |  | true | sv, cl, rep
+r_light_flickering_enabled |  | false | sv, cl, rep
 r_light_probe_volume_debug_colors |  | false | cheat
 r_light_probe_volume_debug_grid | Show LPV debug grid, 0: off, 1: closest only 2: closest and keep 3: all | 0 | cheat
 r_light_probe_volume_debug_grid_albedo | albedo for LPV debug grid | 128 128 128 255 | cheat
@@ -4373,31 +4677,28 @@ r_light_probe_volume_debug_grid_metalness | metalness for LPV debug grid | 0 | c
 r_light_probe_volume_debug_grid_prim | 0: spheres, 1: cubes | 0 | cheat
 r_light_probe_volume_debug_grid_roughness | roughness for LPV debug grid | 0.5 | cheat
 r_light_probe_volume_debug_grid_samplesize | sphere radius (world) for LPV debug grid | 4 | cheat
-r_light_sensitivity_mode |  | false | cl
-r_lighting_only |  | false | cl
-r_lightmap_bicubic_filtering |  | true | cl
+r_light_sensitivity_mode |  | true | cl, a, per_user
 r_lightmap_set | Lightmap set to use, only works on map load | lightmaps | cheat
-r_lightmap_size | Maximum lightmap resolution. | 65536 | 
-r_lightmap_size_directional_irradiance | Maximum lightmap resolution for directional_irradiance channel. -1 = use value of r_lightmap_size | -1 | 
-r_limit_particle_job_duration |  | false | 
+r_lightmap_size | Maximum lightmap resolution. | 4 | 
+r_lightmap_size_directional_irradiance | Maximum lightmap resolution for directional_irradiance channel. -1 = use value of r_lightmap_size | 0 | 
+r_limit_particle_job_duration |  | true | 
 r_low_latency | NVIDIA Low Latency/AMD Anti-Lag 2 (0 = off, 1 = on, 2 = NV-only, on + boost) | 1 | 
 r_low_latency_trigger_flash | NVIDIA Low Latency Trigger Flash | true | 
-r_mapextents | Set the max dimension for the map.  This determines the far clipping plane | 16384 | cl, cheat
+r_mapextents | Set the max dimension for the map.  This determines the far clipping plane | 100 | cl, cheat
 r_max_portal_render_targets |  | 2 | cl
 r_max_texture_pool_size | Upper limit on texture pool size. | 0 | 
 r_mixed_shadows_fade_in_time |  | 0.5 | sv, cl, rep
-r_mixed_shadows_fade_out_time |  | 0.5 | sv, cl, rep
-r_monitor_3dskybox |  | true | cl
-r_morphing_enabled |  | true | cheat
+r_mixed_shadows_fade_out_time |  | 0.0001 | sv, cl, rep
+r_monitor_3dskybox |  | false | cl
+r_morphing_enabled |  | false | cheat
 r_multigpu_num_gpus_found |  | 1 | 
 r_multigpu_num_gpus_used |  | 1 | 
-r_multiscattering |  | true | cl
-r_muzzleflashbrightness |  | 0.4 | cl, rep, cheat
+r_muzzleflashbrightness |  | 0.01 | cl, rep, cheat
 r_muzzleflashlinear |  | 0.05 | cl, rep, cheat
 r_nearz | Override the near clipping plane. -1 means use the default. | -1 | cl, cheat
-r_opaque |  | true | cl
 r_particle_allowprerender |  | true | 
-r_particle_batch_collections |  | false | 
+r_particle_batch_collections |  | true | 
+r_particle_batch_in_fullsort |  | false | 
 r_particle_cables_cast_shadows |  | true | 
 r_particle_cables_culling |  | 1 | 
 r_particle_cables_culling_bounds_scale |  | 1.2 | 
@@ -4413,8 +4714,8 @@ r_particle_debug_show_attribute | Show specific attribute when debugging particl
 r_particle_debug_show_control_points | Show all used controlpoints | false | 
 r_particle_debug_show_rope_segments | Show rope segments when debugging particle systems - specify a number to isolate to that segment id | 0 | 
 r_particle_debug_show_sort_position | Show the sorting position when debugging particle systems | false | 
+r_particle_debug_vector_attribute_scale | Scale attribute vectors by this much for 3d rendering | 1 | 
 r_particle_enable_fastpath |  | true | 
-r_particle_explicit_fetch |  | false | 
 r_particle_fixedrandomseeds | Use fixed seeds for easier debugging | false | 
 r_particle_gpu_implicit |  | true | 
 r_particle_gpu_implicit_cull_columns |  | true | 
@@ -4423,98 +4724,91 @@ r_particle_gpu_implicit_debug_stats |  | false |
 r_particle_gpu_implicit_debug_wireframe |  | false | 
 r_particle_gpu_implicit_lds_cache |  | false | 
 r_particle_max_detail_level | The maximum detail level of particle to create | 3 | 
-r_particle_max_draw_distance | The maximum distance that particles will render | 1e+06 | cheat
-r_particle_max_size_cull | Particle systems larger than this in every dimension skip culling to save CPU.  They will be drawn anyway. | 1200 | 
-r_particle_max_texture_layers |  | -1 | 
-r_particle_min_timestep | A minimum on particle simulation time, particle simulation happening more frequently than this will lerp. | 0 | 
-r_particle_mixed_resolution_viewstart |  | 500 | 
+r_particle_max_draw_distance | The maximum distance that particles will render | 100000 | cheat
+r_particle_max_size_cull | Particle systems larger than this in every dimension skip culling to save CPU.  They will be drawn anyway. | 126 | 
+r_particle_max_texture_layers |  | 4 | 
+r_particle_min_timestep | A minimum on particle simulation time, particle simulation happening more frequently than this will lerp. | 0.001 | 
+r_particle_mixed_resolution_viewstart |  | 800 | 
 r_particle_model_new |  | false | 
-r_particle_model_new8 |  | true | 
+r_particle_model_new8 |  | false | 
 r_particle_model_per_thread_count |  | 32 | 
 r_particle_multiplier | Render each particle system N times for perf testing | 1 | cheat
 r_particle_newinput | Enable input path in particle ops | false | 
 r_particle_render_refreshes_sleep_timer | Disable to get a better look at what's happening offscreen | true | 
+r_particle_render_sprites_issue_vizquery |  | true | 
 r_particle_render_test | render particles 100 times and show perf | false | 
-r_particle_skip_postsim |  | false | 
+r_particle_skip_postsim |  | true | 
 r_particle_testbuffers |  | false | 
-r_particle_timescale |  | 1 | 
+r_particle_timescale |  | 1.1 | 
 r_particle_warn_threshold_ms | Threshold to warn about when rendering particles. | 0 | 
 r_particles_memset_at_init | 0=don't clear particle attrs at init 1=clear to zero 2=clear to 0xdb -1=clear to zero at first sim | 1 | 
-r_physics_particle_op_spawn_scale |  | 1 | 
+r_physics_particle_op_spawn_scale |  | 0 | 
 r_pipeline_stats_command_flush | Experimental: Set to 1 to enable full GPU pipeline flushing after each command list. | false | 
 r_pipeline_stats_flush_before_sleeping | Experimental: Set to 1 to enable GPU pipeline flushes right before the render thread sleeps to wait for more work. | false | 
 r_pipeline_stats_present_flush | Experimental: Set to 1 to enable full GPU pipeline flushing after each present. | false | 
-r_pipeline_stats_use_flush_api | Experimental: Set to 1 to use the ID3D11DeviceContext11::Flush() to flush the GPU pipeline instead of queries. | true | 
+r_pipeline_stats_use_flush_api | Experimental: Set to 1 to use the ID3D11DeviceContext11::Flush() to flush the GPU pipeline instead of queries. | false | 
 r_pixelvisibility_partial |  | true | cheat
 r_pixelvisibility_spew |  | false | cheat
 r_post_bloom |  | false | cl
 r_post_bloom_strength |  | -1 | cl
-r_postprocess_enable |  | true | cl
+r_postprocess_enable |  | true | cl, cheat
 r_print_buffers | Print Vertex/Index/GPU buffers. | cmd | 
 r_print_texture_stats | Texture stats | cmd | 
 r_printdecalinfo | Prints info about decals currently in the scene | cmd | cl
-r_propsmaxdist | Maximum visible distance | 1200 | cl
+r_propsmaxdist | Maximum visible distance | 600 | cl
 r_render_coordination_state | Prints out the current render coordination state. | cmd | 
-r_render_deferred_opaque |  | true | cl
-r_render_forward_opaque |  | true | cl
-r_render_hair |  | true | cheat
-r_render_portals |  | true | cl
-r_render_to_cubemap_debug |  | false | cl
-r_render_world_node_bounds | Render world node bounds | false | cheat
-r_renderdoc_auto_shader_pdbs | Automatically generate shader debug info on capture | true | 
+r_render_hair |  | false | cheat
+r_render_to_cubemap_debug |  | false | cl, cheat
+r_renderdoc_auto_shader_pdbs | Automatically generate shader debug info on capture | false | 
 r_renderdoc_capture_frame | Triggers a RenderDoc capture | cmd | 
 r_renderdoc_capture_window_dx11 | Triggers a RenderDoc capture of a specific Window | cmd | 
 r_renderdoc_open_captures |  | true | 
+r_renderdoc_show_overlay | Show RenderDoc overlay | true | 
 r_renderdoc_validation_error_capture_limit |  | 5 | 
-r_rendersun | Render sun lighting | true | cheat
+r_rendersun | Render sun lighting | false | cheat
 r_replay_post_effect |  | -1 | cl, cheat
 r_reset_character_decals |  | false | 
-r_ropetranslucent |  | true | cl
+r_ropetranslucent |  | false | cl
 r_screen_size_expansion |  | 0 | cl
 r_setpos | Moves the camera position + orientation to the specified position | cmd | 
 r_shadows |  | true | cheat
 r_shadowtile_waveops |  | false | 
 r_showdebugoverlays | Set to render debug overlays | false | cheat
-r_showdebugrendertarget | Set the debug render target to show, 0 == disable | false | cheat
 r_showsceneobjectbounds | Show scenesystem object bounding boxes | false | cheat
-r_showsunshadowdebugrendertargets | Set to render sun shadow render targets | false | cheat
-r_showsunshadowdebugsplitvis | Set to render sun shadow split visibility debugger | false | cheat
 r_size_cull_threshold | Threshold of screen size percentage below which objects get culled | 0.8 | 
 r_size_cull_threshold_fade | % above the screen size percentage where we will start fading out (==0 will disable fading). | 0 | 
-r_size_cull_threshold_shadow | Threshold of shadow map size percentage below which objects get culled | 0.2 | cheat
+r_size_cull_threshold_shadow | Threshold of shadow map size percentage below which objects get culled | 200 | cheat
 r_skinning_enabled |  | true | cheat
 r_skip_precache_validation_check |  | false | 
-r_smooth_morph_normals |  | true | release
-r_ssao | Set to use screen-space ambient occlusion | true | 
+r_smooth_morph_normals |  | false | release
+r_ssao | Set to use screen-space ambient occlusion | false | 
 r_ssao_bias |  | 0.5 | 
-r_ssao_blur |  | true | 
+r_ssao_blur |  | false | 
 r_ssao_radius |  | 30 | 
-r_ssao_strength |  | 1.2 | 
-r_strip_invisible_during_sceneobject_update |  | false | cl
-r_suppress_redundant_state_changes |  | true | 
+r_ssao_strength |  | 0 | 
+r_strip_invisible_during_sceneobject_update |  | true | cl
 r_texture_budget_dynamic | Dynamically adjust texture streaming budget based on GPU memory usage. | true | 
-r_texture_budget_threshold | Reduce texture memory pool size when this percentage of the budget is full. | 0.9 | 
-r_texture_budget_update_period | Time (in seconds) between updating texture memory budget. | 0.1 | 
+r_texture_budget_threshold | Reduce texture memory pool size when this percentage of the budget is full. | 0.7 | 
+r_texture_budget_update_period | Time (in seconds) between updating texture memory budget. | 0.5 | 
 r_texture_eager_eviction |  | false | 
 r_texture_hookup_uses_threadpool | Async Texture hookup uses its own threadpool instead of the global pool. | true | 
 r_texture_lod_scale | Scale factor for requested texture size (texture streaming) | 1 | cheat
 r_texture_nonstreaming_load | Allow immediately loading mips of textures (when possible) when their headers are loaded, saving IO & reducing latency. | true | 
 r_texture_pool_increase_rate | Increase texture memory pool size by this many MB / s when under budget. | 64 | 
-r_texture_pool_reduce_rate | Reduce texture memory pool size by this many MB / s when over budget. | 256 | 
-r_texture_pool_size | Total size of the texture pool in MB | 1600 | 
-r_texture_stream_max_resolution | Maximum resolution for top mip level in streaming textures | 2147483647 | 
-r_texture_stream_mip_bias | Biases the mip level the texture streaming system choses to stream for each texture. | 0 | 
-r_texture_stream_resolution_bias |  | 1 | 
+r_texture_pool_reduce_rate | Reduce texture memory pool size by this many MB / s when over budget. | 512 | 
+r_texture_pool_size | Total size of the texture pool in MB | 256 | 
+r_texture_stream_max_resolution | Maximum resolution for top mip level in streaming textures | 128 | 
+r_texture_stream_mip_bias | Biases the mip level the texture streaming system choses to stream for each texture. | 8 | 
 r_texture_stream_resolution_bias_decrease_rate |  | 0.1 | 
 r_texture_stream_resolution_bias_increase_rate |  | 0.05 | 
 r_texture_stream_resolution_bias_min |  | 1 | 
 r_texture_stream_resolution_bias_update_period |  | 0.5 | 
 r_texture_stream_throttle_amount |  | 10 | 
 r_texture_stream_throttle_count |  | 3 | 
-r_texture_stream_throttle_count_over_budget |  | 1 | 
+r_texture_stream_throttle_count_over_budget |  | 0 | 
 r_texture_streaming_timesliced |  | true | 
 r_texture_streamout_unthrottle_ms | After hitting throttling limits for streamout, allow it to continue up to this number of milliseconds. | 0.2 | 
-r_texturefilteringquality | 0: Bilinear, 1: Trilinear, 2: Aniso 2x, 3: Aniso 4x, 4: Aniso 8x, 5: Aniso 16x | 1 | 
+r_texturefilteringquality | 0: Bilinear, 1: Trilinear, 2: Aniso 2x, 3: Aniso 4x, 4: Aniso 8x, 5: Aniso 16x | 0 | 
 r_textures_evict_all | Evict all resident texture. | cmd | 
 r_threaded_particle_creation |  | true | 
 r_threaded_particles |  | true | 
@@ -4522,6 +4816,7 @@ r_threaded_scene_object_update |  | true | cl
 r_timestamp_query_multiplier | Set the TIMESTAMP query cycle multiplier, for drivers that lie | 1 | 
 r_toggleviewportsize | Toggles viewport size between small + full window. | cmd | 
 r_translucent | Enable rendering of translucent geometry | true | cheat
+r_ui_update_parallel_with_server |  | false | 
 r_update_particles_on_render_only_frames |  | false | cl
 r_use_memory_budget_model | Use a model of GPU memory use to determine budget rather than querying the OS. | false | 
 r_validate_texture_streaming | Dumps state of texture streaming at the next frame boundary. | false | 
@@ -4530,12 +4825,11 @@ r_viewport | Slams viewport size to a specified value. | cmd |
 r_wait_on_present |  | false | 
 r_world_frame_load_threshold_ms |  | 10 | 
 r_world_wind_dir |  | 0.707 0.707 0 | 
-r_world_wind_frequency_grass |  | 0.03 | 
-r_world_wind_frequency_trees |  | 0.003 | 
+r_world_wind_frequency_grass |  | 0 | 
+r_world_wind_frequency_trees |  | 0 | 
 r_world_wind_offset_speed |  | 0.25 0.3 0.2 | 
 r_world_wind_smooth_time |  | 2 | 
-r_world_wind_strength |  | 40 | 
-r_zprepass_normals | 0: Use normals reconstructed from depth. 1: Output correct normals in z prepass. | false | cheat
+r_world_wind_strength |  | 0 | 
 ragdoll_biped_settle_duration |  | 1.5 | sv, cheat
 ragdoll_biped_settle_force |  | 0.5 | sv, cheat
 ragdoll_biped_settle_lift_force |  | 0.2 | sv, cheat
@@ -4553,7 +4847,7 @@ ragdoll_lru_debug_removal |  | false | sv, cl, rep, cheat
 ragdoll_lru_min_age |  | 10 | sv, cl, rep, cheat
 ragdoll_move_entity |  | false | sv, cl, rep, cheat
 ragdoll_override_root_orientation |  | true | sv, rep
-ragdoll_parallel_pose_control |  | false | sv, cl, rep
+ragdoll_parallel_pose_control |  | true | sv, cl, rep
 ragdoll_prop_settle | Enable more aggressive ragdoll settling | true | sv, rep
 ragdoll_prop_sleepaftertime | After this many seconds of being basically stationary, the ragdoll will go to sleep. | 4 | sv, rep
 ragdoll_prop_sleepdisabletime | Ragdoll is not allowed to physically sleep until this timer has elapsed. | 1.5 | sv, rep
@@ -4565,6 +4859,7 @@ ragdoll_visualize_creation_skeleton |  | false | sv, rep
 ragdoll_vphysics_scale | How much we scale physics impacts against the ragdoll. | 0.5 | sv, rep
 rangefinder | Measures distance along a ray | cmd | sv, cheat
 rangefinder2d | Measures distance along a ray, only measuring along XY plane. | cmd | sv, cheat
+ranked_set_active_season | &lt;interval&gt; Sets the override of the currently active ranked season to be the specified interval | cmd | cl, cheat
 rate | Min bytes/sec the host can receive data | 786432 | a, user
 ray_bench | Load the rays and run the benchmark | cmd | sv
 rcon | Issue an rcon command. | cmd | norecord, release
@@ -4601,51 +4896,50 @@ resource_log_allocate_timing | Log time spent in Allocate for all resource types
 resource_manifest_validate_modules | Scan all of the loaded modules and validate any resource manifests found | cmd | 
 resource_repeated_reload | resource_repeated_reload &lt;count&gt; &lt;resource_name&gt; (&lt;resource name&gt; ...): Load and unload the specified resource(s) | cmd | 
 resource_reset_allocate_timing | Reset tracked time spent in Allocate (see resource_log_allocate_timing) | cmd | 
-resourcesystem_multiframe_finalize_time_msec | Max time to spend finalizing resources per frame in miliseconds. | 10 | 
 respawn_player | Respawns the player from death!<br> | cmd | sv, cheat
 restart | Poor man's restart: reload the current map from disk. | cmd | cheat
 rope_averagelight | Makes ropes use average of cubemap lighting instead of max intensity. | true | cl
-rope_collide | Collide rope with the world | 1 | cl
+rope_collide | Collide rope with the world | 0 | cl
 rope_shake |  | false | cl
-rope_smooth_enlarge | How much to enlarge ropes in screen space for antialiasing effect | 1.4 | cl
-rope_smooth_maxalpha | Alpha for rope antialiasing effect | 0.5 | cl
-rope_smooth_maxalphawidth |  | 1.75 | cl
-rope_smooth_minalpha | Alpha for rope antialiasing effect | 0.2 | cl
-rope_smooth_minwidth | When using smoothing, this is the min screenspace width it lets a rope shrink to | 0.3 | cl
-rope_subdiv | Rope subdivision amount | 2 | cl
-rope_wind_dist | Don't use CPU applying small wind gusts to ropes when they're past this distance. | 1000 | cl
+rope_smooth_enlarge | How much to enlarge ropes in screen space for antialiasing effect | 0 | cl
+rope_smooth_maxalpha | Alpha for rope antialiasing effect | 0 | cl
+rope_smooth_maxalphawidth |  | 0 | cl
+rope_smooth_minalpha | Alpha for rope antialiasing effect | 0 | cl
+rope_smooth_minwidth | When using smoothing, this is the min screenspace width it lets a rope shrink to | 0 | cl
+rope_subdiv | Rope subdivision amount | 0 | cl
+rope_wind_dist | Don't use CPU applying small wind gusts to ropes when they're past this distance. | 0 | cl
 rpg_camera_yaw |  | 90 | cl, rep, cheat
 rr_debugclassname | If set, rr_debugclassname will print only response tests where 'classname' corresponds to this variable. Use to filter for a specific character. |  | sv, cl, rep
 rr_debugresponseconcept | If set, rr_debugresponseconcept will print only responses testing for the specified concept |  | sv, cl, rep
 rr_debugresponses | Show verbose matching output (1 for simple, 2 for rule scoring, 3 for noisy). If set to 4, it will only show response success/failure for npc_selected NPCs. | 0 | sv, cl, rep
 rr_debugrule | If set to the name of the rule, that rule's score will be shown whenever a concept is passed into the response rules system. |  | sv, cl, rep
 rr_dump_rules | Print all response rules | cmd | sv, cheat
+rr_dumpresponses |  | false | sv, cl, rep
 rr_followup_maxdist | 'then ANY' or 'then ALL' response followups will be dispatched only to characters within this distance. | 1800 | sv, cheat
 rr_forceconcept | fire a response concept directly at a given character.<br>USAGE: rr_forceconcept &lt;target name or index&gt; &lt;concept&gt; "criteria1:value1,criteria2:value2,..."<br>criteria values are optional.<br> | cmd | sv, cheat
-rr_reloadresponsesystems | Reload all response system scripts. | cmd | sv, cheat
 rr_thenany_score_slop | When computing respondents for a 'THEN ANY' rule, all rule-matching scores within this much of the best score will be considered. | 0 | sv, a, cheat
 rs_dump_stats | rs_dump_stats - Dump resourcesystem stats. | cmd | 
 rtx_dynamic_blas | Allow dynamic BLAS creation for geometry going through the compute shader skinning path. | true | 
 rtx_dynamic_blas_caching | Cache dynamic BLAS if geometry has not changed | true | 
 rtx_force_default_hitgroup | Forces all ray traced geometry to use default hit shaders instead of specialized ones. | false | 
 rtx_perf_stats | Report RTX perf stats at N bounces. -1 means no report | -1 | cl
+rtx_preview_dynamic_bounce | Show dynamic bounce lights and real-time emissive as baked bounce in the Hammer GPU lighting preview. | true | 
 rtx_texture_resolution | Sets the texture resolution the raytracer will mark to stream in | 512 | 
 run_perftest | Execute perftest.cfg | cmd | cheat, norecord
 run_voicecontainer_async |  | false | 
 save | Save Game | cmd | sv, norecord
-save_animgraph_recording | Saves all active animgraph recordings to disk<br>	Arguments: automaticallyOpenInAnimgraphEditor | cmd | sv, cheat
 save_async |  | true | sv
 save_clear_subdirectory |  | cmd | sv, rep
+save_debug_snapshots | Save/Load debug snapshot data | true | sv, cl, rep
 save_fake_hitch | Force a busy wait for the specified number of milliseconds during save to simulate a hitch | 0 | sv
 save_finish_async |  | cmd | sv
 save_history_count | Keep this many old copies in history of autosaves and quicksaves. | 1 | sv
 save_maxarray_spew | Max number of array entries to spew when using SaveRestoreIO spewing. | 10 | sv, release
-save_parallel |  | false | sv, cl, rep
+save_parallel |  | true | sv, cl, rep
 save_screenshot | 0 = none, 1 = non-autosave, 2 = always, 3 = bug_only | 2 | sv
 save_set_subdirectory |  | cmd | sv, rep
 save_showelapsedtime | display up-to-date elapsed play time | cmd | sv
 save_spew |  | false | sv, cl, rep
-save_version | 0: (V0) Legacy save format, 1: (V1) KeyValues3 save format, 2: (V2) KV3Transfer saves | 1 | sv, cl, rep
 save_watchclass | Restrict spew to entities with matching classname | cmd | sv
 save_watchentity | Restrict spew to entity index | cmd | sv
 save_write_kv3 | Write the KV3 entity data as a text file in the save directory | false | sv, cl, rep
@@ -4655,16 +4949,16 @@ say_chat | Opens chat menu to chat with everyone | cmd | cl, release
 say_chat_team | Opens chat menu to chat with Allies | cmd | cl, release
 say_team | Display player message to team | cmd | sv
 sc_aggregate_bvh |  | true | 
-sc_aggregate_bvh_threshold |  | 128 | 
+sc_aggregate_bvh_threshold |  | 16 | 
 sc_aggregate_debug_draw_meshlets | SceneSystem/Aggregates/Visualize Meshlets | 0 | 
 sc_aggregate_debug_draw_meshlets_bounds | Visualize meshlet bounds and cone axis. Mesh shader only. | false | 
 sc_aggregate_debug_visualizer | SceneSystem/Aggregates/Debug Visualizer | false | cheat
+sc_aggregate_fragment_culling_boxes | Test aggregate fragments against culling boxes individually instead of per aggregate. | true | cheat
 sc_aggregate_fragment_merging |  | true | 
 sc_aggregate_gpu_culling | Toggles GPU culling of aggregate meshes | true | 
 sc_aggregate_gpu_culling_conservative_bounds |  | false | 
 sc_aggregate_gpu_culling_show_culled | SceneSystem/Aggregates/Show GPU Culled Meshes | false | 
 sc_aggregate_gpu_occlusion_culling |  | true | 
-sc_aggregate_gpu_vis_culling |  | true | 
 sc_aggregate_indirect_draw_compaction | Use multidrawindirect...count if the driver/hardware supports it | true | release
 sc_aggregate_indirect_draw_compaction_threshold | Threshold of indirect draws when we will do compaction | 8 | release
 sc_aggregate_instance_streams | Enable instance streams | true | 
@@ -4673,26 +4967,29 @@ sc_aggregate_render_mesh_shader | Using mesh shaders if available instead of dra
 sc_aggregate_rtproxy_debug_visualizer | SceneSystem/Aggregates/RT Proxy Debug Visualizer | false | cheat
 sc_aggregate_rtproxy_instanced_geo |  | true | cheat
 sc_aggregate_rtproxy_unique_geo |  | true | cheat
+sc_aggregate_rtproxy_visualize |  | false | cheat
 sc_aggregate_show_outside_vis |  | false | 
-sc_allow_dithered_lod | Allow use of dithered lod transitions | true | 
+sc_allow_dithered_lod | Allow use of dithered lod transitions | false | 
 sc_allow_dynamic_constant_batching |  | true | 
 sc_allow_precomputed_vismembers |  | true | 
 sc_allow_write_depth_before_blend |  | true | 
 sc_barnlight_enable_precomputed_vis | Enable use of precomputed vis membership for lights (requires map restart) | true | 
 sc_batch_layer_cb_updates |  | true | 
-sc_cache_envmap_lpv_lookup |  | true | 
-sc_clutter_density_full_size | Screen-size where clutter will be full density | 0.0075 | 
-sc_clutter_density_none_size | Screen-size where clutter will be gone | 0.0035 | 
+sc_cache_envmap_lpv_lookup |  | false | 
+sc_clutter_density_full_size | Screen-size where clutter will be full density | 0.5 | 
+sc_clutter_density_none_size | Screen-size where clutter will be gone | 0.1 | 
 sc_clutter_desity_override |  | false | 
-sc_clutter_enable | SceneSystem/Clutter/Draw Clutter | true | 
-sc_disableThreading |  | false | cheat
-sc_disable_baked_lighting |  | false | 
+sc_clutter_enable | SceneSystem/Clutter/Draw Clutter | false | 
+sc_cycleclassdebuglevel | Increment the debug level associated with an object class. sc_CycleClassDebugLevel &lt;classname&gt; &lt;optional: max level&gt;<br> | cmd | cheat
+sc_disableThreading |  | false | 
+sc_disable_baked_lighting |  | true | 
 sc_disable_culling_boxes |  | false | cheat
 sc_disable_procedural_layer_rendering |  | false | cheat
-sc_disable_shadow_fastpath |  | false | cheat
+sc_disable_shadow_fastpath |  | false | 
 sc_disable_spotlight_shadows |  | false | cheat
 sc_disable_world_materials |  | false | cheat
-sc_dithered_lod_transition_amt | Percentage of the transition between two lods we will apply a dither | 0.075 | 
+sc_distancefield_visualize_atlas |  | false | 
+sc_dithered_lod_transition_amt | Percentage of the transition between two lods we will apply a dither | 0 | 
 sc_draw_aggregate_meshes | SceneSystem/Aggregates/Draw Aggregates | true | 
 sc_dump_lists |  |  | cheat
 sc_dumpworld | Dump a list of the objects in a sceneworld (Usage: sc_dumpworld &lt;world_index&gt;) | cmd | cheat
@@ -4700,11 +4997,12 @@ sc_dumpworld3d | Dump the objects in a sceneworld into a 3d geoview buffer (Usag
 sc_enable_discard |  | true | 
 sc_extended_stats |  | false | cheat
 sc_fade_distance_scale_override |  | -1 | cheat
+sc_fog_cull |  | true | cheat
 sc_force_lod_level |  | -1 | cheat
-sc_force_materials_batchable |  | false | cheat
-sc_force_single_display_list_per_layer |  | false | 
+sc_force_materials_batchable |  | true | cheat
+sc_force_single_display_list_per_layer |  | true | 
 sc_force_translation_in_projection | If enabled, the camera's translation will be included in the projection matrix. | false | cheat
-sc_hdr_enabled_override | Override default setting for HDR rendering. -1 default, 0 NoHdr, 1 Hdr, 2 Hdr 1010102 3 Hdr 111110 | -1 | 
+sc_hdr_enabled_override | Override default setting for HDR rendering. -1 default, 0 NoHdr, 1 Hdr, 2 Hdr 1010102 3 Hdr 111110 | 0 | 
 sc_imgui_show_debug_log | SceneSystem/Imgui/Show Debug Log | false | cheat
 sc_imgui_show_id_stack | SceneSystem/Imgui/Show ID Stack Tool | false | cheat
 sc_imgui_show_metrics | SceneSystem/Imgui/Show Metrics | false | cheat
@@ -4713,32 +5011,38 @@ sc_instanced_gpu_culling_show_culled | SceneSystem/Instanced/Show GPU Culled Mes
 sc_instanced_material_solo |  |  | cheat
 sc_instanced_mesh_enable | SceneSystem/Instanced/Draw Instanced | true | cheat
 sc_instanced_mesh_gpu_culling | Toggles GPU culling of instanced meshes | true | 
+sc_instanced_mesh_gpu_culling_boxes | Test instanced mesh instances against info_visibility_box culling boxes. | true | cheat
 sc_instanced_mesh_gpu_density_culling | Toggles density culling (if enabled) | true | 
 sc_instanced_mesh_gpu_occlusion_culling | Toggles GPU occlusion of instanced meshes | true | 
 sc_instanced_mesh_gpu_vis_culling | Toggles GPU vis of instanced meshes | true | 
-sc_instanced_mesh_lod_bias | Bias for LOD selection of instanced meshes | 1.25 | 
-sc_instanced_mesh_lod_bias_shadow | Bias for LOD selection of instanced meshes in shadowmaps | 1.75 | 
-sc_instanced_mesh_mesh_shader | Toggles mesh shader rendering for instanced meshes | true | 
-sc_instanced_mesh_motion_vectors | Toggles motion vector support for instanced meshes | true | 
-sc_instanced_mesh_opaque_fade | Toggles fade support for instanced meshes | true | 
-sc_instanced_mesh_size_cull_bias | Bias for size culling of instanced meshes | 1.5 | 
-sc_instanced_mesh_size_cull_bias_shadow | Bias for size culling instanced meshes in shadowmaps | 2 | 
+sc_instanced_mesh_lod_bias | Bias for LOD selection of instanced meshes | 15 | 
+sc_instanced_mesh_lod_bias_shadow | Bias for LOD selection of instanced meshes in shadowmaps | 0.1 | 
+sc_instanced_mesh_motion_vectors | Toggles motion vector support for instanced meshes | false | 
+sc_instanced_mesh_opaque_fade | Toggles fade support for instanced meshes | false | 
+sc_instanced_mesh_shadows_batch_across_materials | Toggles whether mesh shader instanced can batch on reflectivity | false | 
+sc_instanced_mesh_size_cull_bias | Bias for size culling of instanced meshes | 10 | 
+sc_instanced_mesh_size_cull_bias_shadow | Bias for size culling instanced meshes in shadowmaps | 10 | 
 sc_instanced_mesh_solo |  |  | cheat
 sc_keep_all_layers |  | false | 
-sc_layer_batch_threshold |  | 128 | 
-sc_layer_batch_threshold_fullsort |  | 80 | 
+sc_layer_batch_threshold |  | 16 | 
+sc_layer_batch_threshold_fullsort |  | 20 | 
 sc_list_extradata_allocations | Prints out the overall extra data allocation counts | cmd | 
 sc_listworlds | List all the active sceneworlds | cmd | cheat
-sc_max_framebuffer_copies_per_layer |  | 1 | 
+sc_max_framebuffer_copies_per_layer |  | 0 | 
+sc_mesh_allow_batch_across_primitives |  | true | 
 sc_mesh_backface_culling |  | true | 
+sc_mesh_gpu_occlusion_culling |  | true | 
+sc_mesh_gpu_volume_culling |  | true | 
+sc_mesh_mesh_shaders |  | false | 
+sc_mesh_shadows_batch_across_materials |  | true | 
 sc_no_cull |  | false | 
 sc_no_vis |  | false | 
 sc_only_render_opaque |  | false | cheat
 sc_only_render_shadowcasters |  | false | cheat
 sc_particle_debug_visualizer | SceneSystem/Particles/Debug Visualizer | false | cheat
-sc_reject_all_objects |  | false | cheat
+sc_reject_all_objects |  | false | 
 sc_rendergraph_debug_visualizer | SceneSystem/RenderGraph Visualizer | false | 
-sc_screen_size_lod_scale_override |  | -1 | cheat
+sc_screen_size_lod_scale_override |  | 0.001 | 
 sc_setclassflags | Low level command to set the flags byte associated with an object class. sc_SetClassFlags &lt;classname&gt; &lt;value&gt;<br> | cmd | cheat
 sc_shadow_depth_bias |  | 256 | 
 sc_shadow_depth_bias_clamp |  | 0 | 
@@ -4750,18 +5054,19 @@ sc_show_hair_debug_ui | SceneSystem/Hair Debug UI | false | cheat
 sc_show_object_browser | SceneSystem/SceneObject Browser | false | cheat
 sc_show_texture_visualizer | SceneSystem/Texture Visualizer | false | cheat
 sc_show_view_profiler | SceneSystem/View Profiler | false | cheat
+sc_show_vt_stats | SceneSystem/Virtual Texturing | false | cheat
 sc_showclasses | List the object class names known by scenesystem<br> | cmd | cheat
-sc_skip_traversal |  | false | cheat
+sc_skip_traversal |  | false | 
 sc_spew_cmt_usage |  | false | 
+sc_stats_sections | Which stats groups to show | SCENE_STATS_FRAME\|SCENE_STATS_GEOMETRY\|SCENE_STATS_CULLING\|SCENE_STATS_MATERIALS\|SCENE_STATS_LIGHTING\|SCENE_STATS_RAYTRACING\|SCENE_STATS_INTERNALS | a, cheat
 sc_throw_away_all_layers |  | false | 
 sc_use_clear_subrect |  | false | 
 sc_view_profiler_frame_averaging |  | 10 | 
 sc_visualize_batches | color per batch | 0 | 
 sc_visualize_sceneobjects | SceneSystem/Visualize SceneObject Mode | SCENEOBJECT_VIS_NONE | 
+sc_visualize_sceneobjects_meshlets | SceneSystem/Visualize Base SceneObject Meshlets | SCENEOBJECT_MESHLET_VIS_NONE | 
 scale_function_dump | Print out all scale functions. | cmd | sv, cheat
 scene_clientflex | Do client side flex animation. | true | sv, cl, rep
-scene_coordinator_add_request | Add a request to the scene coordinator | cmd | sv
-scene_maxcaptionradius | Only show closed captions if recipient is within this many units of speaking actor (0==disabled). | 1200 | sv
 scene_panel_rotate_drag |  | 0.19 | cl
 scene_panel_rotate_frametime_multiplier |  | 1 | cl
 scene_panel_rotate_grab_scale |  | 0.5 | cl
@@ -4769,7 +5074,6 @@ scene_panel_rotate_scale |  | 2 | cl
 scene_playvcd | Play the given VCD as an instanced scripted scene. | cmd | sv, cheat
 scene_print | When playing back a scene, print timing and event info to console. | 0 | sv, cl, rep
 scene_showfaceto | When playing back, show the directions of faceto events. | false | sv, a, cheat
-scene_showmoveto | When moving, show the end location. | false | sv, a
 scene_vcdautosave | Create a savegame before VCD playback | false | cl
 schema_all_list_bindings | schema_all_list_bindings &lt;substring&gt; - List all scopes registered schema bindings (classes & enums). If no substring, list them all. | cmd | 
 schema_detailed_class_layout | schema_detailed_class_layout &lt;class_name&gt; - Print a detailed memory layout of the class (including inline structs). | cmd | 
@@ -4777,8 +5081,6 @@ schema_dump_binding | schema_dump_binding &lt;class_or_enum_name&gt; - Print inf
 schema_list_bindings | schema_list_bindings &lt;substring&gt; - List registered global-scope schema bindings (classes & enums). If no substring, list them all. | cmd | 
 schema_meta_stats | schema_meta_stats \[&lt;options&gt;\]- Print a summary of schemasystem metadata statistics. | cmd | 
 schema_stats | schema_stats - Print a summary of various schemasystem statistics. | cmd | 
-screenmessage_notifytime | How long to display screen message text | 8 | sv
-screenmessage_show | Enable display of console messages on screen. 1 = Enabled, 0 = Disabled, -1 = Enabled if vgui is not present | -1 | cheat
 screenshot | Take a screenshot: screenshot \[filename\] | cmd | 
 screenshot_height | Screenshot height. -1 for screen height. | -1 | 
 screenshot_prefix | Set the screenshot auto naming prefix. | shot | 
@@ -4868,20 +5170,30 @@ sk_player_stomach |  | 1 | sv
 skel_constraints_enable |  | true | rep, cheat
 skel_debug |  |  | sv, cl, rep
 skeleton_instance_debug_bodygroups | Debug bodygroups | false | sv, cl, rep, cheat
-skeleton_instance_lod_optimization | Compute LOD mask internally like since 2016, i.e. force all LOD groups' bones to compute | false | sv, cl, rep
+skeleton_instance_lod_optimization | Compute LOD mask internally like since 2016, i.e. force all LOD groups' bones to compute | true | sv, cl, rep
 skeleton_instance_scaleset_enable |  | true | sv, cl, rep, cheat
 skeleton_instance_smear_boneflags | Smear boneflags across the model.  Costs computation, but tests to make sure your bone flags are consistent. | false | sv, cheat
 skeleton_physics_joint_fixup |  | true | sv, cl, rep, cheat
 skill | Game skill level. | 1 | sv, cl, a, rep, per_user
 smoothstairs | Smooth player eye z coordinate when traversing stairs. | true | sv, cl, rep
 snapto |  | cmd | cl
-snd_arrangement_start | Starts the specified arrangement. | cmd | cheat
+snd__beatpattern_stop_track | Stops the specified track | cmd | cheat
 snd_async_flush | Flush all unlocked async audio data | cmd | 
 snd_async_showmem | Show async memory stats | cmd | 
 snd_async_showmem_music | Show async memory stats for just non-streamed music | cmd | 
 snd_async_showmem_summary | Show brief async memory stats | cmd | 
 snd_async_spew_blocking | Spew message to console any time async sound loading blocks on file i/o. | 0 | 
 snd_autodetect_latency |  | true | a
+snd_beatpattern_flush | Purge and reload all beat pattern data and files. | cmd | cheat
+snd_beatpattern_print_activetracks | List all active tracks | cmd | cheat
+snd_beatpattern_print_patterns | List all available beat patterns | cmd | cheat
+snd_beatpattern_set_track_bpm | Sets the tempo of the specified track | cmd | cheat
+snd_beatpattern_set_track_transpose | Sets the transposition of the specified track | cmd | cheat
+snd_beatpattern_show_bpm |  | false | cheat
+snd_beatpattern_show_events |  | false | cheat
+snd_beatpattern_show_quantize_queue |  | false | cheat
+snd_beatpattern_stop_all_tracks | Stops all currently playing patterns | cmd | cheat
+snd_beatpattern_use_lookahead |  | false | cheat
 snd_boxverb_simd | Enable SIMD code path for shoebox reverb processor. | true | 
 snd_boxverb_simd_svf | 0 = use biquad instead of svf, 1 = use vectorized svf, 2 = use scalar svf | 1 | 
 snd_break_on_start_soundevent | Use to debug break on any soundevent that is started matching this name |  | sv, cl, rep, cheat
@@ -4891,7 +5203,7 @@ snd_compare_soundevents | Compare the compiled and loaded contents of 2 soundeve
 snd_delay_sound_ms_max | Sound device synchronization max delay (ms) | 250 | 
 snd_delay_sound_ms_shift | Sound device synchronization shift (ms) | 23 | 
 snd_diffusor_simd | Enable SIMD code path for diffusor processor. | false | 
-snd_disable_mixer_duck |  | false | cheat
+snd_disable_mixer_duck |  | true | cheat
 snd_disable_mixer_solo |  | false | cheat
 snd_dsp_distance_max |  | 2000 | cheat
 snd_dsp_distance_min |  | 20 | cheat
@@ -4918,10 +5230,12 @@ snd_gain_min |  | 0.01 | cheat
 snd_gamevoicevolume | Game v.o. volume | 1 | a
 snd_gamevolume | Game volume | 1 | a
 snd_get_physics_surface_properties | Get physics surface properties for all the materials. | cmd | cheat
+snd_granulator_imgui | Game/Granulator Debugger | false | a, cheat
 snd_group_cluster_debug |  | false | rep, cheat
 snd_group_occlusion_debug |  | false | 
 snd_group_priority_debug |  | false | rep, cheat
 snd_group_priority_max_tolerance |  | 0.05 | rep, cheat
+snd_group_steamaudio_dimension_probes_debug |  | false | 
 snd_headphone_pan_exponent | Specifies the exponent for the pan xfade from phone to phone if the "exp" pan law is being used. | cmd | 
 snd_headphone_pan_radial_weight | Apply cos(angle) * weight before pan law | cmd | 
 snd_hrtf_distance_behind | HRTF calculations will calculate the player as being this far behind the camera. | 0 | 
@@ -4933,13 +5247,13 @@ snd_log_empty_event_entities | Logs the sound event entities that have empty nam
 snd_mergemethod | Sound merge method (0 == sum and clip, 1 == max, 2 == avg). | 1 | 
 snd_min_latency |  | false | cheat
 snd_mix_async |  | true | cheat
-snd_mixahead |  | 0.001 | a
+snd_mixahead |  | 0.05 | a
 snd_mixer_master_dsp |  | 1 | cheat
 snd_mixer_master_level |  | 1 | cheat
 snd_musicvolume | Music volume | 1 | a
 snd_mute_losefocus |  | true | a
 snd_new_visualize | Displays soundevent name played at it's 3d position | false | sv, cheat
-snd_occlusion_bounces |  | 1 | rep, cheat
+snd_occlusion_bounces |  | 0 | rep, cheat
 snd_occlusion_debug |  | false | sv, cl, rep, cheat
 snd_occlusion_debug_listener_pos |  |  | cheat
 snd_occlusion_indirect_max |  | 0.7 | cheat
@@ -4951,14 +5265,16 @@ snd_occlusion_rays |  | 4 | rep, cheat
 snd_occlusion_report |  | false | cheat
 snd_occlusion_visualize |  | false | cheat
 snd_op_test_convar |  | 720 | cheat
+snd_opvar_set_dome_catchup_distance |  | 64 | sv, cl, rep
+snd_opvar_set_dome_catchup_rate |  | 1 | sv, cl, rep
+snd_opvar_set_dome_churn_fraction |  | 0.25 | sv, cl, rep
+snd_opvar_set_dome_cluster_steps_per_think |  | 32 | sv, cl, rep
 snd_opvar_set_point_debug |  | false | sv, cl, rep, cheat
 snd_opvar_set_point_update_interval |  | 0.2 | sv, cl, rep
 snd_opvar_set_point_update_interval_fast |  | 0.0333 | sv, cl, rep
-snd_print_activetracks | List all active tracks | cmd | cheat
-snd_print_arrangements | List all available sequence arrangments | cmd | cheat
+snd_opvar_set_precipitation_debug |  | false | sv, cl, rep, cheat
 snd_print_current_mixer_mixgroup | Get data related to mix group matching string | cmd | 
 snd_print_samplers | List all available samplers | cmd | cheat
-snd_print_sequences | List all available midi sequences | cmd | cheat
 snd_print_soundevent | Print the data associated with the specified soundevent. | cmd | 
 snd_print_soundevent_default_public_properties | Print the default public properties of a specified soundevent. Values do not reflect values set on the soundevent. For that see "snd_print_soundevent" | cmd | 
 snd_purge_vsnd_table | Purges the VSnd table | cmd | 
@@ -4970,26 +5286,21 @@ snd_refdb | Reference dB at snd_refdist | 60 | cheat
 snd_refdist | Reference distance for snd_refdb | 36 | cheat
 snd_remove_all_soundevents | Remove all soundevents | cmd | cheat
 snd_remove_soundevent | Remove the specified soundevent | cmd | cheat
-snd_report_audio_nan |  | true | release
+snd_report_audio_nan |  | false | release
 snd_report_verbose_error | If set to 1, report more error found when playing sounds.<br> | false | cheat
 snd_samplers_play_note | Play a note from a specified sampler | cmd | cheat
 snd_samplers_stop_note | Stop a note from a specified sampler | cmd | cheat
-snd_sequence_set_track_bpm | Sets the tempo of the specified track | cmd | cheat
-snd_sequence_set_track_transpose | Sets the transposition of the specified track | cmd | cheat
-snd_sequence_stop_all_tracks | Stops all currently playing sequences | cmd | cheat
-snd_sequence_stop_track | Stops the specified track | cmd | cheat
-snd_sequencer_show_bpm |  | false | cheat
-snd_sequencer_show_events |  | false | cheat
-snd_sequencer_show_quantize_queue |  | false | cheat
 snd_set_physics_surface_properties | Set physics surface properties for materials. Usage: &lt;heuristic #&gt; &lt;commit&gt; | cmd | cheat
 snd_setmixer | Set named Mixgroup of current mixer to mix vol, mute, solo. | cmd | 
 snd_setmixlayer | Set named Mixgroup of named mix layer to mix vol, mute, solo. | cmd | 
 snd_showclassname |  | 0 | cheat
 snd_showstart |  | 0 | cheat
 snd_side_surround_speaker_position | Specifies the position (in degrees) of the virtual rear left/right speakers. | cmd | 
+snd_sos_beatpattern_show_operator_updates |  | false | 
 snd_sos_block_global_stack |  | false | cheat
 snd_sos_block_stop_global_stack |  | true | cheat
 snd_sos_calc_angle_debug |  | false | rep, cheat
+snd_sos_capture_soundevent_overwrites | When enabled, soundevent definitions overwritten while a game is active (e.g. by an addon) are captured and restored when the game deactivates. | true | a
 snd_sos_cl_soundevent_pause_last | Test | cmd | cl
 snd_sos_cl_soundevent_start | Test | cmd | cl
 snd_sos_cl_soundevent_stop_last | Test | cmd | cl
@@ -5012,6 +5323,7 @@ snd_sos_print_class_sizes | Prints the sizes of relevant sos classes. | cmd | ch
 snd_sos_print_field_name_strings | Prints a list of currently cached field name strings | cmd | cheat
 snd_sos_print_field_references |  | false | cheat
 snd_sos_print_fps |  | false | cheat
+snd_sos_print_frametime |  | false | cheat
 snd_sos_print_full_field_info |  | false | cheat
 snd_sos_print_groups | Prints the current state of the groups system | cmd | cheat
 snd_sos_print_operator_stack | Prints a master list of currently exposed variables | cmd | cheat
@@ -5070,6 +5382,7 @@ snd_sos_sv_soundevent_stop_last | Test | cmd | sv
 snd_sos_sv_soundevent_unpause_last | Test | cmd | sv
 snd_sos_sv_test_gender | Test | cmd | sv
 snd_sos_test_soundmessage | test | cmd | cheat
+snd_sos_tools_detailed_debugging |  | true | a
 snd_sos_unpause_soundevent | UnPause the first soundevent in the list | cmd | cheat
 snd_sound_areas_debug |  | false | cl, rep, cheat
 snd_sound_areas_debug_interval |  | 0.2 | cl, rep, cheat
@@ -5085,19 +5398,43 @@ snd_soundmixer_update_maximum_frame_rate |  | 0 | cheat
 snd_soundmixer_version |  | 2 | 
 snd_spatialize_lerp |  | 0 | a, release
 snd_steamaudio_active_hrtf | Index of active HRTF. | 0 | 
+snd_steamaudio_ambisonics_correction_type | 0: Use order-truncated Ambisonics HRTF without correction. 1: Use diffuse field equalization to correct order-truncated Ambisonics HRTFs. | 1 | 
 snd_steamaudio_baked_data_stats | Display baked data stats for the current mod. | cmd | cheat
-snd_steamaudio_baked_occlusion_mode | 0: distance ratio only. 1: deviation only (1/r). 2: deviation only (linear). 3: Mode 0 and Mode 1, 4: Mode 0 and Mode 2 | 0 | cheat
+snd_steamaudio_baked_dimensions_probelookup_usealternate | Use alternate probe lookup algorithm to query dimensions for listener position based on kd-tree of probe points. | false | 
+snd_steamaudio_baked_occlusion_air_absorption_coefficient | Air absorption coefficient sued for baked occlusion calculation. | 0 | 
+snd_steamaudio_baked_occlusion_mode | 0: distance ratio only. 1: deviation only (1/r). 2: deviation only (linear). 3: Mode 0 and Mode 1, 4: Mode 0 and Mode 2, 5: Mode 2 and exponential pathing delta, 6: reflection energy ratios. 7: no baked value - occlusion is traced per probe pair the way the calc_occlusion_info operator does, then interpolated like any other mode. | 0 | cheat
+snd_steamaudio_baked_occlusion_pathing_deviation_slope | Adjust how much occlusion goes does with deviation angle. | 0.1 | cheat
+snd_steamaudio_baked_occlusion_pathing_exponent | Adjust scaling of pathing energy by exponentiall scaling with pathing delta. | 0.1 | cheat
+snd_steamaudio_baked_occlusion_probelookup_usealternate | Use alternate probe lookup algorithm to query occlusion for source and listener position based on kd-tree of probe points. | false | 
+snd_steamaudio_baked_occlusion_reflection_factor | Adjust scaling for reflection energy when combining it to calculate occlusion value. | 1 | cheat
+snd_steamaudio_baked_occlusion_reflection_regularization | Ambient noise energy to serve as a floor for reflection energy. | 0 | cheat
+snd_steamaudio_baked_occlusion_spatialfilter_mode | 0: No spatial filtering. 1: bidirectional spatial filter. | 0 | 
+snd_steamaudio_baked_occlusion_spatialfilter_radius_factor | Radius factor to multiply the distance between probes with to get the radius withing which probes are averaged. | 2 | 
+snd_steamaudio_custombake_dimensions_outsidefield_bake_enabled | Enable baking outside field for probes baking custom dimensions data. | true | 
+snd_steamaudio_custombake_dimensions_size_and_inout_bake_enabled | Enable baking size and inout data for probes when baking custom dimensions data. | true | 
+snd_steamaudio_custombake_dimensions_smallsizefield_bake_enabled | Enable baking insize size field for probes when baking custom dimensions data. | true | 
+snd_steamaudio_custombake_occlusion_bidirectional | Run simulation from both source and listner and average the results. Potential way to reduce noise. | false | 
+snd_steamaudio_custombake_occlusion_numsimulations | Number of reflection simulations to run when baking occlusion. Potential way to reduce noise. | 1 | 
+snd_steamaudio_customdata_dimensions_inout_mode | Inside / outside estimator used when baking dimensions. 0 - direct sky fraction, 1 - multi-bounce escape. Any other value bakes mode 0. | 0 | 
 snd_steamaudio_default_hrtf_volume_gain | Adjust overall volume of the default HRTF by the specified gain (dB). | 0 | 
+snd_steamaudio_diagnostic_baked_occlusion_single_probe | Bake occlusion for a single source probe with the given probe id. | -1 | 
+snd_steamaudio_dimensions_grid_height_max | The maximum height (from the ground) we allow probes to be added above the initial layer. (meters) | 100 | 
+snd_steamaudio_dimensions_max_ray_length | 0 is disabled, but otherwise sets a limit the maximum ray size in the dimension size calculation. Used to model the enclosure algorithm. Game units | 0 | 
+snd_steamaudio_display_dimension_data_inside | When visualizing dimensions data at runtime, draw the inside direction. | true | 
+snd_steamaudio_display_dimension_data_outside | When visualizing dimensions data at runtime, draw the outisde direction. | true | 
+snd_steamaudio_display_dimension_data_size | When visualizing dimensions data at runtime, draw the size of the space. | true | 
 snd_steamaudio_display_probes | Load all the probes from a file and display probes based on the passed on arguments. | cmd | 
 snd_steamaudio_dynamicpathing_max_samples |  | 16 | sv, cl, rep
 snd_steamaudio_enable_compressed_reverb_lookup | Use compressed reverb data if available. | true | 
 snd_steamaudio_enable_custom_hrtf | Enable custom HRTF loading. | false | 
 snd_steamaudio_enable_editor_profiling | Enables tracy profiling when baking steam audio data in Hammer. | false | 
+snd_steamaudio_enable_occlusion_caching | Continue using previous occlusion if probe lookup for occlusion fails. | true | 
+snd_steamaudio_enable_ordertruncated_ambisonics_hrtf | Enable order-truncated Ambisonics HRTF loading. | false | 
 snd_steamaudio_enable_pathing | This variable is checked by soundstack to globally enabling pathing for audio processing. | false | cheat
 snd_steamaudio_enable_perspective_correction | Enable perspective correction for 3D audio. | false | a, release
 snd_steamaudio_enable_probeneighborhood_caching | Enable caching listener probe neighborhood for pathing. | true | 
 snd_steamaudio_enable_reverb | Enable Steam Audio Reverb processor. | 0 | release
-snd_steamaudio_enable_reverb_probe_caching_for_missing_probes | Continue using previous prrobes if probe lookup for reverb fails. | true | 
+snd_steamaudio_enable_reverb_caching | Continue using previous reverb if probe lookup for reverb fails. | true | 
 snd_steamaudio_enable_spatial_blend_fix | Toggles the speculative fix for low-frequency issues when using spatial blend. | cmd | cheat
 snd_steamaudio_halton_sequence | Generate Halton Sequence for a given order and number of samples. | cmd | cheat
 snd_steamaudio_hybrid_reverb_overlap | Set the overlap fraction (0 to 1) for hybrid reverb. | 0.25 | 
@@ -5110,6 +5447,7 @@ snd_steamaudio_load_materials_data | If set, baked materials data is loaded. | t
 snd_steamaudio_load_occlusion_data | If set, baked occlusion data is loaded. | true | 
 snd_steamaudio_load_pathing_data | If set, baked pathing data is loaded. Steam Audio Hammer entities can successfully use pathing in this case. | false | 
 snd_steamaudio_load_reverb_data | If set, baked reverb data is loaded. Reset it to zero during an format changes of baked data until all data is updated. | false | 
+snd_steamaudio_max_ambisonics_order | Maximum order for Ambisonics binaural rendering and Ambisonics panning. | 3 | 
 snd_steamaudio_max_convolution_sources | The maximum number of simultaneous sources that can be modeled by Steam Audio. | 4 | cheat
 snd_steamaudio_max_hrtf_normalization_gain_db | Maximum gain any HRTF could have during volume normalization. | 6 | 
 snd_steamaudio_max_occlusion_samples | The maximum number of rays that can be traced for volumetric occlusion by Steam Audio. | 64 | cheat
@@ -5122,7 +5460,7 @@ snd_steamaudio_normalize_default_hrtf_volume | Normalize volume of default HRTF 
 snd_steamaudio_num_bounces | The maximum number of times any ray can bounce when using Steam Audio. | 128 | cheat
 snd_steamaudio_num_diffuse_samples | The number of directions considered for ray bounce by Steam Audio. | 2048 | cheat
 snd_steamaudio_num_rays | The number of rays to trace for reflection modeling by Steam Audio. | 65536 | cheat
-snd_steamaudio_num_threads | Sets the number of threads used for realtime reflection by Steam Audio. | 2 | cheat
+snd_steamaudio_num_threads | Sets the number of threads used for realtime reflection by Steam Audio. | 4 | cheat
 snd_steamaudio_pathing_caching_threshold |  | 5 | sv, cl, rep
 snd_steamaudio_pathing_enable_caching |  | true | sv, cl, rep
 snd_steamaudio_pathing_enable_source_probe_interp | If set, all the probes near a source withing probe range are used to find paths instead of nearest probe. | false | 
@@ -5142,12 +5480,10 @@ snd_stereo_speaker_pan_radial_weight | Apply cos(angle) * weight before pan law 
 snd_surround_speaker_pan_exponent | Specifies the exponent for the pan xfade from speaker to speaker if the "exp" pan law is being used. | cmd | 
 snd_surround_speaker_pan_radial_weight | Apply cos(angle) * weight before pan law | cmd | 
 snd_toolvolume | Volume of sounds in tools (e.g. Hammer, SFM) | 1 | a
-snd_ui_positional |  | true | cheat
+snd_ui_positional |  | false | cheat
 snd_ui_spatialization_spread |  | 2.4 | cheat
-snd_use_baked_occlusion |  | 0 | rep, cheat, release
-snd_vmidi_flush | Purge and reload all vmidi data and files. | cmd | cheat
+snd_use_baked_occlusion |  | 1 | rep, cheat, release
 snd_vmix_override_mix_decay_time | If set &gt; 0, overrides how long the decay time is on all mix graphs (in seconds).<br> | -1 | cheat
-snd_vmix_show_input_updates | If set to 1, show all incoming updates to vmix inputs.<br> | false | cheat
 snd_voipvolume | Voice volume | 1 | a
 sndplaydelay |  | cmd | 
 sos_debug_emit |  | false | sv, cl, rep
@@ -5176,7 +5512,7 @@ sparseshadowtree_debug_tile_range_xmax | SST Tile range for renderdoc/debug capt
 sparseshadowtree_debug_tile_range_xmin | SST Tile range for renderdoc/debug capturing. | 0 | 
 sparseshadowtree_debug_tile_range_ymax | SST Tile range for renderdoc/debug capturing. | 1 | 
 sparseshadowtree_debug_tile_range_ymin | SST Tile range for renderdoc/debug capturing. | 0 | 
-sparseshadowtree_disable_add_layers | Disable SST runtime layers, for debugging (will exclude geo that CAN render into SST if SST otherwise enabled) | false | 
+sparseshadowtree_disable_add_layers | Disable SST runtime layers, for debugging (will exclude geo that CAN render into SST if SST otherwise enabled) | true | 
 sparseshadowtree_disable_for_viewmodel | Disable SST generation and runtime for viewmodel (use original CSM rendering). | true | 
 sparseshadowtree_enable_rendering | Enable use of SST at runtime (static geo rendered into cascades via SST). | false | 
 sparseshadowtree_leaf_compress_scaleoffset | Compress leaf node depths using scale & offset. | true | 
@@ -5202,11 +5538,11 @@ spawngroup_ignore_timeouts |  | false |
 speaker_config |  | 0 | a
 spec_autodirector | Auto-director chooses best view modes while spectating | true | cl, clientcmd_can_execute
 spec_centerchasecam | Looks at the target player's center, instead of his eye position, in chase came mode | false | cl, a
-spec_chase | Changes the spectate mode to chase | cmd | cl, release
 spec_chasedistance | Chase cam's ideal distance from target | 96 | cl
 spec_chasedistancespeed | Chase cam's ideal distance from target | 144 | cl
-spec_goto | Changes the spectate mode to roaming and go to the location | cmd | cl, release
-spec_in_eye | Changes the spectate mode to in-eye | cmd | cl, release
+spec_dolly_in | Moves the spectator camera position toward target. At zero, this will switch to in eye mode. | cmd | cl, release
+spec_dolly_out | Moves the spectator camera position away from target target. This is otherwise known as Chase Mode. | cmd | cl, release
+spec_goto | Changes the spectate mode to roaming and go to the location: spec_goto x y z &lt;pitch yaw optional&gt; | cmd | cl, release
 spec_lock_to_current_player | As an observer, lock the spectator target to the currently observed target | cmd | cl
 spec_mode | Set spectator mode | cmd | cl, clientcmd_can_execute
 spec_next | Spectate next player | cmd | cl, clientcmd_can_execute
@@ -5233,8 +5569,12 @@ spec_replay_sound_fadein | Amount of time in seconds it takes to fade in the aud
 spec_replay_sound_fadeout | Amount of time in seconds it takes to fade out the audio before or after replay | 0 | cl
 spec_replay_victim_pov | Killer Replay - replay from victim's point of view (1); the default is killer's (0). Experimental. | false | cl
 spec_replay_winddown_time | The trailing time, in seconds, of replay past the event, including fade-out | 2 | sv, release
+spec_setang | Points the spectator camera: spec_setang pitch yaw | cmd | cl, release
+spec_setpos | Changes the spectate mode to roaming and moves the spectator camera: spec_setpos x y &lt;z optional&gt; | cmd | cl, release
+spec_stopsound | (Spectators only) Stop all sounds | cmd | cl, release
 spec_target | Changes the target being spectated | cmd | cl, release
 spec_track | Tracks an entity in spec mode | 0 | cl
+speedometer_ui_enable | Enables speed testing functionality. | false | cl, a, per_user, release
 spew_fonts | Spew information about font manager fonts | cmd | 
 spew_gold_sources |  | cmd | sv
 splitscreen_mode |  | 0 | a, cheat
@@ -5244,8 +5584,10 @@ ss_mimic | Split screen users mimic base player's CUserCmds | 0 | cl, cheat
 ss_remove | Removes a splitscreen user. | cmd | 
 ss_teleport | Teleport other splitscreen player to my location. | cmd | cl, cheat
 ss_voice_hearpartner | Route voice between splitscreen players on same system. | false | 
+start_rec_mic | Start recording to a desired wav. | cmd | 
 startdemos | Play demos in demo sequence. | cmd | release
 startmovie | Start recording movie frames. | cmd | norecord
+stat_cache_reset_stats | Reset stat value cache statistics. | cmd | sv, cheat
 stats | Prints server performance variables | cmd | 
 stats_collect_gpu | While doing stats_display, collect GPU perf counters. Used for stats_print_gpu. | false | 
 stats_display | Displays perf statistics information | 0 | 
@@ -5255,15 +5597,14 @@ stats_print_gpu | Prints out GPU perf statistics to the console.  Requires stats
 status | Print connection status | cmd | release
 status_json | Print status in JSON format | cmd | release
 steam_inputhandler_analog_data_to_enable_controller | Amount of analog data needed to switch to controller mode | 0.9 | cl
-steam_inputhandler_enabled | Enable steaminput | true | cl
+steam_inputhandler_enabled | Enable steaminput | false | cl
 steam_inputhandler_fake_steamdeck | Pretend to be a steam deck for purposes of automatically turning on the controller | false | cl
-steam_inputhandler_glyph_lock_mode | 0: Automatic (Default) - switch glyphs when a keyboard bind or controller bind activates. 1: Keyboard and Mouse only. 2: Controller Only | 0 | cl, a, release
-steamaudio_customdata_dimensions_numrays | Number of rays to trace for estimating inside outside status of a probe. | 32768 | 
+steam_inputhandler_glyph_lock_mode | 0: Automatic (Default) - switch glyphs when a keyboard bind or controller bind activates. 1: Keyboard and Mouse only. 2: Controller Only | 0 | cl, a, per_user, release
 steaminput_glyph_neutral | Fallback values for unspecified style in steam input Glyphs. 0: Use Colors, 1: Solid | 0 | cl
 steaminput_glyph_solid | Fallback values for unspecified style in steam input Glyphs. 0: Not Solid, 1: Solid | 1 | cl
 steaminput_glyph_style | Fallback values for unspecified style in steam input Glyphs. 0: Knockout, 1: Light, 2: Dark | 1 | cl
 steaminput_glyph_use_svg | Use SVG vs PNG | true | cl
-steaminput_glyph_use_universal_face_buttons | When enabled, Face Buttons use a diamond of circles, rather than controller specific glyphs for faces | true | cl, a, release
+steaminput_glyph_use_universal_face_buttons | When enabled, Face Buttons use a diamond of circles, rather than controller specific glyphs for faces | true | cl, a, per_user, release
 steamlearn_data_submit_enable | Whether we should be submitting data to SteamLearn | true | sv
 steamlearn_inference_http | If we should use HTTP for inference queries | false | sv
 steamlearn_max_in_flight | Maximum number of steamlearn requests that we can have in flight at once | 100 | sv
@@ -5275,6 +5616,8 @@ steamlearn_spew_um_times | If we should spew how long inferences take to complet
 steamvrevent_quit | steamvrevent_quit | cmd | sv
 sticky_tooltips | Don't ever hide tooltips. Helpful when debugging complicated tooltip layouts. | false | cl
 stop | Finish recording demo. | cmd | release
+stop_rec_mic | Stop recording to a desired wav. | cmd | 
+stop_rec_mic_all | Stop recording all mic streams. | cmd | 
 stopdemos | Stop looping demos (current demo will complete). | cmd | release
 stopsound |  | cmd | cheat
 stopsoundscape | Stops all soundscape processing and fades current looping sounds | cmd | cl, cheat
@@ -5287,14 +5630,12 @@ survey_chance | Percentage chance of showing the survey questions when entering 
 survey_force_question_type | Force a specific survey question type for survey questions | 0 | cl
 survey_min_games_played | Don't allow for showing the survey unless a minimum number of games have been played | 75 | cl, release
 sv_accelerate |  | 10 | sv, cl, nf, rep, release
-sv_ag2_low_skel_lod |  | false | sv
 sv_ag2_record_entity_graph | Automatically start AG2 recording when an entity with this name (wildcard) or id is created. |  | sv
 sv_airaccelerate |  | 10 | sv, cl, nf, rep, release
 sv_allchat | Players can receive all other players' text chat, no death restrictions | true | sv, nf, release
 sv_alltalk | Players can hear all other players' voice communication, no team restrictions | false | sv, nf, release
 sv_audio_debug_bullet_material | Visualize bullet material info. | false | sv, cheat
 sv_audio_debug_pawn_surface_data | Visualize pawn surface data. | false | sv, cheat
-sv_audio_draw_enclosure_debug | Draws debug associated with amount interior vs exterior | false | sv, rep
 sv_audio_log_citadel_audio_filter | Logs sound event information for CCitadelAudioFilter. | false | sv
 sv_audio_log_participant_start_messages | Prints when a participant sound message was sent. | false | sv, cheat
 sv_autosave | Set to 1 to autosave game on level transition. Does not affect autosave triggers. | true | sv, rep
@@ -5306,27 +5647,34 @@ sv_bullet_travel_debug_trace | Debug: visualization time for active bullet trace
 sv_cheats | Allow cheats on server | false | nf, rep, release
 sv_citadel_ability_test_fail_all |  | false | sv, cheat
 sv_citadel_bebop_beam_draw_points |  | false | sv, cheat
-sv_citadel_camera_ops_debug |  |  | sv
+sv_citadel_camera_ops_debug | Valid Values: \[ dist \| fov \| pos \| vert \| offset \].  Note, use "cl_citadel_camera_ops_debug" or "sv_cl_citadel_camera_ops_debug" depending on debugging client or server. |  | sv
 sv_citadel_camera_sequences_debug |  | false | sv
 sv_citadel_debug_player_look_target | Draw player look target data.  White is server, cyan is client. | false | sv, rep
+sv_citadel_enemy_player_target_update_time | How often to update the enemy player target (per pawn) | 0.1 | sv
+sv_citadel_enemy_player_target_width | Setting for the targeting check cylindrical width. | 80 | sv
 sv_citadel_hornet_blast_debug_physics |  | false | sv
 sv_citadel_log_ability_use |  | false | sv, release
 sv_citadel_log_server_fow_entities |  | false | sv
 sv_citadel_random_strength |  | 0.35 | sv
+sv_citadel_stat_value_cache_enabled | Enable/disable stat value result caching | true | sv, cheat
+sv_citadel_stat_value_cache_validate_interval | Validate cached stat values against freshly computed results every N hits. 0=off. | 500 | sv
 sv_citadel_wrecker_ultimate_debug_physics |  | false | sv
+sv_clanserver_gms |  | false | 
 sv_client_max_interp_ratio | This can be used to limit the value of cl_interp_ratio for connected clients (only while they are connected). | 5 | sv, cl, rep
 sv_client_min_interp_ratio | This can be used to limit the value of cl_interp_ratio for connected clients (only while they are connected).<br> | 0 | sv, cl, rep
 sv_client_predict | This can be used to force the value of cl_predict for connected clients (only while they are connected).<br>   -1 = let clients set cl_predict to anything<br>    0 = force cl_predict to 0<br>    1 = force cl_predict to 1 | -1 | sv, cl, rep
 sv_clientrates | Show client rates. | cmd | 
 sv_clockcorrection_msecs | The server tries to keep each player's m_nTickBase withing this many msecs of the server absolute tickcount | 60 | sv, release
 sv_clockdbg | Print spew related to server clock and ticking | false | 
+sv_cloth_interp_rot |  | false | sv
 sv_cluster | Data center cluster this server lives in. | 0 | release
 sv_condense_late_buttons | When condensing late commands. Should we compress multiple moves of button presses into the target move? | true | sv
-sv_connectionless_legacy_events_allowed |  | false | 
+sv_cq_delta_encode_svc_usercmds | Delta encode svc_UserCmds message | true | sv
 sv_cq_min_queue | Server min buffer size. | 0 | rep
 sv_cq_trim_bloat_remainder | When trimming a bloated CQ, leave at least N more commands than the minimum | 1 | sv, release
 sv_cq_trim_bloat_space | When trimming a bloated CQ, try to leave room for N more commands to be added.  0 will trim only what is needed to remove the immediate bloat, a very large value will reset the whole queue. | 0 | sv, release
 sv_cq_trim_catchup_remainder | When trimming an overful CQ due to app 'catchup' request, leave at least N more commands than the minimum | 1 | sv, release
+sv_cq_validate_encoded_svc_usercmds | VERY EXPENSIVE: serialize non-delta-encoded commands along with delta-encoded for validation | false | sv
 sv_crash_sentinel_filename | Filename of crash detection sentinel |  | sv, release
 sv_debug_client_not_in_pvs | If set, draw failed client PVS checks with red box | false | sv, cheat
 sv_debug_kali_straffing_aim |  | false | sv
@@ -5347,28 +5695,28 @@ sv_disable_querycache | debug - disable trace query cache | false | sv, cl, rep,
 sv_disable_reliable_delta_retransmit | Assume that a reliable entity delta will be ack'ed and send future deltas relative to the last reliable delta. | true | 
 sv_early_network_message_processing | Processes network messages on the server before entities think, instead of at the end of the tick. | false | sv
 sv_enable_alternate_baselines | Allow alternate baseline system, set to 2 for debugging spew. | 1 | release
-sv_enable_delta_packing | When enabled, this allows for entity packing to use the property changes for building up the data. This is many times faster, but can be disabled for error checking. | true | release
 sv_enable_donttransmit | When encoding entity deltas, instead of unreliably deducing explicit deletions, actually send list of existing but not networked entities (dont_transmit list) to each client. | true | 
 sv_enable_hideout | When registering for MM, we can be assigned hideouts | true | sv, rep, release
 sv_enable_lost_lobby | Kill switch for the lost lobby functionality | true | sv, rep, release
 sv_enable_match | When registering for MM, we can be assigned normal matches | true | sv, rep, release
 sv_enable_removearrayelementsoutsidemetadatabounds |  | false | release
 sv_ent_showonlyhitbox |  | -1 | sv, cheat
-sv_ents_write_alarm | Print callstack every time CNetworkGameServerBase::WriteEntityUpdate takes more than this amount of milliseconds | 0 | release
 sv_extra_client_connect_time | Seconds after client connect during which extra frames are buffered to prevent non-delta'd update | 15 | 
 sv_filterban | Set packet filtering by IP mode | 1 | 
 sv_footsteps | Play footstep sound for players | 1 | sv, cl, nf, rep
 sv_force_transmit_ents | Will transmit all entities to client, regardless of PVS conditions (will still skip based on transmit flags, however). | false | sv
 sv_fps_max | Dedicated server frame rate limiter. 0=tick rate. Only applies to the dedicated server. | 0 | 
+sv_frame_perf_sample_buffer_max | Same as cl_frame_perf_sample_buffer_max, but for dedicated servers only. | 100 | release
+sv_frame_snapshot_async_delete |  | false | 
+sv_frame_snapshot_sort_entities |  | true | 
 sv_friction | World friction. | 4 | sv, cl, nf, rep, release
-sv_friendly_dmg_immune | For npc's so marked, don't take damage caused by friendly (D_LI) npc's | true | sv
 sv_fullupdate | Force a full update for all clients. | cmd | 
 sv_gameinstructor_disable | Force all clients to disable their game instructors. | false | cl, rep, release
 sv_gameinstructor_enable | Force all clients to enable their game instructors. | false | cl, rep, release
 sv_gravity | World gravity. | 800 | sv, cl, nf, rep, release
 sv_hibernate_postgame_delay | # of seconds to wait after final client leaves before hibernating. | 5 | release
 sv_hibernate_when_empty | Puts the server into extremely low CPU usage mode when no clients connected | true | release
-sv_hide_ent_in_pvs |  | -1 | sv
+sv_hide_ent_in_pvs |  | 1 | sv
 sv_histogram | var change info histogram<br> | cmd | 
 sv_hitbox_debug |  | false | sv
 sv_hosting_lobby |  | false | rep
@@ -5382,7 +5730,6 @@ sv_lan | Server is a lan server ( no heartbeat, no authentication, no non-class 
 sv_late_commands_allowed | Allow N late commands to run at 0 timescale prior to running an on-time command. Negative values for network round trip based calculation with a hard cap of the of absolute value | 5 | sv, release
 sv_lightquery_debug |  | false | sv, cheat
 sv_listen_directudp | Server will listen for direct UDP connections on the configured port.  This can be turned off to only listen for P2P/SDR connections. | true | release
-sv_log_change_offsets | Log change offsets to game/varchangeinfoN.log files. | false | sv
 sv_log_onefile | Log server information to only one file. | false | a, release
 sv_logbans | Log server bans in the server logs. | false | a, release
 sv_logblocks | If true when log when a query is blocked (can cause very large log files) | false | release
@@ -5393,9 +5740,7 @@ sv_logsdir | Folder in the game directory where server logs will be stored. | lo
 sv_long_frame_ms | If a server frame takes longer than N ms, complain about it.  (Dedicated server only.)  See also engine_frametime_warnings_enable. | 0 | 
 sv_massreport |  | false | sv
 sv_matchmaking_enabled | Register with the GC for matchmaking | false | sv, rep, release
-sv_matchperfstats_maxclientperfsamples | Don't retain more than N perf samples for any given client | 100 | sv
 sv_matchperfstats_send_to_steam | Set to false to disable sending match perf stats to steam | true | sv, release
-sv_max_change_offsets | How many network changes to track before requiring full diff check. | 48 | sv
 sv_max_queries_sec | Maximum queries per second to respond to from a single IP address. | 3 | release
 sv_max_queries_sec_global | Maximum queries per second to respond to from anywhere. | 60 | release
 sv_max_queries_window | Window over which to average queries per second averages. | 30 | release
@@ -5416,17 +5761,19 @@ sv_minupdaterate | Minimum updates per second that the server will allow | 10 | 
 sv_mmqueue_reservation | Server queue reservation |  | norecord
 sv_mmqueue_reservation_extended_timeout | Extended time in seconds before mmqueue reservation expires. | 21 | 
 sv_mmqueue_reservation_timeout | Time in seconds before mmqueue reservation expires. | 21 | 
+sv_modifier_value_cache_enabled | Enable/disable modifier value result caching | false | sv
+sv_modifier_value_cache_validate_interval | Validate cached modifier values against freshly computed results every N hits. 0=off. | 500 | sv, rep
 sv_mover_maxslope | The maximum slope the player can overcome \[-\] | 0.7 | sv, cl, nf, rep
 sv_mover_pogodampingratio | The capsule pogo stick damping ratio \[-\] | 1 | sv, cl, nf, rep
 sv_mover_pogofrequency | The capsule pogo stick frequency \[hz\]. | 10 | sv, cl, nf, rep
 sv_networkvar_log_fullchanges | Log FUL_FULL_EDICT_CHANGED calls. | false | sv
 sv_networkvar_perfieldtracking | Track individual field offset changes, rather than a single dirty flag for the whole entity. | true | release
-sv_networkvar_validate | Validate each StateChanged against known offsets. | false | release
 sv_no_navmesh | Block loading of the navmesh. Unplayable, only used for memory sampling. | false | sv, cheat
 sv_noclipaccelerate |  | 5 | sv, cl, a, nf, rep
 sv_noclipduringpause | If cheats are enabled, then you can noclip with the game paused (for doing screenshots, etc.). | false | sv, cl, rep, cheat
 sv_noclipfriction | Friction during noclip move. | 4 | sv, cl, a, nf, rep
 sv_noclipspeed |  | 1200 | sv, cl, a, nf, rep
+sv_noclipspeedscaleonshift |  | 0.5 | sv, cl, a, nf, rep
 sv_outofpvsentityupdates |  | false | 
 sv_packstats | Show entity packing stats, pass 'clear' as argument to reset counts. | cmd | release
 sv_parallel_checktransmit | Set to 1 to use threaded checkentities for transmit/pvs on listen servers, 2 for dedicated servers. | 0 | sv, release
@@ -5449,6 +5796,7 @@ sv_phys_sleep_enable | Enable sleeping for dynamic physics bodies. | true | sv, 
 sv_phys_sound_disable_impact_sounds_under_hard_threshold | if true, impact sounds wont play if no soft impact sound is present and the impact is below the hard velocity threshold. | false | sv, cheat
 sv_phys_stop_at_collision |  |  | sv, cheat
 sv_phys_visualize_awake |  | false | sv
+sv_play_stats_AbilityActivenessValue_enabled | Enable / Disable Play Stat AbilityActivenessValue. | true | sv, release
 sv_play_stats_CitadelHitMismatch_enabled | Enable / Disable Play Stat CitadelHitMismatch. | false | sv, release
 sv_play_stats_CitadelLaneMatchup_enabled | Enable / Disable Play Stat CitadelLaneMatchup. | true | sv, release
 sv_play_stats_CitadelLaneSwap_enabled | Enable / Disable Play Stat CitadelLaneSwap. | true | sv, release
@@ -5457,14 +5805,17 @@ sv_play_stats_CitadelMatch_enabled | Enable / Disable Play Stat CitadelMatch. | 
 sv_play_stats_CitadelObjective_enabled | Enable / Disable Play Stat CitadelObjective. | true | sv, release
 sv_play_stats_CitadelPlayer_enabled | Enable / Disable Play Stat CitadelPlayer. | true | sv, release
 sv_play_stats_CitadelServerLobby_enabled | Enable / Disable Play Stat CitadelServerLobby. | true | sv, release
-sv_play_stats_CitadelTrooperUnstick_enabled | Enable / Disable Play Stat CitadelTrooperUnstick. | false | sv, release
+sv_play_stats_ModifierCacheSummary_enabled | Enable / Disable Play Stat ModifierCacheSummary. | true | sv, release
+sv_play_stats_ModifierCacheValue_enabled | Enable / Disable Play Stat ModifierCacheValue. | true | sv, release
 sv_play_stats_S2MatchPerf_enabled | Enable / Disable Play Stat S2MatchPerf. | true | sv, release
+sv_play_stats_StatCacheSummary_enabled | Enable / Disable Play Stat StatCacheSummary. | true | sv, release
+sv_play_stats_StatCacheValue_enabled | Enable / Disable Play Stat StatCacheValue. | true | sv, release
 sv_player_search_range |  | 64 | sv, cl, rep
 sv_player_spray_collision_radius | How big of a collision sprays should have | 20 | sv
 sv_pushaway_clientside_size | Minimum size of pushback objects | 15 | sv, cl, rep
 sv_pvs_cache_query_inflate_amount |  | 1 | sv
 sv_pvs_entity | If set, only allows this ent index to network (other than players and things that force sending). | -1 | sv
-sv_pvs_max_distance | if set, adds a maximum range to PVS/PAS checks | 0 | rep, release
+sv_pvs_max_distance | if set, adds a maximum range to PVS/PAS checks | 4000 | rep, release
 sv_pvs_random | If set, objects blink in/out of pvs randomly. | false | sv
 sv_pvs_shadows_include_env |  | false | sv, rep, release
 sv_querycache_stats | Display status of the query cache (client only) | cmd | sv
@@ -5474,14 +5825,12 @@ sv_rcon_log | Enable/disable rcon logging. | true |
 sv_rcon_maxfailures | Max number of times a user can fail rcon authentication before being banned | 10 | 
 sv_rcon_minfailures | Number of times a user can fail rcon authentication in sv_rcon_minfailuretime before being banned | 5 | 
 sv_rcon_minfailuretime | Number of seconds to track failed rcon authentications | 30 | 
-sv_recipients_check | When packing entities, check that recipient bits match for fast path packing. | true | release
-sv_recvbuf_messages | Max number of messages that can be queued in a netchan receive buffer for an ordinary connection from a client. | 1024 | 
 sv_regeneration_force_on | Cheat to test regenerative health systems | false | sv, cheat
 sv_regeneration_wait_time |  | 1 | sv, rep
 sv_region | The region of the world to report this server in. | -1 | release
 sv_remapper_loopsoundfix |  | false | sv, cl, rep
 sv_remapper_range_multiplier |  | 1 | sv, cl, rep
-sv_remove_ent_from_pvs |  | 0 | sv
+sv_remove_ent_from_pvs |  | 1 | sv
 sv_replay_group_id | The replay group that this server will be uploading files to | 0 | release
 sv_replaysdir | Directory to store replays in | replays | 
 sv_reserve_slots_for_reconnecting_players_kick_prior | Kick a previously connected player with the same steamID if a replacement comes along | true | 
@@ -5516,6 +5865,7 @@ sv_specspeed |  | 1200 | sv, cl, a, nf, rep
 sv_spewmeta | Spew serializer meta | cmd | cheat
 sv_spewworldgroups | Spew world groups (server) | cmd | 
 sv_stats | Collect CPU usage stats | true | 
+sv_steamauth_correct | Correct behavior | false | release
 sv_steamauth_enforce | By default, player must maintain a reliable connection to Steam servers. When player Steam session drops, enforce it: 2 = instantly kick, 1 = kick at next spawn, 0 = do not kick. | 2 | release
 sv_steamauth_ignore_localhost | Ignore VAC and auth errors for client connected via localhost address or in-engine loopback | true | release
 sv_steamgroup | The ID of the steam group that this server belongs to. You can find your group's ID on the admin profile page in the steam community. |  | nf, release
@@ -5529,7 +5879,6 @@ sv_suppress_viewpunch |  | false | sv, cl, rep, cheat
 sv_tags | Server tags. Used to provide extra information to clients when they're browsing for servers. Separate tags with a comma. |  | nf, release
 sv_temp_baseline_string_table_buffer_size | Buffer size for writing string table baselines | 524288 | 
 sv_tick_parallel_with_client | Runs the final server tick of the frame in parallel with client work | false | 
-sv_tick_snapshot_sort_entities |  | true | 
 sv_timeout | After this many seconds without a message from fully connected client, the client is dropped | 20 | 
 sv_timeout_hideout_lobby | The amount of time to keep a server active for a hideout in minutes | 600 | sv, rep
 sv_timeout_matchactive | To prevent zombie matches, if a match has been active longer than this many minutes, it should be timed out and the server restarted | 240 | sv, rep
@@ -5542,7 +5891,6 @@ sv_unlag_debug |  | false | sv
 sv_unlag_fixstuck | Disallow backtracking a player for lag compensation if it will cause them to become stuck | false | sv
 sv_unlockedchapters | Highest unlocked game chapter. | 1 | a
 sv_unpause_on_console_close | 1 = Unpause the game when pressing ~ to close the console. 0 = Leave the game paused. | false | a
-sv_use_pvs_cache |  | true | sv
 sv_usenetworkvars | Use networkvar system. | true | 
 sv_usercmd_custom_random_seed | When enabled server will populate an additional random seed independent of the client | false | sv, release
 sv_usercmd_execute_warning_ms | Emit a warning if we spend more than N ms executing user commands for a single player | 5 | sv, a
@@ -5550,9 +5898,8 @@ sv_vac_webapi_auth_key | Key for when posting to vac related webapis. |  | sv, r
 sv_visiblemaxplayers | Overrides the max players reported to prospective clients | -1 | release
 sv_voicecodec | Specifies which voice codec DLL to use in a game. Set to the name of the DLL without the extension. | vaudio_speex | release
 sv_voiceenable |  | true | a, nf, release
-sv_watchtransmit | Watch NetworkStateChanged info for this entity index. | -2 | sv, release
 sv_wateraccelerate |  | 10 | sv, cl, nf, rep, release
-sv_waterdist | Vertical view fixup when eyes are near water plane. | 12 | sv, cl, rep
+sv_waterdist | Vertical view fixup when eyes are near water plane. | 0 | sv, cl, rep
 sv_waterfriction |  | 1 | sv, cl, nf, rep, release
 sys_info | Print system information to the console | cmd | release
 sys_minidumpexpandedspew |  | true | 
@@ -5570,16 +5917,17 @@ test_play_stats_send |  | cmd | sv, cheat
 test_shipping_assert | Generate an assert to test shipping assertion code | cmd | release
 test_voice_container_nesting | Test nesting voice containers. | cmd | 
 test_voice_containers | Quick example for how we'd derive traits from voice containers. | cmd | 
+testhero_force_spotted |  | -1 | sv, cl, rep
 testscript_debug | Debug test scripts. | false | 
 think_limit | Maximum think time in milliseconds, warning is printed if this is exceeded. | 10 | sv, cl, rep, release
 thirdperson | Switch to thirdperson camera. | cmd | cl, cheat, per_tick
 thirdperson_mayamode | Switch to thirdperson Maya-like camera controls. | cmd | cl, cheat
 thirdpersonshoulder | Switch to thirdperson-shoulder camera. | cmd | cl
 thread_pool_option | Thread pool option | -1 | release
-thumper_use_plane_reflection |  | true | sv, cl, rep
+thumper_use_plane_reflection |  | false | sv, cl, rep
 timedemo | Play a demo and report performance info. | cmd | release
-timedemo_end | Ends timedemo on given tick. | -1 | 
-timedemo_start | Starts timedemo on given tick. | -1 | 
+timedemo_end | Ends timedemo on given tick. | -1 | release
+timedemo_start | Starts timedemo on given tick. | -1 | release
 timedemoquit | Play a demo, report performance info, and then exit | cmd | release
 timewarp_projectile_timescale_override | Override timescale for objects that touch a times warp not handled by the wall itself | 0 | sv, cl, rep
 toast_manager_override_duration |  | -1 | cl
@@ -5589,6 +5937,7 @@ tool_spawned_model_scales |  | 1 1 1 | sv, rep
 tools_stall_monitor_break_on_unknown_cause | Break on unknown stall cause | false | 
 trigger_fan_debug |  | false | sv, cl, rep
 trigger_fan_player_windblock_debug |  | false | sv, cl, rep
+trigger_physics_debug | Toggle trigger_physics debug visualization. | false | sv, cheat
 trooper_kill_all | Kills all living troopers | cmd | sv, cheat
 trooper_kill_non_bosses | Kills all non-boss living troopers | cmd | sv, cheat
 trooper_zipline_distance_to_drop_from_enemy | How many units away from an enemy captured zipline that troopers will exit | 2000 | sv, cl, rep
@@ -5624,12 +5973,13 @@ tv_debug | SourceTV debug info. | 0 | release
 tv_delay | SourceTV broadcast delay in seconds | 120 | sv, release
 tv_delay1 | SourceTV\[instance 1\] broadcast delay in seconds | 15 | sv, release
 tv_deltacache | Enable delta entity bit stream cache | 2 | release
-tv_demo_starttick |  | 0 | 
 tv_dispatchmode | Dispatch clients to relay proxies: 0=never, 1=if appropriate, 2=always | 1 | release
 tv_enable | Activates SourceTV on server. | false | nf, release
 tv_enable1 | Activates SourceTV\[1\] on server. | false | nf, release
 tv_enable_delta_frames | Indicates whether or not the tv should use delta frames for storage of intermediate frames. This takes more CPU but significantly less memory. | true | release
 tv_enable_dynamic | When enabled, changes in tv_enable convars cause immediate startup or shutdown of hltv server | false | nf, release
+tv_encryptdata_key | When set to a valid key communication messages will be encrypted for GOTV |  | release
+tv_encryptdata_key_pub | When set to a valid key public communication messages will be encrypted for GOTV |  | release
 tv_extended_logging |  | false | 
 tv_grouprelaydatareliable | When enabled, this will collect all information for relay sending into a single datagram to ensure that the data stays together through a potentially large number of relays | false | 
 tv_grouprelaydataunreliable | When enabled, this will collect all information for relay sending into a single datagram to ensure that the data stays together through a potentially large number of relays | false | 
@@ -5660,6 +6010,7 @@ tv_playcast_max_rtdelay |  | 300 | release
 tv_playcast_origin_auth | Get request X-Origin-Auth string |  | release
 tv_playcast_retry_timeout | In case of intermittent network problems, how long should playcast retry fragment retrieval before resorting to resync | 25 | release
 tv_playcast_showerrors | Set to display headers upon error (e.g. "CF-Ray,CF-Cache-Status,Body" ) |  | release
+tv_playcast_slow_playback_fragment_count | Number of fragments we need to have in the buffer before slowing down playback. For use with tv_playcast_slow_playback_when_fragment_requests_fail | 3 | release
 tv_playcast_slow_playback_when_fragment_requests_fail | Whether or not we slow playback rate if we start running out of buffered stream fragments. | true | release
 tv_port | Host SourceTV\[0\] port | 27020 | release
 tv_port1 | Host SourceTV\[1\] port | 27021 | release
@@ -5672,11 +6023,11 @@ tv_relay_quit_after_game | Quit after a game has been relayed, do not hibernate 
 tv_relay_rate | default rate for relays | 500000 | 
 tv_relay_secret_code | When enabled, this will use a uniquely generated server code to authenticate relay to relay connections. This code is coordinated via the GC or some external means rather than by clients directly | true | 
 tv_relaypassword | SourceTV password for relay proxies |  | prot, nf, norecord, release
+tv_relaytextchat | Relay text chat data to GOTV: 0=off, 1=say, 2=say+say_team | 1 | sv, release
 tv_relayvoice | Relay voice data: 0=off, 1=on | true | release
 tv_retry | Reconnects the SourceTV relay proxy. | cmd | release
 tv_secret_code | When enabled, this will use a uniquely generated server code to authenticate relay connections. This code is coordinated via the GC or some external means rather than by clients directly | true | 
 tv_secure_bypass | Bypass secure challenge on TV port | false | release
-tv_show_allchat |  | true | sv, release
 tv_snapshotrate | Snapshots broadcast per second | 20 | rep, release
 tv_snapshotrate1 | Snapshots broadcast per second, GOTV\[1\] | 32 | release
 tv_status | Show SourceTV server status. | cmd | release
@@ -5694,7 +6045,7 @@ unbind | Unbind a key. | cmd | release
 unbindall | Unbind all keys. | cmd | release
 unpause | Clear the pause state of the server. | cmd | release
 update_all_keyframed_in_spatial_partition_update |  | true | sv, cl, rep
-update_voices_low_priority |  | false | 
+update_voices_low_priority |  | true | 
 url_execute | Executes url-based commands, used for incoming commands from url-based launches when the game's already running. | cmd | cl
 users | Show user info for players on server. | cmd | 
 v8_dump_heap_snapshot |  | cmd | 
@@ -5707,10 +6058,10 @@ vcon_clients | List connections | cmd | norecord
 vconsole_rcon_server_details | when non-empty allows for easy vconsole connection to the dedicated server. |  | norecord, release, server_cannot_query
 vehicle_debug_impact_damage |  | false | sv
 viewmodel_fov |  | 54 | cl, cheat
-violence_ablood | Draw alien blood | true | a
-violence_agibs | Show alien gib entities | true | a
-violence_hblood | Draw human blood | true | a
-violence_hgibs | Show human gib entities | true | a
+violence_ablood | Draw alien blood | false | a
+violence_agibs | Show alien gib entities | false | a
+violence_hblood | Draw human blood | false | a
+violence_hgibs | Show human gib entities | false | a
 vis_debug_currentcluster | Show the current cluster number | cmd | 
 vis_debug_drawcluster | Add cluster # to visualization, (-1) to clear | cmd | 
 vis_debug_dumpvisibleclusters | Show the list of visible clusters | cmd | 
@@ -5723,7 +6074,7 @@ vis_debug_sunclusters | Showing clusters for sun/csm rendering. Red (full sun cs
 vis_debug_tracelos | Trace rays and check vis from the current camera | cmd | 
 vis_enable | Enable precomputed visibility when true | true | 
 vis_force |  | false | sv, cheat
-vis_sunlight_enable | Toggle whether to use sunlight PVS for sunlight views (0 = sky PVS, 1 = sunlight PVS) | true | cheat
+vis_sunlight_enable | Toggle whether to use sunlight PVS for sunlight views (0 = sky PVS, 1 = sunlight PVS) | false | cheat
 vismon_poll_frequency |  | 0.5 | sv, cheat
 vismon_trace_limit |  | 12 | sv, cheat
 vmem_dump | Dump memory stats to log. | cmd | 
@@ -5767,11 +6118,12 @@ volume_fog_depth_warp_debug |  | false |
 volume_fog_dither_scale |  | 1 | cheat
 volume_fog_enable_jitter |  | true | cheat
 volume_fog_height | Height of volume fog texture | 160 | 
-volume_fog_intermediate_textures_hdr |  | true | 
+volume_fog_intermediate_textures_hdr |  | false | 
 volume_fog_shadow_penumbra_multiplier | Penumbra size multiplier for shadow sampling, reduces fog shadow aliasing | 3 | 
 volume_fog_temporal_filter |  | true | 
 volume_fog_temporal_weight | Temporal filtering weight | 0.9 | 
 volume_fog_width | Width of volume fog texture | 240 | 
+vprof_all_threads | Capture VProf scopes on background threads as well as the target thread. Same option as the All Threads checkbox in the VProf tools -- setting either one updates the other | false | 
 vprof_counters |  | 0 | 
 vprof_counters_show_minmax |  | false | 
 vprof_dump_counters | Dump vprof counters to the console | cmd | 
@@ -5789,14 +6141,15 @@ vprof_scope_entity_clientthink | Does nothing whatsoever. | false | cl
 vprof_scope_entity_thinks |  | false | sv, cl, rep
 vprof_think_limit |  | false | sv
 vprof_time_scale | Scale used when displaying time (0 = use default) | cmd | 
+vt_page_atlas_size | Virtual texture page atlas size in 16k x 16k slices of about 256MB each, 2 to 32 ( 512MB to 8GB ). Changing it evicts every virtual texture tile. | 6 | 
+vt_sim_streaming_delay_ms |  | 500 | 
 vtune | Controls VTune's sampling. | cmd | 
 warp_onto_zipline | warp onto the nearest point of the zipline lane passed in.  provides the zipline intro modifier as well | cmd | sv, cheat
 weapon_switch | Use a particular weapon	<br>Arguments: &lt;weapon_name&gt; | cmd | sv
-wind_system_debug_volumes |  | false | 
-wind_system_default_resolution_xy |  | 256 | 
+wind_system_default_resolution_xy |  | 64 | 
 wind_system_default_resolution_z |  | 32 | 
 wind_system_default_sample_min_spacing |  | 12 | 
-wind_system_temporal_smoothing |  | true | 
+wind_system_temporal_smoothing |  | false | 
 world_dump_loaded_worlds | Dump all of the worlds that we know about | cmd | 
 world_layer_list | List all world layers | cmd | 
 world_layer_set_visible | Show or hide the specified world layer | cmd | 
@@ -5805,5 +6158,5 @@ writeid | Writes a list of permanently-banned user IDs to file. | cmd |
 writeip | Save the ban list to file. | cmd | 
 writekeybindings | Saves current key bindings to disk. | cmd | release
 zipline_knockdown_protection_delay |  | 3 | sv, cl, rep
-zipline_use_new_latch | Use the new latch motion for getting on a zipline. 0: Dont use 1: Just those with b_UseNewZipLineSetup 2: Everyone use | 2 | sv, cl, rep
+zipline_use_new_latch | Use the new latch motion for getting on a zipline. 0: Dont use 1: Just those with b_UseNewZipLineSetup 2: Everyone use | 0 | sv, cl, rep
 zoom_sensitivity_ratio | Additional mouse sensitivity scale factor applied when FOV is zoomed in. | 1 | cl, a, per_user
