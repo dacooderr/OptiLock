@@ -612,7 +612,7 @@ GameInfo
 		lb_dynamic_shadow_resolution_base_cmp_shadowmapsize     "true"
 		lb_shadow_map_cull_empty_mixed                          "true"
 		lb_enable_baked_shadows                                 "false"
-		lb_enable_binning                                       "false"
+		lb_enable_binning                                       "true"
 		r_citadel_shadow_quality                                "0"
 		r_citadel_gpu_culling_shadows                           "1"
 		lb_csm_override_staticgeo_cascades                      "1"
