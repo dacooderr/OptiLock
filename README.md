@@ -14,8 +14,9 @@ ________________________________________________________________________________
 
         Open the provided video.txt and copy all of the text
 
-        Open your video.txt in C:\Program Files (x86)\Steam\steamapps\common\Deadlock\game\citadel\cfg
-
+        Open your video.txt in C:\Program Files (x86)\Steam\steamapps\common\Deadlock\game\citadel\cfg | or if you don't see a video.txt file here check: C:\Program Files (x86)\Steam\userdata\(ProfileID*)\ 1422450\local\cfg
+		(ProfileID* is a placeholder. This is unique to each Steam Account and you will have multiple folders with a Unique combination of numbers if you have logged into more than one Steam Account. You will need to check these folders for the folder named "1422450". This is Deadlock's CFG location.)
+		
         Delete everything under deviceid 
 
         Paste what you copied earlier
@@ -36,7 +37,6 @@ Here is a list of each config provided in this repository.
 |----------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
 | [OptiLock FPS Config (Recommended)](https://github.com/dacooderr/OptiLock/tree/main/OptiLock%20FPS%20Config%20(Recommended))                             | Performance oriented config with the intent of competitive use.                           |
 | [OptiLock Potato Config](https://github.com/dacooderr/OptiLock/tree/main/OptiLock%20Potato%20Config)                | For Lower End Systems                      |
-| [Kaiz Potato Config](https://github.com/dacooderr/OptiLock/tree/main/Kaiz%20Potato%20Config) | This config prioritizes fps above all else and dramatically reduces graphical quality.    |
 | [cvarlist.md](https://github.com/dacooderr/OptiLock/blob/main/cvarlist.md)                                                 | Every single convar in the game's code. Not a proper config but instead a reference.      |
 | [Language/Localization/Translations](https://github.com/dacooderr/OptiLock/tree/main/Localization)          | Encontre seu idioma, Выберите язык, Оберіть мову 
 
