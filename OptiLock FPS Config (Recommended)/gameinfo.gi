@@ -684,7 +684,7 @@ GameInfo
 		m_rawinput                                              "1"
 
 		// ================ PARTICLES ================
-		cl_particle_max_count                                   "800"
+		cl_particle_max_count                                   "2000"
 		cl_particle_newinit                                     "true"
 		r_particle_max_size_cull                                "126"
 		r_particle_max_detail_level                             "0"
@@ -808,7 +808,6 @@ GameInfo
 		lb_enable_sunlight                                      "false"  // kai's cfg - Default: true<br>SceneSystem/LightBinner/Enable Sunlight
 
 		// --- PARTICLES & EFFECTS ---
-		r_particle_max_draw_distance                            "100000"  // kai's cfg - Lower = less particle range
 		r_citadel_screenspace_particles_full_res                "0"  // kai's cfg
 		r_muzzleflashbrightness                                 "0.01"  // kai's cfg - default 0.4 idk if this does anything
 
