@@ -742,7 +742,7 @@ GameInfo
     sparseshadowtree_parallel_generation                  	"2"
 	
 	// --Particles--
-	cl_particle_max_count                   "2000"
+	cl_particle_max_count                   "5000"
 	cl_particle_newinit                     "true"
 	r_limit_particle_job_duration			"true"
 	r_particle_max_detail_level				"0"	

@@ -684,7 +684,7 @@ GameInfo
 		m_rawinput                                              "1"
 
 		// ================ PARTICLES ================
-		cl_particle_max_count                                   "2000"
+		cl_particle_max_count                                   "5000"
 		cl_particle_newinit                                     "true"
 		r_particle_max_size_cull                                "126"
 		r_particle_max_detail_level                             "0"
