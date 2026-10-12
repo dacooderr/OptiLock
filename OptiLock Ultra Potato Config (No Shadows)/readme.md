@@ -1,4 +1,6 @@
-# This is the core OptiLock FPS config. If you want **roblox graphics**, make sure to change r_texture_stream_mip_bias in VIDEO.TXT. **DO NOT MAKE GAMEINFO OR VIDEO.TXT READONLY.**
+# This is the Ultra Low OptiLock Preset.
+
+	**DO NOT MAKE GAMEINFO OR VIDEO.TXT READONLY.**
 
 	Directions: 
 		1 Replace your gameinfo.gi entirely with this configs version at steamapps/common/deadlock/game/citadel
