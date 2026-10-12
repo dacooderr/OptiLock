@@ -623,7 +623,7 @@
 	sv_pvs_max_distance					"4000"
 	
 	// --Lighting--
-	mat_colorcorrection										"true"
+	mat_colorcorrection										"false"
 	sc_disable_baked_lighting                               "true"
 	lb_allow_time_sliced_shadow_map_rendering               "false"
 	lb_enable_shadow_casting                                "false"
@@ -801,9 +801,10 @@
 	fx_drawmetalspark                                       "false"
 	
 	// --Post Processing/Decals--
-	r_decals							"0"
-	r_distancefield_enable				"false"
-	r_citadel_distancefield_blur		"false"
+	r_postprocess_enable									"false"
+	r_decals												"0"
+	r_distancefield_enable									"false"
+	r_citadel_distancefield_blur							"false"
 	citadel_per_weapon_per_surface_impact_effects 			"false"
     cl_impacteffects                              			"0"
     cl_show_splashes                              			"0" 

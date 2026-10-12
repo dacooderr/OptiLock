@@ -550,7 +550,7 @@ GameInfo
 	ConVars
 	{	 
 	
-						   // ----------------------- OptiLock -- ver. 4.6  ---------------------- \\
+						   // ----------------------- OptiLock -- ver. 5.5  ---------------------- \\
 							   //        OptiLock: https://gamebanana.com/mods/690233          \\
 							  //         QOL Lite: https://gamebanana.com/mods/690233           \\
 							 //     Downloaded from: https://github.com/dacooderr/OptiLock       \\
