@@ -4,7 +4,7 @@
 //										/ /_/ / /_/ / /_/ / /___/ /_/ / /__/ ,<   													\\
 //										\____/ .___/\__/_/_____/\____/\___/_/|_|  													\\
 //											/_/   																		            \\
-//										---------------------------------------- ver. 4.6 							                \\
+//										---------------------------------------- ver. 5.5 							                \\
 //																																    \\
 //						If this config helped you, you wanna be extra nice, let me know by giving a little back or					\\
 //										check out my YouTube and Twitch! -dacooderr													\\
@@ -1245,7 +1245,7 @@ GameInfo
 		   // Artemon121       Made the Citadel cvar unhider														\\
 		  // Pidjan            Worked on further gameinfo changes and let us integrate                               \\
 		 // Piggy              Video.txt contributer and cool streamer guy                                            \\
-		// ----------------------------------------- END OF CONFIG OptiLock -- ver. 4.6 ------------------------------ \\
+		// ----------------------------------------- END OF CONFIG OptiLock -- ver. 5.5 ------------------------------ \\
 
  rate
         {
