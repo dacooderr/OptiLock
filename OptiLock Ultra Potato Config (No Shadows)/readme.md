@@ -1,6 +1,6 @@
 # This is the Ultra Low OptiLock Preset.
 
-	**DO NOT MAKE GAMEINFO OR VIDEO.TXT READONLY.**
+	DO NOT MAKE GAMEINFO OR VIDEO.TXT READONLY.
 
 	Directions: 
 		1 Replace your gameinfo.gi entirely with this configs version at steamapps/common/deadlock/game/citadel
