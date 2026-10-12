@@ -7,3 +7,5 @@
 		4 Paste what you copied UNDER DEVICEID.
 		5 Save and close. 
 		6 Enjoy :)
+		
+## This will make your game look horrendous in the hideout but it's actually not too bad in a live match/explore NYC.		
