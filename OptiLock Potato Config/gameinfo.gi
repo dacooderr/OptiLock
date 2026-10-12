@@ -742,7 +742,7 @@ GameInfo
     sparseshadowtree_parallel_generation                  	"2"
 	
 	// --Particles--
-	cl_particle_max_count                   "5000"
+	r_particle_max_draw_distance			"150000"
 	cl_particle_newinit                     "true"
 	r_limit_particle_job_duration			"true"
 	r_particle_max_detail_level				"0"	
@@ -773,9 +773,10 @@ GameInfo
 	fx_drawmetalspark                                       "false"
 	
 	// --Post Processing/Decals--
-	r_decals							"0"
-	r_distancefield_enable				"false"
-	r_citadel_distancefield_blur		"false"
+	r_postprocess_enable									"false"
+	r_decals												"0"
+	r_distancefield_enable									"false"
+	r_citadel_distancefield_blur							"false"
 	citadel_per_weapon_per_surface_impact_effects 			"false"
     cl_impacteffects                              			"0"
     cl_show_splashes                              			"0" 
