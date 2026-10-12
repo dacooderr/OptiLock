@@ -596,7 +596,7 @@ GameInfo
 		//  ---- IMPORTANT  ----
 		mat_colorcorrection 									"false"  //  Color Accuracy
 		r_postprocess_enable                                    "true"  //  Disable postprocessing effects game-wide. Makes your game REALLY dark. (Controls all of these convars in Post-Processing section as they are post-processing effects)
-		r_farz                                                  "8000" 
+		r_farz                                                  "10000" 
 		r_mapextents                                            "100"   
 		r_nearz 												"10"
 

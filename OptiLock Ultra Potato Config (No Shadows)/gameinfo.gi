@@ -1,0 +1,1173 @@
+//										   ____        __  _ __               __  													\\
+//										  / __ \____  / /_(_) /   ____  _____/ /__													\\
+//										 / / / / __ \/ __/ / /   / __ \/ ___/ //_/													\\
+//										/ /_/ / /_/ / /_/ / /___/ /_/ / /__/ ,<   													\\
+//										\____/ .___/\__/_/_____/\____/\___/_/|_|  													\\
+//											/_/   																		            \\
+//										---------------------------------------- ver. 5.5 							                \\
+//																																    \\
+//						If this config helped you, you wanna be extra nice, let me know by giving a little back or					\\
+//										check out my YouTube and Twitch! -dacooderr													\\
+//											https://streamlabs.com/dacooderr/tip               										\\
+//__________________________________________________________________________________________________________________________________\\	
+
+"GameInfo"
+{
+	game 		"citadel"
+	title 		"Citadel"
+	type		multiplayer_only
+	nomodels 1
+	nohimodel 1
+	nocrosshair 0
+	hidden_maps
+	{
+		"test_speakers"			1
+		"test_hardware"			1
+	}
+	nodegraph 0
+	perfwizard 0
+	tonemapping 0
+	GameData	"citadel.fgd"
+
+	PGIVersion "39A735A413003C88A806B364C32DFC6D077E551B9E4EC6C7B11D41E8E67BFA0C"
+
+	Localize
+	{
+		DuplicateTokensAssert	1
+	}
+
+	SupportedLanguages
+	{
+		"brazilian" "3"
+		"czech" "3"
+		"english" "3"
+		"french" "3"
+		"german" "3"
+		"italian" "3"
+		"indonesian" "3"
+		"japanese" "3"
+		"koreana" "3"
+		"latam" "3"
+		"polish" "3"
+		"russian" "3"
+		"schinese" "3"
+		"spanish" "3"
+		"thai" "3"
+		"turkish" "3"
+		"ukrainian" "3"
+	}
+	
+    FileSystem
+    {
+        //
+        // The code that loads this file automatically does a few things here:
+        //
+        // 1. For each "Game" search path, it adds a "GameBin" path, in <dir>\bin
+        // 2. For each "Game" search path, it adds another "Game" path in front of it with _<language> at the end.
+        //    For example: c:\hl2\cstrike on a french machine would get a c:\hl2\cstrike_french path added to it.
+        // 3. If no "Mod" key, for the first "Game" search path, it adds a search path called "MOD".
+        // 4. If no "Write" key, for the first "Game" search path, it adds a search path called "DEFAULT_WRITE_PATH".
+        //
+
+        //
+        // Search paths are relative to the exe directory\..\
+        //
+
+        
+
+// Deadlock Mod Manager - Start
+
+		SearchPaths
+        {  
+            Game_Language       citadel_*LANGUAGE*
+            Game                citadel/addons/profile_1788286995090_8lc3039pw_qollite
+            Mod                 citadel
+            Write               citadel          
+            Game                citadel
+            Mod                 core
+            Write               core
+            Game                core        
+        }
+// Deadlock Mod Manager - End
+    }
+	
+	MaterialSystem2
+	{
+		RenderModes
+		{
+			game Default
+			game Forward
+			game Deferred
+			game Outline
+			game Depth
+			game FrontDepth
+			game ShadowSilhouette
+
+			dev ToolsVis // Visualization modes for all shaders (lighting only, normal maps only, etc.)
+			dev ToolsWireframe // This should use the ToolsVis mode above instead of being its own mode\
+
+			tools ToolsUtil // Meant to be used to render tools sceneobjects that are mod-independent, like the origin grid
+		}
+	}
+
+	MaterialEditor
+	{
+		"DefaultShader" "environment_texture_set"
+	}
+
+	NetworkSystem
+    {
+        BetaUniverse
+        {
+            FakeLag             "0" 
+            FakeLoss            "0" 
+            // FakeReorderPct   "0.05"
+            // FakeReorderDelay "10"
+            // FakeJitter       "low"
+            // Turning off fake jitter for now while I work on making the CQ totally solid
+            FakeReorderPct   "0"
+            FakeReorderDelay "0"
+            FakeJitter       "off"
+        }
+
+		"SkipRedundantChangeCallbacks"	"1"
+	}
+
+    RenderSystem
+    {
+        // Stolen from CS2
+        AllowPartialMipChainImmediateTexLoads "1"
+        UseHardwareGammaRamp                  "0" // Fullscreen gamma controlled in postprocessing
+        // End of stolen from CS2
+
+        GraphicsPipelineLibrary            "1"    
+        IndexBufferPoolSizeMB              "64"   
+        LowLatency                         "1"    
+        MinStreamingPoolSizeMB             "512"  
+        MinStreamingPoolSizeMBTools        "2048" 
+        SwapChainSampleableDepth           "1"    
+        Use32BitDepthBuffer                "0"    
+        Use32BitDepthBufferWithoutStencil  "0"  
+        UseReverseDepth                    "1"    
+        VulkanAdditionalShaderCache        "vulkan_shader_cache.foz"
+        VulkanDefrag                       "1"  
+        VulkanMutableSwapchain             "1"   
+        VulkanOnlyTestProbability          "0"  
+        VulkanOnly_Linux                   "0"  
+        VulkanRequireDescriptorIndexing    "1"   
+        VulkanRequireSubgroupWaveOpSupport "1"   
+        VulkanStagingPMBSizeLimitMB        "384" 
+        VulkanSteamAppShaderCache          "1"         
+        VulkanSteamDownloadedShaderCache   "1"       
+        VulkanSteamShaderCache             "1"        
+
+
+
+        //MinDXLevel                            "80"
+        //MaxPreloadTextureResolution           "2"
+        //VulkanRequestSM6                      "true"
+        // VulkanUseExternalSubpassDependency "true"
+        // VulkanRequireFullGPURayTracing     "true"
+
+
+        //AllowPartialMipChainImmediateTexLoads "true"
+
+
+    }
+
+	NVNGX
+	{
+		AppID 103371621
+		SupportsDLSS 1
+	}
+
+	Engine2
+	{
+		HasModAppSystems 1
+		Capable64Bit 1
+		URLName citadel
+		RenderingPipeline
+		{
+			SupportsMSAA 0
+			DistanceField 1
+		}
+		PauseSinglePlayerOnGameOverlay 1
+		PauseOnCtrlConsole 0 // Src2 issues a 'setpause' on holding down CTRL + toggleconsole key, disable this for Deadlock.
+		DefensiveConCommands 1
+		DisableLoadingPlaque 1
+		LocalServerClientAccess 1
+
+		"MapMaxCoord" "32768"
+	}
+
+	ContentBuilder
+	{
+		ResourceCompilerDirectXUsesWARP "0"
+	}
+
+	SoundSystem
+	{
+		SteamAudioEnabled            "1"
+		WaveDataCacheSizeMB          "256"
+		"UsePlatTime"            "1"
+	}
+	Sounds
+	{
+		HierarchicalEncodingFiles	 "1"
+	}
+
+	ToolsEnvironment
+	{
+		"Engine"	"Source 2"
+		"ToolsDir"	"../sdktools"	// NOTE: Default Tools path. This is relative to the mod path.
+	}
+	
+	pulse
+	{
+		"pulse_enabled"					"1"
+	}
+
+	Hammer
+	{
+		"fgd"					"citadel.fgd"	// NOTE: This is relative to the 'game' path.
+		"GameFeatureSet"		"Citadel"
+		"DefaultSolidEntity"	"trigger_multiple"
+		"DefaultPointEntity"	"info_player_start"
+		"NavMarkupEntity"		"func_nav_markup"
+		"OverlayBoxSize"			"8"
+		"TileMeshesEnabled"			"1"
+		"RenderMode"				"ToolsVis"
+		"CreateRenderClusters"		"1"
+		"DefaultMinDrawVolumeSize"	"2048"
+		"DefaultMinTrianglesPerCluster"	"16384"
+		"TileGridSupportsBlendHeight"	"1"
+		"TileGridBlendDefaultColor"	"0 255 0"
+		"LoadScriptEntities" "0"
+		"UsesBakedLighting" "0"
+		"UseAnalyticGrid" "0"
+		"SupportsDisplacementMapping" "0"
+		"SteamAudioEnabled"				"1"
+		"LatticeDeformerEnabled"		"1"
+		"ShadowAtlasWidth" "0"
+		"ShadowAtlasHeight" "0"
+		"TimeSlicedShadowMapRendering" "1"
+	}
+
+	SoundTool
+	{
+		"DefaultSoundEventType" "src1_3d"
+
+		SoundEventBaseOptions
+		{
+			"Base.Announcer.VO.2d" ""
+			"Base.World.VO.Emitter.3d" ""
+			"Base.Hero.VO.Ping.2d" ""
+			"Base.Hero.VO.2d" ""
+			"Base.Hero.VO.3d" ""
+			"Base.Hero.VO.Ability.3d" ""
+			"Base.Hero.VO.Ultimate.3d" ""
+			"Base.Hero.VO.Dash.3d" ""
+			"Base.Hero.VO.Effort.3d" ""
+			"Base.Hero.VO.Pain.3d" ""
+			"Base.Hero.VO.Melee.3d" ""
+			"Base.Hero.VO.Death.3d" ""
+		}
+	}
+
+	RenderPipelineAliases
+	{
+	}
+
+	ResourceCompiler
+	{
+		// Overrides of the default builders as specified in code, this controls which map builder steps
+		// will be run when resource compiler is run for a map without specifiying any specific map builder
+		// steps. Additionally this controls which builders are displayed in the hammer build dialog.
+		DefaultMapBuilders
+		{
+			"bakedlighting"	"0"	// Enable lightmapping during compile time		
+			"envmap"	"0" // turned off since it currently causes an assert and doesn't work due to some build issue
+			"nav"		"1"	// Generate nav mesh data
+			"sareverb"      "0" // Bake Steam Audio reverb
+			"sapaths"	"0" // Bake Steam Audio pathing
+			"sacustomdata"	"1"	// Bake Steam Audio custom data
+		}
+
+		// Game specific steps run after the map has been built, in the order they are listed here
+		GameSpecificPostMapBuildSteps
+		{
+			"pve_nav_cache"	"1"	// Bake the spots the PVE directors spawn things on
+		}
+
+		MeshCompiler
+		{
+			OptimizeForMeshlets 1
+			TrianglesPerMeshlet 32	// Maximum valid value currently is 126
+			UseMikkTSpace 1
+			EncodeVertexBuffer 1
+            EncodeVertexBufferVersion 1
+            EncodeVertexBufferLevel 3
+			EncodeIndexBuffer 1
+			SplitDepthStream 1
+		}
+
+		WorldRendererBuilder
+		{
+			VisibilityGuidedMeshClustering      "1"
+			MinimumTrianglesPerClusteredMesh    "8192"
+			MinimumVerticesPerClusteredMesh     "8192"
+			MinimumVolumePerClusteredMesh       "8192"       // ~20x20x20 cube
+			MaxPrecomputedVisClusterMembership  "96"
+			MaxCullingBoundsGroups              "128"
+			UseAggregateInstances				"1"
+			AggregateInstancingMeshlets			"1"
+			BakePropsWithExtraVertexStreams		"1"
+			MergeTranslucents					"1"
+		}
+
+		BakedLighting
+		{
+			Version 4
+			ImportanceVolumeTransitionRegion 128            // distance we transition from high to low resolution charts 
+			LightmapChannels
+			{
+				direct_light_shadows 0
+				debug_chart_color 1
+				directional_irradiance_sh2_dc 0
+				
+				directional_irradiance_sh2_r
+				{
+					CompressedFormat DXT1
+				}
+				
+				directional_irradiance_sh2_g
+				{
+					CompressedFormat DXT1
+				}
+				
+				directional_irradiance_sh2_b
+				{
+					CompressedFormat DXT1
+				}
+			}
+			LightmapGutterSize 0 // For bicubic filtering
+			UseStaticLightProbes 0
+			LPVAtlas 1
+		}
+
+		SteamAudio
+		{
+			ReverbDefaults
+			{
+				GridGenerationType	"0"						// 0: Automatic, Everywhere, 1: Automatic, Use Probe Generation Volume, 2: Manual
+				FilterUsingVolumes	"1"						// Filter Using Probe Exclusion Volumes ( boolean )
+				FilterUsingNavMesh	"0"						// Filter Using NavMesh
+				GridSpacing			"3.0"
+				HeightAboveFloor	"1.5"
+				RebakeOption		"0"						// 0: cleanup, 1: manual, 2: auto
+				NumRays				"32768"
+				NumBounces			"64"
+				IRDuration			"1.0"
+				AmbisonicsOrder		"1"
+				ClusteringEnabled	"0"
+				ClusteringCubemapResolution	"16.0"
+				ClusteringDepthThreshold	"10.0"
+			}
+			PathingDefaults
+			{
+				GridGenerationType	"0"						// 0: Automatic, Everywhere, 1: Automatic, Use Probe Generation Volume, 2: Manual
+				FilterUsingVolumes	"1"						// Filter Using Probe Exclusion Volumes ( boolean )
+				FilterUsingNavMesh	"0"						// Filter Using NavMesh
+				GridSpacing			"3.0"
+				HeightAboveFloor	"1.5"
+				RebakeOption		"0"						// 0: cleanup, 1: manual, 2: auto
+				NumVisSamples		"1"
+				ProbeVisRadius		"0"
+				ProbeVisThreshold	"0.1"
+				ProbeVisPathRange	"1000.0"
+			}
+			CustomDataDefaults
+			{
+				GridGenerationType	"0"						// 0: Automatic, Everywhere, 1: Automatic, Use Probe Generation Volume, 2: Manual
+				FilterUsingVolumes	"1"						// Filter Using Probe Exclusion Volumes ( boolean )
+				FilterUsingNavMesh	"1"						// Filter Using NavMesh
+				GridSpacing		"6"
+				HeightAboveFloor	"1.5"
+				RebakeOption		"0"						// 0: cleanup, 1: manual, 2: auto
+				BakeOcclusion		"0"						// 0: Disabled, 1: Enabled
+				BakeDimensions		"1"						// 0: Disabled, 1: Enabled
+				BakeMaterials		"0"						// 0: Disabled, 1: Enabled
+				OcclusionPathing			"1"
+				OcclusionReflection			"0"
+				OcclusionReflectionRays		"16384"
+				OcclusionReflectionBounces	"16"
+				DimensionsOutsideThreshold	"0.02"
+				
+			}
+			ProbeGenerationVolumeDefaults
+			{
+				Spacing			"3.0"
+				Height			"1.5"
+				HeightSpacing		"12"
+				UseForReverb		"0"
+				UseForPathing		"0"
+				UseForCustomData	"1"
+				FilterUsingVolumes	"1"
+				FilterUsingNavMesh	"1"
+			}
+		}
+		SoundEventScripts
+		{
+			OmitMetadataAndLineText "1"
+		}
+		SoundStackScripts
+		{
+			CompileStacksStrict "1"
+		}
+		VisBuilder
+		{
+			MaxVisClusters "4096"
+			PreMergeOpenSpaceDistanceThreshold "128.0"
+			PreMergeOpenSpaceMaxDimension "2048.0"
+			PreMergeOpenSpaceMaxRatio "8.0"
+			PreMergeSmallRegionsSizeThreshold "20.0"
+		}
+
+		VDataLocalization
+		{
+			GameOutputPath	"resource/localization/citadel_vdata"
+			TokenPrefix		"Citadel_VData_"
+		}
+		
+		TextureCompiler
+		{
+			//Compressor              "lz4"
+			//CompressMipsOnDisk      "1"
+			//CompressMinRatio        "95"
+			AllowNP2Textures		"1"
+			AllowPanoramaMipGeneration	"1"
+			//PublicToolsDefaultMaxRes "2048"
+		}
+	}
+
+	Source1Import
+	{
+		"forcevtxfileupconvert" 1
+	}
+
+	WorldRenderer
+	{
+		EnvironmentMaps					1
+		EnvironmentMapFaceSize			256
+		EnvironmentMapRenderSize		1024
+		EnvironmentMapFormat			BC6H
+		EnvironmentMapPreviewFormat 		BC6H
+		EnvironmentMapColorSpace		linear
+		EnvironmentMapMipProcessor		GGXCubeMapBlur
+		// Build cubemaps into a cube array instead of individual cubemaps.
+		"EnvironmentMapUseCubeArray" 	1
+		"EnvironmentMapCacheSizeTools"  300
+		BindlessSceneObjectDesc			CitadelBindlessDesc
+		GrassCastsShadows				0
+	}
+
+	SceneSystem
+	{
+		GpuLightBinner 1
+		FogCachedShadowAtlasWidth 0
+		FogCachedShadowAtlasHeight 0
+		FogCachedShadowTileSize 0
+		GpuLightBinnerSunLightFastPath 1
+		CSMCascadeResolution 0
+		SunLightManagerCount 0
+		SunLightManagerCountTools 0
+		DefaultShadowTextureWidth 0
+		DefaultShadowTextureHeight 0
+		DynamicShadowResolution 1
+
+		TransformTextureRowCount	1024
+		TransformTextureRowCountToolsMode 6144
+		SunLightMaxCascadeSize		0
+		SunLightShadowRenderMode	Depth
+		NonTexturedGradientFog		0
+		CubemapFog 0
+		VolumetricFog 0
+		FrameBufferCopyFormat R11G11B10F
+		Tonemapping 0
+		
+		
+        // Stolen from CS2
+        GpuLightBinnerBinEnvMaps "1"
+        GpuLightBinnerBinLPVs    "1"
+
+        LightCookieAllocGranularity "1"
+        LightCookieMinAllocSize     "0"
+        DisableShadowFullSort       "1"
+        SparseShadowTrees           "1" 
+        PointLightShadowsEnabled    "0"
+		
+		WellKnownLightCookies
+		{
+			"blank" "materials/effects/lightcookies/blank.vtex"
+			"flashlight" "materials/effects/lightcookies/flashlight.vtex"
+		}
+
+		ComputeShaderSkinning 1
+	}
+
+	NavSystem
+	{
+		"NavTileSize" "128.0"
+		"NavCellSize" "1.5"
+		"NavCellHeight" "2.0"
+
+		// Hull definitions live in scripts/nav_hulls.vdata
+		// Preset definitions live in scripts/nav_hulls_presets.vdata
+		"NavHullsPreset" "default"
+
+		"NavRegionMinSize" "8"
+		"NavRegionMergeSize" "20"
+		"NavEdgeMaxLen" "1200"
+		"NavEdgeMaxError" "51.0"
+		"NavVertsPerPoly" "4"
+		"NavDetailSampleDistance" "120.0"
+		"NavDetailSampleMaxError" "2.0"
+		"NavSmallAreaOnEdgeRemovalSize" "81.0"
+	}
+
+	AnimationSystem
+	{
+		"DisableServerInterpCompensation"	"1"
+		"DisableAnimationScript" 	"1"
+		"ServerPoseRecipeHistorySize"	"60"
+		"ClientPoseRecipeHistorySize"	"60"
+
+	}
+
+	ModelDoc
+	{
+		"models_gamedata"			"models_gamedata.fgd"
+		"features"					"modelconfig;gamepreview;wireframe_backfaces;distancefield"
+	}
+
+	Particles
+	{
+		"EnableParticleShaderFeatureBranching"	"1"
+		"Float16HDRBackBuffer" "1"
+		"PET_SupportFadingOpaqueModels" "1"
+		"BindlessParticleShader" "1"
+		"Features" "non_homogenous_forward_layer_only"
+	}
+
+	Physics
+	{
+		"EnableWorldCompounds"			"1"
+	}
+	
+	ConVars
+	{
+						   // ----------------------- OptiLock -- ver. 5.5  ---------------------- \\
+							   //        OptiLock: https://gamebanana.com/mods/690233          \\
+							  //         QOL Lite: https://gamebanana.com/mods/690233           \\
+							 //     Downloaded from: https://github.com/dacooderr/OptiLock       \\
+							//      Tutorial: https://www.youtube.com/watch?v=Kpoet2ebl70         \\
+						   //	      	   Discord: https://discord.gg/UxjsJB5Rp5				   \\
+						  //																	    \\
+						 //        If you would like to donate as a means of showing thanks          \\
+						//                 https://streamlabs.com/dacooderr/tip                       \\
+
+	// --Outlines--
+	citadel_trooper_glow_disabled                           "1"  // 1 = Disable friendly/enemy minion glow.                          [def: "0"]
+	citadel_boss_glow_disabled                              "1"  // Disables boss and walker glow/highlight effect.                  [def: "0]
+	r_citadel_npr_outlines_max_dist                         "600"  // Limits outline distance to reduce unnecessary processing.        [def: "1000"]
+	r_citadel_selection_outline2_alpha                      "0.8"  // Outlines on enemy players and abilities on a scale of 0-1.       [def: "0.8"]
+	r_citadel_npr_outlines                                  "true"  // Enable outlines on enemy players.                                [def: "true"]
+	r_citadel_outlines                                      "1"  // Enables enemy outlines for better visibility.
+	citadel_player_glow_disabled                            "0"  
+	citadel_trooper_friendly_glow_disabled                  "1" 
+	cl_glow_brightness                                      "0"  
+	
+	// --Field of View--
+	r_aspectratio                                           "2.15"  // 1.75=80fov | 2.15=90fov | 2.49=100fov      [def: "0"]
+	citadel_camera_hero_fov                                 "100"  // The field of view angle of the camera when following a hero.     [def: "90"]
+	
+	// --UI--
+	panorama_allow_transitions			"false"
+	panorama_box_shadow_no_comp_layer	"false"
+	panorama_disable_blur				"true"
+	panorama_disable_box_shadow			"true"
+	panorama_use_new_occlusion_invalidation                 "1"
+	panorama_temp_comp_layer_min_dimension                  "128"
+	r_citadel_enable_pano_world_blur                        "true"
+	r_dashboard_render_quality                              "0"
+	panorama_max_fps                           				"15" 
+    panorama_max_overlay_fps                   				"15" 
+	hud_free_cursor                         				"0"    
+    mm_idle_enabled                         				"false"
+    mm_idle_show_warning_at_s               				"999"   
+	panorama_async_compute_mipgen							"1"
+	citadel_hud_objective_health_idle_timeout               "4"
+	citadel_in_world_item_panel_dpi                         "0.75"
+	citadel_minimap_use_canvas_for_neutrals                 "0"  
+	citadel_minimap_use_canvas_for_shop                     "0"  
+	
+	// --Render Distance/Culling--
+	r_farz								"7000"
+	r_mapextents						"100"
+	r_nearz								"10"
+	r_size_cull_threshold 				"1"
+	r_size_cull_threshold_fade			"100"
+	r_haircull_percent                  "100"
+	r_propsmaxdist						"600"
+	sc_instanced_mesh_size_cull_bias	"10"
+	sv_pvs_max_distance					"4000"
+	
+	// --Lighting--
+	mat_colorcorrection										"true"
+	sc_disable_baked_lighting                               "true"
+	lb_allow_time_sliced_shadow_map_rendering               "false"
+	lb_enable_shadow_casting                                "false"
+	lb_enable_dynamic_lights                                "false"  
+	lb_enable_stationary_lights                             "false"
+	lb_dynamic_shadow_penumbra                              "true"
+	lb_dynamic_shadow_resolution                            "true"
+	lb_dynamic_shadow_resolution_base                       "64"
+	lb_dynamic_shadow_resolution_base_cmp_shadowmapsize     "true"
+	lb_shadow_map_cull_empty_mixed                          "true"
+	lb_enable_baked_shadows                                 "false"
+	r_citadel_shadow_quality                                "0"
+	r_citadel_gpu_culling_shadows                           "1"
+	lb_csm_override_staticgeo_cascades                      "1"
+	lb_csm_override_staticgeo_cascades_value                "1"
+	lb_sun_csm_size_cull_threshold_texels                   "30"
+	sparseshadowtree_enable_rendering                       "0"
+	sparseshadowtree_disable_for_viewmodel                  "1"
+	lb_enable_lights                                        "false" 
+	lb_enable_newsum                                        "false"
+	r_indirectlighting                                      "true"
+	lb_csm_draw_alpha_tested                                "0"
+	lb_csm_draw_translucent                                 "0"
+	lb_mixed_shadows                                        "false"
+	lb_precomputed_shadowmap_enable                         "false"
+	lb_precomputed_shadowmap_depth_bias                     "1"
+	lb_shadow_texture_height_override                       "1"
+	lb_shadow_texture_width_override                        "1"
+	lb_timesliced_shadows_dynamic_size                      "true"
+	mat_depthbias_shadowmap                                 "0.00000001"
+	mat_slopescaledepthbias_shadowmap                       "1"
+	r_citadel_distancefield_shadows                         "false"
+	mat_set_shader_quality                                  "0"
+	csm_viewmodel_shadows                                   "false"
+	r_citadel_gpu_preview_baked_shadows                     "false"
+	r_citadel_shadowdb                                      "64"
+	r_hair_shadowtile                                       "false"
+	r_mixed_shadows_fade_out_time                           "0.0001"
+    cl_retire_low_priority_lights               			"1"    
+    lb_cubemap_normalization_max                			"1"    
+    lb_cubemap_normalization_roughness_begin    			"0.01" 
+    lb_max_visible_barn_lights_override         			"1"
+    lb_max_visible_envmaps_override             			"10"
+    mat_async_shader_load                       			"1" 
+    mat_max_lighting_complexity                 			"1"
+    mat_tonemap_bloom_scale                     			"0"
+    r_arealights                                			"false" 
+    r_citadel_disable_npr_lighting              			"false"
+    r_citadel_distancefield_farfield_enable     			"0"     
+    r_citadel_ssao_bent_normals                 			"false"
+    r_citadel_ssao_denoise_passes               			"0"
+    r_citadel_ssao_quality                      			"0" 
+    r_citadel_ssao_radius                       			"0"
+    r_citadel_ssao_thin_occluder_compensation   			"0"    
+    r_citadel_sun_shadow_slope_scale_depth_bias 			"1.0"                                                         
+    r_directlighting                            			"false"  
+    r_directional_lightmaps                     			"false" 
+    r_distancefield_enable                      			"0"     
+    r_environment_map_roughness_range           			"0.01"  
+    r_flashlightbrightness                      			"0"
+    r_flashlightfar                             			"0"
+    r_flashlightshadowatten                     			"0"
+    r_gbuffer_disable_npr_lighting              			"true" 
+    r_light_flickering_enabled                  			"false"
+    r_light_sensitivity_mode                    			"true"
+    r_lightmap_bicubic_filtering                			"1"     
+    r_lightmap_size                             			"0"    
+    r_lightmap_size_directional_irradiance      			"0"     
+    r_multiscattering                           			"1"     
+    r_rendersun                                 			"false"
+    r_ssao                                      			"0"    
+    r_ssao_blur                                 			"0"
+    r_ssao_strength                             			"0"     
+    sc_cache_envmap_lpv_lookup                  			"false" 
+    thumper_use_plane_reflection                			"false" 
+    vis_sunlight_enable                         			"0"
+	
+	//--Textures--
+    mat_set_shader_quality           						"0" 
+    r_fallback_texture_lod_scale     						"4"
+    r_texture_budget_dynamic         						"1"   
+    r_texture_budget_threshold       						"0.7"
+    r_texture_budget_update_period   						"0.5"
+    r_texture_pool_reduce_rate       						"512"
+    r_texture_pool_size              						"256" 
+    r_texture_stream_max_resolution  						"128"
+    r_texture_stream_mip_bias        						"8" 
+    r_texture_stream_resolution_bias 						"0.01"
+    r_texturefilteringquality        						"0" 
+	
+	// --Shadows--
+	r_shadows												"false"
+	lb_dynamic_shadow_penumbra                             	"false"
+    lb_dynamic_shadow_resolution                           	"false" 
+    lb_dynamic_shadow_resolution_base                      	"32"   
+    lb_dynamic_shadow_resolution_quantization              	"32"    
+    lb_enable_fog_mixed_shadows                            	"0"
+    lb_enable_shadow_casting                               	"0" 
+    lb_mixed_shadows                                       	"false"
+    lb_precomputed_shadowmap_enable                        	"false"
+    lb_shadow_map_cull_empty_mixed                         	"true"
+    lb_ssss_samples                                        	"0"     
+    lb_sun_csm_size_cull_threshold_texels                  	"30"   
+    r_citadel_distancefield_shadows                        	"false"
+    r_citadel_gpu_culling_shadows                          	"true" 
+	lb_csm_receiver_plane_depth_bias                       	"0.00002"
+    lb_csm_receiver_plane_depth_bias_transmissive_backface 	"0.0002"
+	cl_globallight_shadow_mode                             	"0" 
+    lb_barnlight_shadow_use_precomputed_vis                	"0"
+    lb_barnlight_shadowmap_scale                           	"0.001" 
+    lb_csm_cascade_size_override                           	"0.25" 
+    lb_csm_cross_fade_override                             	"0"
+    lb_csm_distance_fade_override                          	"0"
+    lb_csm_draw_alpha_tested                               	"0" 
+    lb_csm_draw_translucent                                	"0"
+	mat_shading_complexity_max_instruction_count			"1"
+	mat_shading_complexity_max_register_count				"1"
+	lb_shadow_map_culling				"1"
+	csm_max_num_cascades_override		"0"
+	csm_max_shadow_dist_override		"0"
+	lb_csm_cascade_size_override		"0"
+	lb_csm_cross_fade_override			"0"
+	lb_csm_distance_fade_override		"0"
+	lb_csm_override_bulb_radius			"0"
+	lb_csm_override_staticgeo_cascades	"true"
+	lb_csm_override_staticgeo_cascades_value	"0"
+	lb_csm_receiver_plane_depth_bias	"0.001"
+	lb_cubemap_normalization_max		"0.001"
+	lb_dynamic_shadow_resolution_base	"128"
+	lb_dynamic_shadow_resolution_base_cmp_shadowmapsize		"true"
+	lb_enable_shadow_casting			"false"
+	lb_shadow_texture_height_override	"0"
+	lb_shadow_texture_width_override	"0"
+	r_citadel_distancefield_shadows		"false"
+	r_citadel_drop_shadow_update_frequency		"0"
+	r_citadel_shadowdb					"0"
+	r_citadel_sun_shadow_slope_scale_depth_bias	"0"
+	sc_disable_shadow_materials                            	"1"
+    sc_disable_spotlight_shadows                           	"1"  
+    sc_instanced_mesh_lod_bias_shadow                      	"10"
+    sc_instanced_mesh_size_cull_bias_shadow                	"10" 
+    sparseshadowtree_disable_for_viewmodel                 	"1"  
+    sparseshadowtree_enable_rendering                      	"0"  
+    sparseshadowtree_parallel_generation                  	"2"
+	
+	// --Particles--
+	r_particle_max_draw_distance			"5000"
+	cl_particle_newinit                     "true"
+	r_limit_particle_job_duration			"true"
+	r_particle_max_detail_level				"0"	
+	r_draw_particle_children_with_parents	"0"
+	r_particle_max_size_cull				"0"
+	particle_cluster_nodraw                 "1"
+	r_physics_particle_op_spawn_scale       "0"
+	r_RainParticleDensity                   "0"
+	cl_particle_fallback_base               "1"
+	cl_particle_fallback_multiplier         "10"
+	r_particle_parallel_simulation                          "1"
+	r_particle_batch_simulate                               "1"
+	cl_particle_sim_fallback_base_multiplier    			"100"
+	cl_particle_sim_fallback_threshold_ms                   "0"
+	r_particle_skip_postsim                                 "true"
+	r_particle_timescale                                    "1.1"
+	cl_particle_batch_mode                                  "1"
+	r_particle_max_texture_layers                           "4"
+	r_particle_cables_cast_shadows                          "false"
+	r_particle_cables_culling                               "1"
+	r_particle_cables_render                                "false"
+	cl_aggregate_particles                                  "1"
+	func_break_max_pieces                                   "1"
+	r_particle_cables_render_meshlets                       "false"
+	r_particle_model_new8                                   "false"
+	r_particle_mixed_resolution_viewstart                   "800"
+	r_particle_min_timestep                                 "0.001"
+	fx_drawmetalspark                                       "false"
+	
+	// --Post Processing/Decals--
+	r_decals							"0"
+	r_distancefield_enable				"false"
+	r_citadel_distancefield_blur		"false"
+	citadel_per_weapon_per_surface_impact_effects 			"false"
+    cl_impacteffects                              			"0"
+    cl_show_splashes                              			"0" 
+    fog_enable                                    			"0"
+    mat_colcorrection_disableentities             			"1"     
+    r_citadel_depthoffield_enable                 			"false"
+    r_citadel_distancefield_blur                  			"false" 
+    r_citadel_fog_quality                         			"0"     
+    r_decals_default_fade_duration                			"0.001"
+    r_decals_default_start_fade                   			"0.001"
+    r_decals_max_on_deformables                   			"0"
+    r_decals_overlap_threshold                    			"5"
+    r_depth_of_field                              			"0" 
+    r_drawdecals                                  			"0" 
+    r_drawmodeldecals                             			"0"
+    r_drawtracers                                 			"0"
+    r_drawtracers_firstperson                     			"0"
+    r_effects_bloom                               			"0"    
+    r_enable_cubemap_fog                          			"0"     
+    r_enable_gradient_fog                         			"0"     
+    r_enable_volume_fog                           			"0"     
+    r_fullscreen_gamma                            			"2.2"   
+    r_muzzleflashbrightness                       			"0.01"  
+    r_post_bloom                                  			"0"    
+    sc_clutter_enable                             			"0"     
+    violence_ablood                               			"false"
+    violence_agibs                                			"false" 
+    violence_hblood                               			"false"
+    violence_hgibs                                			"false" 
+    volume_fog_intermediate_textures_hdr          			"0"   
+	
+	// --Character--
+	r_character_decal_resolution							"16"
+	r_character_decal_monitor_render_res					"0"
+	cl_fasttempentcollision                                 "999999" 
+	enable_boneflex                                         "false"  
+	r_hair_indirect_transmittance                           "false"
+	r_render_hair                                           "0"
+	anim_decode_forcewritealltransforms        				"true"
+    animgraph_enable_parallel_op_evaluation    				"1" 
+    animgraph_enable_parallel_preupdate        				"1"
+    animgraph_footlock_enabled                 				"false"
+    animgraph_slowdownonslopes_enabled         				"false"
+    cl_bone_cache_optimization                 				"1"
+    cl_fasttempentcollision                    				"999999"
+    cloth_sim_on_tick                          				"0"      
+    cloth_update                               				"1"      
+    enable_boneflex                            				"false"  
+    func_break_max_pieces                      				"1"     
+    ik_fabrik_align_chain                      				"0"     
+    ik_final_fixup_enable                      				"0"     
+    mesh_calculate_curvature_smooth_pass_count 				"0"
+    phys_threaded_cloth_bone_update            				"1"  
+    phys_threaded_kinematic_bone_update        				"1"   
+    phys_threaded_transform_update             				"1"                                                     
+    pred_cloth_pos_max                         				"0"   
+    pred_cloth_pos_multiplier                  				"0"   
+    pred_cloth_pos_strength                   				"0"  
+    pred_cloth_rot_high                        				"0"  
+    pred_cloth_rot_low                         				"0"  
+    pred_cloth_rot_multiplier                  				"0"  
+    presettle_cloth_iterations                 				"0"   
+    props_break_apply_radial_forces            				"0"   
+    props_break_max_pieces_perframe            				"0.1" 
+    r_hair_ao                                  				"0"   
+    r_hair_indirect_transmittance              				"false"
+    r_hair_shadowtile                          				"false"
+    r_haircull_percent                         				"100"
+    r_morphing_enabled                         				"false"
+    r_render_hair                              				"0"
+    r_smooth_morph_normals                     				"0"
+	
+	// --- ANIMATION ---
+	anim_decode_forcewritealltransforms                     "true"  
+	animgraph_footlock_enabled                              "false"  
+	r_morphing_enabled                                      "false"  
+	r_smooth_morph_normals                                  "0"  
+	animgraph_slowdownonslopes_enabled                      "false"  
+	
+	// --CSM--
+	csm_cascade0_override_dist                              "1"
+	csm_cascade1_override_dist                              "1"
+	csm_cascade2_override_dist                              "1"
+	csm_cascade3_override_dist                              "1"
+	csm_max_dist_between_caster_and_receiver                "0"
+	csm_max_num_cascades_override                           "0"
+	csm_max_visible_dist                                    "10"
+	csm_res_override_0                                      "1"
+	csm_res_override_1                                      "1"
+	csm_res_override_2                                      "1"
+	csm_res_override_3                                      "1"
+	csm_bias_override_0										"1"
+	csm_bias_override_1                                     "1"
+	csm_bias_override_2                                     "1"
+	csm_bias_override_3                                     "1"
+	csm_cascade_viewdir_shadow_bias_scale					"0.1"
+	csm_sst_pushback_distance                               "100"
+	csm_sst_shadow_focus_region_caster_headroom 			"8"
+	csm_viewmodel_max_visible_dist                          "100"
+	csm_viewmodel_nearz										"0.1"
+	csm_sst_max_visible_dist								"10"
+	csm_max_visible_dist									"1"
+	csm_sst_shadow_focus_region_maxz						"-1000"
+	csm_sst_shadow_focus_region_minz						"-2000"
+	csm_sst_vertical_depth_shear_enable						"false"
+	csm_viewmodel_max_shadow_dist							"1"
+	
+	// --RAGDOLLS--
+	ai_use_async_ragdoll_fixup    							"true" 
+	cl_ragdoll_limit                                        "1"  
+	ragdoll_parallel_pose_control                           "1"  
+	cl_disable_ragdolls                                     "0" 
+	g_ragdoll_important_maxcount  							"1"
+	
+	// ---Camera Tweaks---
+	r_citadel_clip_sphere_min_opacity		"0"
+	citadel_camera_soft_collision 		"0"
+    citadel_camera_wobble_disable 		"1"
+	
+	// --Camera & Entity Highlights--
+	citadel_damage_offscreen_indicator_disabled             "1" 
+	citadel_show_new_damage_feedback_numbers                "0" 
+	citadel_camera_soft_collision                           "0"
+	citadel_camera_wobble_disable                           "1" 
+	r_citadel_glow_health_bars                              "false"
+	citadel_player_outline_enemies                          "true"
+	citadel_trooper_outline_enabled                         "true"
+	
+	// --Network--
+	cl_async_usercmd_send                                   "true"  
+	cl_eye_yaw_multiplier                                   "0"
+	cl_parallel_readpacketentities                          "1"
+	cl_parallel_readpacketentities_threshold                "2"
+	cl_prediction_savedata_postentitypacketreceived         "1"
+	cl_resend                                               "15" 
+	cl_smooth_draw_debug                                    "0"
+	cl_smoothtime                                           "0.01"  
+	cl_updaterate                                           "128"  
+	net_async_clientconnect                                 "1"
+	r_frame_sync_enable                                     "0"  
+	sv_parallel_sendsnapshot                                "2"
+	
+	// --INPUT--
+	cl_input_enable_raw_keyboard                            "1"
+	m_rawinput                                              "1"
+	
+	// --Misc--
+	lb_csm_draw_translucent				"false"
+	r_grass_quality						"0"
+	r_low_latency                                           "1"
+	think_limit                                             "10"
+	zipline_use_new_latch                                   "0"
+	engine_low_latency_sleep_after_client_tick              "true"
+	engine_allow_multiple_simulates_per_frame               "true"
+	engine_accurate_input_processing_delta_time             "true"
+	cl_bone_cache_optimization                              "1"
+	cl_interp_parallel                                      "1"
+	cl_batch_entity_list_ops_during_latch                   "1"
+	sc_dithered_lod_transition_amt                          "0"
+	dsp_slow_cpu                                            "1"
+	cl_phys_sleep_enable                                    "1"
+	r_enable_rigid_animation                                "0"
+	cl_smooth                                               "true"  
+	cl_phys_enabled                                         "true"
+	csm_max_shadow_dist_override                            "0"
+	r_aoproxy_min_dist_box                                  "9999"
+	r_drawparticles                                         "true" 
+	r_particle_batch_collections                            "true"  
+	r_render_portals                                        "true"  
+	r_texture_lod_scale                                     "4"  
+	sc_clutter_density_none_size							"0.1"
+	sc_clutter_density_full_size							"0.5"
+	citadel_cinematic_intro_duration_npc                    "0.01"
+	citadel_cinematic_intro_duration_player                 "0.01"
+	citadel_cinematic_intro_enabled                         "-1"
+	citadel_hideout_enable_testing_tools                    "true"  
+	nav_obstruction_async_update                            "true" 
+	r_async_compute_fog                                     "true" 
+	r_citadel_depth_prepass_dynamic_objects                 "false"  
+	r_drawropes                                             "0"  
+	r_pipeline_stats_use_flush_api                          "false"
+	r_renderdoc_auto_shader_pdbs                            "0"  
+	r_ropetranslucent                                       "0" 
+	rope_collide                                            "0" 
+	rope_smooth_enlarge                                     "0"  
+	rope_smooth_maxalpha                                    "0" 
+	rope_smooth_maxalphawidth                               "0"  
+	rope_smooth_minalpha                                    "0"  
+	rope_smooth_minwidth                                    "0"  
+	rope_subdiv                                             "0" 
+	rope_wind_dist                                          "0"  
+	wind_system_default_resolution_xy                       "64"
+	wind_system_temporal_smoothing                          "false"
+	threadpool_thread_limit                                 "0"
+	r_world_wind_strength                                   "0"
+	fs_async_threads                                        "-1"
+
+				 //CREDITS																				      \\
+				// dacooder    Config Creator            													   \\
+			   // Xeraa		   Helped fix a major issue with console spam and fps drops late game				\\
+			  // Boot		   ConVar Contribution           												     \\
+			 // Kaiz		   ConVar Contribution                                                                \\
+			// simcasting 	   Benchmarking																		   \\
+		   // Artemon121       Made the Citadel cvar unhider														\\
+		  // Pidjan            Worked on further gameinfo changes and let us integrate                               \\
+		 // Piggy              Video.txt contributer and cool streamer guy                                            \\
+		// ----------------------------------------- END OF CONFIG OptiLock -- ver. 5.5 ------------------------------ \\
+		
+		"rate"
+		{
+			"min"		"98304"
+			"default"	"786432"
+			"max"		"1000000"
+		}
+
+		// Networking - General
+		"sv_minrate"	"98304"
+		"sv_maxunlag"	"0.500"
+		"sv_maxunlag_player" "0.200"
+		"sv_lagcomp_filterbyviewangle" "false"
+		"cl_usesocketsforloopback" "1"
+		"cl_poll_network_early" "0"
+		"cq_buffer_bloat_msecs_max" "120"						// 7.68 ticks @64hz max cq bloat
+
+		// Networking - Induced latency (pred offset)
+		"cl_tickpacket_recvmargin_desired" "5" 					// 5 ms base, min. floor for protecting against thrashing the queue
+		"cl_tickpacket_desired_queuelength" "1"					
+		"cl_async_usercmd_send_disabled_recvmargin_min" "0.5"	// Additional frame since we do not use the async usercmd send (potentially unneccessary)
+		"cl_clock_buffer_ticks"	"1"								// Buffer added to the simulation clock margin ( affects pred offset and cadence of client world ticks )
+		"cl_interp_ratio" "0"
+		"cl_async_usercmd_send" "false"							// We don't support early prediction at the moment, which async send requires
+
+		// Nav gen
+		"nav_gen_connect_dist_a" "2.0"
+
+		// Spew warning when adding/removing classes to/from the top of the hierarchy
+		"panorama_classes_perf_warning_threshold_ms" "0.75"
+
+		// Panorama - enable minidumps on JS exceptions
+		"panorama_js_minidumps" "1"
+		// Enable the render target cache optimization.
+		"panorama_disable_render_target_cache" "0"
+
+		// Enable the composition layer optimization
+		"panorama_skip_composition_layer_content_paint" "1"
+
+		// Steam audio loading data
+		"snd_steamaudio_load_reverb_data"		"0"
+		"snd_steamaudio_load_pathing_data"		"0"
+		"snd_steamaudio_load_occlusion_data"	"0"
+		"snd_steamaudio_load_dimensions_data"	"1"
+		"snd_steamaudio_load_materials_data"	"0"
+
+		// Steam Audio project specific convars
+		"snd_steamaudio_enable_custom_hrtf"			"0"
+		"snd_steamaudio_active_hrtf"				"0"
+		"snd_steamaudio_pathing_order"				"3"
+		"snd_steamaudio_pathing_order_rendering"	"3"
+		"snd_steamaudio_enable_pathing"				"0"
+		"snd_steamaudio_enable_reverb"				"0"
+		"snd_steamaudio_reverb_level_db"			"-6"
+		"snd_steamaudio_enable_pathing"				"0"
+		"snd_steamaudio_invalid_path_length"		"0.0"
+		"snd_steamaudio_max_probes_customdata_dimensions"	"100000"
+		"snd_steamaudio_dimensions_grid_height_max"			"100"
+		"snd_steamaudio_baked_dimensions_probelookup_usealternate"	"1"
+		"snd_steamaudio_custombake_dimensions_size_and_inout_bake_enabled" "1"
+		"snd_steamaudio_custombake_dimensions_outsidefield_bake_enabled" "0"
+		"snd_steamaudio_custombake_dimensions_smallsizefield_bake_enabled" "0"
+		"snd_steamaudio_dimensions_max_ray_length"			"2500"
+		"cl_disconnect_soundevent"				"citadel.convar.stop_all_game_layer_soundevents"
+		"snd_event_browser_default_stack"		"citadel_default_3d"
+		
+		// voip
+		"voice_in_process"			            "1"
+
+		// Sound debugging
+		"snd_report_audio_nan" "1"
+
+		// Audio system settings
+		"snd_sos_max_event_base_depth" "10"
+		"sos_use_guid_filter" "1"
+
+		"voice_always_sample_mic"               
+		{
+			"version"	"2"
+			"default"	"0"
+		}
+
+		"reset_voice_on_input_stallout"         "0"
+		"voice_input_stallout"                  "0.5"
+		
+		"audio_enclosure_calc_enabled"		"0"
+
+		"sc_layer_batch_threshold_fullsort" "5"
+
+		// Perf/Parallelism
+		"iv_parallel_restore" "1"
+
+		// For perf reasons, since we don't use source-based DSP:
+		"disable_source_soundscape_trace"       "1"
+	
+
+		"fps_max"		"0"
+		"fps_max_ui"	"60"
+
+		"in_button_double_press_window" "0.3"
+
+		// Convars that control spatialization of UI audio.
+		"snd_ui_positional"								"1"
+		"snd_ui_spatialization_spread"					"2.4"
+		
+		// sound volume rate change limiting
+		"snd_envelope_rate"								"100.0"
+		"snd_soundmixer_update_maximum_frame_rate" 		"0"
+
+		//don't let people mess with speaker config settings.
+		"speaker_config"
+		{
+			"min"		"0"
+			"default"	"0"
+			"max"		"2"
+		}
+
+
+		"snd_soundmixer"						"Default_Mix"
+		"cloth_filter_transform_stateless" "0"
+
+		"cl_joystick_enabled" "0"
+		"panorama_joystick_enabled" "0"
+
+		"snd_event_browser_focus_events" "true"
+
+		"cl_max_particle_pvs_aabb_edge_length" "10"
+		
+		// Particles
+		"cl_aggregate_particles" "true"
+		"r_particle_batch_collections" "1"
+		
+		"citadel_enable_vdata_sound_preload" "true"
+
+		"r_add_views_in_pre_output"		"1"
+
+		// Disable Cubemap Brightening
+		"lb_cubemap_normalization_max" 		"0"
+
+		"update_all_keyframed_in_spatial_partition_update"	"0"
+		"parallel_update_surrounding_bounds_in_spatial_partition_update"	"1"
+		"always_perform_full_spatial_partition_update" "1"
+		"cl_interp_parallel" "1"
+		"parallel_perform_invalidate_physics" "1"
+		"phys_agg_world_compounds" "0"
+
+		"cl_updaterate" "128"
+		"sv_parallel_checktransmit" "2"
+		"net_gather_child_fields_only" "1"
+	}
+
+	Memory
+	{
+		"EstimatedMaxCPUMemUsageMB"	"1"
+		"EstimatedMinGPUMemUsageMB"	"1"
+
+		"ShowInsufficientPageFileMessageBox" "1"
+		"ShowLowAvailableVirtualMemoryMessageBox" "1"
+	}
+}
