@@ -4,7 +4,7 @@
 //										/ /_/ / /_/ / /_/ / /___/ /_/ / /__/ ,<   													\\
 //										\____/ .___/\__/_/_____/\____/\___/_/|_|  													\\
 //											/_/   																		            \\
-//										---------------------------------------- ver. 5.5 							                \\
+//										---------------------------------------- ver. 5.6 							                \\
 //																																    \\
 //						If this config helped you, you wanna be extra nice, let me know by giving a little back or					\\
 //										check out my YouTube and Twitch! -dacooderr													\\
@@ -548,6 +548,15 @@ GameInfo
 	
 	ConVars
 	{
+						   // ----------------------- OptiLock -- ver. 5.6  ---------------------- \\
+							   //        OptiLock: https://gamebanana.com/mods/690233          \\
+							  //         QOL Lite: https://gamebanana.com/mods/690233           \\
+							 //     Downloaded from: https://github.com/dacooderr/OptiLock       \\
+							//      Tutorial: https://www.youtube.com/watch?v=Kpoet2ebl70         \\
+						   //	      	   Discord: https://discord.gg/UxjsJB5Rp5				   \\
+						  //																	    \\
+						 //        If you would like to donate as a means of showing thanks          \\
+						//                 https://streamlabs.com/dacooderr/tip                       \\
 	
 	// --Outlines--
 	citadel_trooper_glow_disabled                           "1"  // 1 = Disable friendly/enemy minion glow.                          [def: "0"]
@@ -746,7 +755,6 @@ GameInfo
 	cl_particle_newinit                     "true"
 	r_limit_particle_job_duration			"true"
 	r_particle_max_detail_level				"0"	
-	r_draw_particle_children_with_parents	"0"
 	r_particle_max_size_cull				"0"
 	particle_cluster_nodraw                 "1"
 	r_physics_particle_op_spawn_scale       "0"
@@ -974,6 +982,18 @@ GameInfo
 	threadpool_thread_limit                                 "0"
 	r_world_wind_strength                                   "0"
 	fs_async_threads                                        "-1"
+	
+			     //CREDITS																				    \\
+				// dacooder   Config Creator            													 \\
+			   // Xeraa		  Helped fix a major issue with console spam and fps drops late game			  \\
+			  // Boot		  ConVar Contribution           												   \\
+			 // Kaiz		  ConVar Contribution                                                               \\
+			// Ethanal        Config Bugfixing                                                                   \\
+		   // simcasting 	  Benchmarking																		  \\
+		  // Artemon121       Made the Citadel cvar unhider														   \\
+		 // Pidjan            Worked on further gameinfo changes and let us integrate                               \\
+		// Piggy              Video.txt contributer and cool streamer guy                                            \\
+	   // ----------------------------------------- END OF CONFIG OptiLock -- ver. 5.6 ------------------------------ \\
 	
 	"rate"
         {

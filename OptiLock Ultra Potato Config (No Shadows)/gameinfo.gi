@@ -4,7 +4,7 @@
 //										/ /_/ / /_/ / /_/ / /___/ /_/ / /__/ ,<   													\\
 //										\____/ .___/\__/_/_____/\____/\___/_/|_|  													\\
 //											/_/   																		            \\
-//										---------------------------------------- ver. 5.5 							                \\
+//										---------------------------------------- ver. 5.6 							                \\
 //																																    \\
 //						If this config helped you, you wanna be extra nice, let me know by giving a little back or					\\
 //										check out my YouTube and Twitch! -dacooderr													\\
@@ -566,7 +566,7 @@
 	
 	ConVars
 	{
-						   // ----------------------- OptiLock -- ver. 5.5  ---------------------- \\
+						   // ----------------------- OptiLock -- ver. 5.6  ---------------------- \\
 							   //        OptiLock: https://gamebanana.com/mods/690233          \\
 							  //         QOL Lite: https://gamebanana.com/mods/690233           \\
 							 //     Downloaded from: https://github.com/dacooderr/OptiLock       \\
@@ -1002,16 +1002,17 @@
 	r_world_wind_strength                                   "0"
 	fs_async_threads                                        "-1"
 
-				 //CREDITS																				      \\
-				// dacooder    Config Creator            													   \\
-			   // Xeraa		   Helped fix a major issue with console spam and fps drops late game				\\
-			  // Boot		   ConVar Contribution           												     \\
-			 // Kaiz		   ConVar Contribution                                                                \\
-			// simcasting 	   Benchmarking																		   \\
-		   // Artemon121       Made the Citadel cvar unhider														\\
-		  // Pidjan            Worked on further gameinfo changes and let us integrate                               \\
-		 // Piggy              Video.txt contributer and cool streamer guy                                            \\
-		// ----------------------------------------- END OF CONFIG OptiLock -- ver. 5.5 ------------------------------ \\
+			     //CREDITS																				    \\
+				// dacooder   Config Creator            													 \\
+			   // Xeraa		  Helped fix a major issue with console spam and fps drops late game			  \\
+			  // Boot		  ConVar Contribution           												   \\
+			 // Kaiz		  ConVar Contribution                                                               \\
+			// Ethanal        Config Bugfixing                                                                   \\
+		   // simcasting 	  Benchmarking																		  \\
+		  // Artemon121       Made the Citadel cvar unhider														   \\
+		 // Pidjan            Worked on further gameinfo changes and let us integrate                               \\
+		// Piggy              Video.txt contributer and cool streamer guy                                            \\
+	   // ----------------------------------------- END OF CONFIG OptiLock -- ver. 5.6 ------------------------------ \\
 		
 		"rate"
 		{
