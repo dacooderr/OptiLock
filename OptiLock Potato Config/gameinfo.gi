@@ -778,7 +778,7 @@ GameInfo
 	r_decals												"0"
 	r_distancefield_enable									"false"
 	r_citadel_distancefield_blur							"false"
-	citadel_per_weapon_per_surface_impact_effects 			"false"
+	citadel_per_weapon_per_surface_impact_effects 			"true"
     cl_impacteffects                              			"0"
     cl_show_splashes                              			"0" 
     fog_enable                                    			"0"

@@ -1049,7 +1049,7 @@
         // --Visual Clarity--
         // r_dopixelvisibility                        			"false" // Default true, enables or disables pixel visibility calculations
         // r_draw_overlays                            			"false" // Removes the walker line on the ground too, do not recommend
-        citadel_per_weapon_per_surface_impact_effects 			"false"
+        citadel_per_weapon_per_surface_impact_effects 			"true"
         cl_impacteffects                              			"0"
         cl_show_splashes                              			"0" // Disables splash effects (water/impact splashes).                 [def: "1"]
         fog_enable                                    			"0"
