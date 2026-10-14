@@ -615,7 +615,7 @@
 	r_farz								"7000"
 	r_mapextents						"100"
 	r_nearz								"10"
-	r_size_cull_threshold 				"1"
+	r_size_cull_threshold 				"0.8"
 	r_size_cull_threshold_fade			"100"
 	r_haircull_percent                  "100"
 	r_propsmaxdist						"600"
