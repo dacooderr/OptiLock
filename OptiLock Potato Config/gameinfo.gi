@@ -773,6 +773,7 @@ GameInfo
 	fx_drawmetalspark                                       "false"
 	
 	// --Post Processing/Decals--
+	mat_colorcorrection										"false"
 	r_postprocess_enable									"false"
 	r_decals												"0"
 	r_distancefield_enable									"false"
