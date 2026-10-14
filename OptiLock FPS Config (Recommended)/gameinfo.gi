@@ -11,109 +11,109 @@
 //											https://streamlabs.com/dacooderr/tip               										\\
 //__________________________________________________________________________________________________________________________________\\	
 
-GameInfo
+"GameInfo"
 {
-    game        "citadel"
-    title       "Citadel"
-    type        "multiplayer_only"
-    nomodels    "1"
-    nohimodel   "1"
-    nocrosshair "0"
-    hidden_maps
-    {
-        test_speakers "1"
-        test_hardware "1"
-    }
-    nodegraph   "0"
-    perfwizard  "0"
-    tonemapping "0"
-    GameData    "citadel.fgd"
+	game 		"citadel"
+	title 		"Citadel"
+	type		multiplayer_only
+	nomodels 1
+	nohimodel 1
+	nocrosshair 0
+	hidden_maps
+	{
+		"test_speakers"			1
+		"test_hardware"			1
+	}
+	nodegraph 0
+	perfwizard 0
+	tonemapping 0
+	GameData	"citadel.fgd"
 
-    DisallowGameInfoConditionals "0"
-    PGIVersion                   "6E09D3ED5A47F6A97443813F0E00F90BAA435918F82DF0C9B5DA46D27A33D903"
+	PGIVersion "39A735A413003C88A806B364C32DFC6D077E551B9E4EC6C7B11D41E8E67BFA0C"
 
-    Localize
-    {
-        DuplicateTokensAssert "1"
-        DisallowTokenContexts "1"
-    }
+	Localize
+	{
+		DuplicateTokensAssert	1
+	}
 
-    SupportedLanguages
-    {
-        brazilian  "3"
-        czech      "3"
-        english    "3"
-        french     "3"
-        german     "3"
-        italian    "3"
-        indonesian "3"
-        japanese   "3"
-        koreana    "3"
-        latam      "3"
-        polish     "3"
-        russian    "3"
-        schinese   "3"
-        spanish    "3"
-        thai       "3"
-        turkish    "3"
-        ukrainian  "3"
-    }
+	SupportedLanguages
+	{
+		"brazilian" "3"
+		"czech" "3"
+		"english" "3"
+		"french" "3"
+		"german" "3"
+		"italian" "3"
+		"indonesian" "3"
+		"japanese" "3"
+		"koreana" "3"
+		"latam" "3"
+		"polish" "3"
+		"russian" "3"
+		"schinese" "3"
+		"spanish" "3"
+		"thai" "3"
+		"turkish" "3"
+		"ukrainian" "3"
+	}
+	
+	FileSystem
+	{	
+		//
+		// The code that loads this file automatically does a few things here:
+		//
+		// 1. For each "Game" search path, it adds a "GameBin" path, in <dir>\bin
+		// 2. For each "Game" search path, it adds another "Game" path in front of it with _<language> at the end.
+		//    For example: c:\hl2\cstrike on a french machine would get a c:\hl2\cstrike_french path added to it.
+		// 3. If no "Mod" key, for the first "Game" search path, it adds a search path called "MOD".
+		// 4. If no "Write" key, for the first "Game" search path, it adds a search path called "DEFAULT_WRITE_PATH".
+		//
 
-    FileSystem
-    {
-        //
-        // The code that loads this file automatically does a few things here:
-        //
-        // 1. For each "Game" search path, it adds a "GameBin" path, in <dir>\bin
-        // 2. For each "Game" search path, it adds another "Game" path in front of it with _<language> at the end.
-        //    For example: c:\hl2\cstrike on a french machine would get a c:\hl2\cstrike_french path added to it.
-        // 3. If no "Mod" key, for the first "Game" search path, it adds a search path called "MOD".
-        // 4. If no "Write" key, for the first "Game" search path, it adds a search path called "DEFAULT_WRITE_PATH".
-        //
-
-        //
-        // Search paths are relative to the exe directory\..\
-        //
-
-        
-// Deadlock Mod Manager - Start
-
+		//
+		// Search paths are relative to the exe directory\..\
+		//
 		SearchPaths
-        {  
-            Game_Language       citadel_*LANGUAGE*
-            Game                citadel/addons/profile_1788286995090_8lc3039pw_qollite
-            Mod                 citadel
-            Write               citadel          
-            Game                citadel
-            Mod                 core
-            Write               core
-            Game                core        
-        }
-// Deadlock Mod Manager - End
-    }
+		{
+			// These are optional language paths. They must be mounted first, which is why there are first in the list.
+			// *LANGUAGE* will be replaced with the actual language name. If not running a specific language, these paths will not be mounted
+			// These currently hold localized images containing text, so they need to follow the UI language, not the audio language.
+			// When we ship localized VO, it should go in a separate Game_AudioLanguage path (e.g. citadel_vo_*LANGUAGE*)
+			Game_UILanguage		citadel_*LANGUAGE*
 
-    MaterialSystem2
-    {
-        RenderModes
-        {
-            game "Default"
-            game "Forward"
-            game "Deferred"
-            game "Outline"
-            game "Depth"
-            game "FrontDepth"
+			// These are optional low-violence paths. They will only get mounted if you're in a low-violence mode.
+			Game_LowViolence	citadel_lv
 
-            dev "ToolsVis"       // Visualization modes for all shaders (lighting only, normal maps only, etc.)
-            dev "ToolsWireframe" // This should use the ToolsVis mode above instead of being its own mode\
+			Game				citadel
+			Game				core
+		}
 
-            tools "ToolsUtil" // Meant to be used to render tools sceneobjects that are mod-independent, like the origin grid
-        }
-    }
+		"UserSettingsPathID"		"USRLOCAL"
+		"LegacyUserSettingsPathID"	"MOD"
+	}
+	
+	MaterialSystem2
+	{
+		RenderModes
+		{
+			game Default
+			game Forward
+			game Deferred
+			game Outline
+			game Depth
+			game FrontDepth
+			game ShadowSilhouette
 
-    MaterialEditor
-    {
-        DefaultShader "environment_texture_set"
-    }
+			dev ToolsVis // Visualization modes for all shaders (lighting only, normal maps only, etc.)
+			dev ToolsWireframe // This should use the ToolsVis mode above instead of being its own mode\
+
+			tools ToolsUtil // Meant to be used to render tools sceneobjects that are mod-independent, like the origin grid
+		}
+	}
+
+	MaterialEditor
+	{
+		"DefaultShader" "environment_texture_set"
+	}
 
     NetworkSystem
     {
@@ -130,9 +130,8 @@ GameInfo
             FakeJitter       "off"
         }
 
-        SkipRedundantChangeCallbacks "1"
-        UseSerializedEntityPool      "1"
-    }
+		"SkipRedundantChangeCallbacks"	"1"
+	}
 
     RenderSystem
     {
@@ -176,381 +175,389 @@ GameInfo
 
     }
 
-    NVNGX
-    {
-        AppID "103371621"
-        //DLSSDefaultPreset     // These two values are in the code but I don't know what enabling them does, and I don't have an nvidia gpu to test, alas
-        //ReflexLateWarp
-        SupportsDLSS "1"
-    }
+	NVNGX
+	{
+		AppID 103371621
+		SupportsDLSS 1
+	}
 
-    Engine2
-    {
-        SinglePlayerAsyncRendering "1" // In the dll, no idea what it does
-        AllowKeyChordBindings      "1" //this is for myself actually
-        HasModAppSystems           "1"
-        Capable64Bit               "1"
-        URLName                    "citadel"
-        RenderingPipeline
-        {
-            SupportsMSAA            "0" //                                                      [def: "0"]
-            DistanceField           "1" // Setting this to zero crashes the game on vulkan      [def: "1"]
-            AmbientOcclusionProxies "0" // In the dll, no default value
-        }
-        PauseSinglePlayerOnGameOverlay "1"
-        DefensiveConCommands           "1"
-        DisableLoadingPlaque           "1"
-    }
+	Engine2
+	{
+		HasModAppSystems 1
+		Capable64Bit 1
+		URLName citadel
+		RenderingPipeline
+		{
+			SupportsMSAA 0
+			DistanceField 1
+		}
+		PauseSinglePlayerOnGameOverlay 1
+		PauseOnCtrlConsole 0 // Src2 issues a 'setpause' on holding down CTRL + toggleconsole key, disable this for Deadlock.
+		DefensiveConCommands 1
+		DisableLoadingPlaque 1
+		LocalServerClientAccess 1
 
+		"MapMaxCoord" "32768"
+	}
 
+	ContentBuilder
+	{
+		ResourceCompilerDirectXUsesWARP "0"
+	}
 
-    SoundSystem
-    {
-        SteamAudioEnabled   "1"
-        WaveDataCacheSizeMB "256"
-        UsePlatTime         "1"
-    }
-    Sounds
-    {
-        HierarchicalEncodingFiles "1"
-    }
+	SoundSystem
+	{
+		SteamAudioEnabled            "1"
+		WaveDataCacheSizeMB          "256"
+		"UsePlatTime"            "1"
+	}
+	Sounds
+	{
+		HierarchicalEncodingFiles	 "1"
+	}
 
-    ToolsEnvironment
-    {
-        Engine   "Source 2"
-        ToolsDir "../sdktools" // NOTE: Default Tools path. This is relative to the mod path.
-    }
+	ToolsEnvironment
+	{
+		"Engine"	"Source 2"
+		"ToolsDir"	"../sdktools"	// NOTE: Default Tools path. This is relative to the mod path.
+	}
+	
+	pulse
+	{
+		"pulse_enabled"					"1"
+	}
 
-    pulse
-    {
-        pulse_enabled          "1"
-        strict_fgd_annotations "1"
-        client_blackboards     "1"
-    }
+	Hammer
+	{
+		"fgd"					"citadel.fgd"	// NOTE: This is relative to the 'game' path.
+		"GameFeatureSet"		"Citadel"
+		"DefaultSolidEntity"	"trigger_multiple"
+		"DefaultPointEntity"	"info_player_start"
+		"NavMarkupEntity"		"func_nav_markup"
+		"OverlayBoxSize"			"8"
+		"TileMeshesEnabled"			"1"
+		"RenderMode"				"ToolsVis"
+		"CreateRenderClusters"		"1"
+		"DefaultMinDrawVolumeSize"	"2048"
+		"DefaultMinTrianglesPerCluster"	"16384"
+		"TileGridSupportsBlendHeight"	"1"
+		"TileGridBlendDefaultColor"	"0 255 0"
+		"LoadScriptEntities" "0"
+		"UsesBakedLighting" "0"
+		"UseAnalyticGrid" "0"
+		"SupportsDisplacementMapping" "0"
+		"SteamAudioEnabled"				"1"
+		"LatticeDeformerEnabled"		"1"
+		"ShadowAtlasWidth" "0"
+		"ShadowAtlasHeight" "0"
+		"TimeSlicedShadowMapRendering" "1"
+	}
 
-    Hammer
-    {
-        CreateRenderClusters          "1"
-        DefaultMinDrawVolumeSize      "2048"
-        DefaultMinTrianglesPerCluster "16384"
-        DefaultPointEntity            "info_player_start"
-        DefaultSolidEntity            "trigger_multiple"
-        GameFeatureSet                "Citadel"
-        LatticeDeformerEnabled        "1"
-        LoadScriptEntities            "0"
-        NavMarkupEntity               "func_nav_markup"
-        OverlayBoxSize                "8"
-        RenderMode                    "ToolsVis"
-        ShadowAtlasHeight             "0"
-        ShadowAtlasWidth              "0"
-        SteamAudioEnabled             "1"
-        SupportsDisplacementMapping   "0"
-        TileGridBlendDefaultColor     "0 255 0"
-        TileGridSupportsBlendHeight   "1"
-        TileMeshesEnabled             "1"
-        TimeSlicedShadowMapRendering  "0"
-        UseAnalyticGrid               "0"
-        UsesBakedLighting             "1"
-        fgd                           "citadel.fgd" // NOTE: This is relative to the 'game' path.
+	SoundTool
+	{
+		"DefaultSoundEventType" "src1_3d"
 
+		SoundEventBaseOptions
+		{
+			"Base.Announcer.VO.2d" ""
+			"Base.World.VO.Emitter.3d" ""
+			"Base.Hero.VO.Ping.2d" ""
+			"Base.Hero.VO.2d" ""
+			"Base.Hero.VO.3d" ""
+			"Base.Hero.VO.Ability.3d" ""
+			"Base.Hero.VO.Ultimate.3d" ""
+			"Base.Hero.VO.Dash.3d" ""
+			"Base.Hero.VO.Effort.3d" ""
+			"Base.Hero.VO.Pain.3d" ""
+			"Base.Hero.VO.Melee.3d" ""
+			"Base.Hero.VO.Death.3d" ""
+		}
+	}
 
-        Thread32First "1"
-    }
+	RenderPipelineAliases
+	{
+	}
 
-    SoundTool
-    {
-        DefaultSoundEventType "src1_3d"
+	ResourceCompiler
+	{
+		ForceVulkanForMapBuild 1
+			
+		// Overrides of the default builders as specified in code, this controls which map builder steps
+		// will be run when resource compiler is run for a map without specifiying any specific map builder
+		// steps. Additionally this controls which builders are displayed in the hammer build dialog.
+		DefaultMapBuilders
+		{
+			"bakedlighting"	"1"	// Enable lightmapping during compile time		
+			"envmap"	"0" // turned off since it currently causes an assert and doesn't work due to some build issue
+			"nav"		"1"	// Generate nav mesh data
+			"sareverb"      "0" // Bake Steam Audio reverb
+			"sapaths"	"0" // Bake Steam Audio pathing
+			"sacustomdata"	"1"	// Bake Steam Audio custom data
+		}
 
-        SoundEventBaseOptions
-        {
-            Base.Announcer.VO.2d     ""
-            Base.World.VO.Emitter.3d ""
-            Base.Hero.VO.Ping.2d     ""
-            Base.Hero.VO.2d          ""
-            Base.Hero.VO.3d          ""
-            Base.Hero.VO.Ability.3d  ""
-            Base.Hero.VO.Ultimate.3d ""
-            Base.Hero.VO.Dash.3d     ""
-            Base.Hero.VO.Effort.3d   ""
-            Base.Hero.VO.Pain.3d     ""
-            Base.Hero.VO.Melee.3d    ""
-            Base.Hero.VO.Death.3d    ""
-        }
-    }
+		// Game specific steps run after the map has been built, in the order they are listed here
+		GameSpecificPostMapBuildSteps
+		{
+			"pve_nav_cache"	"1"	// Bake the spots the PVE directors spawn things on
+		}
 
-    RenderPipelineAliases
-    {
-    }
+		MeshCompiler
+		{
+			OptimizeForMeshlets 1
+			TrianglesPerMeshlet 64	// Maximum valid value currently is 126
+			UseMikkTSpace 1
+			EncodeVertexBuffer 1
+            EncodeVertexBufferVersion 1
+            EncodeVertexBufferLevel 3
+			EncodeIndexBuffer 1
+			SplitDepthStream 1
+		}
 
-    // Removing this makes everything functionally fullbright! It disables baked shadows and lighting so it might help if your gpu is low on vram
-    ResourceCompiler
-    {
-        // Overrides of the default builders as specified in code, this controls which map builder steps
-        // will be run when resource compiler is run for a map without specifiying any specific map builder
-        // steps. Additionally this controls which builders are displayed in the hammer build dialog.
-        DefaultMapBuilders
-        {
-            bakedlighting "1" // Enable lightmapping during compile time
-            envmap        "0" // turned off since it currently causes an assert and doesn't work due to some build issue
-            nav           "1" // Generate nav mesh data
-        }
+		WorldRendererBuilder
+		{
+			VisibilityGuidedMeshClustering      "1"
+			MinimumTrianglesPerClusteredMesh    "8192"
+			MinimumVerticesPerClusteredMesh     "8192"
+			MinimumVolumePerClusteredMesh       "8192"       // ~20x20x20 cube
+			MaxPrecomputedVisClusterMembership  "96"
+			MaxCullingBoundsGroups              "128"
+			UseAggregateInstances				"1"
+			AggregateInstancingMeshlets			"1"
+			BakePropsWithExtraVertexStreams		"1"
+			MergeTranslucents					"1"
+		}
 
-        MeshCompiler
-        {
-            OptimizeForMeshlets       "1"
-            TrianglesPerMeshlet       "126" // Maximum valid value currently is 126
-            UseMikkTSpace             "1"
-            EncodeVertexBuffer        "1"
-            EncodeVertexBufferVersion "1"
-            EncodeVertexBufferLevel   "3"
-            EncodeIndexBuffer         "1"
-            SplitDepthStream          "1"
-        }
+		BakedLighting
+		{
+			Version 4
+			ImportanceVolumeTransitionRegion 512            // distance we transition from high to low resolution charts 
+			LightmapChannels
+			{
+				direct_light_shadows 0
+				debug_chart_color 1
+				directional_irradiance_sh2_dc 0
+				
+				directional_irradiance_sh2_r
+				{
+					CompressedFormat DXT1
+				}
+				
+				directional_irradiance_sh2_g
+				{
+					CompressedFormat DXT1
+				}
+				
+				directional_irradiance_sh2_b
+				{
+					CompressedFormat DXT1
+				}
+			}
+			LightmapGutterSize 0 // For bicubic filtering
+			UseStaticLightProbes 0
+			LPVAtlas 1
+		}
 
-        WorldRendererBuilder
-        {
-            VisibilityGuidedMeshClustering     "1"
-            MinimumTrianglesPerClusteredMesh   "8192"
-            MinimumVerticesPerClusteredMesh    "8192"
-            MinimumVolumePerClusteredMesh      "8192" // ~20x20x20 cube
-            MaxPrecomputedVisClusterMembership "96"
-            MaxCullingBoundsGroups             "128"
-            UseAggregateInstances              "1"
-            AggregateInstancingMeshlets        "1"
-            BakePropsWithExtraVertexStreams    "1"
-        }
+		SteamAudio
+		{
+			ReverbDefaults
+			{
+				GridGenerationType	"0"						// 0: Automatic, Everywhere, 1: Automatic, Use Probe Generation Volume, 2: Manual
+				FilterUsingVolumes	"1"						// Filter Using Probe Exclusion Volumes ( boolean )
+				FilterUsingNavMesh	"0"						// Filter Using NavMesh
+				GridSpacing			"3.0"
+				HeightAboveFloor	"1.5"
+				RebakeOption		"0"						// 0: cleanup, 1: manual, 2: auto
+				NumRays				"32768"
+				NumBounces			"64"
+				IRDuration			"1.0"
+				AmbisonicsOrder		"1"
+				ClusteringEnabled	"0"
+				ClusteringCubemapResolution	"16.0"
+				ClusteringDepthThreshold	"10.0"
+			}
+			PathingDefaults
+			{
+				GridGenerationType	"0"						// 0: Automatic, Everywhere, 1: Automatic, Use Probe Generation Volume, 2: Manual
+				FilterUsingVolumes	"1"						// Filter Using Probe Exclusion Volumes ( boolean )
+				FilterUsingNavMesh	"0"						// Filter Using NavMesh
+				GridSpacing			"3.0"
+				HeightAboveFloor	"1.5"
+				RebakeOption		"0"						// 0: cleanup, 1: manual, 2: auto
+				NumVisSamples		"1"
+				ProbeVisRadius		"0"
+				ProbeVisThreshold	"0.1"
+				ProbeVisPathRange	"1000.0"
+			}
+			CustomDataDefaults
+			{
+				GridGenerationType	"0"						// 0: Automatic, Everywhere, 1: Automatic, Use Probe Generation Volume, 2: Manual
+				FilterUsingVolumes	"1"						// Filter Using Probe Exclusion Volumes ( boolean )
+				FilterUsingNavMesh	"1"						// Filter Using NavMesh
+				GridSpacing		"6"
+				HeightAboveFloor	"1.5"
+				RebakeOption		"0"						// 0: cleanup, 1: manual, 2: auto
+				BakeOcclusion		"0"						// 0: Disabled, 1: Enabled
+				BakeDimensions		"0"						// 0: Disabled, 1: Enabled
+				BakeMaterials		"0"						// 0: Disabled, 1: Enabled
+				OcclusionPathing			"1"
+				OcclusionReflection			"0"
+				OcclusionReflectionRays		"16384"
+				OcclusionReflectionBounces	"16"
+				DimensionsOutsideThreshold	"0.02"
+				
+			}
+			ProbeGenerationVolumeDefaults
+			{
+				Spacing			"3.0"
+				Height			"1.5"
+				HeightSpacing		"12"
+				UseForReverb		"0"
+				UseForPathing		"0"
+				UseForCustomData	"1"
+				FilterUsingVolumes	"1"
+				FilterUsingNavMesh	"1"
+			}
+		}
+		SoundEventScripts
+		{
+			OmitMetadataAndLineText "1"
+		}
+		SoundStackScripts
+		{
+			CompileStacksStrict "1"
+		}
+		VisBuilder
+		{
+			MaxVisClusters "4096"
+			PreMergeOpenSpaceDistanceThreshold "128.0"
+			PreMergeOpenSpaceMaxDimension "2048.0"
+			PreMergeOpenSpaceMaxRatio "8.0"
+			PreMergeSmallRegionsSizeThreshold "20.0"
+		}
 
-        BakedLighting
-        {
-            Version                          "4"
-            ImportanceVolumeTransitionRegion "512" // distance we transition from high to low resolution charts
-            LightmapChannels
-            {
-                direct_light_shadows          "0"
-                debug_chart_color             "1"
-                directional_irradiance_sh2_dc "1"
+		VDataLocalization
+		{
+			GameOutputPath	"resource/localization/citadel_vdata"
+			TokenPrefix		"Citadel_VData_"
+		}
+		
+		TextureCompiler
+		{
+			//Compressor              "lz4"
+			//CompressMipsOnDisk      "1"
+			//CompressMinRatio        "95"
+			AllowNP2Textures		"1"
+			AllowPanoramaMipGeneration	"1"
+			//PublicToolsDefaultMaxRes "2048"
+		}
+	}
 
-                directional_irradiance_sh2_r
-                {
-                    CompressedFormat "DXT1"
-                }
+	Source1Import
+	{
+		"forcevtxfileupconvert" 1
+	}
 
-                directional_irradiance_sh2_g
-                {
-                    CompressedFormat "DXT1"
-                }
+	WorldRenderer
+	{
+		EnvironmentMaps					1
+		EnvironmentMapFaceSize			256
+		EnvironmentMapRenderSize		1024
+		EnvironmentMapFormat			BC6H
+		EnvironmentMapPreviewFormat 		BC6H
+		EnvironmentMapColorSpace		linear
+		EnvironmentMapMipProcessor		GGXCubeMapBlur
+		// Build cubemaps into a cube array instead of individual cubemaps.
+		"EnvironmentMapUseCubeArray" 	1
+		"EnvironmentMapCacheSizeTools"  300
+		BindlessSceneObjectDesc			CitadelBindlessDesc
+		GrassCastsShadows				1
+	}
 
-                directional_irradiance_sh2_b
-                {
-                    CompressedFormat "DXT1"
-                }
-            }
-            LightmapGutterSize   "2" // For bicubic filtering
-            UseStaticLightProbes "0"
-            LPVAtlas             "1"
-            BC6HHueShiftFixup    "0" // Causes more artifacts than it solves atm
-            Repack2              "1"
-        }
+	SceneSystem
+	{
+		GpuLightBinner 1
+		FogCachedShadowAtlasWidth 0
+		FogCachedShadowAtlasHeight 0
+		FogCachedShadowTileSize 0
+		GpuLightBinnerSunLightFastPath 1
+		CSMCascadeResolution 0
+		SunLightManagerCount 0
+		SunLightManagerCountTools 0
+		DefaultShadowTextureWidth 0
+		DefaultShadowTextureHeight 0
+		DynamicShadowResolution 1
 
-        SteamAudio
-        {
-            ReverbDefaults
-            {
-                GridSpacing      "3.0"
-                HeightAboveFloor "1.5"
-                RebakeOption     "0" // 0: cleanup, 1: manual, 2: auto
-                NumRays          "32768"
-                NumBounces       "64"
-                IRDuration       "1.0"
-                AmbisonicsOrder  "1"
-            }
-            PathingDefaults
-            {
-                GridSpacing       "3.0"
-                HeightAboveFloor  "1.5"
-                RebakeOption      "0" // 0: cleanup, 1: manual, 2: auto
-                NumVisSamples     "1"
-                ProbeVisRadius    "0"
-                ProbeVisThreshold "0.1"
-                ProbeVisPathRange "1000.0"
-            }
-        }
-        SoundStackScripts
-        {
-            CompileStacksStrict "1"
-        }
-        VisBuilder
-        {
-            MaxVisClusters                     "4096"
-            PreMergeOpenSpaceDistanceThreshold "128.0"
-            PreMergeOpenSpaceMaxDimension      "2048.0"
-            PreMergeOpenSpaceMaxRatio          "8.0"
-            PreMergeSmallRegionsSizeThreshold  "20.0"
-        }
+		TransformTextureRowCount	1024
+		TransformTextureRowCountToolsMode 6144
+		SunLightMaxCascadeSize		4
+		SunLightShadowRenderMode	Depth
+		NonTexturedGradientFog		0
+		CubemapFog 0
+		VolumetricFog 0
+		FrameBufferCopyFormat R11G11B10F
+		Tonemapping 0
+		
+		WellKnownLightCookies
+		{
+			"blank" "materials/effects/lightcookies/blank.vtex"
+			"flashlight" "materials/effects/lightcookies/flashlight.vtex"
+		}
 
-        VDataLocalization
-        {
-            GameOutputPath "resource/localization/citadel_vdata"
-            TokenPrefix    "Citadel_VData_"
-        }
+		ComputeShaderSkinning 1
+	}
 
-        TextureCompiler
-        {
-            // Compressor               "lz4"
-            // CompressMipsOnDisk       "1"
-            // CompressMinRatio         "95"
-            AllowNP2Textures            "1"
-            AllowPanoramaMipGeneration  "1"
-            // PublicToolsDefaultMaxRes "2048"
-        }
-    }
+	NavSystem
+	{
+		"NavTileSize" "128.0"
+		"NavCellSize" "1.5"
+		"NavCellHeight" "2.0"
 
-    Source1Import
-    {
-        // this is just copied from the left4dead2 gameinfo.gi
-        forcevtxfileupconvert "1"
-    }
+		// Hull definitions live in scripts/nav_hulls.vdata
+		// Preset definitions live in scripts/nav_hulls_presets.vdata
+		"NavHullsPreset" "default"
 
+		"NavRegionMinSize" "8"
+		"NavRegionMergeSize" "20"
+		"NavEdgeMaxLen" "1200"
+		"NavEdgeMaxError" "51.0"
+		"NavVertsPerPoly" "4"
+		"NavDetailSampleDistance" "120.0"
+		"NavDetailSampleMaxError" "2.0"
+		"NavSmallAreaOnEdgeRemovalSize" "81.0"
+	}
 
-    // Removing WorldRenderer causes player models to black
-    WorldRenderer
-    {
+	AnimationSystem
+	{
+		"DisableServerInterpCompensation"	"1"
+		"DisableAnimationScript" 	"1"
+		"ServerPoseRecipeHistorySize"	"60"
+		"ClientPoseRecipeHistorySize"	"60"
 
+	}
 
-        // Build cubemaps into a cube array instead of individual cubemaps.
-        BindlessSceneObjectDesc      "CitadelBindlessDesc"
-        EnvironmentMapCacheSizeTools "300"    
-        EnvironmentMapColorSpace     "linear" 
-        EnvironmentMapFaceSize       "256"    
-        EnvironmentMapFormat         "BC6H"   
-        EnvironmentMapMipProcessor   "GGXCubeMapBlur"
-        EnvironmentMapPreviewFormat  "BC6H"                                                                                               
-        EnvironmentMapRenderSize     "1024" 
-        EnvironmentMapUseCubeArray   "1"   
-        EnvironmentMaps              "1"  
-        GrassCastsShadows            "0"
+	ModelDoc
+	{
+		"models_gamedata"			"models_gamedata.fgd"
+		"features"					"modelconfig;gamepreview;wireframe_backfaces;distancefield"
+	}
 
-        EnvironmentMapCacheSize "256"
+	Particles
+	{
+		"EnableParticleShaderFeatureBranching"	"1"
+		"Float16HDRBackBuffer" "1"
+		"PET_SupportFadingOpaqueModels" "1"
+		"BindlessParticleShader" "1"
+		"Features" "non_homogenous_forward_layer_only"
+	}
 
-        // These are stolen from CS2
-        LPVEdgeBlending "0"
-
-        // EnvironmentMapPreviewFormat "RGBA16161616F"
-
-    }
-
-    SceneSystem
-    {
-
-
-        HairShading                  "false"
-        // MeshletBufferCPUSlotCount "0"
-        ParticleBufferSize           "256"
-        // RenderMeshlets            "1"
-
-
-        //CMTAtlasHeight             "512"
-        //CMTAtlasWidth              "512"
-        //CSMCascadeResolution       "0" 
-        //CharacterDecals            "0"
-        //CubemapFog                 "0" 
-        //DefaultShadowTextureHeight "0" 
-        //DefaultShadowTextureWidth  "0" 
-        // Temp till I can add support in citadel shaders
-        DisableLateAllocatedTransformBuffer         "1"          
-        DynamicShadowResolution                     "1"         
-        FogCachedShadowAtlasHeight                  "0"          
-        FogCachedShadowAtlasWidth                   "0"         
-        FogCachedShadowTileSize                     "0"          
-        FrameBufferCopyFormat                       "R11G11B10F"
-        GpuLightBinner                              "1"         
-        GpuLightBinnerSunLightFastPath              "1"        
-        GpuLightBinnerSupportViewModelCascade       "0"
-        HDRFrameBuffer                              "0"
-        LayerBatchThresholdFullsort                 "80"    
-        MinimumLateAllocatedVertexCacheBufferSizeMB "64"   
-        NonTexturedGradientFog                      "0"     
-        SunLightManagerCount                        "0"   
-        SunLightManagerCountTools                   "0"     
-        SunLightMaxCascadeSize                      "2"    
-        SunLightShadowRenderMode                    "Depth" 
-        SupportsInstancedFade                       "0"
-        Tonemapping                                 "0"    
-        TransformTextureRowCount                    "1024"
-        TransformTextureRowCountToolsMode           "6144" 
-        VolumetricFog                               "0"    
-
-        // Stolen from CS2
-        GpuLightBinnerBinEnvMaps "1"
-        GpuLightBinnerBinLPVs    "1"
-
-        LightCookieAllocGranularity "1"
-        LightCookieMinAllocSize     "0"
-        DisableShadowFullSort       "1"
-        SparseShadowTrees           "1" 
-        PointLightShadowsEnabled    "1"
-
-
-        WellKnownLightCookies
-        {
-            blank      "materials/effects/lightcookies/blank.vtex"
-            flashlight "materials/effects/lightcookies/flashlight.vtex"
-        }
-
-        ComputeShaderSkinning "1"
-    }
-
-    NavSystem
-    {
-        NavTileSize   "128.0"
-        NavCellSize   "1.5"
-        NavCellHeight "2.0"
-
-        // Hull definitions live in scripts/nav_hulls.vdata
-        // Preset definitions live in scripts/nav_hulls_presets.vdata
-        NavHullsPreset "default"
-
-        NavRegionMinSize              "8"
-        NavRegionMergeSize            "20"
-        NavEdgeMaxLen                 "1200"
-        NavEdgeMaxError               "51.0"
-        NavVertsPerPoly               "4"
-        NavDetailSampleDistance       "120.0"
-        NavDetailSampleMaxError       "2.0"
-        NavSmallAreaOnEdgeRemovalSize "81.0"
-    }
-
-    AnimationSystem
-    {
-        DisableServerInterpCompensation "1"
-        DisableAnimationScript          "1"
-        ServerPoseRecipeHistorySize     "60"
-        ClientPoseRecipeHistorySize     "60"
-
-    }
-
-    ModelDoc
-    {
-        models_gamedata "models_gamedata.fgd"
-        features        "animgraph;modelconfig;gamepreview;wireframe_backfaces;distancefield"
-    }
-
-    Particles
-    {
-        EnableParticleShaderFeatureBranching "1"
-        Float16HDRBackBuffer                 "1"
-        PET_SupportFadingOpaqueModels        "1"
-        Features                             "non_homogenous_forward_layer_only"
-        ParticlesFoggedByDefault             "0"
-        PerVertexLighting                    "0"
-        GpuImplicitRendererManifest          "1"
-        EnableMixedResolution                "1"
-    }
+	Physics
+	{
+		"EnableWorldCompounds"			"1"
+	}
 	
 	ConVars
-	{	 
-	
-						   // ----------------------- OptiLock -- ver. 5.5  ---------------------- \\
+	{
+					   // ----------------------- OptiLock -- ver. 5.5  ---------------------- \\
 							   //        OptiLock: https://gamebanana.com/mods/690233          \\
 							  //         QOL Lite: https://gamebanana.com/mods/690233           \\
 							 //     Downloaded from: https://github.com/dacooderr/OptiLock       \\
@@ -562,7 +569,7 @@ GameInfo
 
 		// ================ PREFERENCES ================
 
-		// --- 1. Outlines ---
+		// --Outlines--
 		citadel_trooper_glow_disabled                           "1"  // 1 = Disable friendly/enemy minion glow.                          [def: "0"]
 		citadel_boss_glow_disabled                              "1"  // Disables boss and walker glow/highlight effect.                  [def: "0]
 		r_citadel_npr_outlines_max_dist                         "600"  // Limits outline distance to reduce unnecessary processing.        [def: "1000"]
@@ -573,11 +580,11 @@ GameInfo
 		citadel_trooper_friendly_glow_disabled                  "1" 
 		cl_glow_brightness                                      "0"  
 
-		// --- 2. Field of View ---
+		// --Field of View--
 		r_aspectratio                                           "2.15"  // 1.75=80fov | 2.15=90fov | 2.49=100fov      [def: "0"]
 		citadel_camera_hero_fov                                 "100"  // The field of view angle of the camera when following a hero.     [def: "90"]
 
-		// --- 3. Crosshair/Hud ---
+		// --Crosshair/Hud--
 		citadel_unit_status_use_new                             "1"  // Enables new healthbars. May be needed for certain mods or they will cause crashes. (Change to 0 or False to use Old Healthbars)
 		citadel_hideout_ball_show_juggle_count                  "1"  // Shows a fun juggle count minigame for hideout ball.              [def: "0"]
 		citadel_hideout_ball_show_juggle_fx                     "1"  // Shows juggle visual FX for hideout ball minigame.                [def: "0"]
@@ -593,14 +600,14 @@ GameInfo
 		citadel_unit_status_old_update_rate                     "15"  // might fuck with health bars
 		citadel_reduce_camera_shake								"true"
 		
-		//  ---- IMPORTANT  ----
-		mat_colorcorrection 									"false"  //  Color Accuracy
+		//  --IMPORTANT--
+		mat_colorcorrection 									"true"  //  Color Accuracy
 		r_postprocess_enable                                    "true"  //  Disable postprocessing effects game-wide. Makes your game REALLY dark. (Controls all of these convars in Post-Processing section as they are post-processing effects)
 		r_farz                                                  "10000" 
 		r_mapextents                                            "100"   
 		r_nearz 												"10"
 
-		// --- 4. Lighting & Shadows ---
+		// --Lighting & Shadows--
 		sc_disable_baked_lighting                               "true"
 		lb_allow_time_sliced_shadow_map_rendering               "false"
 		lb_enable_shadow_casting                                "false"
@@ -641,20 +648,20 @@ GameInfo
 		r_hair_shadowtile                                       "false"
 		r_mixed_shadows_fade_out_time                           "0.0001"
 
-		// --- 5. Skybox Rendering ---
+		// --Skybox Rendering--
         fog_enableskybox   "0"
         r_draw3dskybox     "0" // Enables drawing the 3D skybox layer (distant geometry).         [def: "1"]
         r_monitor_3dskybox "0"
 
-		// --- 7. Object Culling ---
+		// --Object Culling--
 		r_size_cull_threshold                                   "0.8"
 
-		// --- 8. Camera Tweaks ---
+		// --Camera Tweaks--
 		r_citadel_clip_sphere_min_opacity                       "0"  // Removes the blur from the pinhole camera                         [def: "40"]
 		citadel_camera_soft_collision "0"
         citadel_camera_wobble_disable "1"
 
-		// ================= UI ================
+		// --UI--
 		r_citadel_enable_pano_world_blur                        "true"
 		r_dashboard_render_quality                              "0"
 		panorama_disable_box_shadow                             "1"  // Disables UI box shadows in the UI (less GPU/UI cost).            [def: "0"]
@@ -663,12 +670,12 @@ GameInfo
 		panorama_use_new_occlusion_invalidation                 "1"
 		panorama_temp_comp_layer_min_dimension                  "128"
 
-		// ================ RAGDOLLS ================
+		// --RAGDOLLS--
 		cl_ragdoll_limit                                        "1"  // Limits number of ragdolls active at once.
 		ragdoll_parallel_pose_control                           "1"  // Multithreaded ragdoll handling, better performance (if ragdolls aren't disabled). [def: "0"]
 		cl_disable_ragdolls                                     "0"  // Keep set to 0 - enabling this (disabling ragdolls) can cause issue with doorman's ultimate. [def: "0"]
 
-		// ================ MODELS ================
+		// --MODELS--
 		r_hair_ao                                               "false"
 		ik_final_fixup_enable                                   "0"
 		ik_fabrik_align_chain                                   "0"
@@ -679,11 +686,11 @@ GameInfo
 		props_break_max_pieces_perframe                         "0.5"
 		cloth_update                                            "1"
 
-		// ================ INPUT ================
+		// --INPUT--
 		cl_input_enable_raw_keyboard                            "1"
 		m_rawinput                                              "1"
 
-		// ================ PARTICLES ================
+		// --PARTICLES--
 		r_particle_max_draw_distance							"300000"
 		cl_particle_newinit                                     "true"
 		r_particle_max_size_cull                                "126"
@@ -712,7 +719,7 @@ GameInfo
 		r_particle_min_timestep                                 "0.001"
 		fx_drawmetalspark                                       "false"
 
-		// ================ Lod & Culling ================
+		// --Lod & Culling--
 		cl_enable_eye_occlusion                                 "true"
 		skeleton_instance_lod_optimization                      "1"
 		sc_instanced_mesh_lod_bias                              "15"
@@ -729,10 +736,10 @@ GameInfo
 		lb_ssss_samples                                         "0"
 		r_aoproxy_cull_dist                                     "0.01"
 		r_aoproxy_min_dist                                      "9999"
-		r_character_decal_monitor_render_res                    "8"
+		r_character_decal_monitor_render_res                    "256"
 		r_haircull_percent                                      "100"
 
-		// ================ Misc ================
+		// --Misc--
 		r_low_latency                                           "1"
 		think_limit                                             "10"
 		zipline_use_new_latch                                   "0"
@@ -778,8 +785,8 @@ GameInfo
 		cl_entityiter_allow_world_occlusion                     "0"
 		sv_force_transmit_players                               "1"
 		r_lod                                                   "-5"
-		r_texture_pool_size                                     "256"  // either 256 or 512
-		r_max_portal_render_targets                             "2"  // might set to 2 or more
+		r_texture_pool_size                                     "256" 
+		r_max_portal_render_targets                             "2"  
 		citadel_damage_text_lifetime                            "0.5"
 		citadel_unit_status_delta_decay_delay                   "0"
 		citadel_unit_status_delta_decay_rate                    "10"
@@ -789,105 +796,104 @@ GameInfo
 		snd_mixahead                                            "0.05"
 		fog_enable                                              "0"
 		fog_enableskybox                                        "0"
-		cl_smooth                                               "true"  // might change to false again
+		cl_smooth                                               "true"  
 		cl_phys_enabled                                         "true"
 		csm_max_shadow_dist_override                            "0"
 		r_aoproxy_min_dist_box                                  "9999"
-		r_drawparticles                                         "true"  // default: true - might change to false again
-		r_particle_batch_collections                            "true"  // default: false
-		r_render_portals                                        "true"  // default: true
-		r_texture_lod_scale                                     "4"  // default: 1
-		r_translucent                                           "true"  // default: true ; false gives fps but you cant see any trails, nor aoe effect, nothing
-		sc_hdr_enabled_override                                 "0"  // default: -1
+		r_drawparticles                                         "true"  
+		r_particle_batch_collections                            "true"  
+		r_render_portals                                        "true"  
+		r_texture_lod_scale                                     "4" 
+		r_translucent                                           "true" 
+		sc_hdr_enabled_override                                 "0"  
 
-		// --- LIGHTING & SHADOWS ---
-		lb_csm_receiver_plane_depth_bias                        "0.00002"  // kai's cfg
-		lb_csm_receiver_plane_depth_bias_transmissive_backface  "0.0002"  // kai's cfg
-		lb_enable_fog_mixed_shadows                             "0"  // kai's cfg
-		sc_disable_shadow_materials                             "1"  // kai's cfg
-		lb_enable_sunlight                                      "false"  // kai's cfg - Default: true<br>SceneSystem/LightBinner/Enable Sunlight
+		// --LIGHTING & SHADOWS--
+		lb_csm_receiver_plane_depth_bias                        "0.00002" 
+		lb_csm_receiver_plane_depth_bias_transmissive_backface  "0.0002"  
+		lb_enable_fog_mixed_shadows                             "0" 
+		sc_disable_shadow_materials                             "1"  
+		lb_enable_sunlight                                      "false" 
 
-		// --- PARTICLES & EFFECTS ---
-		r_citadel_screenspace_particles_full_res                "0"  // kai's cfg
-		r_muzzleflashbrightness                                 "0.01"  // kai's cfg - default 0.4 idk if this does anything
+		// --PARTICLES & EFFECTS--
+		r_citadel_screenspace_particles_full_res                "0"  // 
+		r_muzzleflashbrightness                                 "0.01"  
 
-		// --- MODELS, LOD, CULLING & MAP EXTENTS ---
-		r_monitor_3dskybox                                      "0"  // kai's cfg
-		r_propsmaxdist                                          "600"  // kai's cfg
-		sc_instanced_mesh_size_cull_bias                        "10"  // kai's cfg - Bias for size culling of instanced meshes
-		sv_pvs_max_distance                                     "4000"  // kai's cfg - default 4000, unrender things(boxes, creeps, objs,etc) behind walls or out of viewing distance, does not affect player model.
-		r_citadel_distancefield_down_sample                     "6"  // kai's cfg - default 1
-		sc_clutter_density_none_size                            "0.1"  // kai's cfg - Default 0.0035
-		sc_enable_discard                                       "true"  // kai's cfg - default true
-		sc_clutter_density_full_size                            "0.5"  // kai's cfg
-		r_strip_invisible_during_sceneobject_update             "1"  // kai's cfg - Default: false<br>
-		mesh_calculate_curvature_smooth_pass_count              "0"  // kai's cfg
-		sc_max_framebuffer_copies_per_layer                     "0"  // kai's cfg - no idea what this does ngl
-		r_world_wind_frequency_grass                            "0"  // kai's cfg
-		r_world_wind_frequency_trees                            "0"  // kai's cfg
+		// --MODELS, LOD, CULLING & MAP EXTENTS--
+		r_monitor_3dskybox                                      "0"  
+		r_propsmaxdist                                          "600"  
+		sc_instanced_mesh_size_cull_bias                        "10"  
+		sv_pvs_max_distance                                     "4000"  
+		r_citadel_distancefield_down_sample                     "6"  
+		sc_clutter_density_none_size                            "0.1"  
+		sc_enable_discard                                       "true"  
+		sc_clutter_density_full_size                            "0.5"  
+		r_strip_invisible_during_sceneobject_update             "1"  
+		mesh_calculate_curvature_smooth_pass_count              "0"  
+		sc_max_framebuffer_copies_per_layer                     "0" 
+		r_world_wind_frequency_grass                            "0"  
+		r_world_wind_frequency_trees                            "0"  
 
-		// --- PHYSICS, CLOTH & DECALS ---
-		presettle_cloth_iterations                              "0"  // kai's cfg - default 3
-		pred_cloth_pos_max                                      "0"  // kai's cfg - Reduce cloth prediction was 1
-		pred_cloth_pos_multiplier                               "0"  // kai's cfg - was 0.3
-		pred_cloth_pos_strength                                 "0"  // kai's cfg - was 0.1
-		pred_cloth_rot_high                                     "0"  // kai's cfg - was 0.05
-		pred_cloth_rot_low                                      "0"  // kai's cfg - was 0.005
-		pred_cloth_rot_multiplier                               "0"  // kai's cfg - was 0.2 changing these values does fucking nothing
-		cl_phys_timescale                                       "1"  // kai's cfg - [FPS IMPACT] 0=Disable physics (max FPS) | 1=Normal physics | Lower = slower physics, less CPU
-		phys_threaded_kinematic_bone_update                     "1"  // kai's cfg
-		phys_threaded_transform_update                          "1"  // kai's cfg
-		cl_physics_highlight_active                             "0"  // kai's cfg - Turns on the absbox for all active physics objects.<br>  0 : un-highlight.<br>
-		phys_highlight_expensive_objects_strength               "0"  // kai's cfg - Default: 0.02<br>Highlight expensive physics objects strength, no need since expensive obj is disabled by default
-		phys_cull_internal_mesh_contacts                        "true"  // kai's cfg - default false
-		cl_phys_networked_start_sleep                           "true"  // kai's cfg - try on and off, this is probably what causing result screen to pop up when idling
-		phys_multithreading_enabled                             "1"  // kai's cfg - default true, alr enabled no need to include ngl
-		phys_dynamic_scaling                                    "false"  // kai's cfg - default true
+		// --PHYSICS, CLOTH & DECALS--
+		presettle_cloth_iterations                              "0"  
+		pred_cloth_pos_max                                      "0"  
+		pred_cloth_pos_strength                                 "0"  
+		pred_cloth_rot_high                                     "0"  
+		pred_cloth_rot_low                                      "0"  
+		pred_cloth_rot_multiplier                               "0"  
+		cl_phys_timescale                                       "1"  
+		phys_threaded_kinematic_bone_update                     "1"  
+		phys_threaded_transform_update                          "1"  
+		cl_physics_highlight_active                             "0"  
+		phys_highlight_expensive_objects_strength               "0"  
+		phys_cull_internal_mesh_contacts                        "true"  
+		cl_phys_networked_start_sleep                           "true"  
+		phys_multithreading_enabled                             "1"  
+		phys_dynamic_scaling                                    "false"  
 
-		// --- ANIMATION ---
-		anim_decode_forcewritealltransforms                     "true"  // kai's cfg - Default: false<br>Force BatchAnimationDecode to write transformations for all bones
-		animgraph_footlock_enabled                              "false"  // kai's cfg
-		r_morphing_enabled                                      "false"  // kai's cfg
-		r_smooth_morph_normals                                  "0"  // kai's cfg
-		animgraph_slowdownonslopes_enabled                      "false"  // kai's cfg
+		// --ANIMATION--
+		anim_decode_forcewritealltransforms                     "true"  
+		animgraph_footlock_enabled                              "false"  
+		r_morphing_enabled                                      "false"  
+		r_smooth_morph_normals                                  "0"  
+		animgraph_slowdownonslopes_enabled                      "false"  
 
-		// --- GAMEPLAY, CAMERA & ENTITY HIGHLIGHTS ---
-		citadel_damage_offscreen_indicator_disabled             "1"  // kai's cfg - Set 1 to disable
-		citadel_show_new_damage_feedback_numbers                "0"  // kai's cfg - Set 1 to enable
-		citadel_camera_soft_collision                           "0"  // kai's cfg
-		citadel_camera_wobble_disable                           "1"  // kai's cfg
+		// --GAMEPLAY, CAMERA & ENTITY HIGHLIGHTS--
+		citadel_damage_offscreen_indicator_disabled             "1"  
+		citadel_show_new_damage_feedback_numbers                "0"  
+		citadel_camera_soft_collision                           "0"  
+		citadel_camera_wobble_disable                           "1"  
 		r_citadel_glow_health_bars                              "false"
 		citadel_player_outline_enemies                          "true"
 		citadel_trooper_outline_enabled                         "true"
 
-		// --- AUDIO ---
-		audio_enable_vmix_mastering                             "0"  // kai's cfg - [FPS IMPACT] 0=Off (saves CPU, +FPS) | 1=On (audio mastering enabled)"
-		dsp_volume                                              "0"  // kai's cfg - idk
-		snd_occlusion_bounces                                   "0"  // kai's cfg
-		snd_steamaudio_num_threads                              "4"  // kai's cfg - [ADJUST] Audio thread count - 1=Low CPU usage | Higher = better audio quality, more CPU By default, it might only use 1 thread. Increasing this allows the heavy sound math to spread out, preventing it from stalling the main game loop during loud teamfights
-		snd_mix_async                                           "1"  // kai's cfg
-		soundsystem_update_async                                "1"  // kai's cfg'
+		// --AUDIO--
+		audio_enable_vmix_mastering                             "0"  
+		dsp_volume                                              "0"  
+		snd_occlusion_bounces                                   "0" 
+		snd_steamaudio_num_threads                              "4"  
+		snd_mix_async                                           "1"  
+		soundsystem_update_async                                "1" 
 		update_voices_low_priority								"true"
 		snd_use_baked_occlusion                      			"1"
 		snd_steamaudio_enable_reverb                 			"0"
 		snd_steamaudio_enable_perspective_correction 			"0"
-		snd_occlusion_bounces                        			"0"    // Limits audio occlusion to save cpu                               [def: "1"]
+		snd_occlusion_bounces                        			"0"                              
 		snd_spatialize_lerp                          			"0"
-		snd_mixahead                                 			"0.05" // Adds some latency that shouldn't be percivable to save cpu       [def: "0.001"]
+		snd_mixahead                                 			"0.05"
 		dsp_slow_cpu                                 			"1"
 
-		// --- PIDJAN ---
+		// --PIDJAN--
 		mm_idle_enabled                                         "false"
 		citadel_match_details_lane_stats_time                   "360"
 
-		// --- 6. FPS Caps & Minimized Throttling ---
+		// --FPS Caps & Minimized Throttling--
         engine_low_latency_sleep_after_client_tick 				"1"  // Sleeps strategically after client tick to reduce latency/stutter (low-latency pacing). [def: "false"]
         engine_no_focus_sleep                      				"0"  // Milliseconds the engine sleeps per frame when unfocused (0 = no sleep, not recommended for low-end PC). [def: "20"]
         fps_max                                    				"0"  // Max FPS while in game, limit fps to your monitor refresh rate. [def: "400"]
         panorama_max_fps                           				"15" // Menu FPS.                                                        [def: "120"]
         panorama_max_overlay_fps                   				"15" // Fps In the settings/esc menu.                                    [def: "60"]                                  [def: "60"]
 
-		// --- 9. Texture Quality ---
+		// --Texture Quality --
         mat_set_shader_quality           						"0" // Force shader quality setting (valid values are 0 or 1).          [def: null]
         r_fallback_texture_lod_scale     						"4"
         r_texture_budget_dynamic         						"1"   // Dynamic texture budget adjustment
@@ -901,7 +907,7 @@ GameInfo
         r_texture_stream_resolution_bias 						"0.01"
         r_texturefilteringquality        						"0" // Texture filtering, has very low fps impact. 0: Bilinear, 1: Trilinear, 2: Aniso 2x, 3: Aniso 4x, 4: Aniso 8x, 5: Aniso 16x
 
-		// ================ UI ================
+		// --UI--
         closecaption                            				"false" // I assume this does what it says on the tin                       [def: "false"]
         hud_free_cursor                         				"0"     // Reduces UI input delay in minimap/spectator modes (not sure if this is true)
         mm_idle_enabled                         				"false"
@@ -916,7 +922,7 @@ GameInfo
         // r_citadel_enable_pano_world_blur     				"false" // Default: true Enable world-blur style
         r_dashboard_render_quality              				"0"     // Sets dashboard/UI render quality (lower = cheaper UI rendering). [def: "1"]
 
-		// ================ Shadows ================
+		// --Shadows--
         cl_globallight_shadow_mode                             	"0" // No idea. It is disabled based on the name.                       [def: "2"]
         lb_barnlight_shadow_use_precomputed_vis                	"0"
         lb_barnlight_shadowmap_scale                           	"0.001" // Scale for computed barnlight shadowmap size (lower = cheaper).   [def: "1"]
@@ -955,7 +961,7 @@ GameInfo
         sparseshadowtree_parallel_generation                  	 "2"
         // lb_enable_envmaps                                  	 "0" // Gives fps but fucks up lighting
 
-		// ================ Lighting ================
+		// --Lighting--
         cl_retire_low_priority_lights               			"1"    // Replaces/drops low-priority dynamic lights when higher-priority lights are present (helps cap dlight clutter/cost). [def: "0"]
         lb_cubemap_normalization_max                			"1"    // Default: 32
         lb_cubemap_normalization_roughness_begin    			"0.01" // Default: 0.1
@@ -995,14 +1001,14 @@ GameInfo
         thumper_use_plane_reflection                			"false" // Default: true
         vis_sunlight_enable                         			"0"
 
-		// ================ Ragdolls ================
+		// --Ragdolls--
         ai_use_async_ragdoll_fixup    							"true" // doesnt really need tbh since ragdoll is disabled
         cl_disable_ragdolls           							"0"    // Keep set to 0 - enabling this (disabling ragdolls) can cause issue with doorman's ultimate. [def: "0"]
         cl_ragdoll_limit              							"1"    // Limit of how many ragdolls can be rendered at once.              [def: "-1"]
         g_ragdoll_important_maxcount  							"1"
         ragdoll_parallel_pose_control 							"1" // Multithreaded ragdoll handling, better performance (if ragdolls aren't disabled). [def: "0"]
 
-		// ================ Models ================
+		// --Models--
 		cl_fasttempentcollision                                 "999999"  // Limits/controls fast collision processing for temporary entities (impacts/tracers/etc.); higher usually = more work. [def: "5"]
 		enable_boneflex                                         "false"  // Disables bone flexes (procedural facial/mesh flex drivers).      [def: "1"]
 		r_hair_indirect_transmittance                           "false"
@@ -1013,7 +1019,6 @@ GameInfo
         animgraph_footlock_enabled                 				"false"
         animgraph_slowdownonslopes_enabled         				"false"
         cl_bone_cache_optimization                 				"1"
-        cl_fasttempentcollision                    				"999999" // Limits/controls fast collision processing for temporary entities (impacts/tracers/etc.); higher usually = more work. [def: "5"]
         cloth_sim_on_tick                          				"0"      // Update the cloth simulation every tick                           [def: "1"]
         cloth_update                               				"1"      // Enables cloth system updates. [def: "1"]
         enable_boneflex                            				"false"  // Disables bone flexes (procedural facial/mesh flex drivers).      [def: "1"]
@@ -1029,7 +1034,7 @@ GameInfo
         pred_cloth_pos_strength                   				"0"   // was 0.1
         pred_cloth_rot_high                        				"0"   // was 0.05
         pred_cloth_rot_low                         				"0"   // was 0.005
-        pred_cloth_rot_multiplier                  				"0"   // was 0.2 changing these values does fucking nothing
+        pred_cloth_rot_multiplier                  				"0"   // was 0.2
         presettle_cloth_iterations                 				"0"   // default 3
         props_break_apply_radial_forces            				"0"   // default: 1
         props_break_max_pieces_perframe            				"0.1" // Makes boxes and troopers break into a single piece               [def: "16"]
@@ -1041,7 +1046,7 @@ GameInfo
         r_render_hair                              				"0"
         r_smooth_morph_normals                     				"0"
 
-        // ================ Visual Clarity ================
+        // --Visual Clarity--
         // r_dopixelvisibility                        			"false" // Default true, enables or disables pixel visibility calculations
         // r_draw_overlays                            			"false" // Removes the walker line on the ground too, do not recommend
         citadel_per_weapon_per_surface_impact_effects 			"false"
@@ -1050,22 +1055,14 @@ GameInfo
         fog_enable                                    			"0"
         fx_drawmetalspark                             			"false" // Default: true Draw metal spark effects.
         mat_colcorrection_disableentities             			"1"     // Allows entity-based color correction. [def: "0"]
-        r_character_decal_monitor_render_res          			"8"    // default: 512
-        r_character_decal_resolution                  			"0.01"  // Resolution of character decal texture.                           [def: "1024"]
+        r_character_decal_resolution                  			"256"  // Resolution of character decal texture.                           [def: "1024"]
         r_citadel_antialiasing                        			"0"     // default 1
         r_citadel_depthoffield_enable                 			"false"
         r_citadel_distancefield_blur                  			"false" // default: true
         r_citadel_fog_quality                         			"0"     // Deadlock/Citadel fog quality (0 = lowest). [def: "1"]
-        r_decals                                     			"0"     // Maximum number of decals allowed. (lower = fewer bullet holes/blood/impact marks). [def: "2048"]
-        r_decals_default_fade_duration                			"0.001" // How quickly decals (bullet holes) fade                           [def: "3"]
-        r_decals_default_start_fade                   			"0.001"
-        r_decals_max_on_deformables                   			"0"
-        r_decals_overlap_threshold                    			"5"
+        r_decals                                     			"1"     // Maximum number of decals allowed. (lower = fewer bullet holes/blood/impact marks). [def: "2048"]
         r_depth_of_field                              			"0" // Disables depth of field.                                         [def: "1"]
         r_drawdecals                                  			"1" // *Render decals.                                                  [def: "1"]
-        r_drawmodeldecals                             			"0" // does not exist in master convar
-        r_drawtracers                                 			"0"
-        r_drawtracers_firstperson                     			"0"
         r_effects_bloom                               			"0"     // Disables effects bloom.                                          [def: "1"]
         r_enable_cubemap_fog                          			"0"     // Disables cubemap-based fog. [def: "1"]
         r_enable_gradient_fog                         			"0"     // Disables gradient fog. [def: "1"]
@@ -1080,7 +1077,7 @@ GameInfo
         violence_hgibs                                			"false" // Disables human gibs.                                             [def: "1"]
         volume_fog_intermediate_textures_hdr          			"0"     // See below                                            [def: "1"]
 
-		// ================ Network ================
+		// --Network--
 		cl_async_usercmd_send                                   "true"  // Makes the client send updates asyncronously I belive. Seems to smooth over network jank, although you will need to remove it from lower down in the gameinfo.gi [def: "false"]
 		cl_eye_yaw_multiplier                                   "0"
 		cl_parallel_readpacketentities                          "1"
@@ -1094,29 +1091,29 @@ GameInfo
 		r_frame_sync_enable                                     "0"  // was 0
 		sv_parallel_sendsnapshot                                "2"
 
-		// ================ System Related ================
+		// --System Related--
 		battery_saver                                           "0"  // Disables battery saver mode (no automatic throttling).                   [def: "0"]
 		cpu_level                                               "1"  // CPU level.                                                               [def: "2"]
 		engine_max_ticks_to_simulate                            "33"  // Max number of ticks to simulate per frame, after which simulation will start to slow down compared to real time. [Def: "-1"]
 		gpu_level                                               "1"  // GPU level literally doesn't matter, gets set to 2 in the engine
 		gpu_mem_level                                           "1"  // GPU Memory level.                                                        [def: "2"]
 
-		// ================ Particles ================
-		particle_cluster_use_collision_hulls                    "false"  // REPLICATED CONVAR, MIGHT NEED TO MATCH WITH SERVER
+		// --Particles--
+		particle_cluster_use_collision_hulls                    "false" 
 		r_particle_model_per_thread_count                       "32"  // I believe it is how many particle models a thread is allowed to handle.  [def: "32"]
 
-		// ================ Lod & Culling ================
+		// --Lod & Culling--
 		mat_viewportscale                                       "1"  // Scale down the main viewport I belive this gets overwritten by video.txt [def: "1"]
 		sc_instanced_mesh_mesh_shader                           "false"  // default true Toggles mesh shader rendering for instanced meshes
 		sc_instanced_mesh_opaque_fade                           "false"
 		sc_screen_size_lod_scale_override                       "0.8"  // Controls LOD scale. Lower values will have less polys            [def: "-1"]
 
-		// ================ Misc ================
+		// --Misc--
 		citadel_cinematic_intro_duration_npc                    "0.01"
 		citadel_cinematic_intro_duration_player                 "0.01"
 		citadel_cinematic_intro_enabled                         "-1"
-		citadel_hideout_enable_testing_tools                    "true"  // default false doesnt work
-		nav_obstruction_async_update                            "true"  // Not fully sure but async good wowie                              [def: "false"]
+		citadel_hideout_enable_testing_tools                    "true"  
+		nav_obstruction_async_update                            "true"  
 		r_async_compute_fog                                     "true"  // Just whether to asyncroniously render fog                        [def: "false"]
 		r_citadel_depth_prepass_dynamic_objects                 "false"  // Should be not prepassing entities that move                      [def: "true"]
 		r_drawropes                                             "0"  // Draw ropes. [def: "1"]
@@ -1134,12 +1131,12 @@ GameInfo
 		wind_system_default_resolution_xy                       "64"
 		wind_system_temporal_smoothing                          "false"
 
-		// ================ Grass ================
+		// --Grass--
 		r_grass_end_fade                                        "0"  // When to cull grass when far                                      [def: "300"]
 		r_grass_quality                                         "0"  // Quality of the grass                                             [def: "2"]
 		r_grass_start_fade                                      "0"  // When to cull grass when it's close I think                       [def: "0"]
 
-		// ================ Creep AI ================
+		// --Creep AI--
 		ai_async_queue_max_jobs                                 "1"
 		ai_expression_optimization                              "1"
 		ai_foot_sweep_enable                                    "false"
@@ -1150,13 +1147,13 @@ GameInfo
 		citadel_npc_disable_cockroaches                         "true"
 		citadel_npc_disable_floor_point_caching                 "false"
 		citadel_npc_force_animate_every_tick                    "false"  // Don't change this, it does what it says on the tin.              [def: "true"]
-		nav_pathfind_multithread                                "1"  // default false test 1 and 0, moves npc pathing to separate thread
+		nav_pathfind_multithread                                "1"  
 		citadel_npc_force_animate_every_tick    				"false" // Don't change this, it does what it says on the tin.              [def: "true"]
 
-		// ================ Audio ================
+		// --Audio--
 		snd_use_baked_occlusion                                 "1"
 
-		// ================ SHADER & RENDERING ================
+		// --SHADER & RENDERING--
 		sv_hide_ent_in_pvs                                      "1"
 		ai_lod_auto_enabled                                     "true"  //default 0, idk about this
 		g_ragdoll_maxcount                                      "1"
@@ -1212,13 +1209,12 @@ GameInfo
 		r_impacts_alt_orientation                               "false"  // Skips complex grazing/glancing blow math for decals
 		v8_maximum_heap_size_mb                                 "512"  // (Default is 512) Doubles UI memory heap to prevent CPU GC stutters
 		
-	    // ============ TEST ==============	
+	    // --TEST--
 		r_particle_parallel_simulation                          "1"
 		r_particle_batch_simulate                               "1"
 		threadpool_thread_limit                                 "0"
 		r_world_wind_strength                                   "0"
 		fs_async_threads                                        "-1"
-		cl_removedecals											"1"
 		csm_sst_max_visible_dist								"10"
 		csm_max_visible_dist									"1"
 		csm_sst_shadow_focus_region_maxz						"-1000"
@@ -1235,7 +1231,6 @@ GameInfo
 		csm_viewmodel_nearz										"0.1"
 
 
-
 				 //CREDITS																				      \\
 				// dacooder    Config Creator            													   \\
 			   // Xeraa		   Helped fix a major issue with console spam and fps drops late game				\\
@@ -1247,125 +1242,162 @@ GameInfo
 		 // Piggy              Video.txt contributer and cool streamer guy                                            \\
 		// ----------------------------------------- END OF CONFIG OptiLock -- ver. 5.5 ------------------------------ \\
 
- rate
-        {
-            min     "98304"
-            default "786432"
-            max     "1000000"
-        }
-        sv_minrate                   "98304"
-        sv_maxunlag                  "0.500"
-        sv_maxunlag_player           "0.200"
-        sv_lagcomp_filterbyviewangle "false"
+		"rate"
+		{
+			"min"		"98304"
+			"default"	"786432"
+			"max"		"1000000"
+		}
 
-        // Spew warning when adding/removing classes to/from the top of the hierarchy
-        panorama_classes_perf_warning_threshold_ms "0.75"
+		// Networking - General
+		"sv_minrate"	"98304"
+		"sv_maxunlag"	"0.500"
+		"sv_maxunlag_player" "0.200"
+		"sv_lagcomp_filterbyviewangle" "false"
+		"cl_usesocketsforloopback" "1"
+		"cl_poll_network_early" "0"
+		"cq_buffer_bloat_msecs_max" "120"						// 7.68 ticks @64hz max cq bloat
 
-        // Panorama - enable minidumps on JS exceptions
-        panorama_js_minidumps "1"
-        // Enable the render target cache optimization.
-        panorama_disable_render_target_cache "0"
+		// Networking - Induced latency (pred offset)
+		"cl_tickpacket_recvmargin_desired" "5" 					// 5 ms base, min. floor for protecting against thrashing the queue
+		"cl_tickpacket_desired_queuelength" "1"					
+		"cl_async_usercmd_send_disabled_recvmargin_min" "0.5"	// Additional frame since we do not use the async usercmd send (potentially unneccessary)
+		"cl_clock_buffer_ticks"	"1"								// Buffer added to the simulation clock margin ( affects pred offset and cadence of client world ticks )
+		"cl_interp_ratio" "0"
+		"cl_async_usercmd_send" "false"							// We don't support early prediction at the moment, which async send requires
 
-        // Enable the composition layer optimization
-        panorama_skip_composition_layer_content_paint "1"
+		// Nav gen
+		"nav_gen_connect_dist_a" "2.0"
 
-        // too expensive (500MB+) to load this
-        snd_steamaudio_load_reverb_data  "0"
-        snd_steamaudio_load_pathing_data "0"
+		// Spew warning when adding/removing classes to/from the top of the hierarchy
+		"panorama_classes_perf_warning_threshold_ms" "0.75"
 
-        // Steam Audio project specific convars
-        snd_steamaudio_enable_custom_hrtf  "0"
-        snd_steamaudio_active_hrtf         "0"
-        snd_steamaudio_reverb_update_rate  "10.0"
-        snd_steamaudio_ir_duration         "1.0"
-        snd_steamaudio_enable_pathing      "0"
-        snd_steamaudio_invalid_path_length "0.0"
-        cl_disconnect_soundevent           "citadel.convar.stop_all_game_layer_soundevents"
-        snd_event_browser_default_stack    "citadel_default_3d"
+		// Panorama - enable minidumps on JS exceptions
+		"panorama_js_minidumps" "1"
+		// Enable the render target cache optimization.
+		"panorama_disable_render_target_cache" "0"
 
-        // voip
-        voice_in_process "1"
+		// Enable the composition layer optimization
+		"panorama_skip_composition_layer_content_paint" "1"
 
-        // Sound debugging
-        // snd_report_audio_nan "1"
+		// Steam audio loading data
+		"snd_steamaudio_load_reverb_data"		"0"
+		"snd_steamaudio_load_pathing_data"		"0"
+		"snd_steamaudio_load_occlusion_data"	"0"
+		"snd_steamaudio_load_dimensions_data"	"1"
+		"snd_steamaudio_load_materials_data"	"0"
 
-        // Audio system settings
-        snd_sos_max_event_base_depth "10"
-        sos_use_guid_filter          "1"
+		// Steam Audio project specific convars
+		"snd_steamaudio_enable_custom_hrtf"			"0"
+		"snd_steamaudio_active_hrtf"				"0"
+		"snd_steamaudio_pathing_order"				"3"
+		"snd_steamaudio_pathing_order_rendering"	"3"
+		"snd_steamaudio_enable_pathing"				"0"
+		"snd_steamaudio_enable_reverb"				"0"
+		"snd_steamaudio_reverb_level_db"			"-6"
+		"snd_steamaudio_enable_pathing"				"0"
+		"snd_steamaudio_invalid_path_length"		"0.0"
+		"snd_steamaudio_max_probes_customdata_dimensions"	"100000"
+		"snd_steamaudio_dimensions_grid_height_max"			"100"
+		"snd_steamaudio_baked_dimensions_probelookup_usealternate"	"1"
+		"snd_steamaudio_custombake_dimensions_size_and_inout_bake_enabled" "1"
+		"snd_steamaudio_custombake_dimensions_outsidefield_bake_enabled" "0"
+		"snd_steamaudio_custombake_dimensions_smallsizefield_bake_enabled" "0"
+		"snd_steamaudio_dimensions_max_ray_length"			"2500"
+		"cl_disconnect_soundevent"				"citadel.convar.stop_all_game_layer_soundevents"
+		"snd_event_browser_default_stack"		"citadel_default_3d"
+		
+		// voip
+		"voice_in_process"			            "1"
 
-        voice_always_sample_mic
-        {
-            version "2"
-            default "0"
-        }
+		// Sound debugging
+		"snd_report_audio_nan" "1"
 
-        reset_voice_on_input_stallout "0"
-        voice_input_stallout          "0.5"
-        cl_usesocketsforloopback      "1"
-        cl_poll_network_early         "0"
+		// Audio system settings
+		"snd_sos_max_event_base_depth" "10"
+		"sos_use_guid_filter" "1"
 
-        // Perf/Parallelism
-        iv_parallel_restore "1"
+		"voice_always_sample_mic"               
+		{
+			"version"	"2"
+			"default"	"0"
+		}
 
-        // For perf reasons, since we don't use source-based DSP:
-        disable_source_soundscape_trace "1"
+		"reset_voice_on_input_stallout"         "0"
+		"voice_input_stallout"                  "0.5"
+		
+		"audio_enclosure_calc_enabled"		"0"
 
-        // Networking - Induced latency (pred offset)
-        cl_tickpacket_recvmargin_desired              "5"   // 5 ms base, min. floor for protecting against thrashing the queue
-        cl_tickpacket_desired_queuelength             "0"   // 0 = attempt to always reach the queue's min floor
-        cl_async_usercmd_send_disabled_recvmargin_min "0.5" // Additional frame since we do not use the async usercmd send (potentially unneccessary)
-        cl_clock_buffer_ticks                         "1"
-        cl_interp_ratio                               "0"
-        cl_async_usercmd_send                         "false"
+		"sc_layer_batch_threshold_fullsort" "10"
 
-        fps_max_ui "120"
+		// Perf/Parallelism
+		"iv_parallel_restore" "1"
 
-        in_button_double_press_window "0.3"
+		// For perf reasons, since we don't use source-based DSP:
+		"disable_source_soundscape_trace"       "1"
+	
 
-        // Convars that control spatialization of UI audio.
-        snd_ui_positional            "false"
-        snd_ui_spatialization_spread "2.4"
+		"fps_max"		"0"
+		"fps_max_ui"	"60"
 
-        // sound volume rate change limiting
-        snd_envelope_rate                        "100.0"
-        snd_soundmixer_update_maximum_frame_rate "0"
+		"in_button_double_press_window" "0.3"
 
-        //don't let people mess with speaker config settings.
-        speaker_config
-        {
-            min     "0"
-            default "0"
-            max     "2"
-        }
+		// Convars that control spatialization of UI audio.
+		"snd_ui_positional"								"1"
+		"snd_ui_spatialization_spread"					"2.4"
+		
+		// sound volume rate change limiting
+		"snd_envelope_rate"								"100.0"
+		"snd_soundmixer_update_maximum_frame_rate" 		"0"
 
-        cq_buffer_bloat_msecs_max "120"
-
-        snd_soundmixer                   "Default_Mix"
-        cloth_filter_transform_stateless "0"
-
-        cl_joystick_enabled       "1"
-        panorama_joystick_enabled "1"
-
-        snd_event_browser_focus_events "true"
-
-        cl_max_particle_pvs_aabb_edge_length "10"
-
-        // Allow aggregation of particles (for perf)
-        // cl_aggregate_particles "true"
-
-        citadel_enable_vdata_sound_preload "true"
-        r_add_views_in_pre_output          "1"
+		//don't let people mess with speaker config settings.
+		"speaker_config"
+		{
+			"min"		"0"
+			"default"	"0"
+			"max"		"2"
+		}
 
 
+		"snd_soundmixer"						"Default_Mix"
+		"cloth_filter_transform_stateless" "0"
 
-    }
+		"cl_joystick_enabled" "0"
+		"panorama_joystick_enabled" "0"
 
-    Memory
-    {
-        EstimatedMaxCPUMemUsageMB "1"
-        EstimatedMinGPUMemUsageMB "1"
+		"snd_event_browser_focus_events" "true"
 
-        ShowInsufficientPageFileMessageBox      "1"
-        ShowLowAvailableVirtualMemoryMessageBox "1"
-    }
+		"cl_max_particle_pvs_aabb_edge_length" "10"
+		
+		// Particles
+		"cl_aggregate_particles" "true"
+		"r_particle_batch_collections" "1"
+		
+		"citadel_enable_vdata_sound_preload" "true"
+
+		"r_add_views_in_pre_output"		"1"
+
+		// Disable Cubemap Brightening
+		"lb_cubemap_normalization_max" 		"0"
+
+		"update_all_keyframed_in_spatial_partition_update"	"0"
+		"parallel_update_surrounding_bounds_in_spatial_partition_update"	"1"
+		"always_perform_full_spatial_partition_update" "1"
+		"cl_interp_parallel" "1"
+		"parallel_perform_invalidate_physics" "1"
+		"phys_agg_world_compounds" "0"
+
+		"cl_updaterate" "128"
+		"sv_parallel_checktransmit" "2"
+		"net_gather_child_fields_only" "1"
+	}
+
+	Memory
+	{
+		"EstimatedMaxCPUMemUsageMB"	"1"
+		"EstimatedMinGPUMemUsageMB"	"1"
+
+		"ShowInsufficientPageFileMessageBox" "1"
+		"ShowLowAvailableVirtualMemoryMessageBox" "1"
+	}
 }
