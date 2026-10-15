@@ -629,11 +629,6 @@
 	lb_enable_shadow_casting                                "false"
 	lb_enable_dynamic_lights                                "false"  
 	lb_enable_stationary_lights                             "false"
-	lb_dynamic_shadow_penumbra                              "true"
-	lb_dynamic_shadow_resolution                            "true"
-	lb_dynamic_shadow_resolution_base                       "64"
-	lb_dynamic_shadow_resolution_base_cmp_shadowmapsize     "true"
-	lb_shadow_map_cull_empty_mixed                          "true"
 	lb_enable_baked_shadows                                 "false"
 	r_citadel_shadow_quality                                "0"
 	r_citadel_gpu_culling_shadows                           "1"
@@ -716,10 +711,13 @@
 	
 	// --Shadows--
 	r_shadows												"false"
-	lb_dynamic_shadow_penumbra                             	"false"
-    lb_dynamic_shadow_resolution                           	"false" 
+	lb_dynamic_shadow_penumbra                             	"true"
+    lb_dynamic_shadow_resolution                           	"true" 
     lb_dynamic_shadow_resolution_base                      	"32"   
     lb_dynamic_shadow_resolution_quantization              	"32"    
+	lb_dynamic_shadow_resolution                            "true"
+	lb_dynamic_shadow_resolution_base_cmp_shadowmapsize     "true"
+	lb_shadow_map_cull_empty_mixed                          "true"
     lb_enable_fog_mixed_shadows                            	"0"
     lb_enable_shadow_casting                               	"0" 
     lb_mixed_shadows                                       	"false"
@@ -931,7 +929,7 @@
 	citadel_camera_wobble_disable                           "1" 
 	r_citadel_glow_health_bars                              "false"
 	citadel_player_outline_enemies                          "true"
-	citadel_trooper_outline_enabled                         "true"
+	citadel_trooper_outline_enabled                         "false"
 	
 	// --Network--
 	cl_async_usercmd_send                                   "true"  

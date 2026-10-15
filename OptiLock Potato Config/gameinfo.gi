@@ -628,10 +628,6 @@
 	lb_enable_shadow_casting                                "false"
 	lb_enable_dynamic_lights                                "false"  
 	lb_enable_stationary_lights                             "false"
-	lb_dynamic_shadow_penumbra                              "true"
-	lb_dynamic_shadow_resolution                            "true"
-	lb_dynamic_shadow_resolution_base                       "64"
-	lb_dynamic_shadow_resolution_base_cmp_shadowmapsize     "true"
 	lb_shadow_map_cull_empty_mixed                          "true"
 	lb_enable_baked_shadows                                 "false"
 	r_citadel_shadow_quality                                "0"
@@ -715,10 +711,11 @@
 	
 	// --Shadows--
 	r_shadows							"false"
-	lb_dynamic_shadow_penumbra                             	"false"
-    lb_dynamic_shadow_resolution                           	"false" 
-    lb_dynamic_shadow_resolution_base                      	"32"   
-    lb_dynamic_shadow_resolution_quantization              	"32"    
+    lb_dynamic_shadow_resolution_quantization              	"32"  
+	lb_dynamic_shadow_penumbra                              "true"
+	lb_dynamic_shadow_resolution                            "true"
+	lb_dynamic_shadow_resolution_base                       "64"
+	lb_dynamic_shadow_resolution_base_cmp_shadowmapsize     "true"
     lb_enable_fog_mixed_shadows                            	"0"
     lb_enable_shadow_casting                               	"0" 
     lb_mixed_shadows                                       	"false"
@@ -751,8 +748,6 @@
 	lb_csm_override_staticgeo_cascades_value	"0"
 	lb_csm_receiver_plane_depth_bias	"0.001"
 	lb_cubemap_normalization_max		"0.001"
-	lb_dynamic_shadow_resolution_base	"128"
-	lb_dynamic_shadow_resolution_base_cmp_shadowmapsize		"true"
 	lb_enable_shadow_casting			"false"
 	lb_shadow_texture_height_override	"0"
 	lb_shadow_texture_width_override	"0"
@@ -769,7 +764,7 @@
     sparseshadowtree_parallel_generation                  	"2"
 	
 	// --Particles--
-	r_particle_max_draw_distance			"150000"
+	r_particle_max_draw_distance			"5000"
 	cl_particle_newinit                     "true"
 	r_limit_particle_job_duration			"true"
 	r_particle_max_detail_level				"0"	
@@ -834,8 +829,8 @@
     volume_fog_intermediate_textures_hdr          			"0"   
 	
 	// --Character--
-	r_character_decal_resolution		"256"
-	r_character_decal_monitor_render_res	"64"
+	r_character_decal_resolution							"64"
+	r_character_decal_monitor_render_res					"64"
 	cl_fasttempentcollision                                 "999999" 
 	enable_boneflex                                         "false"  
 	r_hair_indirect_transmittance                           "false"
@@ -846,7 +841,6 @@
     animgraph_footlock_enabled                 				"false"
     animgraph_slowdownonslopes_enabled         				"false"
     cl_bone_cache_optimization                 				"1"
-    cl_fasttempentcollision                    				"999999"
     cloth_sim_on_tick                          				"0"      
     cloth_update                               				"1"      
     enable_boneflex                            				"false"  
@@ -911,8 +905,7 @@
 	
 	// --RAGDOLLS--
 	ai_use_async_ragdoll_fixup    							"true" 
-	cl_ragdoll_limit                                        "1"  
-	ragdoll_parallel_pose_control                           "1"  
+	cl_ragdoll_limit                                        "1"   
 	cl_disable_ragdolls                                     "0" 
 	g_ragdoll_important_maxcount  							"1"
 	
@@ -928,7 +921,7 @@
 	citadel_camera_wobble_disable                           "1" 
 	r_citadel_glow_health_bars                              "false"
 	citadel_player_outline_enemies                          "true"
-	citadel_trooper_outline_enabled                         "true"
+	citadel_trooper_outline_enabled                         "false"
 	
 	// --Network--
 	cl_async_usercmd_send                                   "true"  

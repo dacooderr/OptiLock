@@ -864,7 +864,7 @@
 		citadel_camera_wobble_disable                           "1"  
 		r_citadel_glow_health_bars                              "false"
 		citadel_player_outline_enemies                          "true"
-		citadel_trooper_outline_enabled                         "true"
+		citadel_trooper_outline_enabled                         "false"
 
 		// --AUDIO--
 		audio_enable_vmix_mastering                             "0"  
