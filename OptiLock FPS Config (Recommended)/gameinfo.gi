@@ -617,6 +617,7 @@
 		lb_dynamic_shadow_resolution                            "true"
 		lb_dynamic_shadow_resolution_base                       "32"
 		lb_dynamic_shadow_resolution_base_cmp_shadowmapsize     "true"
+        lb_dynamic_shadow_resolution_quantization              	"32" 
 		lb_shadow_map_cull_empty_mixed                          "true"
 		lb_enable_baked_shadows                                 "false"
 		lb_enable_binning                                       "true"
@@ -929,15 +930,11 @@
         lb_csm_cross_fade_override                             	"0"
         lb_csm_distance_fade_override                          	"0"
         lb_csm_draw_alpha_tested                               	"0" // Prevents alpha-tested geometry from being included in CSM passes (cheaper, possible missing leaf/fence shadows). [def: "1"]
-        lb_csm_draw_translucent                                	"0" // Prevents translucent objects from rendering into CSM (cheaper, fewer shadow details). [def: "1"]
-        lb_csm_override_staticgeo_cascades                     	"0" // Disables realistic static cascades/ shadows from being cast around dynamic shadows such as heroes, uses low quality baked shadows instead. [def: "1"]
+        lb_csm_draw_translucent                                	"1" // Prevents translucent objects from rendering into CSM (cheaper, fewer shadow details). [def: "1"]
+        lb_csm_override_staticgeo_cascades                     	"1" // Disables realistic static cascades/ shadows from being cast around dynamic shadows such as heroes, uses low quality baked shadows instead. [def: "1"]
         lb_csm_override_staticgeo_cascades_value               	"0" // Base range of static cascade affects around player shadows. (-1 = minimal/disabled override behavior). [def: "-1"]
         lb_csm_receiver_plane_depth_bias                       	"0.00002"
         lb_csm_receiver_plane_depth_bias_transmissive_backface 	"0.0002"
-        lb_dynamic_shadow_penumbra                             	"false" // default true
-        lb_dynamic_shadow_resolution                           	"false" // default true
-        lb_dynamic_shadow_resolution_base                      	"32"    // Base resolution for dynamic shadows (lower = cheaper).           [def: "1536"]
-        lb_dynamic_shadow_resolution_quantization              	"32"    // 64
         lb_enable_fog_mixed_shadows                            	"0"
         lb_enable_shadow_casting                               	"0" // Disables baked shadows I believe                                 [def: "1"]
         lb_mixed_shadows                                       	"false"
