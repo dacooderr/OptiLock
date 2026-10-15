@@ -4,7 +4,7 @@
 //										/ /_/ / /_/ / /_/ / /___/ /_/ / /__/ ,<   													\\
 //										\____/ .___/\__/_/_____/\____/\___/_/|_|  													\\
 //											/_/   																		            \\
-//										---------------------------------------- ver. 5.7 							                \\
+//										---------------------------------------- ver. 5.7a 							                \\
 //																																    \\
 //						If this config helped you, you wanna be extra nice, let me know by giving a little back or					\\
 //										check out my YouTube and Twitch! -dacooderr													\\
@@ -569,7 +569,7 @@
 	
 	ConVars
 	{
-						   // ----------------------- OptiLock -- ver. 5.7  ---------------------- \\
+						   // ----------------------- OptiLock -- ver. 5.7a  --------------------- \\
 							   //        OptiLock: https://gamebanana.com/mods/690233          \\
 							  //         QOL Lite: https://gamebanana.com/mods/690233           \\
 							 //     Downloaded from: https://github.com/dacooderr/OptiLock       \\
@@ -1002,6 +1002,42 @@
 	threadpool_thread_limit                                 "0"
 	r_world_wind_strength                                   "0"
 	fs_async_threads                                        "-1"
+	
+	// --TEST--
+	citadel_player_model_force_highest_lod					"false"
+	citadel_video_preset									"0"
+	citadel_zipline_render_mode								"0"
+	lb_cull_offscreen_bounce_light_shadows					"true"
+	lb_cull_onscreen_bounce_light_shadows					"true"
+	lb_csm_override_staticgeo_cascades_animated_verts		"false"
+	r_aoproxy_default_ambient_strength						"0"
+	r_citadel_distancefield_occlusion_length				"0"
+	r_citadel_distancefield_ray_origin_bias_max 			"0"
+	r_citadel_distancefield_ray_origin_bias_min				"0"
+	r_impacts_decal_grazing_incidence_cutoff				"0.0001"
+	r_impacts_decal_grazing_incidence_variance				"0.0001"
+	r_particle_mixed_resolution_viewstart                   "100" // Change from 800 to 100
+	r_particle_model_per_thread_count						"1"
+	rtx_texture_resolution									"0"
+	sc_aggregate_gpu_culling								"true"
+	sc_aggregate_gpu_occlusion_culling						"true"
+	sc_instanced_mesh_gpu_culling							"true"
+	sc_instanced_mesh_gpu_density_culling					"true"
+	sc_instanced_mesh_gpu_occlusion_culling					"true"
+	sc_instanced_mesh_gpu_vis_culling						"true"
+	sc_instanced_mesh_opaque_fade							"true"
+	sc_instanced_mesh_shadows_batch_across_materials		"false"
+	r_citadel_distancefield_max_distance					"0"
+	sc_clutter_desity_override								"true"
+	sc_clutter_density_full_size							"0.0001"
+	sc_clutter_density_none_size							"0.0001"		
+	sc_mesh_backface_culling								"true"
+	sc_mesh_gpu_volume_culling								"true"
+	sc_mesh_gpu_occlusion_culling							"true"
+	sc_mesh_shadows_batch_across_materials					"false"
+	sc_shadow_slopescale_depth_bias							"0"
+	sc_shadow_depth_bias_state_override						"true"
+	sc_shadow_depth_bias									"0"
 
 			     //CREDITS																				    \\
 				// dacooder   Config Creator            													 \\
@@ -1013,7 +1049,7 @@
 		  // Artemon121       Made the Citadel cvar unhider														   \\
 		 // Pidjan            Worked on further gameinfo changes and let us integrate                               \\
 		// Piggy              Video.txt contributer and cool streamer guy                                            \\
-	   // ----------------------------------------- END OF CONFIG OptiLock -- ver. 5.7 ------------------------------ \\
+	   // ----------------------------------------- END OF CONFIG OptiLock -- ver. 5.7a ----------------------------- \\
 		
 		"rate"
 		{
