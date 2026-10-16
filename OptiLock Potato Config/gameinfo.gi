@@ -78,16 +78,19 @@
 // Deadlock Mod Manager - Start
 
 		SearchPaths
-        {  
+		{
+			Game		citadel/grimoire
+			Game		citadel/addons
+			Game_UILanguage		citadel_*LANGUAGE*
+			Game_LowViolence		citadel_lv
             Game_Language       citadel_*LANGUAGE*
-            Game                citadel/addons/profile_1788286995090_8lc3039pw_qollite
             Mod                 citadel
             Write               citadel          
             Game                citadel
             Mod                 core
             Write               core
-            Game                core        
-        }
+            Game                core
+		}
 // Deadlock Mod Manager - End
     }
 	

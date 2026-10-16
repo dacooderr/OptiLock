@@ -57,39 +57,42 @@
 		"ukrainian" "3"
 	}
 	
-	FileSystem
-	{	
-		//
-		// The code that loads this file automatically does a few things here:
-		//
-		// 1. For each "Game" search path, it adds a "GameBin" path, in <dir>\bin
-		// 2. For each "Game" search path, it adds another "Game" path in front of it with _<language> at the end.
-		//    For example: c:\hl2\cstrike on a french machine would get a c:\hl2\cstrike_french path added to it.
-		// 3. If no "Mod" key, for the first "Game" search path, it adds a search path called "MOD".
-		// 4. If no "Write" key, for the first "Game" search path, it adds a search path called "DEFAULT_WRITE_PATH".
-		//
+    FileSystem
+    {
+        //
+        // The code that loads this file automatically does a few things here:
+        //
+        // 1. For each "Game" search path, it adds a "GameBin" path, in <dir>\bin
+        // 2. For each "Game" search path, it adds another "Game" path in front of it with _<language> at the end.
+        //    For example: c:\hl2\cstrike on a french machine would get a c:\hl2\cstrike_french path added to it.
+        // 3. If no "Mod" key, for the first "Game" search path, it adds a search path called "MOD".
+        // 4. If no "Write" key, for the first "Game" search path, it adds a search path called "DEFAULT_WRITE_PATH".
+        //
 
-		//
-		// Search paths are relative to the exe directory\..\
-		//
+        //
+        // Search paths are relative to the exe directory\..\
+        //
+
+        
+
+// Deadlock Mod Manager - Start
+
 		SearchPaths
 		{
-			// These are optional language paths. They must be mounted first, which is why there are first in the list.
-			// *LANGUAGE* will be replaced with the actual language name. If not running a specific language, these paths will not be mounted
-			// These currently hold localized images containing text, so they need to follow the UI language, not the audio language.
-			// When we ship localized VO, it should go in a separate Game_AudioLanguage path (e.g. citadel_vo_*LANGUAGE*)
+			Game		citadel/grimoire
+			Game		citadel/addons
 			Game_UILanguage		citadel_*LANGUAGE*
-
-			// These are optional low-violence paths. They will only get mounted if you're in a low-violence mode.
-			Game_LowViolence	citadel_lv
-
-			Game				citadel
-			Game				core
+			Game_LowViolence		citadel_lv
+            Game_Language       citadel_*LANGUAGE*
+            Mod                 citadel
+            Write               citadel          
+            Game                citadel
+            Mod                 core
+            Write               core
+            Game                core
 		}
-
-		"UserSettingsPathID"		"USRLOCAL"
-		"LegacyUserSettingsPathID"	"MOD"
-	}
+// Deadlock Mod Manager - End
+    }
 	
 	MaterialSystem2
 	{
@@ -115,7 +118,7 @@
 		"DefaultShader" "environment_texture_set"
 	}
 
-    NetworkSystem
+	NetworkSystem
     {
         BetaUniverse
         {
@@ -280,14 +283,12 @@
 
 	ResourceCompiler
 	{
-		ForceVulkanForMapBuild 1
-			
 		// Overrides of the default builders as specified in code, this controls which map builder steps
 		// will be run when resource compiler is run for a map without specifiying any specific map builder
 		// steps. Additionally this controls which builders are displayed in the hammer build dialog.
 		DefaultMapBuilders
 		{
-			"bakedlighting"	"1"	// Enable lightmapping during compile time		
+			"bakedlighting"	"0"	// Enable lightmapping during compile time		
 			"envmap"	"0" // turned off since it currently causes an assert and doesn't work due to some build issue
 			"nav"		"1"	// Generate nav mesh data
 			"sareverb"      "0" // Bake Steam Audio reverb
@@ -304,7 +305,7 @@
 		MeshCompiler
 		{
 			OptimizeForMeshlets 1
-			TrianglesPerMeshlet 64	// Maximum valid value currently is 126
+			TrianglesPerMeshlet 32	// Maximum valid value currently is 126
 			UseMikkTSpace 1
 			EncodeVertexBuffer 1
             EncodeVertexBufferVersion 1
@@ -330,7 +331,7 @@
 		BakedLighting
 		{
 			Version 4
-			ImportanceVolumeTransitionRegion 512            // distance we transition from high to low resolution charts 
+			ImportanceVolumeTransitionRegion 128            // distance we transition from high to low resolution charts 
 			LightmapChannels
 			{
 				direct_light_shadows 0
@@ -397,7 +398,7 @@
 				HeightAboveFloor	"1.5"
 				RebakeOption		"0"						// 0: cleanup, 1: manual, 2: auto
 				BakeOcclusion		"0"						// 0: Disabled, 1: Enabled
-				BakeDimensions		"0"						// 0: Disabled, 1: Enabled
+				BakeDimensions		"1"						// 0: Disabled, 1: Enabled
 				BakeMaterials		"0"						// 0: Disabled, 1: Enabled
 				OcclusionPathing			"1"
 				OcclusionReflection			"0"
@@ -470,7 +471,7 @@
 		"EnvironmentMapUseCubeArray" 	1
 		"EnvironmentMapCacheSizeTools"  300
 		BindlessSceneObjectDesc			CitadelBindlessDesc
-		GrassCastsShadows				1
+		GrassCastsShadows				0
 	}
 
 	SceneSystem
@@ -489,13 +490,24 @@
 
 		TransformTextureRowCount	1024
 		TransformTextureRowCountToolsMode 6144
-		SunLightMaxCascadeSize		4
+		SunLightMaxCascadeSize		0
 		SunLightShadowRenderMode	Depth
 		NonTexturedGradientFog		0
 		CubemapFog 0
 		VolumetricFog 0
 		FrameBufferCopyFormat R11G11B10F
 		Tonemapping 0
+		
+		
+        // Stolen from CS2
+        GpuLightBinnerBinEnvMaps "1"
+        GpuLightBinnerBinLPVs    "1"
+
+        LightCookieAllocGranularity "1"
+        LightCookieMinAllocSize     "0"
+        DisableShadowFullSort       "1"
+        SparseShadowTrees           "1" 
+        PointLightShadowsEnabled    "0"
 		
 		WellKnownLightCookies
 		{
