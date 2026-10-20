@@ -4,7 +4,7 @@
 //										/ /_/ / /_/ / /_/ / /___/ /_/ / /__/ ,<   													\\
 //										\____/ .___/\__/_/_____/\____/\___/_/|_|  													\\
 //											/_/   																		            \\
-//										---------------------------------------- ver. 5.7 							                \\
+//										---------------------------------------- ver. 5.8 							                \\
 //																																    \\
 //						If this config helped you, you wanna be extra nice, let me know by giving a little back or					\\
 //										check out my YouTube and Twitch! -dacooderr													\\
@@ -29,7 +29,7 @@
 	tonemapping 0
 	GameData	"citadel.fgd"
 
-	PGIVersion "39A735A413003C88A806B364C32DFC6D077E551B9E4EC6C7B11D41E8E67BFA0C"
+	PGIVersion "48C04ECAFC6448F8D3F41F0AA3A15D065501751CF45FBE32DF6CB951BC4F7F6E"
 
 	Localize
 	{
@@ -313,7 +313,6 @@
 			EncodeIndexBuffer 1
 			SplitDepthStream 1
 		}
-
 		WorldRendererBuilder
 		{
 			VisibilityGuidedMeshClustering      "1"
@@ -326,29 +325,27 @@
 			AggregateInstancingMeshlets			"1"
 			BakePropsWithExtraVertexStreams		"1"
 			MergeTranslucents					"1"
+
+			// Precomputed static shadowmaps for fog
+			BakePrecomputedShadows				"0"
+			BakePrecomputedShadowsForDirectionalLights "0"
+			BakePrecomputedDepthPyramids		"0"
+			PrecomputedShadowmapAtlas			"0" // so precomputed shadows work without bindless (dx11)
+			PrecomputedShadowmapAtlasBorder		"0"
+			PrecomputedShadowmapResolutionDefault "0" // should match SceneSystem/FogCachedShadowTileSizeTools
 		}
 
 		BakedLighting
 		{
-			Version 4
-			ImportanceVolumeTransitionRegion 128            // distance we transition from high to low resolution charts 
+			Version 5
+			ImportanceVolumeTransitionRegion 100            // distance we transition from high to low resolution charts 
 			LightmapChannels
 			{
 				direct_light_shadows 0
 				debug_chart_color 1
 				directional_irradiance_sh2_dc 0
 				
-				directional_irradiance_sh2_r
-				{
-					CompressedFormat DXT1
-				}
-				
-				directional_irradiance_sh2_g
-				{
-					CompressedFormat DXT1
-				}
-				
-				directional_irradiance_sh2_b
+				directional_irradiance_sh2_lum
 				{
 					CompressedFormat DXT1
 				}
@@ -477,9 +474,9 @@
 	SceneSystem
 	{
 		GpuLightBinner 1
-		FogCachedShadowAtlasWidth 0
-		FogCachedShadowAtlasHeight 0
-		FogCachedShadowTileSize 0
+		FogCachedShadowAtlasWidthTools 0
+		FogCachedShadowAtlasHeightTools 0
+		FogCachedShadowTileSizeTools 0 // should match WorldRendererBuilder/PrecomputedShadowmapResolutionDefault
 		GpuLightBinnerSunLightFastPath 1
 		CSMCascadeResolution 0
 		SunLightManagerCount 0
@@ -569,7 +566,7 @@
 	
 	ConVars
 	{
-						   // ----------------------- OptiLock -- ver. 5.7  ---------------------- \\
+						   // ----------------------- OptiLock -- ver. 5.8  ---------------------- \\
 							   //        OptiLock: https://gamebanana.com/mods/690233          \\
 							  //         QOL Lite: https://gamebanana.com/mods/690233           \\
 							 //     Downloaded from: https://github.com/dacooderr/OptiLock       \\
@@ -1044,7 +1041,7 @@
 		  // Artemon121       Made the Citadel cvar unhider														   \\
 		 // Pidjan            Worked on further gameinfo changes and let us integrate                               \\
 		// Piggy              Video.txt contributer and cool streamer guy                                            \\
-	   // ----------------------------------------- END OF CONFIG OptiLock -- ver. 5.7 ------------------------------ \\
+	   // ----------------------------------------- END OF CONFIG OptiLock -- ver. 5.8 ------------------------------ \\
 	
 		"rate"
 		{
