@@ -613,15 +613,15 @@
 	panorama_clear_frames_on_device_restore					"0"
 	
 	// --Render Distance/Culling--
-	r_farz								"7000"
-	r_mapextents						"100"
-	r_nearz								"10"
-	r_size_cull_threshold 				"0.8"
-	r_size_cull_threshold_fade			"100"
-	r_haircull_percent                  "100"
-	r_propsmaxdist						"600"
-	sc_instanced_mesh_size_cull_bias	"5"
-	sv_pvs_max_distance					"4000"
+	r_farz													"7000"
+	r_mapextents											"100"
+	r_nearz													"10"
+	r_size_cull_threshold 									"0.8"
+	r_size_cull_threshold_fade								"100"
+	r_haircull_percent                  					"100"
+	r_propsmaxdist											"600"
+	sc_instanced_mesh_size_cull_bias						"5"
+	sv_pvs_max_distance										"4000"
 	lb_csm_override_staticgeo_cascades                      "true"
 	lb_csm_override_staticgeo_cascades_value                "1"
 	cl_enable_eye_occlusion									"true"
@@ -652,7 +652,7 @@
     thumper_use_plane_reflection                			"false" 
 	
 	//--Textures--
-	sc_screen_size_lod_scale_override						"0.01"
+	sc_screen_size_lod_scale_override						"0.001"
     mat_set_shader_quality           						"0" 
     r_texture_budget_dynamic         						"1"   
     r_texture_budget_threshold       						"0.85"
