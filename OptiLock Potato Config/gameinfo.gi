@@ -772,7 +772,7 @@
     animgraph_slowdownonslopes_enabled         				"false"
     cl_bone_cache_optimization                 				"1"
     cloth_sim_on_tick                          				"0"      
-    cloth_update                               				"0"           
+    cloth_update                               				"1"           
     ik_fabrik_align_chain                      				"0"     
     ik_final_fixup_enable                      				"0"     
     phys_threaded_cloth_bone_update            				"1"  
