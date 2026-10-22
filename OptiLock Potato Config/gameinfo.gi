@@ -4,7 +4,7 @@
 //										/ /_/ / /_/ / /_/ / /___/ /_/ / /__/ ,<   													\\
 //										\____/ .___/\__/_/_____/\____/\___/_/|_|  													\\
 //											/_/   																		            \\
-//										---------------------------------------- ver. 5.9 							                \\
+//										---------------------------------------- ver. 6.0 							                \\
 //																																    \\
 //						If this config helped you, you wanna be extra nice, let me know by giving a little back or					\\
 //										check out my YouTube and Twitch! -dacooderr													\\
@@ -166,7 +166,7 @@
 
 
 
-        //MinDXLevel                            "80"
+        MinDXLevel                            "80"
         //MaxPreloadTextureResolution           "2"
         //VulkanRequestSM6                      "true"
         // VulkanUseExternalSubpassDependency "true"
@@ -566,7 +566,7 @@
 	
 	ConVars
 	{
-						   // ----------------------- OptiLock -- ver. 5.9  ---------------------- \\
+						   // ----------------------- OptiLock -- ver. 6.0  ---------------------- \\
 							   //        OptiLock: https://gamebanana.com/mods/690233          \\
 							  //         QOL Lite: https://gamebanana.com/mods/690233           \\
 							 //     Downloaded from: https://github.com/dacooderr/OptiLock       \\
@@ -942,6 +942,27 @@
 	r_size_cull_threshold_shadow							"1.2"
 	sc_mesh_gpu_volume_culling								"true"
 	sc_mesh_gpu_occlusion_culling							"true"
+	vprof_on												"0"
+	sv_enable_donttransmit									"1"
+	sparseshadowtree_parallel_generation					"2"
+	sparseshadowtree_cs_exclude_next_cascade_region			"1"
+	vis_enable												"1"
+	snd_steamaudio_enable_perspective_correction			"0"
+	snd_steamaudio_enable_ordertruncated_ambisonics_hrtf	"0"
+	snd_steamaudio_enable_editor_profiling					"0"
+	snd_steamaudio_enable_occlusion_caching					"1"
+	sv_maxupdaterate										"40"
+	sv_minupdaterate										"10"
+	sv_cloth_interp_rot										"0"
+	sv_maxspeed												"320"
+	sv_maxvelocity											"3500"
+	sv_stepsize												"18"
+	stats_collect_gpu										"0"
+	sv_frame_perf_sample_buffer_max							"100"
+	sv_debug_overlays_bandwidth								"65536"
+	r_texture_budget										"1"
+	r_texture_pool_size										"256"
+	r_texture_load_async									"1"
 
 			     //CREDITS																				    \\
 				// dacooder   Config Creator            													 \\
@@ -953,7 +974,7 @@
 		  // Artemon121       Made the Citadel cvar unhider														   \\
 		 // Pidjan            Worked on further gameinfo changes and let us integrate                               \\
 		// Piggy              Video.txt contributer and cool streamer guy                                            \\
-	   // ----------------------------------------- END OF CONFIG OptiLock -- ver. 5.9 ------------------------------ \\
+	   // ----------------------------------------- END OF CONFIG OptiLock -- ver. 6.0 ------------------------------ \\
 		
 		"rate"
 		{
