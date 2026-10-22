@@ -2048,4 +2048,3 @@ Name | Default Value | Flags | Description
  zipline_use_new_latch                                                            | 0                | sv, cl, rep                      | Use the new latch motion for getting on a zipline. 0| Dont use 1| Just those with b_UseNewZipLineSetup 2| Everyone use
  zoom_sensitivity_ratio                                                           | 0.82             | cl, a, per_user                  | Additional mouse sensitivity scale factor applied when FOV is zoomed in.
  --------------
-6155 total convars/concommands
