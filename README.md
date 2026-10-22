@@ -1,5 +1,3 @@
-[Türkçe açıklama ve kurulum rehberi](./README.tr.md) · [Türkçe FPS ayar dosyaları](./Localization/FPS%20Configs%20%28Turkish%29/)
-
 **OptiLock FPS Config** is aimed at lowing the graphics settings as much as possible while keeping the <ins>competitive integrity</ins> for ranked play. It includes a modded VPK file that contains performance mods and essential fixes for better config support.
 
 **If you need any help please join the [OptiLock Discord](https://discord.gg/UxjsJB5Rp5) and/or watch the [Video Tutorial.](https://www.youtube.com/watch?v=JBB-dmaNxOE)**
