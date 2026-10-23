@@ -709,7 +709,7 @@
 	lb_mixed_shadows										"false"
 	
 	// --Particles--
-	cl_particle_max_count									"800"		// Lowering this anymore than 800 along with lowering r_particle_max_draw_distance causes particle console spam and in turn major FPS drops
+	//cl_particle_max_count									"800"		// Lowering this anymore than 800 along with lowering r_particle_max_draw_distance causes particle console spam and in turn major FPS drops
 	r_particle_max_draw_distance							"300000"
 	cl_particle_newinit                     				"true"
 	r_limit_particle_job_duration							"true"
