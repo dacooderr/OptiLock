@@ -725,7 +725,7 @@
 	r_draw_particle_children_with_parents					"false"
 	cl_particle_sim_fallback_threshold_ms                   "0"
 	r_particle_skip_postsim                                 "true"
-	r_particle_timescale                                    "0.7"
+	r_particle_timescale                                    "1.2"
 	cl_particle_batch_mode                                  "1"
 	r_particle_max_texture_layers                           "4"
 	r_particle_cables_cast_shadows                          "false"
