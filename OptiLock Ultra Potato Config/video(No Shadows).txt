@@ -35,7 +35,7 @@
 	"setting.csm_max_num_cascades_override"		"0"
 	"setting.csm_viewmodel_shadows"		"0"
 	"setting.lb_enable_shadow_casting"		"false"
-	"setting.lb_dynamic_shadow_resolution"		"false"
+	"setting.lb_dynamic_shadow_resolution"		"true"
 	"setting.r_area_lights"		"0"
 	"setting.r_arealights"		"false"
 	"setting.r_citadel_ssao"		"0"
